@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 28 470 168" role="img" aria-label="PalmPages">
+  <g transform="translate(-18,0) skewX(-9)">
+    <g fill="#FF6A3D" transform="translate(24,2)">
+      <path d="M162 88 C148 78 128 78 108 88 C126 74 148 70 164 82 Z"/>
+      <path d="M163 84 C152 66 136 54 116 50 C138 52 154 64 165 80 Z"/>
+      <path d="M164 82 C158 60 148 42 132 28 C150 40 160 60 166 78 Z"/>
+      <path d="M165 80 C164 56 160 34 154 14 C162 32 167 54 167.5 78 Z"/>
+      <path d="M167 82 C174 58 188 40 208 28 C190 42 176 60 166.5 78 Z"/>
+      <path d="M167 84 C180 66 200 56 224 54 C200 58 180 70 166 80 Z"/>
+      <path d="M167 88 C184 78 208 78 230 90 C208 74 184 70 165.5 82 Z"/>
+    </g>
+    <text x="60" y="168"
+          font-family="Poppins, Futura, 'Avenir Next', 'Century Gothic', Verdana, sans-serif"
+          font-weight="800" font-size="76" letter-spacing="-0.5">
+      <tspan fill="#103A44">Palm</tspan><tspan fill="#FF6A3D">Pages</tspan>
+    </text>
+  </g>
+</svg>
