@@ -6,7 +6,7 @@
   <title>Maretes Cajun Seafood — Kasambagan, Cebu</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Cajun seafood in a bag on Pres. Quirino Street, Kasambagan, next to Cebu IT Park. Call or WhatsApp to reserve.">
-  <link rel="stylesheet" href="styles.css?v=mobile2">
+  <link rel="stylesheet" href="styles.css?v=fx1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
@@ -341,8 +341,27 @@
     <img alt="">
     <button class="zoom-x" type="button" data-zoom-close aria-label="Close photo">Close</button>
   </div>
+  <div class="order-chat" data-order-chat data-name="Maretes Cajun Seafood" data-reply="Got it — we'll have the bag ready. See you on Quirino." data-continue="Open WhatsApp" hidden>
+    <div class="order-chat-back"></div>
+    <div class="order-chat-phone" role="dialog" aria-modal="true" aria-label="Order preview">
+      <div class="chat-head">
+        <span class="chat-avatar"></span>
+        <div><b data-chat-name>Maretes Cajun Seafood</b><small>online</small></div>
+        <button class="chat-x" type="button" data-chat-close aria-label="Close">×</button>
+      </div>
+      <div class="chat-body">
+        <div class="bubble out"><span data-order-text></span><i class="ticks">✓✓</i></div>
+        <div class="bubble in" data-reply-bubble></div>
+      </div>
+      <div class="chat-actions">
+        <button type="button" class="chat-stay" data-chat-stay>Stay here</button>
+        <button type="button" class="chat-go" data-chat-go>Open WhatsApp</button>
+      </div>
+    </div>
+  </div>
   <script src="hero.js?v=pan2"></script>
   <script src="zoom.js"></script>
-  <script src="order.js?v=2"></script>
+  <script src="order.js?v=fx1"></script>
+  <script src="order-fx.js?v=fx1"></script>
 </body>
 </html>
