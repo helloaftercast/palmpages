@@ -28,3 +28,11 @@ Already on the live site:
 - `/sitemap.xml` and `/robots.txt` (draft shops under `/shops/` are `noindex`)
 
 After deploy: submit `https://palmpages.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) and Bing Webmaster Tools.
+
+## Shop hit counts
+
+Preview pages under `/shops/` ping a lightweight counter (once per browser session). Check totals at:
+
+**https://palmpages.com/stats.html**
+
+(Not linked from the homepage; `noindex`.)

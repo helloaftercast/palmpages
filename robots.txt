@@ -3,3 +3,6 @@ Allow: /
 Disallow: /shops/
 
 Sitemap: https://palmpages.com/sitemap.xml
+
+Disallow: /stats.html
+Disallow: /assets/track.js

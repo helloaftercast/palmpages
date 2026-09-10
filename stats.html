@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>PalmPages · shop hits</title>
+  <style>
+    :root { color-scheme: light; font-family: ui-sans-serif, system-ui, sans-serif; }
+    body { margin: 0; padding: 2rem 1.25rem 3rem; background: #f6f3ee; color: #1a1a1a; }
+    main { max-width: 42rem; margin: 0 auto; }
+    h1 { font-size: 1.35rem; margin: 0 0 0.35rem; }
+    .sub { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+    th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+    th { background: #1a1a1a; color: #fff; font-weight: 600; }
+    tr:last-child td { border-bottom: 0; }
+    td.count { font-variant-numeric: tabular-nums; font-weight: 700; width: 5rem; }
+    a { color: #0b5; }
+    .err { color: #b33; margin-top: 1rem; font-size: 0.9rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; border: 0; border-radius: 8px; background: #1a1a1a; color: #fff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Shop preview hits</h1>
+    <p class="sub">同一浏览器会话只计 1 次。数字来自 CountAPI，约数秒延迟。页面不公开链接。</p>
+    <table>
+      <thead><tr><th>Shop</th><th>Hits</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="err" id="err" hidden></p>
+    <button type="button" id="reload">Refresh</button>
+  </main>
+  <script>
+    var SHOPS = [
+      { slug: "baobab-lamai", name: "Baobab" },
+      { slug: "pink-orchid-lamai", name: "Pink Orchid" },
+      { slug: "no11-cafe-lamai", name: "No.11 CAFE & BAR" },
+      { slug: "mrjeff-seafood-lamai", name: "Mr.Jeff" },
+      { slug: "maretes-cajun-seafood", name: "Maretes Cajun Seafood" },
+      { slug: "narcos-cantina", name: "Narcos Cantina" },
+      { slug: "kajun-bohol", name: "Kajun Bohol" },
+      { slug: "jose-panglao", name: "José Panglao" }
+    ];
+
+    function keyFor(slug) {
+      return "pp_v1_shops_" + slug;
+    }
+
+    async function load() {
+      var tbody = document.getElementById("rows");
+      var err = document.getElementById("err");
+      err.hidden = true;
+      tbody.innerHTML = "";
+      try {
+        var results = await Promise.all(
+          SHOPS.map(async function (shop) {
+            var key = keyFor(shop.slug);
+            var res = await fetch(
+              "https://countapi.mileshilliard.com/api/v1/get/" + encodeURIComponent(key)
+            );
+            var data = res.ok ? await res.json() : { value: 0 };
+            var n = Number(data.value || data.count || 0);
+            if (!isFinite(n)) n = 0;
+            return { shop: shop, n: n };
+          })
+        );
+        results.sort(function (a, b) { return b.n - a.n; });
+        results.forEach(function (row) {
+          var tr = document.createElement("tr");
+          tr.innerHTML =
+            '<td><a href="/shops/' +
+            row.shop.slug +
+            '/" target="_blank" rel="noopener">' +
+            row.shop.name +
+            "</a><br><small>" +
+            row.shop.slug +
+            "</small></td>" +
+            '<td class="count">' +
+            row.n +
+            "</td>";
+          tbody.appendChild(tr);
+        });
+      } catch (e) {
+        err.hidden = false;
+        err.textContent = "读取失败：" + (e && e.message ? e.message : e);
+      }
+    }
+
+    document.getElementById("reload").addEventListener("click", load);
+    load();
+  </script>
+</body>
+</html>
