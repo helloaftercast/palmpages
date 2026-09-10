@@ -1276,28 +1276,7 @@ body {
   background: radial-gradient(ellipse, rgba(232, 168, 58, 0.4) 0%, rgba(232, 168, 58, 0) 72%);
 }
 
-/* amber evening bulbs on the mark — kept, restyled under neon tube below */
-.mark .bulb {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ffc45c;
-  box-shadow: 0 0 10px rgba(255, 196, 92, 1), 0 0 22px rgba(255, 140, 60, 0.75);
-  pointer-events: none;
-  animation: bulb-glow 2.4s ease-in-out infinite;
-  z-index: 2;
-}
-
-.mark .b1 { top: -7px; left: -5px; animation-delay: 0s; }
-.mark .b2 { top: -9px; right: 16%; width: 7px; height: 7px; animation-delay: 0.9s; }
-.mark .b3 { bottom: -4px; right: -4px; width: 8px; height: 8px; background: #ff8a5c; animation-delay: 1.6s; }
-
-@keyframes bulb-glow {
-  0%, 100% { opacity: 0.55; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
+/* bulbs restyled in logo fx block below */
 .mark .spark {
   display: none;
 }
@@ -1579,87 +1558,162 @@ body.order-chat-open {
   background: #0084ff;
 }
 
-/* ── logo fx: coral ice neon tube (nav + footer) ── */
+/* ── logo fx: seafood marque + fish (nav); small vintage foot ── */
 
 .top {
   overflow: visible;
-  min-height: 78px;
+  min-height: 74px;
 }
 
-.mark,
-.foot-mark {
+.mark {
   display: inline-block;
   position: relative;
-  padding: 0.45rem 1.35rem;
-  font-size: 2rem;
+  padding: 0.34rem 1.15rem 0.34rem 1.55rem;
+  font-size: 1.55rem;
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 2.5px solid #ff6b5c;
-  border-radius: 16px;
+  border: 2px solid rgba(255, 107, 92, 0.8);
+  border-radius: 12px;
   color: #fff8f6;
-  background: rgba(6, 24, 40, 0.6);
+  background: rgba(6, 24, 40, 0.5);
   text-shadow:
-    0 0 4px #fff,
-    0 0 10px #ff8a7a,
-    0 0 24px #e0453c,
-    0 0 48px #7eb8d4,
-    0 0 80px rgba(126, 184, 212, 0.55);
+    0 0 6px rgba(255, 138, 122, 0.85),
+    0 0 14px rgba(224, 69, 60, 0.45);
   box-shadow:
-    0 0 8px rgba(255, 107, 92, 0.95),
-    0 0 24px rgba(224, 69, 60, 0.8),
-    0 0 50px rgba(126, 184, 212, 0.5),
-    0 0 90px rgba(224, 69, 60, 0.35),
-    0 0 130px rgba(126, 184, 212, 0.2),
-    inset 0 0 16px rgba(255, 107, 92, 0.4);
-  animation: neon-flicker 5.6s linear infinite;
+    0 0 10px rgba(255, 107, 92, 0.45),
+    0 0 24px rgba(126, 184, 212, 0.28),
+    inset 0 0 10px rgba(255, 107, 92, 0.25);
+  animation: neon-flicker 6.8s linear infinite;
 }
 
-.mark:hover,
-.foot-mark:hover {
+.mark:hover {
   opacity: 1;
-  filter: brightness(1.18);
+  filter: brightness(1.1);
 }
 
-.mark em,
-.foot-mark em {
+.mark em {
   margin-left: 0;
   font-size: 1em;
   font-style: normal;
   font-weight: 400;
   color: #9ee0ff;
   text-shadow:
-    0 0 4px #fff,
-    0 0 12px #7eb8d4,
-    0 0 28px #3a9ec4,
-    0 0 48px rgba(62, 158, 196, 0.7);
+    0 0 6px rgba(126, 184, 212, 0.9),
+    0 0 14px rgba(62, 158, 196, 0.5);
+}
+
+.mark .deco.fish {
+  position: absolute;
+  left: 0.28rem;
+  top: 50%;
+  width: 0.95rem;
+  height: 0.48rem;
+  margin-top: -0.24rem;
+  background: #7eb8d4;
+  border-radius: 60% 40% 40% 60%;
+  box-shadow: 0 0 8px rgba(126, 184, 212, 0.75);
+  pointer-events: none;
+}
+
+.mark .deco.fish::before {
+  content: "";
+  position: absolute;
+  right: -0.28rem;
+  top: 50%;
+  margin-top: -0.22rem;
+  border: 0.22rem solid transparent;
+  border-left: 0.32rem solid #7eb8d4;
+  filter: drop-shadow(0 0 3px rgba(126, 184, 212, 0.6));
+}
+
+.mark .deco.fish::after {
+  content: "";
+  position: absolute;
+  left: 0.22rem;
+  top: 0.14rem;
+  width: 0.14rem;
+  height: 0.14rem;
+  border-radius: 50%;
+  background: #0c3552;
+}
+
+.mark .bulb {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffc45c;
+  box-shadow: 0 0 8px rgba(255, 196, 92, 0.95), 0 0 14px rgba(255, 140, 60, 0.55);
+  pointer-events: none;
+  animation: bulb-glow 2.4s ease-in-out infinite;
+  z-index: 2;
+}
+
+.mark .b1 { top: -5px; left: 18%; animation-delay: 0s; }
+.mark .b2 { top: -6px; right: 22%; width: 6px; height: 6px; animation-delay: 0.9s; }
+.mark .b3 { bottom: -4px; right: 8%; width: 6px; height: 6px; background: #ff8a5c; animation-delay: 1.6s; }
+
+@keyframes bulb-glow {
+  0%, 100% { opacity: 0.55; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
 }
 
 @keyframes neon-flicker {
-  0%, 100% { filter: brightness(1.08); }
-  2.2% { filter: brightness(0.4); }
-  2.7% { filter: brightness(1.2); }
-  4.8% { filter: brightness(0.55); }
-  5.3% { filter: brightness(1.1); }
-  42% { filter: brightness(1.08); }
-  42.55% { filter: brightness(0.35); }
-  43.4% { filter: brightness(1.3); }
-  44.1% { filter: brightness(1.08); }
-  68% { filter: brightness(1.08); }
-  68.35% { filter: brightness(0.65); }
-  68.85% { filter: brightness(1.15); }
+  0%, 100% { filter: brightness(1.02); }
+  3% { filter: brightness(0.68); }
+  3.5% { filter: brightness(1.08); }
+  5.5% { filter: brightness(0.82); }
+  6% { filter: brightness(1); }
+  50% { filter: brightness(1.02); }
+  50.6% { filter: brightness(0.58); }
+  51.4% { filter: brightness(1.12); }
+  52% { filter: brightness(1.02); }
+}
+
+.foot-mark {
+  display: inline-block;
+  margin: 0 auto 0.55rem;
+  padding: 0.2rem 0.7rem;
+  text-decoration: none;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e8d0cc;
+  border: 1px solid rgba(224, 69, 60, 0.45);
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(255, 200, 190, 0.06), rgba(0, 0, 0, 0.14));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 1px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease), filter 0.15s var(--ease);
+}
+
+.foot-mark em {
+  margin-left: 0;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  color: #9ed0e4;
+}
+
+.foot-mark:hover {
+  color: #fff4f2;
+  border-color: rgba(255, 120, 100, 0.75);
+  filter: brightness(1.08);
 }
 
 @media (max-width: 520px) {
-  .mark,
-  .foot-mark {
-    font-size: 1.5rem;
-    padding: 0.36rem 0.95rem;
+  .mark {
+    font-size: 1.28rem;
+    padding: 0.28rem 0.95rem 0.28rem 1.35rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mark,
-  .foot-mark { animation: none; filter: brightness(1.12); }
-  .mark .bulb { animation: none; opacity: 0.9; }
+  .mark { animation: none; }
+  .mark .bulb { animation: none; opacity: 0.85; }
 }
