@@ -19,10 +19,12 @@ git commit -m "Update site"
 git push
 ```
 
-## Local preview
+## SEO
 
-```bash
-python3 -m http.server 8877
-```
+Already on the live site:
 
-Open http://127.0.0.1:8877/
+- Canonical, Open Graph, Twitter Card (`/assets/og.png`)
+- JSON-LD: Organization + WebSite + WebPage + ProfessionalService + FAQPage
+- `/sitemap.xml` and `/robots.txt` (draft shops under `/shops/` are `noindex`)
+
+After deploy: submit `https://palmpages.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) and Bing Webmaster Tools.

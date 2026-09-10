@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="PalmPages">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B2A32"/>
+      <stop offset="100%" stop-color="#103A44"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1080" cy="-40" r="280" fill="#FF6A3D" opacity="0.12"/>
+  <circle cx="-40" cy="560" r="220" fill="#7FD7C7" opacity="0.08"/>
+
+  <!-- palm accent -->
+  <g fill="#FF6A3D" transform="translate(92,118) scale(1.15)">
+    <path d="M162 88 C148 78 128 78 108 88 C126 74 148 70 164 82 Z"/>
+    <path d="M163 84 C152 66 136 54 116 50 C138 52 154 64 165 80 Z"/>
+    <path d="M164 82 C158 60 148 42 132 28 C150 40 160 60 166 78 Z"/>
+    <path d="M165 80 C164 56 160 34 154 14 C162 32 167 54 167.5 78 Z"/>
+    <path d="M167 82 C174 58 188 40 208 28 C190 42 176 60 166.5 78 Z"/>
+    <path d="M167 84 C180 66 200 56 224 54 C200 58 180 70 166 80 Z"/>
+    <path d="M167 88 C184 78 208 78 230 90 C208 74 184 70 165.5 82 Z"/>
+  </g>
+
+  <text x="92" y="250" font-family="Poppins, Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="92" letter-spacing="-2">
+    <tspan fill="#FFFFFF">Palm</tspan><tspan fill="#FF6A3D">Pages</tspan>
+  </text>
+
+  <text x="92" y="350" font-family="Poppins, Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="44" fill="#FFFFFF">
+    A website for your restaurant.
+  </text>
+  <text x="92" y="410" font-family="Poppins, Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="44" fill="#FF6A3D">
+    Already built.
+  </text>
+
+  <text x="92" y="500" font-family="Inter, Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="500" font-size="28" fill="#9DBAC2">
+    One-page sites &#183; WhatsApp orders &#183; $300&#8211;700 once
+  </text>
+  <text x="92" y="550" font-family="Inter, Avenir Next, Helvetica Neue, Arial, sans-serif" font-weight="500" font-size="24" fill="#7FD7C7">
+    palmpages.com
+  </text>
+</svg>

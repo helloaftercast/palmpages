@@ -3,20 +3,176 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PalmPages — a website for your restaurant, built before you pay</title>
-  <meta name="description" content="One-page websites for restaurants in Southeast Asia. Your own domain, your menu, and orders that land in your WhatsApp. One-time fee from $300. No monthly charges, no commission.">
-  <link rel="icon" href="assets/favicon.svg">
+  <title>PalmPages — Restaurant websites with WhatsApp ordering</title>
+  <meta name="description" content="One-page restaurant websites for Southeast Asia. Your own domain, menu and photos, orders straight to WhatsApp. One-time fee $300–700. No monthly charges, no commission. Draft in 1–3 days.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="PalmPages">
+  <meta name="theme-color" content="#0B2A32">
+  <link rel="canonical" href="https://palmpages.com/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PalmPages">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://palmpages.com/">
+  <meta property="og:title" content="PalmPages — a website for your restaurant, already built">
+  <meta property="og:description" content="One-page restaurant websites with WhatsApp ordering. Own domain, one-time fee $300–700. No monthly charges, no commission.">
+  <meta property="og:image" content="https://palmpages.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PalmPages — A website for your restaurant. Already built.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PalmPages — a website for your restaurant, already built">
+  <meta name="twitter:description" content="One-page restaurant websites with WhatsApp ordering. Own domain, one-time fee $300–700. No monthly charges.">
+  <meta name="twitter:image" content="https://palmpages.com/assets/og.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=demo3">
+  <link rel="stylesheet" href="styles.css?v=seo1">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://palmpages.com/#organization",
+        "name": "PalmPages",
+        "url": "https://palmpages.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://palmpages.com/assets/logo-light.svg"
+        },
+        "email": "hello@palmpages.com",
+        "description": "One-page websites for restaurants in Southeast Asia, with WhatsApp ordering and a one-time fee."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://palmpages.com/#website",
+        "url": "https://palmpages.com/",
+        "name": "PalmPages",
+        "description": "Restaurant websites with WhatsApp ordering — built before you pay.",
+        "publisher": { "@id": "https://palmpages.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://palmpages.com/#webpage",
+        "url": "https://palmpages.com/",
+        "name": "PalmPages — Restaurant websites with WhatsApp ordering",
+        "isPartOf": { "@id": "https://palmpages.com/#website" },
+        "about": { "@id": "https://palmpages.com/#service" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://palmpages.com/assets/og.png",
+          "width": 1200,
+          "height": 630
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://palmpages.com/#service",
+        "name": "PalmPages restaurant websites",
+        "url": "https://palmpages.com/",
+        "image": "https://palmpages.com/assets/og.png",
+        "description": "One-page websites for restaurants in Southeast Asia. Own domain, menu and photos, orders to WhatsApp. One-time fee, no monthly charges, no commission.",
+        "provider": { "@id": "https://palmpages.com/#organization" },
+        "areaServed": [
+          { "@type": "Place", "name": "Southeast Asia" },
+          { "@type": "Country", "name": "Philippines" },
+          { "@type": "Country", "name": "Thailand" },
+          { "@type": "Country", "name": "Vietnam" },
+          { "@type": "Country", "name": "Indonesia" }
+        ],
+        "serviceType": "Restaurant website design",
+        "priceRange": "$300–$700",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://palmpages.com/#pricing",
+          "priceCurrency": "USD",
+          "price": "300",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "description": "One-page restaurant site from $300 to $700 one time, depending on custom work and menu size."
+        },
+        "email": "hello@palmpages.com"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://palmpages.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "You built a site for my restaurant without asking?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — a draft, from what is already public: your menu, your photos, your Google reviews. Nothing is published anywhere until you say so, and if you would rather we delete it, say the word and it is gone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do the orders actually reach me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A guest taps through your menu, picks their options, and the site opens WhatsApp with the whole order written out. You confirm it like any other chat. There is no online payment on the site — guests pay you the way they do today."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you take a percentage of my orders?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. You pay once for the site and that is the end of it. Orders go straight from the guest to your phone; we are not in the middle and we never see your money."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I only want a simple page, no ordering?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That is a common choice. We can build it as photos, menu, reviews, hours and a WhatsApp button — ordering stays a conversation, exactly as it works today."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who changes the menu when prices go up?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We do. Send a message with what changed — prices, dishes, photos — and it is usually updated within a day or two. Two rounds are included in the first year; after that it is a small flat fee per batch of changes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "My customers use Viber, Zalo or LINE, not WhatsApp.",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The ordering button can point at whichever app your restaurant actually answers. WhatsApp is the smoothest because the order arrives fully written out. LINE, Zalo and Viber open the chat but cannot pre-fill the message, so the site copies the order and the guest pastes it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to the site if you disappear?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You keep it. The domain is registered in your name and we hand over the files, so any developer can pick it up. That is the point of paying once instead of renting."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="assets/logo-dark.svg" alt="PalmPages"></a>
-    <nav>
+    <a class="brand" href="#top"><img src="assets/logo-dark.svg" width="180" height="42" alt="PalmPages"></a>
+    <nav aria-label="Primary">
       <a href="#work">A live site</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -136,7 +292,7 @@
 
       <article class="live">
         <a class="live-shot" href="https://aftercast.net/" rel="noopener">
-          <img src="assets/work/aftercast.jpg" alt="Aftercast lure photography from the live site">
+          <img src="assets/work/aftercast.jpg" width="680" height="510" loading="lazy" decoding="async" alt="Aftercast lure photography from the live site">
         </a>
         <div class="live-copy">
           <p class="card-tag">Live &middot; not a restaurant</p>
@@ -385,12 +541,12 @@
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#top"><img src="assets/logo-dark.svg" alt="PalmPages"></a>
+    <a class="brand" href="#top"><img src="assets/logo-dark.svg" width="120" height="26" alt="PalmPages"></a>
     <p>One-page websites for restaurants in Southeast Asia. Built first, paid for once.</p>
     <p>&copy; 2026 PalmPages &middot; hello@palmpages.com</p>
   </div>
 </footer>
 
-<script src="motion.js?v=demo3"></script>
+<script src="motion.js?v=seo1"></script>
 </body>
 </html>
