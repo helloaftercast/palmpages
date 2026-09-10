@@ -70,7 +70,7 @@ a {
 }
 
 .mark:hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .mark em {
@@ -1004,7 +1004,7 @@ blockquote {
   font-size: 1.45rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 0.2rem;
+  margin: 0 auto 0.55rem;
 }
 
 .foot a {
@@ -1503,60 +1503,90 @@ body.order-chat-open {
   background: #0084ff;
 }
 
-/* ── logo fx: neon tube sign ── */
+/* ── logo fx: hot orchid neon tube (nav + footer) ── */
 
-.mark {
-  position: relative;
-  padding: 0.45rem 1.25rem;
-  font-size: 1.85rem;
-  border: 2px solid rgba(239, 92, 155, 0.9);
-  border-radius: 18px;
-  color: #fff;
-  text-shadow:
-    0 0 7px rgba(239, 92, 155, 0.95),
-    0 0 20px rgba(217, 34, 119, 0.7),
-    0 0 42px rgba(217, 34, 119, 0.45);
-  box-shadow:
-    0 0 14px rgba(217, 34, 119, 0.65),
-    0 0 34px rgba(217, 34, 119, 0.4),
-    0 0 60px rgba(217, 34, 119, 0.22),
-    inset 0 0 14px rgba(217, 34, 119, 0.35);
-  animation: neon-flicker 7s linear infinite;
+.top {
+  overflow: visible;
+  min-height: 78px;
 }
 
-.mark em {
-  font-size: 1.1rem;
+.mark,
+.foot-mark {
+  display: inline-block;
+  position: relative;
+  padding: 0.5rem 1.45rem;
+  font-size: 2.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: 2.5px solid #ff6eb4;
+  border-radius: 20px;
+  color: #fff8fc;
+  background: rgba(40, 8, 28, 0.55);
   text-shadow:
-    0 0 8px rgba(239, 92, 155, 0.95),
-    0 0 22px rgba(239, 92, 155, 0.55);
+    0 0 4px #fff,
+    0 0 10px #ff7ec8,
+    0 0 22px #ff4fa3,
+    0 0 44px #e0187a,
+    0 0 72px rgba(224, 24, 122, 0.75);
+  box-shadow:
+    0 0 8px rgba(255, 110, 180, 0.95),
+    0 0 22px rgba(255, 79, 163, 0.85),
+    0 0 48px rgba(224, 24, 122, 0.65),
+    0 0 88px rgba(224, 24, 122, 0.4),
+    0 0 130px rgba(224, 24, 122, 0.22),
+    inset 0 0 18px rgba(255, 110, 180, 0.45);
+  animation: neon-flicker 6.2s linear infinite;
+}
+
+.mark:hover,
+.foot-mark:hover {
+  opacity: 1;
+  filter: brightness(1.18);
+}
+
+.mark em,
+.foot-mark em {
+  margin-left: 0.35rem;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #ffb8de;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 12px #ff7ec8,
+    0 0 28px #ff4fa3,
+    0 0 48px rgba(224, 24, 122, 0.7);
 }
 
 @keyframes neon-flicker {
-  0%, 100% { filter: brightness(1); }
-  3.4% { filter: brightness(0.55); }
-  3.9% { filter: brightness(1); }
-  6.1% { filter: brightness(0.7); }
-  6.5% { filter: brightness(1); }
-  53% { filter: brightness(1); }
-  53.6% { filter: brightness(0.5); }
-  54.4% { filter: brightness(1.15); }
-  55% { filter: brightness(1); }
-  82% { filter: brightness(1); }
-  82.4% { filter: brightness(0.75); }
-  82.8% { filter: brightness(1); }
+  0%, 100% { filter: brightness(1.05); }
+  2.8% { filter: brightness(0.45); }
+  3.3% { filter: brightness(1.15); }
+  5.5% { filter: brightness(0.62); }
+  6% { filter: brightness(1.08); }
+  48% { filter: brightness(1.05); }
+  48.5% { filter: brightness(0.4); }
+  49.4% { filter: brightness(1.25); }
+  50.2% { filter: brightness(1.05); }
+  76% { filter: brightness(1.05); }
+  76.35% { filter: brightness(0.7); }
+  76.8% { filter: brightness(1.12); }
 }
 
 @media (max-width: 520px) {
-  .mark {
-    font-size: 1.5rem;
-    padding: 0.38rem 1rem;
+  .mark,
+  .foot-mark {
+    font-size: 1.55rem;
+    padding: 0.4rem 1.05rem;
   }
 
-  .mark em {
+  .mark em,
+  .foot-mark em {
     font-size: 0.95rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mark { animation: none; }
+  .mark,
+  .foot-mark { animation: none; filter: brightness(1.1); }
 }

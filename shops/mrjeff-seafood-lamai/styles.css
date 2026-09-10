@@ -67,7 +67,7 @@ a {
 }
 
 .mark:hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .mark em {
@@ -1003,7 +1003,7 @@ blockquote {
   font-size: 1.45rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 0.2rem;
+  margin: 0 auto 0.55rem;
 }
 
 .foot a {
@@ -1276,33 +1276,28 @@ body {
   background: radial-gradient(ellipse, rgba(232, 168, 58, 0.4) 0%, rgba(232, 168, 58, 0) 72%);
 }
 
-/* amber evening bulbs on the mark */
-.mark {
-  position: relative;
-  padding: 0.2rem 0.35rem;
-}
-
+/* amber evening bulbs on the mark — kept, restyled under neon tube below */
 .mark .bulb {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px rgba(232, 168, 58, 0.9), 0 0 16px rgba(232, 168, 58, 0.45);
+  background: #ffc45c;
+  box-shadow: 0 0 10px rgba(255, 196, 92, 1), 0 0 22px rgba(255, 140, 60, 0.75);
   pointer-events: none;
-  animation: bulb-glow 2.8s ease-in-out infinite;
+  animation: bulb-glow 2.4s ease-in-out infinite;
+  z-index: 2;
 }
 
-.mark .b1 { top: -6px; left: -4px; animation-delay: 0s; }
-.mark .b2 { top: -8px; right: 18%; width: 6px; height: 6px; animation-delay: 0.9s; }
-.mark .b3 { bottom: -2px; right: -2px; width: 7px; height: 7px; background: #ffc45c; animation-delay: 1.6s; }
+.mark .b1 { top: -7px; left: -5px; animation-delay: 0s; }
+.mark .b2 { top: -9px; right: 16%; width: 7px; height: 7px; animation-delay: 0.9s; }
+.mark .b3 { bottom: -4px; right: -4px; width: 8px; height: 8px; background: #ff8a5c; animation-delay: 1.6s; }
 
 @keyframes bulb-glow {
   0%, 100% { opacity: 0.55; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.15); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* replace José spark styles */
 .mark .spark {
   display: none;
 }
@@ -1584,33 +1579,87 @@ body.order-chat-open {
   background: #0084ff;
 }
 
-/* ── logo fx: twinkling stars ── */
+/* ── logo fx: coral ice neon tube (nav + footer) ── */
 
-.mark {
+.top {
+  overflow: visible;
+  min-height: 78px;
+}
+
+.mark,
+.foot-mark {
+  display: inline-block;
   position: relative;
-  padding: 0.2rem 0.35rem;
+  padding: 0.45rem 1.35rem;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 2.5px solid #ff6b5c;
+  border-radius: 16px;
+  color: #fff8f6;
+  background: rgba(6, 24, 40, 0.6);
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #ff8a7a,
+    0 0 24px #e0453c,
+    0 0 48px #7eb8d4,
+    0 0 80px rgba(126, 184, 212, 0.55);
+  box-shadow:
+    0 0 8px rgba(255, 107, 92, 0.95),
+    0 0 24px rgba(224, 69, 60, 0.8),
+    0 0 50px rgba(126, 184, 212, 0.5),
+    0 0 90px rgba(224, 69, 60, 0.35),
+    0 0 130px rgba(126, 184, 212, 0.2),
+    inset 0 0 16px rgba(255, 107, 92, 0.4);
+  animation: neon-flicker 5.6s linear infinite;
 }
 
-.mark .spark {
-  position: absolute;
-  filter: drop-shadow(0 0 4px rgba(255, 209, 102, 0.7));
-  width: 10px;
-  height: 10px;
-  pointer-events: none;
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  animation: spark-twinkle 2.6s ease-in-out infinite;
+.mark:hover,
+.foot-mark:hover {
+  opacity: 1;
+  filter: brightness(1.18);
 }
 
-.mark .s1 { top: -9px;  left: -8px;   background: #ffd166; width: 13px; height: 13px; animation-delay: 0s; }
-.mark .s2 { top: -12px; right: 14%;   background: #ff8a5c; width: 9px; height: 9px; animation-delay: 0.7s; }
-.mark .s3 { bottom: -10px; right: -10px; background: #ffd166; width: 11px; height: 11px; animation-delay: 1.3s; }
-.mark .s4 { bottom: -8px; left: 28%;  background: #8be0d0; width: 8px; height: 8px; animation-delay: 1.9s; }
+.mark em,
+.foot-mark em {
+  margin-left: 0;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 400;
+  color: #9ee0ff;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 12px #7eb8d4,
+    0 0 28px #3a9ec4,
+    0 0 48px rgba(62, 158, 196, 0.7);
+}
 
-@keyframes spark-twinkle {
-  0%, 100% { opacity: 0.4; transform: scale(0.65) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+@keyframes neon-flicker {
+  0%, 100% { filter: brightness(1.08); }
+  2.2% { filter: brightness(0.4); }
+  2.7% { filter: brightness(1.2); }
+  4.8% { filter: brightness(0.55); }
+  5.3% { filter: brightness(1.1); }
+  42% { filter: brightness(1.08); }
+  42.55% { filter: brightness(0.35); }
+  43.4% { filter: brightness(1.3); }
+  44.1% { filter: brightness(1.08); }
+  68% { filter: brightness(1.08); }
+  68.35% { filter: brightness(0.65); }
+  68.85% { filter: brightness(1.15); }
+}
+
+@media (max-width: 520px) {
+  .mark,
+  .foot-mark {
+    font-size: 1.5rem;
+    padding: 0.36rem 0.95rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mark .spark { animation: none; opacity: 0.85; }
+  .mark,
+  .foot-mark { animation: none; filter: brightness(1.12); }
+  .mark .bulb { animation: none; opacity: 0.9; }
 }

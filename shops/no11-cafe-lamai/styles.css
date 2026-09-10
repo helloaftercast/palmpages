@@ -74,7 +74,7 @@ a {
 }
 
 .mark:hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .mark em {
@@ -890,7 +890,7 @@ blockquote {
   font-size: 1.45rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 0.2rem;
+  margin: 0 auto 0.55rem;
 }
 
 .foot a {
@@ -1265,4 +1265,94 @@ body.order-chat-open {
     animation: none;
     transition: none;
   }
+}
+
+/* ── logo fx: sky + yolk neon tube (nav + footer) ── */
+
+.top {
+  overflow: visible;
+  min-height: 78px;
+}
+
+.mark,
+.foot-mark {
+  display: inline-block;
+  position: relative;
+  padding: 0.48rem 1.35rem;
+  font-size: 1.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 2.5px solid #5ec8ff;
+  border-radius: 18px;
+  color: #f7fcff;
+  background: rgba(8, 28, 42, 0.55);
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #7ad4ff,
+    0 0 24px #3eb0f0,
+    0 0 48px #e8b84a,
+    0 0 80px rgba(232, 184, 74, 0.55);
+  box-shadow:
+    0 0 8px rgba(94, 200, 255, 0.95),
+    0 0 24px rgba(62, 176, 240, 0.8),
+    0 0 50px rgba(232, 184, 74, 0.55),
+    0 0 90px rgba(62, 176, 240, 0.35),
+    0 0 130px rgba(232, 184, 74, 0.2),
+    inset 0 0 16px rgba(94, 200, 255, 0.4);
+  animation: neon-flicker 5.8s linear infinite;
+}
+
+.mark:hover,
+.foot-mark:hover {
+  opacity: 1;
+  filter: brightness(1.18);
+}
+
+.mark em,
+.foot-mark em {
+  margin-left: 0.35rem;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffe08a;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 12px #ffd45c,
+    0 0 28px #e8b84a,
+    0 0 48px rgba(232, 184, 74, 0.75);
+}
+
+@keyframes neon-flicker {
+  0%, 100% { filter: brightness(1.08); }
+  2.5% { filter: brightness(0.42); }
+  3% { filter: brightness(1.2); }
+  5.2% { filter: brightness(0.58); }
+  5.7% { filter: brightness(1.1); }
+  44% { filter: brightness(1.08); }
+  44.6% { filter: brightness(0.38); }
+  45.5% { filter: brightness(1.28); }
+  46.2% { filter: brightness(1.08); }
+  71% { filter: brightness(1.08); }
+  71.4% { filter: brightness(0.68); }
+  71.9% { filter: brightness(1.15); }
+}
+
+@media (max-width: 520px) {
+  .mark,
+  .foot-mark {
+    font-size: 1.45rem;
+    padding: 0.38rem 0.95rem;
+  }
+
+  .mark em,
+  .foot-mark em {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark,
+  .foot-mark { animation: none; filter: brightness(1.12); }
 }

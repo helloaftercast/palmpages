@@ -73,7 +73,7 @@ a {
 }
 
 .mark:hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .mark em {
@@ -896,7 +896,7 @@ blockquote {
   font-size: 1.45rem;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 0.2rem;
+  margin: 0 auto 0.55rem;
 }
 
 .foot a {
@@ -1271,4 +1271,92 @@ body.order-chat-open {
     animation: none;
     transition: none;
   }
+}
+
+/* ── logo fx: champagne + gulf neon tube (nav + footer) ── */
+
+.top {
+  overflow: visible;
+  min-height: 78px;
+}
+
+.mark,
+.foot-mark {
+  display: inline-block;
+  position: relative;
+  padding: 0.48rem 1.4rem;
+  font-size: 1.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: 2.5px solid #e0c078;
+  border-radius: 18px;
+  color: #fffaf0;
+  background: rgba(28, 18, 8, 0.55);
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #f0d090,
+    0 0 24px #c9a86c,
+    0 0 48px #2a6f8f,
+    0 0 80px rgba(42, 111, 143, 0.55);
+  box-shadow:
+    0 0 8px rgba(224, 192, 120, 0.95),
+    0 0 24px rgba(201, 168, 108, 0.75),
+    0 0 50px rgba(42, 111, 143, 0.5),
+    0 0 90px rgba(201, 168, 108, 0.35),
+    0 0 130px rgba(42, 111, 143, 0.2),
+    inset 0 0 16px rgba(224, 192, 120, 0.4);
+  animation: neon-flicker 6.5s linear infinite;
+}
+
+.mark:hover,
+.foot-mark:hover {
+  opacity: 1;
+  filter: brightness(1.18);
+}
+
+.mark em,
+.foot-mark em {
+  margin-left: 0.35rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #9ed4f0;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 12px #7ec8e8,
+    0 0 28px #2a6f8f,
+    0 0 48px rgba(42, 111, 143, 0.7);
+}
+
+@keyframes neon-flicker {
+  0%, 100% { filter: brightness(1.05); }
+  3% { filter: brightness(0.48); }
+  3.5% { filter: brightness(1.15); }
+  5.8% { filter: brightness(0.65); }
+  6.3% { filter: brightness(1.08); }
+  50% { filter: brightness(1.05); }
+  50.6% { filter: brightness(0.42); }
+  51.5% { filter: brightness(1.22); }
+  52.2% { filter: brightness(1.05); }
+  80% { filter: brightness(1.05); }
+  80.4% { filter: brightness(0.72); }
+  80.9% { filter: brightness(1.12); }
+}
+
+@media (max-width: 520px) {
+  .mark,
+  .foot-mark {
+    font-size: 1.5rem;
+    padding: 0.38rem 1rem;
+  }
+
+  .mark em,
+  .foot-mark em {
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark,
+  .foot-mark { animation: none; filter: brightness(1.1); }
 }
