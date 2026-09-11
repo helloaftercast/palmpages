@@ -29,10 +29,8 @@ Already on the live site:
 
 After deploy: submit `https://palmpages.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) and Bing Webmaster Tools.
 
-## Shop hit counts
+## Traffic
 
-Preview pages under `/shops/` ping a lightweight counter (once per browser session). Check totals at:
+Cloudflare Web Analytics is enabled site-wide (JS beacon). View pageviews, countries, and referrers in Cloudflare Dashboard → Analytics & Logs → Web Analytics → palmpages.com.
 
-**https://palmpages.com/stats.html**
-
-(Not linked from the homepage; `noindex`.)
+Tip: your own visits via US VPN show as United States; Thailand/Philippines hits are the real signal.
