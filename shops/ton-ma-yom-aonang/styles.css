@@ -472,15 +472,15 @@ h1 {
 }
 
 .shots button:nth-child(1) img {
-  object-position: 50% 58%;
+  object-position: 50% 55%;
 }
 
 .shots button:nth-child(2) img {
-  object-position: 46% 78%;
+  object-position: 50% 50%;
 }
 
 .shots button:nth-child(3) img {
-  object-position: 50% 28%;
+  object-position: 50% 50%;
 }
 
 .shots button:hover img {
@@ -1764,4 +1764,14 @@ body.order-chat-open {
 
 @media (prefers-reduced-motion: reduce) {
   .mark { animation: none; filter: brightness(1.08); }
+}
+
+/* ── real photo crop: keep the Ton Ma Yom sign in frame ── */
+.hero-stage {
+  top: -4%;
+  height: 108%;
+}
+
+.hero-stage img {
+  object-position: 50% 30%;
 }

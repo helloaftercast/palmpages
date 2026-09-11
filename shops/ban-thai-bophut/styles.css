@@ -428,27 +428,24 @@ h1 {
 }
 
 .shots button:nth-child(1) img {
-  object-position: 50% 55%;
+  object-position: 50% 50%;
 }
 
-.shots button:nth-child(2) img {
-  object-position: 50% 40%;
-}
-
-.shots button:nth-child(3) img {
-  object-position: 50% 45%;
-}
-
+.shots button:nth-child(2) img,
+.shots button:nth-child(3) img,
 .shots button:nth-child(4) img {
-  object-position: 50% 35%;
+  object-position: 50% 42%;
 }
 
 .shots button:nth-child(5) img {
-  object-position: 50% 40%;
+  object-position: 50% 50%;
 }
 
-.shots button:nth-child(6) img {
-  object-position: 40% 50%;
+@media (min-width: 861px) {
+  .shots button:nth-child(1) {
+    grid-column: span 2;
+    aspect-ratio: 8 / 3;
+  }
 }
 
 .shots button:hover img {
@@ -1558,4 +1555,26 @@ body.order-chat-open {
   .top .btn-line {
     display: none;
   }
+}
+
+/* ── real photo crop: pan toward the restaurant side (left of frame), not the neighbour ── */
+.hero {
+  --hero-x: 13%;
+}
+
+@keyframes hero-pan {
+  0% {
+    transform: translate3d(-2%, 3%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(13%, -2%, 0) scale(1);
+  }
+}
+
+.hero-stage {
+  transform: translate3d(13%, -2%, 0);
+}
+
+.hero-stage img {
+  object-position: 50% 62%;
 }
