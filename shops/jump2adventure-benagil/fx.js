@@ -91,6 +91,7 @@
   tag(".sheet, .ticket", "scale");
   tag(".sheet-list li", "", 0.045, 8);
   tag(".faq-list details", "", 0.08, 6);
+  tag(".quotes li", "", 0.08, 6);
 
   var io = new IntersectionObserver(
     function (entries) {

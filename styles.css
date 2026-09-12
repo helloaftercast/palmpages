@@ -1109,6 +1109,12 @@ footer a:hover { color: #fff; }
   grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
 }
+.pieces.is-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.layers {
+  background: var(--mist);
+}
 .piece {
   background: #fff;
   border: 1px solid var(--line);
@@ -1266,7 +1272,8 @@ tbody tr:hover { background: var(--mist); }
 }
 
 @media (max-width: 1100px) {
-  .pieces { grid-template-columns: 1fr 1fr; }
+  .pieces,
+  .pieces.is-3 { grid-template-columns: 1fr 1fr; }
   .check-form { grid-template-columns: 1fr 1fr; }
   .check-form .btn { justify-self: start; }
 }

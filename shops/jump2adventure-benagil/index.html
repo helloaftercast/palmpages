@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jump2Adventure · Benagil cave kayak, Lagoa</title>
+  <title>Jump2Adventure · Lagoa kayak, WhatsApp booking</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Small-group kayak to the Benagil and Marinha caves. Meet the white van opposite Restaurante O Litoral. Book on WhatsApp. If the sea is wrong, we move you.">
-  <link rel="stylesheet" href="styles.css?v=j2a1">
+  <meta name="description" content="Guided kayak from Lagoa. Meet the white van opposite Restaurante O Litoral. 09:30 and 14:00 if the sea allows. Book on WhatsApp.">
+  <link rel="stylesheet" href="styles.css?v=j2a3">
   <link rel="stylesheet" href="fx.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
     "name": "Jump2Adventure",
-    "description": "Guided kayak tours to the Benagil and Marinha caves from Lagoa, Algarve.",
+    "description": "Guided kayak from Lagoa. Book on WhatsApp. Launch times follow the sea.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Parking opposite Restaurante O Litoral",
@@ -24,21 +24,28 @@
       "addressRegion": "Algarve",
       "addressCountry": "PT"
     },
-    "areaServed": ["Benagil", "Praia da Marinha", "Lagoa"],
-    "image": "photos/hero.jpg"
+    "areaServed": ["Lagoa", "Praia da Marinha", "Benagil"],
+    "image": "photos/van.jpg"
   }
   </script>
 </head>
 <body>
   <header class="top">
-    <a class="mark wave-mark" href="#top">
-      <svg viewBox="0 0 36 18" aria-hidden="true"><path d="M2 11c4-8 8 8 12 0s8 8 12 0 8 8 10 0"/></svg>
-      <span>Jump2</span>
+    <a class="mark kayak-mark" href="#top">
+      <svg viewBox="0 0 48 28" aria-hidden="true">
+        <path class="kayak-hull" d="M5.5 13.2C9.2 9.8 16.2 8.2 24 8.2s14.8 1.6 18.5 5c-3.5 2.5-10.2 4-18.5 4S9 15.7 5.5 13.2z"/>
+        <ellipse class="kayak-cockpit" cx="24" cy="12.4" rx="3.4" ry="1.55"/>
+        <path class="kayak-paddle" d="M16.5 6.2l15 13.2"/>
+        <path class="kayak-blade" d="M14.6 4.6c1.4.1 2.4 1 2.2 2.1-.3.9-1.6 1.3-2.8.8"/>
+        <path class="kayak-wave" d="M2 22c4-7 8 7 12 0s8 7 12 0 8 7 10 0"/>
+      </svg>
+      <span>JUMP2</span>
     </a>
     <nav>
-      <a href="#photos" data-en="Photos" data-pt="Fotos">Photos</a>
-      <a href="#tour" data-en="The tour" data-pt="O passeio">The tour</a>
-      <a href="#meet" data-en="Meeting point" data-pt="Ponto de encontro">Meeting point</a>
+      <a href="#fares" data-en="Fares" data-pt="Preços">Fares</a>
+      <a href="#kit" data-en="What we bring" data-pt="O que levamos">What we bring</a>
+      <a href="#meet" data-en="The van" data-pt="A carrinha">The van</a>
+      <a href="#reviews" data-en="Reviews" data-pt="Opiniões">Reviews</a>
       <a href="#book" data-en="Book" data-pt="Reservar">Book</a>
       <a href="#faq" data-en="FAQ" data-pt="Dúvidas">FAQ</a>
     </nav>
@@ -47,128 +54,142 @@
       <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" data-set-lang="pt" aria-pressed="false">PT</button>
     </div>
-    <a class="btn btn-wa" href="#book" data-en="WhatsApp" data-pt="WhatsApp">WhatsApp</a>
+    <a class="btn btn-wa" href="#book">WhatsApp</a>
   </header>
 
+  <div class="sea-bar" role="status">
+    <span class="cond-dot" aria-hidden="true"></span>
+    <span data-en="Sea first. We look at wind and swell the night before — not the hotel forecast." data-pt="O mar manda. Vento e vaga na véspera — não a app do hotel.">Sea first. We look at wind and swell the night before — not the hotel forecast.</span>
+    <b data-en="09:30 · 14:00 · times move with the sea" data-pt="09:30 · 14:00 · horários mudam com o mar">09:30 · 14:00 · times move with the sea</b>
+  </div>
+
   <main id="top">
-    <section class="hero is-playing" data-hero-scene>
-      <button class="hero-photo" type="button" data-zoom="photos/hero.jpg" aria-label="Zoom kayak photo">
+    <section class="hero is-split is-playing" data-hero-scene>
+      <div class="hero-copy">
+        <p class="kicker" data-en="Lagoa · Algarve" data-pt="Lagoa · Algarve">Lagoa · Algarve</p>
+        <h1>Jump2Adventure</h1>
+        <p class="hero-tag"><em data-en="Meet the van. Paddle if the sea says yes." data-pt="Encontrem a carrinha. Remamos se o mar deixar.">Meet the van. Paddle if the sea says yes.</em></p>
+        <p class="lede" data-en="A small guided paddle along this coast. You find the white Citroën opposite Restaurante O Litoral. You write us on WhatsApp. If the morning is wrong, we move you — we do not send you out to keep a slot." data-pt="Passeio guiado, grupo pequeno, nesta costa. A Citroën branca em frente ao Restaurante O Litoral. Escrevem no WhatsApp. Se a manhã estiver má, mudamos — não vos mandamos para a água só para cumprir o horário.">A small guided paddle along this coast. You find the white Citroën opposite Restaurante O Litoral. You write us on WhatsApp. If the morning is wrong, we move you — we do not send you out to keep a slot.</p>
+        <p class="fare-line"><strong>from €35</strong> <span data-en="adult · about 2.5 hours · confirm in the chat" data-pt="adulto · cerca de 2h30 · confiram no chat">adult · about 2.5 hours · confirm in the chat</span></p>
+        <div class="hero-actions">
+          <a class="btn btn-wa" href="#book" data-en="Book on WhatsApp" data-pt="Reservar no WhatsApp">Book on WhatsApp</a>
+          <a class="btn btn-ghost" href="#meet" data-en="How to find the van" data-pt="Como achar a carrinha">How to find the van</a>
+        </div>
+      </div>
+      <button class="hero-photo" type="button" data-zoom="photos/van.jpg" aria-label="Zoom meeting-point van">
         <span class="hero-stage">
-          <img src="photos/hero.jpg" alt="Kayaks on clear water under limestone cliffs">
+          <img src="photos/van.jpg" alt="White van in a small restaurant car park, morning">
         </span>
         <span class="photo-veil"></span>
       </button>
-      <div class="hero-copy">
-        <p class="kicker" data-en="Lagoa · Benagil · Marinha" data-pt="Lagoa · Benagil · Marinha">Lagoa · Benagil · Marinha</p>
-        <h1>Jump2Adventure</h1>
-        <p class="hero-tag"><em data-en="Small-group cave kayak" data-pt="Kayak às grutas, grupo pequeno">Small-group cave kayak</em></p>
-        <p class="lede" data-en="A guided paddle to the Benagil and Marinha caves. You meet the white Citroën van opposite Restaurante O Litoral. Book on WhatsApp — if the sea is wrong, we move you." data-pt="Passeio guiado às grutas de Benagil e da Marinha. Encontro na carrinha Citroën branca em frente ao Restaurante O Litoral. Reserve no WhatsApp — se o mar não deixar, mudamos o horário.">A guided paddle to the Benagil and Marinha caves. You meet the white Citroën van opposite Restaurante O Litoral. Book on WhatsApp — if the sea is wrong, we move you.</p>
-        <div class="hero-actions">
-          <a class="btn btn-wa" href="#book" data-en="Book on WhatsApp" data-pt="Reservar no WhatsApp">Book on WhatsApp</a>
-          <a class="btn btn-ghost" href="#meet" data-en="Where we meet" data-pt="Onde nos encontramos">Where we meet</a>
-        </div>
-        <p class="proof" data-en="Same tour you already see on GetYourGuide and Viator — booked here, no platform cut." data-pt="O mesmo passeio que já aparece no GetYourGuide e no Viator — reservado aqui, sem comissão da plataforma.">Same tour you already see on GetYourGuide and Viator — booked here, no platform cut.</p>
-      </div>
     </section>
 
     <section id="photos" class="block shots-block">
-      <h2 data-en="The water, not the listing" data-pt="A água, não o anúncio">The water, not the listing</h2>
-      <p class="intro" data-en="Cliffs, caves, and the paddle out. Tap any photo." data-pt="Arribas, grutas e a saída de kayak. Toque numa foto.">Cliffs, caves, and the paddle out. Tap any photo.</p>
+      <h2 data-en="How a working morning looks" data-pt="Como é uma manhã de trabalho">How a working morning looks</h2>
+      <p class="intro" data-en="Gear, water, the coast. Tap a photo." data-pt="Material, água, a costa. Toquem numa foto.">Gear, water, the coast. Tap a photo.</p>
       <div class="shots">
-        <button type="button" data-zoom="photos/cave.jpg">
-          <img src="photos/cave.jpg" alt="Sunlit water under a limestone arch">
+        <button type="button" data-zoom="photos/gear.jpg">
+          <img src="photos/gear.jpg" alt="Life vests and paddles on the sand">
           <span class="photo-veil"></span>
-          <span data-en="Inside the arch" data-pt="Dentro do arco">Inside the arch</span>
-        </button>
-        <button type="button" data-zoom="photos/cliff.jpg">
-          <img src="photos/cliff.jpg" alt="Algarve limestone cliffs above the sea">
-          <span class="photo-veil"></span>
-          <span data-en="The cliffs" data-pt="As arribas">The cliffs</span>
+          <span data-en="What goes in the van" data-pt="O que vai na carrinha">What goes in the van</span>
         </button>
         <button type="button" data-zoom="photos/kayak.jpg">
-          <img src="photos/kayak.jpg" alt="Kayak on open water">
+          <img src="photos/kayak.jpg" alt="Kayak on calm water">
           <span class="photo-veil"></span>
-          <span data-en="On the water" data-pt="Na água">On the water</span>
+          <span data-en="When the water is quiet" data-pt="Quando a água está calma">When the water is quiet</span>
+        </button>
+        <button type="button" data-zoom="photos/cliff.jpg">
+          <img src="photos/cliff.jpg" alt="Coastline with cliffs and a beach">
+          <span class="photo-veil"></span>
+          <span data-en="The line we follow" data-pt="A linha que seguimos">The line we follow</span>
         </button>
       </div>
     </section>
 
-    <section id="tour" class="block">
-      <h2 data-en="What you actually need to know" data-pt="O que precisa mesmo de saber">What you actually need to know</h2>
-      <div class="cond">
-        <span class="cond-dot" aria-hidden="true"></span>
-        <span data-en="Sea first. We confirm the night before." data-pt="O mar manda. Confirmamos na véspera.">Sea first. We confirm the night before.</span>
-        <b data-en="09:30 · 14:00" data-pt="09:30 · 14:00">09:30 · 14:00</b>
-      </div>
-      <p class="intro" data-en="About 2.5 hours. Small groups. Kit is included. Children under 12 pay less. We do not launch if the wind or swell is wrong." data-pt="Cerca de 2h30. Grupos pequenos. Material incluído. Crianças até 12 anos pagam menos. Não saímos se o vento ou a vaga não deixarem.">About 2.5 hours. Small groups. Kit is included. Children under 12 pay less. We do not launch if the wind or swell is wrong.</p>
-
-      <div class="price-grid">
-        <article class="price-card">
-          <span data-en="Adult" data-pt="Adulto">Adult</span>
-          <strong>from €35</strong>
-          <p data-en="Confirm in the chat — same price we take on a direct booking." data-pt="Confirme no chat — o preço da reserva direta.">Confirm in the chat — same price we take on a direct booking.</p>
-        </article>
-        <article class="price-card">
-          <span data-en="Child under 12" data-pt="Criança até 12">Child under 12</span>
-          <strong>from €20</strong>
-          <p data-en="Life vest in their size. They paddle with you." data-pt="Colete à medida. Remam convosco.">Life vest in their size. They paddle with you.</p>
-        </article>
-        <article class="price-card">
-          <span data-en="Private" data-pt="Privado">Private</span>
-          <strong data-en="ask" data-pt="a confirmar">ask</strong>
-          <p data-en="Just your people. We price it in WhatsApp." data-pt="Só o vosso grupo. O preço fecha no WhatsApp.">Just your people. We price it in WhatsApp.</p>
-        </article>
-      </div>
+    <section id="fares" class="block">
+      <h2 data-en="Fares" data-pt="Preços">Fares</h2>
+      <p class="intro" data-en="Typical direct price. Confirm in the chat before you come — we do not take a card on this page." data-pt="Preço direto habitual. Confirme no chat antes de vir — nesta página não se paga com cartão.">Typical direct price. Confirm in the chat before you come — we do not take a card on this page.</p>
+      <table class="fare">
+        <thead>
+          <tr>
+            <th data-en="Place" data-pt="Lugar">Place</th>
+            <th data-en="Time" data-pt="Duração">Time</th>
+            <th data-en="From" data-pt="Desde">From</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-en="Adult" data-pt="Adulto">Adult</td>
+            <td data-en="about 2.5 h" data-pt="cerca de 2h30">about 2.5 h</td>
+            <td>€35</td>
+          </tr>
+          <tr>
+            <td data-en="Child under 12" data-pt="Criança até 12">Child under 12</td>
+            <td data-en="same outing" data-pt="o mesmo passeio">same outing</td>
+            <td>€20</td>
+          </tr>
+          <tr>
+            <td data-en="Just your people" data-pt="Só o vosso grupo">Just your people</td>
+            <td data-en="we set it in chat" data-pt="fechamos no chat">we set it in chat</td>
+            <td data-en="ask" data-pt="a confirmar">ask</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note" data-en="09:30 and 14:00. If wind or swell is wrong, the time moves or we cancel. Same rule in August as in March." data-pt="09:30 e 14:00. Se o vento ou a vaga não deixarem, o horário muda ou cancelamos. A mesma regra em agosto e em março.">09:30 and 14:00. If wind or swell is wrong, the time moves or we cancel. Same rule in August as in March.</p>
     </section>
 
-    <section class="block">
-      <h2 data-en="How the morning goes" data-pt="Como corre a manhã">How the morning goes</h2>
-      <ol class="route">
-        <li>
-          <h3 data-en="The van, not the beach car park scrum" data-pt="A carrinha, não a confusão no areal">The van, not the beach car park scrum</h3>
-          <p data-en="Parking opposite Restaurante O Litoral, Lagoa. White Citroën, Jump2adventure on the side." data-pt="Estacionamento em frente ao Restaurante O Litoral, Lagoa. Citroën branca, Jump2adventure no lado.">Parking opposite Restaurante O Litoral, Lagoa. White Citroën, Jump2adventure on the side.</p>
-        </li>
-        <li>
-          <h3 data-en="Brief, vest, paddle" data-pt="Briefing, colete, pagaia">Brief, vest, paddle</h3>
-          <p data-en="Ten minutes on the sand. What to do if a wave stands up. Then we push out." data-pt="Dez minutos na areia. O que fazer se vier uma vaga. Depois entramos.">Ten minutes on the sand. What to do if a wave stands up. Then we push out.</p>
-        </li>
-        <li>
-          <h3 data-en="Cliffs first, cave if the sea allows" data-pt="Primeiro as arribas, a gruta se o mar deixar">Cliffs first, cave if the sea allows</h3>
-          <p data-en="Marinha, then Benagil. Since 2024 you do not paddle into the cave zone without a guide. We are the guide." data-pt="Marinha e depois Benagil. Desde 2024 não se entra na zona da gruta sem guia. Nós somos o guia.">Marinha, then Benagil. Since 2024 you do not paddle into the cave zone without a guide. We are the guide.</p>
-        </li>
-        <li>
-          <h3 data-en="Back, rinse, photos" data-pt="Regresso, banho, fotos">Back, rinse, photos</h3>
-          <p data-en="You keep the photos. We keep the kayaks. If we turned around, we rebook you or we don't take the money." data-pt="As fotos ficam convosco. Os kayaks connosco. Se tivermos de voltar, remarcamos ou não cobramos.">You keep the photos. We keep the kayaks. If we turned around, we rebook you or we don't take the money.</p>
-        </li>
-      </ol>
+    <section id="kit" class="block">
+      <h2 data-en="What is in the van / what you bring" data-pt="O que vai na carrinha / o que trazem">What is in the van / what you bring</h2>
+      <div class="kit">
+        <article>
+          <h3 data-en="We bring" data-pt="Levamos">We bring</h3>
+          <ul>
+            <li data-en="Kayak, paddle, life vest, dry bag" data-pt="Kayak, pagaia, colete, saco estanque">Kayak, paddle, life vest, dry bag</li>
+            <li data-en="A guide on the water" data-pt="Um guia na água">A guide on the water</li>
+            <li data-en="The call on whether we launch" data-pt="A decisão de sair ou não">The call on whether we launch</li>
+          </ul>
+        </article>
+        <article>
+          <h3 data-en="You bring" data-pt="Trazem">You bring</h3>
+          <ul>
+            <li data-en="Swimwear, water, sunscreen" data-pt="Fato de banho, água, protetor">Swimwear, water, sunscreen</li>
+            <li data-en="A phone in the dry bag we give you" data-pt="O telemóvel no saco estanque que damos">A phone in the dry bag we give you</li>
+            <li data-en="Fifteen extra minutes to find the van" data-pt="Quinze minutos a mais para achar a carrinha">Fifteen extra minutes to find the van</li>
+          </ul>
+        </article>
+      </div>
+      <p class="intro" data-en="We paddle the Marinha–Benagil line when the sea allows. Since 2024 that stretch needs a guide. If we turn around, we rebook you or we do not take the money." data-pt="Fazemos a linha Marinha–Benagil quando o mar deixa. Desde 2024 esse troço precisa de guia. Se tivermos de voltar, remarcamos ou não cobramos.">We paddle the Marinha–Benagil line when the sea allows. Since 2024 that stretch needs a guide. If we turn around, we rebook you or we do not take the money.</p>
     </section>
 
     <section id="meet" class="block">
-      <h2 data-en="Where to stand" data-pt="Onde esperar">Where to stand</h2>
-      <ol class="steps">
-        <li>
-          <h3 data-en="Find the restaurant" data-pt="Encontre o restaurante">Find the restaurant</h3>
-          <p data-en="Restaurante O Litoral, Lagoa — not Benagil beach itself. Give yourself 15 minutes." data-pt="Restaurante O Litoral, Lagoa — não a praia de Benagil. Cheguem com 15 minutos de antecedência.">Restaurante O Litoral, Lagoa — not Benagil beach itself. Give yourself 15 minutes.</p>
-        </li>
-        <li>
-          <h3 data-en="Look for the white van" data-pt="Procurem a carrinha branca">Look for the white van</h3>
-          <p data-en="Citroën in the car park opposite. Jump2adventure written on it. We don't hide." data-pt="Citroën no parque em frente. Jump2adventure escrito. Não nos escondemos.">Citroën in the car park opposite. Jump2adventure written on it. We don't hide.</p>
-        </li>
-        <li>
-          <h3 data-en="Bring" data-pt="Tragam">Bring</h3>
-          <p data-en="Swimwear, a bottle, sunscreen, a dry bag if you have one. We bring the rest." data-pt="Fato de banho, uma garrafa, protetor, saco estanque se tiverem. O resto é connosco.">Swimwear, a bottle, sunscreen, a dry bag if you have one. We bring the rest.</p>
-        </li>
-        <li>
-          <h3 data-en="If the sea turns" data-pt="Se o mar virar">If the sea turns</h3>
-          <p data-en="We message the night before. New slot, or we cancel. No GetYourGuide wait in the middle." data-pt="Mandamos mensagem na véspera. Novo horário, ou cancelamos. Sem espera no GetYourGuide pelo meio.">We message the night before. New slot, or we cancel. No GetYourGuide wait in the middle.</p>
-        </li>
-      </ol>
-      <p class="note" data-en="Guided kayak · WhatsApp booking · sea decides · Lagoa, Algarve" data-pt="Kayak guiado · reserva WhatsApp · o mar decide · Lagoa, Algarve">Guided kayak · WhatsApp booking · sea decides · Lagoa, Algarve</p>
+      <h2 data-en="The van, not the beach scrum" data-pt="A carrinha, não a confusão na praia">The van, not the beach scrum</h2>
+      <div class="meet">
+        <button type="button" class="meet-shot" data-zoom="photos/van.jpg" aria-label="Zoom the van">
+          <img src="photos/van.jpg" alt="White van in the car park opposite the restaurant">
+        </button>
+        <div class="meet-copy">
+          <p data-en="Restaurante O Litoral, Lagoa — the car park opposite, not Benagil beach itself. White Citroën, Jump2adventure on the side. We do not hide." data-pt="Restaurante O Litoral, Lagoa — o parque em frente, não a praia de Benagil. Citroën branca, Jump2adventure no lado. Não nos escondemos.">Restaurante O Litoral, Lagoa — the car park opposite, not Benagil beach itself. White Citroën, Jump2adventure on the side. We do not hide.</p>
+          <dl>
+            <div>
+              <dt data-en="Launch" data-pt="Saídas">Launch</dt>
+              <dd data-en="09:30 · 14:00 · sea permitting" data-pt="09:30 · 14:00 · se o mar deixar">09:30 · 14:00 · sea permitting</dd>
+            </div>
+            <div>
+              <dt data-en="Book" data-pt="Reserva">Book</dt>
+              <dd data-en="WhatsApp. We confirm the night before." data-pt="WhatsApp. Confirmamos na véspera.">WhatsApp. We confirm the night before.</dd>
+            </div>
+          </dl>
+          <div class="hero-actions">
+            <a class="btn btn-wa" href="#book" data-en="Send the booking" data-pt="Enviar a reserva">Send the booking</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/Restaurante+O+Litoral+Lagoa" rel="noopener" data-en="Open in Maps" data-pt="Abrir no Maps">Open in Maps</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="book" class="block menu-block">
-      <h2 data-en="Book the boat — on your phone" data-pt="Reservem o passeio — no telemóvel">Book the boat — on your phone</h2>
-      <p class="intro" data-en="Tap who is coming. Pick a day and a slot. The site writes the WhatsApp for you. No calendar, no card, no 20% to a platform." data-pt="Toquem em quem vem. Escolham o dia e o horário. O site escreve o WhatsApp. Sem calendário, sem cartão, sem 20% para uma plataforma.">Tap who is coming. Pick a day and a slot. The site writes the WhatsApp for you. No calendar, no card, no 20% to a platform.</p>
+      <h2 data-en="Write the booking on your phone" data-pt="Escrevam a reserva no telemóvel">Write the booking on your phone</h2>
+      <p class="intro" data-en="Tap who is coming. Pick a day and a slot. The site writes the WhatsApp. No card, no third-party calendar." data-pt="Toquem em quem vem. Escolham o dia e o horário. O site escreve o WhatsApp. Sem cartão, sem calendário de terceiros.">Tap who is coming. Pick a day and a slot. The site writes the WhatsApp. No card, no third-party calendar.</p>
       <div class="sheet">
         <div class="sheet-grid">
           <div class="sheet-col">
@@ -222,31 +243,69 @@
           </label>
           <label class="ticket-notes">
             <span data-en="Anything we should know" data-pt="Algo que devamos saber">Anything we should know</span>
-            <textarea name="note" rows="2" data-en-placeholder="First time, kids, hotel pickup…" data-pt-placeholder="Primeira vez, crianças, pickup no hotel…" placeholder="First time, kids, hotel pickup…"></textarea>
+            <textarea name="note" rows="2" data-en-placeholder="First time, kids, hotel name…" data-pt-placeholder="Primeira vez, crianças, nome do hotel…" placeholder="First time, kids, hotel name…"></textarea>
           </label>
           <button class="btn btn-wa" type="submit" data-en="Send on WhatsApp" data-pt="Enviar no WhatsApp">Send on WhatsApp</button>
         </form>
       </div>
     </section>
 
+    <section id="reviews" class="block">
+      <h2 data-en="What guests wrote on the platforms" data-pt="O que os hóspedes escreveram nas plataformas">What guests wrote on the platforms</h2>
+      <p class="intro" data-en="Copied from their Tripadvisor product (4.9 · 78) and from Viator quotes on the Peek listing (4.9 · 98). Same words. We did not write them." data-pt="Copiado do produto no Tripadvisor (4.9 · 78) e das citações Viator no anúncio Peek (4.9 · 98). As mesmas palavras. Não as escrevemos nós.">Copied from their Tripadvisor product (4.9 · 78) and from Viator quotes on the Peek listing (4.9 · 98). Same words. We did not write them.</p>
+      <ul class="quotes">
+        <li>
+          <blockquote>We participated in the 9:00 AM kayak tour and had perfect weather and water conditions. The parking situation was uncomplicated – there is a parking lot right at check-in for only €3.50 per day. Our guides Robin and Ricardo accompanied the tour safely, professionally, and with a lot of good humor.</blockquote>
+          <cite>Aug 2026 · Tripadvisor</cite>
+        </li>
+        <li>
+          <blockquote>Our guide Rockett was amazing! He was friendly, knowledgeable, and made us feel completely safe while keeping the whole trip fun. Highly recommend this tour to anyone visiting the Algarve — and be sure to ask for Rockett!</blockquote>
+          <cite>Sep 2026 · Tripadvisor</cite>
+        </li>
+        <li>
+          <blockquote>We had never done kayaking and we loved it. Our guide, Eugenio, was a delight; very patient with us because it was very hard for us to start. You visit caves that would be very difficult to see by swimming. 10/10.</blockquote>
+          <cite>Aug 2026 · Tripadvisor</cite>
+        </li>
+        <li>
+          <blockquote>Go with Jump2Adventure — our trip to the Benagil caves was incredible. All the little tunnels that Rocket took us through were memorable.</blockquote>
+          <cite>Jul 2026 · Viator</cite>
+        </li>
+        <li>
+          <blockquote>The waves were a bit rough (in March) so we were glad to have him there. Bringing us in and out of the water and telling us a bit about the cave.</blockquote>
+          <cite>Mar 2023 · Tripadvisor · paulgosch</cite>
+        </li>
+        <li>
+          <blockquote>I began feeling sick in the middle of the tour and they took care of me, gave me water, talked through different options. Definitely book with them.</blockquote>
+          <cite>Jul 2026 · Tripadvisor</cite>
+        </li>
+      </ul>
+      <p class="note">
+        <a href="https://www.tripadvisor.com/AttractionProductReview-g1219346-d25356387-Guided_tour_through_the_caves_of_Benagil-Lagoa_Faro_District_Algarve.html" rel="noopener">Tripadvisor</a>
+        ·
+        <a href="https://www.viator.com/tours/Lagoa/Guided-tour-through-the-caves-of-Benagil/d50454-392539P2" rel="noopener">Viator</a>
+        ·
+        <a href="https://www.peek.com/lagoa-faro-portugal/r0vgjy6/benagil-cave-tour-explore-algarves-hidden-gems/a0dpmz9" rel="noopener">Peek</a>
+      </p>
+    </section>
+
     <section id="faq" class="block">
-      <h2 data-en="Before you paddle" data-pt="Antes de remar">Before you paddle</h2>
+      <h2 data-en="Before you come" data-pt="Antes de vir">Before you come</h2>
       <div class="faq-list">
         <details open>
-          <summary data-en="Do I need to book?" data-pt="É preciso reservar?">Do I need to book?</summary>
-          <p data-en="Yes. Since 2024 you cannot paddle the cave zone without a guide. Walk-ups get the leftover slots, if any." data-pt="Sim. Desde 2024 não se entra na zona da gruta sem guia. Quem aparece sem reserva fica com as vagas que sobrarem, se sobrarem.">Yes. Since 2024 you cannot paddle the cave zone without a guide. Walk-ups get the leftover slots, if any.</p>
+          <summary data-en="I have never paddled." data-pt="Nunca remámos.">I have never paddled.</summary>
+          <p data-en="Most people here have not. Ten minutes on the sand, then we go. If someone is not happy in the first minutes, we turn around." data-pt="A maior parte das pessoas também não. Dez minutos na areia, depois saímos. Se alguém não estiver bem nos primeiros minutos, voltamos.">Most people here have not. Ten minutes on the sand, then we go. If someone is not happy in the first minutes, we turn around.</p>
         </details>
         <details>
           <summary data-en="What if the weather turns?" data-pt="E se o tempo virar?">What if the weather turns?</summary>
-          <p data-en="We look at wind and swell, not the forecast app on the hotel wifi. Bad morning: we move you to the afternoon or another day. We do not send you out to prove a booking." data-pt="Olhamos para o vento e a vaga, não para a app do hotel. Manhã má: passamos para a tarde ou para outro dia. Não vos mandamos para a água só para cumprir uma reserva.">We look at wind and swell, not the forecast app on the hotel wifi. Bad morning: we move you to the afternoon or another day. We do not send you out to prove a booking.</p>
+          <p data-en="We look at wind and swell. Bad morning: afternoon, or another day. We do not launch to prove a booking." data-pt="Olhamos para o vento e a vaga. Manhã má: tarde, ou outro dia. Não saímos só para cumprir uma reserva.">We look at wind and swell. Bad morning: afternoon, or another day. We do not launch to prove a booking.</p>
         </details>
         <details>
-          <summary data-en="Can I swim in the cave?" data-pt="Pode-se nadar na gruta?">Can I swim in the cave?</summary>
-          <p data-en="When the sea is quiet, we stop. When it isn't, we don't. That call is the guide's, on the water." data-pt="Com o mar calmo, paramos. Se não estiver, não. A decisão é do guia, na água.">When the sea is quiet, we stop. When it isn't, we don't. That call is the guide's, on the water.</p>
+          <summary data-en="Do I need to book?" data-pt="É preciso reservar?">Do I need to book?</summary>
+          <p data-en="Yes. Walk-ups get leftover seats, if any. Since 2024 you need a guide on that stretch of coast." data-pt="Sim. Quem aparece sem reserva fica com as vagas que sobrarem, se sobrarem. Desde 2024 esse troço precisa de guia.">Yes. Walk-ups get leftover seats, if any. Since 2024 you need a guide on that stretch of coast.</p>
         </details>
         <details>
-          <summary data-en="Why not GetYourGuide?" data-pt="Porque não o GetYourGuide?">Why not GetYourGuide?</summary>
-          <p data-en="Same kayaks, same van. They keep about 20–25% of what you pay. This page sends the booking to us." data-pt="Os mesmos kayaks, a mesma carrinha. Eles ficam com cerca de 20–25% do que pagam. Esta página manda a reserva para nós.">Same kayaks, same van. They keep about 20–25% of what you pay. This page sends the booking to us.</p>
+          <summary data-en="Why book here and not on a platform?" data-pt="Porque reservar aqui e não numa plataforma?">Why book here and not on a platform?</summary>
+          <p data-en="Same kayaks, same van. The platforms keep about 20–25% of what you pay. This page writes to us." data-pt="Os mesmos kayaks, a mesma carrinha. As plataformas ficam com cerca de 20–25% do que pagam. Esta página escreve-nos a nós.">Same kayaks, same van. The platforms keep about 20–25% of what you pay. This page writes to us.</p>
         </details>
         <details>
           <summary data-en="Do I pay on the site?" data-pt="Paga-se no site?">Do I pay on the site?</summary>
@@ -254,40 +313,21 @@
         </details>
       </div>
     </section>
-
-    <section class="visit">
-      <div class="visit-copy">
-        <h2 data-en="Lagoa, Algarve" data-pt="Lagoa, Algarve">Lagoa, Algarve</h2>
-        <p data-en="Meet opposite Restaurante O Litoral. We run the Benagil and Marinha line as a small guided group — the one you already saw supplied by Jump2adventure on the platforms." data-pt="Encontro em frente ao Restaurante O Litoral. Fazemos a linha Benagil e Marinha em grupo pequeno e guiado — a mesma que já viram como supplied by Jump2adventure nas plataformas.">Meet opposite Restaurante O Litoral. We run the Benagil and Marinha line as a small guided group — the one you already saw supplied by Jump2adventure on the platforms.</p>
-        <dl>
-          <div>
-            <dt data-en="Launch" data-pt="Saídas">Launch</dt>
-            <dd data-en="09:30 · 14:00 · sea permitting" data-pt="09:30 · 14:00 · se o mar deixar">09:30 · 14:00 · sea permitting</dd>
-          </div>
-          <div>
-            <dt data-en="Meet" data-pt="Encontro">Meet</dt>
-            <dd data-en="Parking opposite Restaurante O Litoral, Lagoa" data-pt="Parque em frente ao Restaurante O Litoral, Lagoa">Parking opposite Restaurante O Litoral, Lagoa</dd>
-          </div>
-          <div>
-            <dt data-en="Book" data-pt="Reserva">Book</dt>
-            <dd data-en="WhatsApp — we confirm the night before" data-pt="WhatsApp — confirmamos na véspera">WhatsApp — we confirm the night before</dd>
-          </div>
-        </dl>
-        <div class="hero-actions">
-          <a class="btn btn-wa" href="#book" data-en="Book on WhatsApp" data-pt="Reservar no WhatsApp">Book on WhatsApp</a>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/search/Restaurante+O+Litoral+Lagoa" rel="noopener" data-en="Open in Maps" data-pt="Abrir no Maps">Open in Maps</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="foot">
-    <a class="foot-mark wave-mark" href="#top">
-      <svg viewBox="0 0 36 18" aria-hidden="true"><path d="M2 11c4-8 8 8 12 0s8 8 12 0 8 8 10 0"/></svg>
+    <a class="foot-mark kayak-mark" href="#top">
+      <svg viewBox="0 0 48 28" aria-hidden="true">
+        <path class="kayak-hull" d="M5.5 13.2C9.2 9.8 16.2 8.2 24 8.2s14.8 1.6 18.5 5c-3.5 2.5-10.2 4-18.5 4S9 15.7 5.5 13.2z"/>
+        <ellipse class="kayak-cockpit" cx="24" cy="12.4" rx="3.4" ry="1.55"/>
+        <path class="kayak-paddle" d="M16.5 6.2l15 13.2"/>
+        <path class="kayak-blade" d="M14.6 4.6c1.4.1 2.4 1 2.2 2.1-.3.9-1.6 1.3-2.8.8"/>
+        <path class="kayak-wave" d="M2 22c4-7 8 7 12 0s8 7 12 0 8 7 10 0"/>
+      </svg>
       <span>Jump2Adventure</span>
     </a>
-    <p data-en="Lagoa · Benagil · Marinha" data-pt="Lagoa · Benagil · Marinha">Lagoa · Benagil · Marinha</p>
-    <p data-en="Draft page — WhatsApp number wired when they confirm it." data-pt="Página-rascunho — o número de WhatsApp liga-se quando o confirmarem.">Draft page — WhatsApp number wired when they confirm it.</p>
+    <p data-en="Lagoa · the van opposite O Litoral" data-pt="Lagoa · a carrinha em frente ao O Litoral">Lagoa · the van opposite O Litoral</p>
+    <p data-en="Draft page. WhatsApp from their Instagram: +351 936 242 322." data-pt="Página-rascunho. WhatsApp do Instagram deles: +351 936 242 322.">Draft page. WhatsApp from their Instagram: +351 936 242 322.</p>
   </footer>
   <a class="dock is-wa" href="#book" data-reserve-dock>WhatsApp to book</a>
   <a class="bag-dock" href="#book" hidden data-bag-dock>Book</a>

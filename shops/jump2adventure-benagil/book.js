@@ -1,5 +1,5 @@
 (function () {
-  var WA = "";
+  var WA = "351936242322";
   var LEAD_MIN = 90;
   var SLOTS = ["09:30", "14:00"];
 
