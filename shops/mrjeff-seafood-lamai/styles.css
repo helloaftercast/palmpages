@@ -1717,3 +1717,94 @@ body.order-chat-open {
   .mark { animation: none; }
   .mark .bulb { animation: none; opacity: 0.85; }
 }
+
+/* ── bilingual switch + LINE channel (shared with Ton Ma Yom / Ban Thai) ── */
+.btn-line {
+  background: #06c755;
+  color: #fff;
+}
+
+.btn-line:hover {
+  box-shadow: 0 8px 20px rgba(6, 199, 85, 0.28);
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.25rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.lang-switch button {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.2rem 0.35rem;
+  transition: color 0.15s var(--ease);
+}
+
+.lang-switch button:hover,
+.lang-switch button.is-active {
+  color: #fff;
+}
+
+.lang-switch .lang-sep {
+  color: rgba(255, 255, 255, 0.35);
+  user-select: none;
+}
+
+.ticket-channel {
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.1rem;
+  align-items: center;
+  grid-column: 1 / -1;
+}
+
+.ticket-channel legend {
+  padding: 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mute);
+}
+
+.channel-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.order-chat.is-line .chat-go {
+  background: #06c755;
+}
+
+.dock.is-line {
+  background: #06c755;
+}
+
+.dock.is-wa {
+  background: #1faa59;
+}
+
+@media (max-width: 980px) {
+  .top .btn-wa,
+  .top .btn-line {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .lang-switch {
+    margin-left: auto;
+  }
+}
