@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Kai'n Koa Adventures">
+  <circle cx="120" cy="120" r="120" fill="#fff"/>
+  <circle cx="168" cy="62" r="18" fill="#e07a54"/>
+  <path d="M36 150c22-10 48-28 84-28s62 18 84 28c-20 22-50 36-84 36s-64-14-84-36z" fill="#152238"/>
+  <path d="M58 148c16 8 38 14 62 14s46-6 62-14" fill="none" stroke="#e07a54" stroke-width="6" stroke-linecap="round"/>
+  <text x="120" y="118" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="42" fill="#152238">K</text>
+</svg>
