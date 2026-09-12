@@ -1,18 +1,18 @@
 :root {
-  --night: #211c18;
-  --panel: #2a231c;
-  --paper: #f7f1e6;
-  --ink: #1a1714;
-  --mute: #6b6258;
-  --line: #d9cbb4;
-  --orange: #c4532a;
-  --accent: #c4532a;
-  --orange-ink: #8a3a1c;
-  --foam: #faf6ef;
-  --green: #c4532a;
-  --leaf: #d9784a;
-  --teak: #c4532a;
-  --cream: #f7f1e6;
+  --night: #0d2340;
+  --panel: #16325a;
+  --paper: #f4f6f8;
+  --ink: #0d2340;
+  --mute: #5a6578;
+  --line: #d5dbe3;
+  --orange: #f0a014;
+  --accent: #f0a014;
+  --orange-ink: #c47d08;
+  --foam: #f7f8fa;
+  --green: #f0a014;
+  --leaf: #f0a014;
+  --teak: #0d2340;
+  --cream: #f4f6f8;
   --serif: "Archivo Narrow", "Arial Narrow", sans-serif;
   --sans: "Source Sans 3", "Segoe UI", sans-serif;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -481,6 +481,14 @@ h1 {
   font-style: italic;
   font-weight: 500;
   color: var(--accent);
+}
+
+.hero.is-split .hero-tag {
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+}
+
+.hero.is-split .hero-tag em {
+  color: var(--ink);
 }
 
 .lede {
@@ -1143,7 +1151,7 @@ blockquote {
 }
 
 .foot {
-  background: #0a0e11;
+  background: #09182c;
   color: #8b969c;
   padding: 1.4rem 1.2rem 5.5rem;
   text-align: center;
@@ -1996,6 +2004,46 @@ body.order-chat-open {
 }
 
 .wave-mark,
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.brand-mark img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  flex: 0 0 auto;
+}
+
+.brand-mark .two,
+.lockup .two {
+  color: var(--accent);
+}
+
+.lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: clamp(3rem, 7.5vw, 5.2rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+}
+
+.lockup .adv {
+  display: block;
+  margin-top: 0.12em;
+  font-size: 0.42em;
+  letter-spacing: 0.18em;
+}
+
+.foot .brand-mark img {
+  width: 52px;
+  height: 52px;
+}
+
 .kayak-mark {
   display: inline-flex;
   align-items: center;
