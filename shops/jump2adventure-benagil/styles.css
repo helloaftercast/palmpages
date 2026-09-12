@@ -238,7 +238,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 42%;
+  object-position: 50% 38%;
 }
 
 .hero.is-playing .hero-stage {
@@ -387,6 +387,18 @@ a {
 
 .hero.is-split .hero-stage img {
   object-position: 50% 48%;
+}
+
+.hero .lockup {
+  color: var(--foam);
+}
+
+.hero .hero-tag em {
+  color: #f4eee4;
+}
+
+.hero .fare-line span {
+  color: #c9d0d4;
 }
 
 .hero.is-split .lede {
@@ -2024,25 +2036,35 @@ body.order-chat-open {
   flex: 0 0 auto;
 }
 
+.brand-mark .word,
+.lockup .word,
+.lockup {
+  font-family: "Fraunces", "Palatino Linotype", Palatino, serif;
+  font-style: italic;
+  font-weight: 650;
+}
+
 .brand-mark .two,
 .lockup .two {
   color: var(--accent);
+  font-style: italic;
 }
 
 .lockup {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: clamp(3rem, 7.5vw, 5.2rem);
-  line-height: 0.88;
-  letter-spacing: 0.02em;
+  font-size: clamp(3.2rem, 8vw, 5.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
 }
 
 .lockup .adv {
   display: block;
-  margin-top: 0.12em;
-  font-size: 0.42em;
-  letter-spacing: 0.18em;
+  margin-top: 0.08em;
+  font-size: 0.38em;
+  letter-spacing: 0.12em;
+  font-style: italic;
 }
 
 .foot .brand-mark img {
