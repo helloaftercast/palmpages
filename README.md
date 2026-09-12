@@ -2,7 +2,9 @@
 
 Live domain: **https://palmpages.com**
 
-Static one-page site for restaurant websites (draft-first, WhatsApp orders).
+Static one-page site for restaurant and outdoor-operator websites (draft-first, WhatsApp orders/bookings).
+
+Draft shop (noindex): [`/shops/jump2adventure-benagil/`](https://palmpages.com/shops/jump2adventure-benagil/) — Benagil kayak, EN/PT, WhatsApp booking.
 
 ## Custom domain
 
@@ -26,8 +28,12 @@ Already on the live site:
 - Canonical, Open Graph, Twitter Card (`/assets/og.png`)
 - JSON-LD: Organization + WebSite + WebPage + ProfessionalService + FAQPage
 - `/sitemap.xml` and `/robots.txt` (draft shops under `/shops/` are `noindex`)
+- Local-language landings (not English SEO pages):
+  - [`/th/`](https://palmpages.com/th/) Thai: รับทำเว็บไซต์ร้านอาหาร, สั่งผ่าน LINE, สมุย / ภูเก็ต / กระบี่ / พัทยา / เชียงใหม่ / กรุงเทพ
+  - [`/vi/`](https://palmpages.com/vi/) Vietnamese: thiết kế website nhà hàng, đặt món Zalo, Đà Nẵng / Hội An / Nha Trang / Phú Quốc / Đà Lạt / Sài Gòn
+- `hreflang` en / th / vi / x-default on all three URLs
 
-After deploy: submit `https://palmpages.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) and Bing Webmaster Tools.
+After deploy: resubmit `https://palmpages.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console). In GSC, set homepage targeting if asked; Thai/Vietnamese pages carry `lang` + `geo.region`.
 
 ## Traffic
 

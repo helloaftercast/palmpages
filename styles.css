@@ -132,19 +132,19 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
 }
 .brand:hover img { transform: scale(1.05) rotate(-2deg); }
 .brand.is-pop img { animation: pop .45s ease; }
-.top nav {
+.top .nav-main {
   margin-left: auto;
   display: flex;
   gap: 1.6rem;
 }
-.top nav a {
+.top .nav-main a {
   color: var(--muted);
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
   position: relative;
 }
-.top nav a::after {
+.top .nav-main a::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: -6px;
@@ -154,9 +154,51 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
   transform-origin: left;
   transition: transform .2s ease;
 }
-.top nav a:hover { color: #fff; }
-.top nav a:hover::after { transform: scaleX(1); }
+.top .nav-main a:hover { color: #fff; }
+.top .nav-main a:hover::after { transform: scaleX(1); }
 .top .btn { padding: 0.6rem 1.15rem; font-size: 0.92rem; }
+
+.langs {
+  display: flex;
+  gap: 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.top .langs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.top .langs a[aria-current="page"],
+.top .langs a:hover { color: #fff; }
+
+html[lang="th"] body,
+html[lang="th"] h1,
+html[lang="th"] h2,
+html[lang="th"] h3,
+html[lang="th"] .btn,
+html[lang="th"] .eyebrow,
+html[lang="th"] .lede {
+  font-family: "IBM Plex Sans Thai", Inter, sans-serif;
+}
+html[lang="th"] h1,
+html[lang="th"] h2 {
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.places {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.places article {
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.3rem 1.1rem;
+}
+.places h3 { margin-bottom: 0.35em; }
+.places p { margin: 0; font-size: 0.95rem; }
 
 /* ---------- hero ---------- */
 
@@ -485,6 +527,8 @@ body.demo-open { overflow: hidden; }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
 }
+
+.live + .live { margin-top: 1.4rem; }
 
 .live {
   display: grid;
@@ -988,6 +1032,170 @@ footer {
 footer .brand { margin-bottom: 0.8rem; }
 footer .brand img { height: 26px; }
 footer p { margin: 0.2rem 0; }
+footer a { color: #7E9DA2; }
+footer a:hover { color: #fff; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 1.6rem 2rem;
+  align-items: start;
+}
+
+/* ---------- pain / commission ---------- */
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  align-items: stretch;
+}
+.quote {
+  margin: 0;
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.7rem;
+}
+.quote p {
+  font-family: Poppins, sans-serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+.quote footer {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--body);
+  font-size: 0.92rem;
+}
+.take {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.5rem;
+}
+.take-label {
+  font-family: Poppins, sans-serif;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0 0 1rem;
+}
+.take-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.take-row b { color: var(--ink); white-space: nowrap; }
+.take-row.is-us {
+  background: var(--mist);
+  margin: 0 -0.6rem;
+  padding: 0.85rem 0.6rem;
+  border-radius: 10px;
+  border-top: 0;
+}
+.take-row.is-us b { color: var(--coral); }
+.take-note { margin: 1rem 0 0; font-size: 0.9rem; }
+
+/* ---------- four pieces ---------- */
+
+.pieces {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+.piece {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.25rem 1.5rem;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.piece:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(16,58,68,.08);
+}
+.piece span {
+  font-family: Poppins, sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--coral);
+}
+.piece h3 { margin: 0.45rem 0 0.4rem; }
+.piece p { margin: 0; font-size: 0.94rem; }
+
+/* ---------- two trades ---------- */
+
+.trades { background: var(--mist); }
+.trade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+.trade {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.7rem 1.6rem 1.8rem;
+}
+.trade h3 { font-size: 1.28rem; }
+.trade ul { margin: 0.8rem 0 0; padding-left: 1.15rem; }
+.trade li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+
+/* ---------- diagnostic ---------- */
+
+.check { background: var(--cream); }
+.check-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 0.9rem 1rem;
+  align-items: end;
+  max-width: 920px;
+}
+.check-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.check-form input,
+.check-form select {
+  font: inherit;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+}
+.check-form input:focus,
+.check-form select:focus {
+  outline: none;
+  border-color: var(--coral);
+}
+.check-form .btn { white-space: nowrap; }
+.check-hint,
+.check-local {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.92rem;
+}
+.check-local {
+  background: var(--mist);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  color: var(--ink);
+}
 
 /* ---------- ticker (competitor-style marquee) ---------- */
 
@@ -1057,9 +1265,22 @@ tbody tr:hover { background: var(--mist); }
   }
 }
 
+@media (max-width: 1100px) {
+  .pieces { grid-template-columns: 1fr 1fr; }
+  .check-form { grid-template-columns: 1fr 1fr; }
+  .check-form .btn { justify-self: start; }
+}
+
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; }
   .preview-slot { order: -1; }
-  .top nav { display: none; }
+  .top .nav-main { display: none; }
   .stats { gap: 1.6rem; }
+  .places { grid-template-columns: 1fr; }
+  .pain-grid,
+  .pieces,
+  .trade-grid,
+  .check-form,
+  .footer-grid { grid-template-columns: 1fr; }
+  .check-form .btn { justify-self: start; }
 }

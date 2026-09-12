@@ -81,11 +81,11 @@
         });
         return;
       }
-      var lines = ["Hi! I'd like to order:"];
+      var lines = ["Hi! I'd like:"];
       picked.forEach(function (it) {
         lines.push("1\u00d7 " + it.children[0].textContent + " \u2014 " + it.children[1].textContent);
       });
-      lines.push("Total $" + total(), "Table 4, thanks!");
+      lines.push("Total $" + total(), "Thanks!");
       var text = lines.join("\n");
 
       demo.classList.add("is-chat");
@@ -249,5 +249,44 @@
     zero.classList.remove("is-tick");
     void box.offsetWidth;
     play();
+  });
+})();
+
+(function () {
+  var form = document.querySelector("[data-check]");
+  if (!form) return;
+  var note = form.querySelector("[data-check-note]");
+  var hints = {
+    restaurant: form.getAttribute("data-hint-restaurant") ||
+      "For restaurants, the first screen is often Grab, TheFork, or a Facebook page. We will say who sits there.",
+    outdoor: form.getAttribute("data-hint-outdoor") ||
+      "For kayak, surf and boat trips, GetYourGuide and Viator often own the name. We will say if that is you.",
+    other: form.getAttribute("data-hint-other") ||
+      "We will search the name as a guest would, then tell you who owns that first screen."
+  };
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = (form.elements.name.value || "").trim();
+    var city = (form.elements.city.value || "").trim();
+    var type = form.elements.type.value;
+    if (!name || !city || !type) {
+      form.reportValidity();
+      return;
+    }
+    if (note) {
+      note.hidden = false;
+      note.textContent = hints[type] || hints.other;
+    }
+    var subject = "Who owns the search for " + name + " (" + city + ")";
+    var body = [
+      "Business: " + name,
+      "City: " + city,
+      "Type: " + type,
+      "",
+      "Please check who ranks first for this name — our site, Maps, Grab / TheFork / GetYourGuide / Viator — and say if a one-page draft is worth building."
+    ].join("\n");
+    window.location.href = "mailto:hello@palmpages.com?subject=" +
+      encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   });
 })();
