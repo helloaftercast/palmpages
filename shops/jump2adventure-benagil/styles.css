@@ -386,7 +386,7 @@ a {
 }
 
 .hero.is-split .hero-stage img {
-  object-position: 50% 60%;
+  object-position: 50% 48%;
 }
 
 .hero.is-split .lede {
@@ -1218,6 +1218,12 @@ blockquote {
   .quotes li:hover,
   .shots button:hover span:not(.photo-veil) {
     transform: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .steps {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
