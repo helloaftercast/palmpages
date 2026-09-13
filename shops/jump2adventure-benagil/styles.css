@@ -2259,27 +2259,27 @@ body.order-chat-open {
 
 .launch-cal-pick {
   display: grid;
-  grid-template-columns: minmax(16rem, 22rem) minmax(11rem, 14rem);
-  gap: 1rem;
+  grid-template-columns: minmax(11rem, 14rem) minmax(11rem, 14rem);
+  gap: 0.5rem;
   align-items: stretch;
   justify-content: start;
 }
 
 .launch-cal-days-wrap {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: y proximity;
   scrollbar-width: thin;
-  padding: 0.15rem 0 0.45rem;
-  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 1.5rem), transparent);
+  max-height: 8.4rem;
+  mask-image: linear-gradient(#000, #000 calc(100% - 1.1rem), transparent);
 }
 
 .launch-cal-days {
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
-  width: max-content;
 }
 
 .launch-cal-day {
@@ -2289,8 +2289,9 @@ body.order-chat-open {
   align-items: center;
   justify-content: center;
   gap: 0.15rem;
-  min-width: 4.6rem;
-  padding: 0.65rem 0.7rem;
+  width: 100%;
+  min-height: 3.95rem;
+  padding: 0.55rem 0.4rem;
   border: 1px solid var(--line);
   background: var(--foam);
   color: var(--ink);
@@ -2329,10 +2330,12 @@ body.order-chat-open {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-height: 8.4rem;
 }
 
 .launch-cal-slot {
   appearance: none;
+  flex: 1;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--ink);
@@ -2364,16 +2367,13 @@ body.order-chat-open {
 
 @media (max-width: 860px) {
   .launch-cal-pick {
-    grid-template-columns: 1fr;
-  }
-
-  .launch-cal-slots {
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
+    max-width: 28rem;
   }
 
   .launch-cal-slot {
-    flex: 1;
     text-align: center;
+    padding: 0.75rem 0.6rem;
   }
 }
 

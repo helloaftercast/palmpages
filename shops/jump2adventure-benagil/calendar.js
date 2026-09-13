@@ -162,7 +162,7 @@
     render();
     var chip = daysEl && daysEl.querySelector('[data-day="' + day + '"]');
     if (chip && chip.scrollIntoView) {
-      chip.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+      chip.scrollIntoView({ block: "nearest", behavior: "smooth" });
     }
   }
 
@@ -212,19 +212,19 @@
       empty.className = "launch-cal-empty";
       empty.textContent = isPt()
         ? "Este dia já não tem saída. Deslizem para outro."
-        : "No launch left this day. Swipe to another.";
+        : "No launch left this day. Scroll to another.";
       slotsEl.appendChild(empty);
     }
 
     if (statusEl) {
       if (!data.busy.length) {
         statusEl.textContent = isPt()
-          ? "Deslizem o dia. Manhã 09:30, tarde 14:00. Ainda não há saídas marcadas como ocupadas. Não é o Peek."
-          : "Swipe the day. Morning 09:30, afternoon 14:00. None marked taken. Not Peek.";
+          ? "Deslizem os dias para cima. Manhã 09:30, tarde 14:00. Ainda não há saídas marcadas como ocupadas. Não é o Peek."
+          : "Scroll the days. Morning 09:30, afternoon 14:00. None marked taken. Not Peek.";
       } else {
         statusEl.textContent = isPt()
-          ? "Deslizem o dia. Cinzento = essa saída parece ocupada. Não é em tempo real."
-          : "Swipe the day. Grey = that launch looks taken. Not live.";
+          ? "Deslizem os dias para cima. Cinzento = essa saída parece ocupada. Não é em tempo real."
+          : "Scroll the days. Grey = that launch looks taken. Not live.";
       }
     }
 
