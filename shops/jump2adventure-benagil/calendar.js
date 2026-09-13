@@ -162,13 +162,51 @@
     render();
   }
 
+  function daysWrap() {
+    return daysEl && daysEl.closest(".launch-cal-days-wrap");
+  }
+
+  function railEl() {
+    return root.querySelector("[data-cal-rail]");
+  }
+
   function dayStep() {
-    var wrap = daysEl && daysEl.parentElement;
+    var wrap = daysWrap();
     if (!wrap) return 0;
     var first = wrap.querySelector("li");
     var next = first && first.nextElementSibling;
     if (first && next) return next.offsetTop - first.offsetTop;
     return first ? first.offsetHeight : 0;
+  }
+
+  function syncRail() {
+    var wrap = daysWrap();
+    var rail = railEl();
+    if (!wrap || !rail) return;
+    var max = Math.max(0, wrap.scrollHeight - wrap.clientHeight);
+    var canUp = wrap.scrollTop > 3;
+    var canDown = wrap.scrollTop < max - 3;
+    rail.classList.toggle("is-can-up", canUp);
+    rail.classList.toggle("is-can-down", canDown);
+    var up = rail.querySelector("[data-cal-up]");
+    var down = rail.querySelector("[data-cal-down]");
+    if (up) {
+      up.hidden = !canUp;
+      up.setAttribute("aria-label", isPt() ? "Dias anteriores" : "Earlier days");
+    }
+    if (down) {
+      down.hidden = !canDown;
+      down.setAttribute("aria-label", isPt() ? "Dias seguintes" : "Later days");
+    }
+  }
+
+  function stepDays(dir) {
+    var wrap = daysWrap();
+    var step = dayStep();
+    if (!wrap || !step) return;
+    var max = wrap.scrollHeight - wrap.clientHeight;
+    glide(wrap, Math.max(0, Math.min(max, wrap.scrollTop + dir * step)), 320);
+    window.setTimeout(syncRail, 330);
   }
 
   function easeOut(t) {
@@ -193,10 +231,16 @@
   }
 
   function bindDayScroll() {
-    var wrap = daysEl && daysEl.parentElement;
+    var wrap = daysWrap();
+    var rail = railEl();
     if (!wrap || wrap.dataset.bound === "1") return;
     wrap.dataset.bound = "1";
     var locked = false;
+    function markMoved() {
+      if (rail) rail.classList.add("has-moved");
+      syncRail();
+    }
+    wrap.addEventListener("scroll", syncRail, { passive: true });
     wrap.addEventListener("wheel", function (e) {
       if (!e.deltaY) return;
       e.preventDefault();
@@ -207,13 +251,21 @@
       var max = wrap.scrollHeight - wrap.clientHeight;
       var next = Math.max(0, Math.min(max, wrap.scrollTop + (e.deltaY > 0 ? step : -step)));
       glide(wrap, next, 320);
+      markMoved();
       window.setTimeout(function () { locked = false; }, 300);
     }, { passive: false });
+    if (rail) {
+      var up = rail.querySelector("[data-cal-up]");
+      var down = rail.querySelector("[data-cal-down]");
+      if (up) up.addEventListener("click", function () { stepDays(-1); markMoved(); });
+      if (down) down.addEventListener("click", function () { stepDays(1); markMoved(); });
+    }
+    syncRail();
   }
 
   function render() {
     if (!daysEl || !slotsEl) return;
-    var wrap = daysEl.parentElement;
+    var wrap = daysWrap();
     var keepY = wrap ? wrap.scrollTop : 0;
     var now = lisbonNowParts();
     var days = visibleDays(now);
@@ -240,6 +292,7 @@
     });
     if (wrap) wrap.scrollTop = keepY;
     bindDayScroll();
+    syncRail();
 
     slotsEl.innerHTML = "";
     if (!selectedDay) return;

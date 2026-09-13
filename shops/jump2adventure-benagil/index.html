@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Guided kayak to Benagil cave and the Marinha arches. About two hours from Lagoa. 09:30 and 14:00 if the sea allows. Book on WhatsApp.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=j2a12">
+  <link rel="stylesheet" href="styles.css?v=j2a13">
   <link rel="stylesheet" href="fx.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,8 +216,17 @@
       <div class="launch-cal" data-availability="availability.json" data-availability-api="/availability/jump2adventure-benagil">
         <p class="launch-cal-status" data-cal-status></p>
         <div class="launch-cal-pick">
-          <div class="launch-cal-days-wrap">
-            <ol class="launch-cal-days" data-cal-days></ol>
+          <div class="launch-cal-days-rail" data-cal-rail>
+            <button type="button" class="launch-cal-nudge is-up" data-cal-up aria-label="Earlier days" hidden>
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="launch-cal-days-wrap">
+              <ol class="launch-cal-days" data-cal-days></ol>
+            </div>
+            <div class="launch-cal-fade is-top" aria-hidden="true"></div>
+            <button type="button" class="launch-cal-nudge is-down" data-cal-down aria-label="Later days">
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
           <div class="launch-cal-slots" data-cal-slots></div>
         </div>
@@ -402,7 +411,7 @@
   <script src="lang.js"></script>
   <script src="hero.js?v=pan2"></script>
   <script src="zoom.js"></script>
-  <script src="calendar.js?v=cal6"></script>
+  <script src="calendar.js?v=cal7"></script>
   <script src="book.js?v=j2a3"></script>
   <script src="order-fx.js?v=fx2"></script>
   <script src="fx.js?v=1"></script>

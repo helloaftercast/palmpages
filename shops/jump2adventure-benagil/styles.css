@@ -2268,18 +2268,101 @@ body.order-chat-open {
   justify-content: start;
 }
 
+.launch-cal-days-rail {
+  --cal-peek: 2.55rem;
+  position: relative;
+}
+
 .launch-cal-days-wrap {
-  height: var(--cal-pane);
+  position: relative;
+  z-index: 1;
+  height: calc(var(--cal-pane) + var(--cal-peek));
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
+  touch-action: pan-y;
+  mask-image: linear-gradient(#000 0 var(--cal-pane), rgba(0, 0, 0, 0.62) calc(var(--cal-pane) + 1.35rem), transparent);
 }
 
 .launch-cal-days-wrap::-webkit-scrollbar {
   display: none;
+}
+
+.launch-cal-days-rail:not(.is-can-down) .launch-cal-days-wrap {
+  height: var(--cal-pane);
+  mask-image: none;
+}
+
+.launch-cal-fade {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  height: 1.15rem;
+  opacity: 0;
+  transition: opacity 0.22s var(--ease);
+}
+
+.launch-cal-fade.is-top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--paper), transparent);
+}
+
+.launch-cal-fade.is-bot {
+  display: none;
+}
+
+.launch-cal-days-rail.is-can-up .launch-cal-fade.is-top {
+  opacity: 1;
+}
+
+.launch-cal-nudge {
+  appearance: none;
+  position: absolute;
+  left: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--night);
+  box-shadow: 0 6px 16px rgba(13, 35, 64, 0.14);
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.launch-cal-nudge.is-up {
+  top: -0.55rem;
+}
+
+.launch-cal-nudge.is-down {
+  bottom: 0.55rem;
+}
+
+.launch-cal-nudge[hidden] {
+  display: none;
+}
+
+.launch-cal-nudge:hover {
+  border-color: var(--orange);
+  color: var(--orange-ink);
+}
+
+.launch-cal-nudge svg {
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+.launch-cal-days-rail.is-can-down:not(.has-moved) .launch-cal-nudge.is-down {
+  animation: cal-nudge 1.15s var(--ease) infinite;
 }
 
 .launch-cal-days {
@@ -2314,7 +2397,7 @@ body.order-chat-open {
   color: var(--ink);
   font: inherit;
   cursor: pointer;
-  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
 }
 
 .launch-cal-day b {
@@ -2333,7 +2416,6 @@ body.order-chat-open {
   background: var(--night);
   border-color: var(--night);
   color: #fff;
-  transform: scale(1.02);
 }
 
 .launch-cal-day.is-on span {
@@ -2422,6 +2504,15 @@ body.order-chat-open {
   .launch-cal-day.is-on {
     transform: none;
   }
+
+  .launch-cal-days-rail.is-can-down:not(.has-moved) .launch-cal-nudge.is-down {
+    animation: none;
+  }
+}
+
+@keyframes cal-nudge {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(5px); }
 }
 
 .dock {
