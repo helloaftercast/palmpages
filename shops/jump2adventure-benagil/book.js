@@ -9,11 +9,12 @@
   var form = document.querySelector("[data-form]");
   var dayEl = form && form.elements.namedItem("day");
   var slotEl = form && form.elements.namedItem("slot");
-  var dock = document.querySelector("[data-bag-dock]");
+  var warnEl = document.querySelector("[data-warn]");
   var reserveDock = document.querySelector("[data-reserve-dock]");
   var chatLayer = document.querySelector("[data-order-chat]");
   var cart = [];
   var busySet = Object.create(null);
+  var bookVisible = false;
 
   function markBusy(list) {
     busySet = Object.create(null);
@@ -127,14 +128,24 @@
     return waHref(text);
   }
 
+  function dockLabel() {
+    var n = count();
+    var priced = pricedTotal();
+    if (!n) return isPt() ? "Reservar no WhatsApp" : "Book on WhatsApp";
+    var extra = hasAsk()
+      ? (priced > 0 ? money(priced) + (isPt() ? " + a confirmar" : " + ask") : (isPt() ? "a confirmar" : "ask"))
+      : money(priced);
+    return (isPt() ? "Enviar no WhatsApp · " : "Send on WhatsApp · ") + extra;
+  }
+
   function syncDock() {
     if (!reserveDock) return;
     var widget = bookingConfig().checkout === "widget";
-    reserveDock.href = bookHref(greet());
+    reserveDock.classList.toggle("is-wa", !widget);
     reserveDock.textContent = widget
       ? (isPt() ? "Reservar" : "Book")
-      : (isPt() ? "WhatsApp para reservar" : "WhatsApp to book");
-    reserveDock.classList.toggle("is-wa", !widget);
+      : dockLabel();
+    reserveDock.href = widget ? (bookingConfig().widgetUrl || "#book") : "#book";
     if (widget) reserveDock.setAttribute("rel", "noopener");
     else reserveDock.removeAttribute("rel");
   }
@@ -150,6 +161,7 @@
       price: item.price,
       qty: 1
     });
+    clearBad();
     render();
   }
 
@@ -187,26 +199,9 @@
   }
 
   function renderDock() {
-    var n = count();
-    if (reserveDock) reserveDock.hidden = n > 0;
-    if (!dock) return;
-    if (n === 0) {
-      dock.hidden = true;
-      return;
-    }
-    dock.hidden = false;
-    var priced = pricedTotal();
-    var label;
-    if (isPt()) {
-      label = hasAsk()
-        ? (priced > 0 ? "Reserva · " + n + " · " + money(priced) + " + a confirmar" : "Reserva · " + n + " · a confirmar")
-        : "Reserva · " + n + " · " + money(priced);
-    } else {
-      label = hasAsk()
-        ? (priced > 0 ? "Book · " + n + " · " + money(priced) + " + ask" : "Book · " + n + " · ask")
-        : "Book · " + n + " · " + money(priced);
-    }
-    dock.textContent = label;
+    if (!reserveDock) return;
+    syncDock();
+    reserveDock.hidden = bookVisible;
   }
 
   function render() {
@@ -232,8 +227,123 @@
     syncDock();
   }
 
+  function minutes(hhmm) {
+    var bits = hhmm.split(":");
+    return Number(bits[0]) * 60 + Number(bits[1]);
+  }
+
+  function openSlotsForDay(day) {
+    var now = lisbonParts(new Date());
+    var today = ymd(now);
+    var nowMin = minutes(now.hour + ":" + now.minute) + LEAD_MIN;
+    return SLOTS.filter(function (slot) {
+      if (day === today && minutes(slot) < nowMin) return false;
+      if (isBusy(day, slot)) return false;
+      return true;
+    });
+  }
+
+  function firstOpenDay() {
+    var now = lisbonParts(new Date());
+    var start = new Date(Date.UTC(Number(now.y), Number(now.m) - 1, Number(now.d)));
+    for (var i = 0; i < 12; i += 1) {
+      var iso = new Date(start.getTime() + i * 86400000).toISOString().slice(0, 10);
+      if (openSlotsForDay(iso).length) return iso;
+    }
+    return "";
+  }
+
+  function showWarn(msg) {
+    if (!warnEl) return;
+    warnEl.textContent = msg || "";
+    warnEl.hidden = !msg;
+  }
+
+  function clearBad() {
+    document.querySelectorAll(".is-bad").forEach(function (n) {
+      n.classList.remove("is-bad");
+      n.removeAttribute("aria-invalid");
+    });
+    showWarn("");
+  }
+
+  function focusBad(el, msg) {
+    clearBad();
+    showWarn(msg);
+    if (!el) return;
+    el.classList.add("is-bad");
+    if (el.setAttribute) el.setAttribute("aria-invalid", "true");
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(function () {
+      if (typeof el.focus !== "function") return;
+      try { el.focus({ preventScroll: true }); } catch (err) { el.focus(); }
+    }, 280);
+  }
+
+  function firstError() {
+    if (!form) return null;
+    if (!cart.length) {
+      return {
+        el: document.querySelector(".order-places") || document.getElementById("book"),
+        msg: isPt() ? "Toquem num lugar acima primeiro." : "Tap a place above first."
+      };
+    }
+    if (!form.name.value.trim()) {
+      return { el: form.name, msg: isPt() ? "Escrevam o vosso nome." : "Write your name." };
+    }
+    var digits = String(form.phone.value || "").replace(/\D/g, "");
+    if (digits.length < 8) {
+      return {
+        el: form.phone,
+        msg: isPt() ? "Escrevam um WhatsApp que possamos alcançar." : "Write a WhatsApp number we can reach."
+      };
+    }
+    if (!dayEl || !dayEl.value || !openSlotsForDay(dayEl.value).length) {
+      return {
+        el: dayEl,
+        msg: isPt()
+          ? "Este dia já não tem saída. Escolham outro dia."
+          : "This day has no launch left. Pick another day."
+      };
+    }
+    if (!slotEl || !slotEl.value) {
+      return {
+        el: slotEl,
+        msg: isPt() ? "Escolham a manhã ou a tarde." : "Pick morning or afternoon."
+      };
+    }
+    return null;
+  }
+
+  function sendBooking() {
+    var bad = firstError();
+    if (bad) {
+      focusBad(bad.el, bad.msg);
+      return false;
+    }
+    clearBad();
+    var cfg = bookingConfig();
+    if (cfg.checkout === "widget") {
+      window.location.href = cfg.widgetUrl;
+      return true;
+    }
+    var text = message({
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      people: form.people.value,
+      day: form.day.value,
+      slot: form.slot.value,
+      note: form.note.value.trim()
+    });
+    prepareChat();
+    if (window.playOrderChat) window.playOrderChat({ text: text, href: waHref(text), copy: !WA });
+    else window.location.href = waHref(text);
+    return true;
+  }
+
   function fillDays() {
     if (!dayEl) return;
+    var keep = dayEl.value;
     var now = lisbonParts(new Date());
     var start = new Date(Date.UTC(Number(now.y), Number(now.m) - 1, Number(now.d)));
     dayEl.innerHTML = "";
@@ -245,15 +355,19 @@
       var label = iso === ymd(now)
         ? (isPt() ? "Hoje, " + iso : "Today, " + iso)
         : iso;
-      if (dayTaken(iso)) label += isPt() ? " · ocupado" : " · taken";
+      if (dayTaken(iso) || !openSlotsForDay(iso).length) {
+        label += isPt() ? " · ocupado" : " · full";
+      }
       opt.textContent = label;
       dayEl.appendChild(opt);
     }
-  }
-
-  function minutes(hhmm) {
-    var bits = hhmm.split(":");
-    return Number(bits[0]) * 60 + Number(bits[1]);
+    // Land on a day that actually has a slot, so Send always works.
+    if (keep && openSlotsForDay(keep).length) {
+      dayEl.value = keep;
+    } else {
+      var open = firstOpenDay();
+      if (open) dayEl.value = open;
+    }
   }
 
   function fillSlots() {
@@ -369,30 +483,31 @@
       fillDays();
       fillSlots();
     } catch (err) {}
-    if (dayEl) dayEl.addEventListener("change", fillSlots);
+    if (dayEl) dayEl.addEventListener("change", function () {
+      clearBad();
+      fillSlots();
+    });
+    if (slotEl) slotEl.addEventListener("change", clearBad);
+    ["name", "phone"].forEach(function (field) {
+      if (form[field]) form[field].addEventListener("input", clearBad);
+    });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!cart.length) {
-        document.getElementById("book").scrollIntoView({ behavior: "smooth", block: "start" });
+      sendBooking();
+    });
+  }
+
+  if (reserveDock) {
+    reserveDock.addEventListener("click", function (e) {
+      if (bookingConfig().checkout === "widget") return;
+      e.preventDefault();
+      if (count() && !firstError()) {
+        sendBooking();
         return;
       }
-      if (!slotEl.value) return;
-      var cfg = bookingConfig();
-      if (cfg.checkout === "widget") {
-        window.location.href = cfg.widgetUrl;
-        return;
-      }
-      var text = message({
-        name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
-        people: form.people.value,
-        day: form.day.value,
-        slot: form.slot.value,
-        note: form.note.value.trim()
-      });
-      prepareChat();
-      if (window.playOrderChat) window.playOrderChat({ text: text, href: waHref(text), copy: !WA });
-      else window.location.href = waHref(text);
+      var bad = firstError();
+      if (bad) focusBad(bad.el, bad.msg);
+      else document.getElementById("book").scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
 
@@ -412,6 +527,14 @@
     } catch (err) {}
   });
   if (window.ppAvailability) markBusy(window.ppAvailability.busy);
+
+  var bookSection = document.getElementById("book");
+  if (bookSection && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      bookVisible = entries[0].isIntersecting;
+      renderDock();
+    }, { threshold: 0.12 }).observe(bookSection);
+  }
 
   render();
 })();

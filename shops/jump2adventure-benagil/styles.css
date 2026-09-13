@@ -825,6 +825,30 @@ button.sheet-for.is-added,
   color: var(--ink);
 }
 
+.order {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
+  background: var(--foam);
+  border: 1px solid var(--line);
+}
+
+.order-places,
+.order-ticket {
+  padding: 1.15rem 1.1rem 1.3rem;
+  min-width: 0;
+}
+
+.order-ticket {
+  border-left: 1px dashed var(--line);
+}
+
+.order-ticket h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.85rem;
+}
+
 .ticket {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -929,6 +953,24 @@ button.sheet-for.is-added,
   grid-column: 1 / -1;
   margin-top: 0.3rem;
   justify-self: start;
+}
+
+.ticket-warn {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #e2b4b4;
+  background: #fff4f4;
+  color: #8a2b2b;
+  font-size: 0.92rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.ticket-form .is-bad,
+.order-places.is-bad {
+  outline: 2px solid #c44747;
+  outline-offset: 2px;
 }
 
 .bag-dock {
@@ -1253,8 +1295,14 @@ blockquote {
   .shots,
   .sheet-grid,
   .ticket,
-  .ticket-form {
+  .ticket-form,
+  .order {
     grid-template-columns: 1fr;
+  }
+
+  .order-ticket {
+    border-left: 0;
+    border-top: 1px dashed var(--line);
   }
 
   .sheet-col + .sheet-col {
@@ -1325,7 +1373,7 @@ blockquote {
     position: fixed;
     left: 0.8rem;
     right: 0.8rem;
-    bottom: 0.8rem;
+    bottom: calc(0.8rem + env(safe-area-inset-bottom, 0px));
     z-index: 30;
     align-items: center;
     justify-content: center;
@@ -1348,7 +1396,7 @@ blockquote {
   .bag-dock {
     left: 0.8rem;
     right: 0.8rem;
-    bottom: 0.8rem;
+    bottom: calc(0.8rem + env(safe-area-inset-bottom, 0px));
   }
 }
 

@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Guided kayak to Benagil cave and the Marinha arches. About two hours from Lagoa. 09:30 and 14:00 if the sea allows. Book on WhatsApp.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=j2a13">
+  <link rel="stylesheet" href="styles.css?v=j2a15">
   <link rel="stylesheet" href="fx.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,7 @@
       <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" data-set-lang="pt" aria-pressed="false">PT</button>
     </div>
-    <a class="btn btn-wa" href="#book">WhatsApp</a>
+    <a class="btn btn-wa" href="#book" data-en="Book" data-pt="Reservar">Book</a>
   </header>
 
   <div class="sea-bar" role="status">
@@ -203,7 +203,7 @@
             </div>
           </dl>
           <div class="hero-actions">
-            <a class="btn btn-wa" href="#book" data-en="Send the booking" data-pt="Enviar a reserva">Send the booking</a>
+            <a class="btn btn-wa" href="#book" data-en="Book on WhatsApp" data-pt="Reservar no WhatsApp">Book on WhatsApp</a>
             <a class="btn btn-ghost" href="https://www.google.com/maps/search/Restaurante+O+Litoral+Lagoa" rel="noopener" data-en="Open in Maps" data-pt="Abrir no Maps">Open in Maps</a>
           </div>
         </div>
@@ -234,66 +234,60 @@
       </div>
     </section>
 
-    <section id="book" class="block menu-block">
+    <section id="book" class="block">
       <h2 data-en="Write the booking on your phone" data-pt="Escrevam a reserva no telemóvel">Write the booking on your phone</h2>
-      <p class="intro" data-en="Tap who is coming. Pick a day and a slot. The site writes the WhatsApp. No card. Taken launches are grey. WhatsApp still confirms." data-pt="Toquem em quem vem. Escolham o dia e o horário. O site escreve o WhatsApp. Sem cartão. As saídas ocupadas ficam cinzentas. O WhatsApp confirma.">Tap who is coming. Pick a day and a slot. The site writes the WhatsApp. No card. Taken launches are grey. WhatsApp still confirms.</p>
-      <div class="sheet">
-        <div class="sheet-grid">
-          <div class="sheet-col">
-            <p class="sheet-kicker">Jump2Adventure</p>
-            <h3 class="sheet-h" data-en="Places" data-pt="Lugares">Places</h3>
-            <ul class="sheet-list">
-              <li><button type="button" class="add add-line" data-add="1" data-id="adult" data-name-en="Adult place" data-name-pt="Lugar adulto" data-price="35"><span>Adult place</span><b>€35</b></button></li>
-              <li><button type="button" class="add add-line" data-add="1" data-id="child" data-name-en="Child under 12" data-name-pt="Criança até 12" data-price="20"><span>Child under 12</span><b>€20</b></button></li>
-              <li><button type="button" class="add add-line" data-add="1" data-id="private" data-name-en="Private group" data-name-pt="Grupo privado" data-price="0"><span>Private group</span><b data-en="ask" data-pt="a confirmar">ask</b></button></li>
-            </ul>
-          </div>
+      <p class="intro" data-en="Tap who is coming, pick a day and a time, then send it on WhatsApp. No card here — WhatsApp confirms the sea and the seat." data-pt="Toquem em quem vem, escolham o dia e a hora e enviem no WhatsApp. Sem cartão aqui — o WhatsApp confirma o mar e o lugar.">Tap who is coming, pick a day and a time, then send it on WhatsApp. No card here — WhatsApp confirms the sea and the seat.</p>
+      <div class="order" id="ticket">
+        <div class="order-places">
+          <p class="sheet-kicker">Jump2Adventure</p>
+          <h3 class="sheet-h" data-en="Places" data-pt="Lugares">Places</h3>
+          <ul class="sheet-list">
+            <li><button type="button" class="add add-line" data-add="1" data-id="adult" data-name-en="Adult place" data-name-pt="Lugar adulto" data-price="35"><span data-en="Adult place" data-pt="Lugar adulto">Adult place</span><b>€35</b></button></li>
+            <li><button type="button" class="add add-line" data-add="1" data-id="child" data-name-en="Child under 12" data-name-pt="Criança até 12" data-price="20"><span data-en="Child under 12" data-pt="Criança até 12">Child under 12</span><b>€20</b></button></li>
+            <li><button type="button" class="add add-line" data-add="1" data-id="private" data-name-en="Private group" data-name-pt="Grupo privado" data-price="0"><span data-en="Private group" data-pt="Grupo privado">Private group</span><b data-en="ask" data-pt="a confirmar">ask</b></button></li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <section class="block">
-      <div class="ticket" id="ticket">
-        <div class="ticket-bag">
+        <div class="order-ticket">
           <h3 data-en="Your booking" data-pt="A vossa reserva">Your booking</h3>
-          <p class="ticket-empty" data-empty data-en="Tap a place above." data-pt="Toquem num lugar acima.">Tap a place above.</p>
+          <p class="ticket-empty" data-empty data-en="Tap a place above to start." data-pt="Toquem num lugar acima para começar.">Tap a place above to start.</p>
           <ul class="ticket-lines" data-lines hidden></ul>
           <p class="ticket-sum" data-total hidden></p>
+          <form class="ticket-form" data-form novalidate>
+            <p class="ticket-warn" data-warn hidden></p>
+            <label>
+              <span data-en="Your name" data-pt="O vosso nome">Your name</span>
+              <input type="text" name="name" required autocomplete="name" data-en-placeholder="e.g. Marta" data-pt-placeholder="ex. Marta" placeholder="e.g. Marta">
+            </label>
+            <label>
+              <span data-en="Your WhatsApp" data-pt="O vosso WhatsApp">Your WhatsApp</span>
+              <input type="tel" name="phone" required autocomplete="tel" data-en-placeholder="+351 …" data-pt-placeholder="+351 …" placeholder="+351 …">
+            </label>
+            <label>
+              <span data-en="How many people" data-pt="Quantas pessoas">How many people</span>
+              <select name="people">
+                <option>1</option>
+                <option selected>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+              </select>
+            </label>
+            <label>
+              <span data-en="Day" data-pt="Dia">Day</span>
+              <select name="day"></select>
+            </label>
+            <label>
+              <span data-en="Launch" data-pt="Saída">Launch</span>
+              <select name="slot"></select>
+            </label>
+            <label class="ticket-notes">
+              <span data-en="Anything we should know" data-pt="Algo que devamos saber">Anything we should know</span>
+              <textarea name="note" rows="2" data-en-placeholder="First time, kids, hotel name…" data-pt-placeholder="Primeira vez, crianças, nome do hotel…" placeholder="First time, kids, hotel name…"></textarea>
+            </label>
+            <button class="btn btn-wa" type="submit" data-en="Send on WhatsApp" data-pt="Enviar no WhatsApp">Send on WhatsApp</button>
+          </form>
         </div>
-        <form class="ticket-form" data-form>
-          <label>
-            <span data-en="Your name" data-pt="O vosso nome">Your name</span>
-            <input type="text" name="name" required autocomplete="name" data-en-placeholder="e.g. Marta" data-pt-placeholder="ex. Marta" placeholder="e.g. Marta">
-          </label>
-          <label>
-            <span data-en="Your WhatsApp" data-pt="O vosso WhatsApp">Your WhatsApp</span>
-            <input type="tel" name="phone" required autocomplete="tel" data-en-placeholder="+351 …" data-pt-placeholder="+351 …" placeholder="+351 …">
-          </label>
-          <label>
-            <span data-en="How many people" data-pt="Quantas pessoas">How many people</span>
-            <select name="people">
-              <option>1</option>
-              <option selected>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-            </select>
-          </label>
-          <label>
-            <span data-en="Day" data-pt="Dia">Day</span>
-            <select name="day"></select>
-          </label>
-          <label>
-            <span data-en="Launch" data-pt="Saída">Launch</span>
-            <select name="slot"></select>
-          </label>
-          <label class="ticket-notes">
-            <span data-en="Anything we should know" data-pt="Algo que devamos saber">Anything we should know</span>
-            <textarea name="note" rows="2" data-en-placeholder="First time, kids, hotel name…" data-pt-placeholder="Primeira vez, crianças, nome do hotel…" placeholder="First time, kids, hotel name…"></textarea>
-          </label>
-          <button class="btn btn-wa" type="submit" data-en="Send on WhatsApp" data-pt="Enviar no WhatsApp">Send on WhatsApp</button>
-        </form>
       </div>
     </section>
 
@@ -383,8 +377,7 @@
     <p><a href="https://jump2adventure.com" rel="nofollow">jump2adventure.com</a> <span data-en="— already on their Instagram. That address does not open. This draft is what should live there." data-pt="— já está no Instagram deles. Esse endereço não abre. Este rascunho é o que deveria estar lá.">— already on their Instagram. That address does not open. This draft is what should live there.</span></p>
     <p><span data-en="WhatsApp from their Instagram: +351 936 242 322 · book +351 916 321 193." data-pt="WhatsApp do Instagram: +351 936 242 322 · reservas +351 916 321 193.">WhatsApp from their Instagram: +351 936 242 322 · book +351 916 321 193.</span> · <a href="https://www.instagram.com/jump2.adventure/" rel="noopener">@jump2.adventure</a> · <a href="https://www.facebook.com/people/Jump2adventure/100094498943487/" rel="noopener">Facebook</a></p>
   </footer>
-  <a class="dock is-wa" href="#book" data-reserve-dock>WhatsApp to book</a>
-  <a class="bag-dock" href="#book" hidden data-bag-dock>Book</a>
+  <a class="dock is-wa" href="#book" data-reserve-dock>Book on WhatsApp</a>
   <div class="zoom-layer" data-zoom-layer hidden>
     <div class="zoom-back" data-zoom-close></div>
     <img alt="">
@@ -412,8 +405,8 @@
   <script src="hero.js?v=pan2"></script>
   <script src="zoom.js"></script>
   <script src="calendar.js?v=cal7"></script>
-  <script src="book.js?v=j2a3"></script>
-  <script src="order-fx.js?v=fx2"></script>
+  <script src="book.js?v=j2a5"></script>
+  <script src="order-fx.js?v=fx3"></script>
   <script src="fx.js?v=1"></script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3ac2d6bcfa374b2fb5195c955411867a"}'></script>
 </body>
