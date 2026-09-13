@@ -33,3 +33,11 @@
 /shops/*
   X-Robots-Tag: noindex, nofollow
   Cache-Control: public, max-age=0, must-revalidate
+
+/shops/*/availability.json
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=300, must-revalidate
+
+/availability/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=900

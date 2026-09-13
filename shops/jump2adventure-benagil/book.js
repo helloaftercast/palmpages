@@ -13,6 +13,22 @@
   var reserveDock = document.querySelector("[data-reserve-dock]");
   var chatLayer = document.querySelector("[data-order-chat]");
   var cart = [];
+  var busySet = Object.create(null);
+
+  function markBusy(list) {
+    busySet = Object.create(null);
+    (list || []).forEach(function (key) {
+      busySet[key] = true;
+    });
+  }
+
+  function isBusy(day, slot) {
+    return Boolean(busySet[day] || (slot && busySet[day + "T" + slot]));
+  }
+
+  function dayTaken(day) {
+    return SLOTS.every(function (slot) { return isBusy(day, slot); });
+  }
 
   function lang() {
     return (window.getPpLang && window.getPpLang()) || document.documentElement.getAttribute("data-lang") || "en";
@@ -93,11 +109,34 @@
     return WA ? "https://wa.me/" + WA + q : "https://wa.me/" + q;
   }
 
+  function bookingConfig() {
+    var root = document.querySelector("[data-booking]");
+    if (!root) return { checkout: "whatsapp", widgetUrl: "" };
+    var checkout = (root.getAttribute("data-checkout") || "whatsapp").toLowerCase();
+    var signed = root.getAttribute("data-widget-signed-off") === "yes";
+    var url = (root.getAttribute("data-widget-url") || "").trim();
+    if (checkout === "widget" && signed && /^https:\/\//i.test(url)) {
+      return { checkout: "widget", widgetUrl: url };
+    }
+    return { checkout: "whatsapp", widgetUrl: "" };
+  }
+
+  function bookHref(text) {
+    var cfg = bookingConfig();
+    if (cfg.checkout === "widget") return cfg.widgetUrl;
+    return waHref(text);
+  }
+
   function syncDock() {
     if (!reserveDock) return;
-    reserveDock.href = waHref(greet());
-    reserveDock.textContent = isPt() ? "WhatsApp para reservar" : "WhatsApp to book";
-    reserveDock.classList.add("is-wa");
+    var widget = bookingConfig().checkout === "widget";
+    reserveDock.href = bookHref(greet());
+    reserveDock.textContent = widget
+      ? (isPt() ? "Reservar" : "Book")
+      : (isPt() ? "WhatsApp para reservar" : "WhatsApp to book");
+    reserveDock.classList.toggle("is-wa", !widget);
+    if (widget) reserveDock.setAttribute("rel", "noopener");
+    else reserveDock.removeAttribute("rel");
   }
 
   function add(item) {
@@ -203,9 +242,11 @@
       var iso = next.toISOString().slice(0, 10);
       var opt = document.createElement("option");
       opt.value = iso;
-      opt.textContent = iso === ymd(now)
+      var label = iso === ymd(now)
         ? (isPt() ? "Hoje, " + iso : "Today, " + iso)
         : iso;
+      if (dayTaken(iso)) label += isPt() ? " · ocupado" : " · taken";
+      opt.textContent = label;
       dayEl.appendChild(opt);
     }
   }
@@ -225,6 +266,7 @@
     slotEl.innerHTML = "";
     SLOTS.forEach(function (slot) {
       if (chosen === today && minutes(slot) < nowMin) return;
+      if (isBusy(chosen, slot)) return;
       var opt = document.createElement("option");
       opt.value = slot;
       opt.textContent = slot;
@@ -233,11 +275,15 @@
     if (!slotEl.options.length) {
       var opt = document.createElement("option");
       opt.value = "";
-      opt.textContent = isPt()
-        ? "Já passou o horário de hoje — escolha outro dia"
-        : "Today's slots have gone — pick another day";
+      opt.textContent = dayTaken(chosen)
+        ? (isPt()
+          ? "Estas saídas parecem ocupadas — outro dia, ou escrevam-nos"
+          : "These launches look taken — another day, or write us")
+        : (isPt()
+          ? "Já passou o horário de hoje — escolha outro dia"
+          : "Today's slots have gone — pick another day");
       slotEl.appendChild(opt);
-    } else if (keep) {
+    } else if (keep && !isBusy(chosen, keep)) {
       slotEl.value = keep;
     }
   }
@@ -331,6 +377,11 @@
         return;
       }
       if (!slotEl.value) return;
+      var cfg = bookingConfig();
+      if (cfg.checkout === "widget") {
+        window.location.href = cfg.widgetUrl;
+        return;
+      }
       var text = message({
         name: form.name.value.trim(),
         phone: form.phone.value.trim(),
@@ -352,6 +403,15 @@
     } catch (err) {}
     render();
   });
+
+  window.addEventListener("pp-availability", function (e) {
+    markBusy(e.detail && e.detail.busy);
+    try {
+      fillDays();
+      fillSlots();
+    } catch (err) {}
+  });
+  if (window.ppAvailability) markBusy(window.ppAvailability.busy);
 
   render();
 })();

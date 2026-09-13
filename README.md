@@ -6,6 +6,33 @@ Static one-page site for restaurant and outdoor-operator websites (draft-first, 
 
 Draft shop (noindex): [`/shops/jump2adventure-benagil/`](https://palmpages.com/shops/jump2adventure-benagil/) — Benagil kayak, EN/PT, WhatsApp booking.
 
+## Booking checkout (product boundary)
+
+**Default: WhatsApp.** The page writes the message. We do not take a card and we do not take a cut.
+
+**Optional: their existing official widget.** Book may open Peek / Bókun / FareHarbor only if they already have that account, they send the official embed URL or snippet, and they say yes in writing. Then checkout stays on that platform (they still pay the platform). Paste-the-widget is inside the page price — do not quote a booking-system fee.
+
+**Never:** Peek OCTO / Viator Supplier / Bókun or FareHarbor partner APIs; opening a new Peek / FH / Bókun account for them; remaining-seat counts; a calendar that looks live when it is not. Jump2 already has Peek — do not add FareHarbor.
+
+On a shop page the switch is on `<body>`:
+
+- `data-booking` `data-checkout="whatsapp"` — current Jump2
+- `data-checkout="widget"` + `data-widget-url="https://…"` + `data-widget-signed-off="yes"` — only after they send the official embed
+
+A Peek listing URL is not a widget. Leave the attributes empty until they send one.
+
+## Availability calendar (display only)
+
+Shop pages can show which days or launches **look taken**. They do not take the booking and they must not show remaining seats. No Peek / Viator / GetYourGuide API.
+
+1. **Hand list (Jump2 now).** Edit [`shops/jump2adventure-benagil/availability.json`](shops/jump2adventure-benagil/availability.json). Put `YYYY-MM-DD` for a whole day, or `YYYY-MM-DDT09:30` / `YYYY-MM-DDT14:00` for one launch. Do not put guest names.
+2. **iCal later.** Put the secret `.ics` URL in a Cloudflare env var `ICAL_URL_JUMP2ADVENTURE_BENAGIL` (see [`.dev.vars.example`](.dev.vars.example)). The Pages Function at `/availability/<shop>` fetches it server-side, drops names, and returns the same JSON. Never paste an iCal URL into HTML. iCal is a poor fit for kayak sold by seat — easy to mark a whole day wrong.
+3. The page says **last marked**, not live. WhatsApp still confirms unless they signed off on an official widget.
+
+```bash
+node tools/ical-to-busy.mjs tools/fixtures/sample-bookings.ics jump2adventure-benagil
+```
+
 ## Custom domain
 
 1. Cloudflare → **Workers & Pages** → project **palmpages**
