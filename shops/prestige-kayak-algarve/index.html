@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Small-group kayak from Praia Nova, Porches. Cliffs, photo stops, Captains' Cave. Up to 10 guests. Book on Airbnb until they put a number here.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=pka2">
+  <link rel="stylesheet" href="styles.css?v=pka4">
   <link rel="stylesheet" href="fx.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +41,7 @@
       <a href="#tour" data-en="The tour" data-pt="O passeio">The tour</a>
       <a href="#kit" data-en="Included" data-pt="Incluído">Included</a>
       <a href="#meet" data-en="Meeting point" data-pt="Encontro">Meeting point</a>
+      <a href="#dates" data-en="Dates" data-pt="Datas">Dates</a>
       <a href="#fares" data-en="Fares" data-pt="Preços">Fares</a>
       <a href="#book" data-en="Book" data-pt="Reservar">Book</a>
     </nav>
@@ -196,39 +197,55 @@
             </div>
           </dl>
           <div class="hero-actions">
-            <a class="btn btn-wa" href="#book" data-en="Write the booking" data-pt="Escrever a reserva">Write the booking</a>
+            <a class="btn btn-wa" href="#book" data-en="Book on Airbnb" data-pt="Reservar no Airbnb">Book on Airbnb</a>
             <a class="btn btn-ghost" href="https://www.google.com/maps/search/Praia+Nova+Porches+8400-498" rel="noopener" data-en="Open in Maps" data-pt="Abrir no Maps">Open in Maps</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="book" class="block menu-block">
-      <h2 data-en="Write the booking on your phone" data-pt="Escrevam a reserva no telemóvel">Write the booking on your phone</h2>
-      <p class="intro" data-en="They have no public WhatsApp. Tap who is coming. The site writes a message you paste on their Airbnb. No card, no third-party calendar on this page." data-pt="Não têm WhatsApp público. Toquem em quem vem. O site escreve a mensagem para colarem no Airbnb. Sem cartão, sem calendário de terceiros nesta página.">They have no public WhatsApp. Tap who is coming. The site writes a message you paste on their Airbnb. No card, no third-party calendar on this page.</p>
-      <div class="sheet">
-        <div class="sheet-grid">
-          <div class="sheet-col">
-            <p class="sheet-kicker">Prestige Kayak Algarve</p>
-            <h3 class="sheet-h" data-en="Places" data-pt="Lugares">Places</h3>
-            <ul class="sheet-list">
-              <li><button type="button" class="add add-line" data-add="1" data-id="guest" data-name-en="Guest place" data-name-pt="Lugar" data-price="0"><span>Guest place</span><b data-en="ask" data-pt="a confirmar">ask</b></button></li>
-              <li><button type="button" class="add add-line" data-add="1" data-id="private" data-name-en="Private group" data-name-pt="Grupo privado" data-price="0"><span>Private group</span><b data-en="ask" data-pt="a confirmar">ask</b></button></li>
-            </ul>
+    <section id="dates" class="block">
+      <h2 data-en="Which launches look taken" data-pt="Que saídas parecem ocupadas">Which launches look taken</h2>
+      <p class="intro" data-en="A note of days that already look full. Not live, not remaining seats. They still confirm the hour on Airbnb." data-pt="Uma nota dos dias que já parecem cheios. Não é em tempo real, não são lugares livres. Eles confirmam a hora no Airbnb.">A note of days that already look full. Not live, not remaining seats. They still confirm the hour on Airbnb.</p>
+      <div class="launch-cal" data-availability="availability.json" data-slots="morning,afternoon" data-empty-en="Scroll the days. Morning or afternoon — they confirm the hour. None marked taken. Not a live calendar." data-empty-pt="Deslizem os dias. Manhã ou tarde — eles confirmam a hora. Ainda não há saídas marcadas. Não é em tempo real." data-confirm-en="Confirm on Airbnb." data-confirm-pt="Confirmem no Airbnb.">
+        <p class="launch-cal-status" data-cal-status></p>
+        <div class="launch-cal-pick">
+          <div class="launch-cal-days-rail" data-cal-rail>
+            <button type="button" class="launch-cal-nudge is-up" data-cal-up aria-label="Earlier days" hidden>
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="launch-cal-days-wrap">
+              <ol class="launch-cal-days" data-cal-days></ol>
+            </div>
+            <div class="launch-cal-fade is-top" aria-hidden="true"></div>
+            <button type="button" class="launch-cal-nudge is-down" data-cal-down aria-label="Later days">
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
+          <div class="launch-cal-slots" data-cal-slots></div>
         </div>
+        <p class="note" data-cal-updated></p>
       </div>
     </section>
 
-    <section class="block">
-      <div class="ticket" id="ticket">
-        <div class="ticket-bag">
+    <section id="book" class="block">
+      <h2 data-en="Write the booking on your phone" data-pt="Escrevam a reserva no telemóvel">Write the booking on your phone</h2>
+      <p class="intro" data-en="They have no public WhatsApp. Tap who is coming, pick a day, then copy the message onto their Airbnb. No card here." data-pt="Não têm WhatsApp público. Toquem em quem vem, escolham o dia e colem a mensagem no Airbnb. Sem cartão aqui.">They have no public WhatsApp. Tap who is coming, pick a day, then copy the message onto their Airbnb. No card here.</p>
+      <div class="order" id="ticket">
+        <div class="order-places">
+          <p class="sheet-kicker">Prestige Kayak Algarve</p>
+          <h3 class="sheet-h" data-en="Places" data-pt="Lugares">Places</h3>
+          <ul class="sheet-list">
+            <li><button type="button" class="add add-line" data-add="1" data-id="guest" data-name-en="Guest place" data-name-pt="Lugar" data-price="0"><span data-en="Guest place" data-pt="Lugar">Guest place</span><b data-en="ask" data-pt="a confirmar">ask</b></button></li>
+            <li><button type="button" class="add add-line" data-add="1" data-id="private" data-name-en="Private group" data-name-pt="Grupo privado" data-price="0"><span data-en="Private group" data-pt="Grupo privado">Private group</span><b data-en="ask" data-pt="a confirmar">ask</b></button></li>
+          </ul>
+        </div>
+        <div class="order-ticket">
           <h3 data-en="Your booking" data-pt="A vossa reserva">Your booking</h3>
-          <p class="ticket-empty" data-empty data-en="Tap a place above." data-pt="Toquem num lugar acima.">Tap a place above.</p>
+          <p class="ticket-empty" data-empty data-en="Tap a place above to start." data-pt="Toquem num lugar acima para começar.">Tap a place above to start.</p>
           <ul class="ticket-lines" data-lines hidden></ul>
           <p class="ticket-sum" data-total hidden></p>
-        </div>
-        <form class="ticket-form" data-form>
+          <form class="ticket-form" data-form novalidate>
           <label>
             <span data-en="Your name" data-pt="O vosso nome">Your name</span>
             <input type="text" name="name" required autocomplete="name" data-en-placeholder="e.g. Marta" data-pt-placeholder="ex. Marta" placeholder="e.g. Marta">
@@ -264,8 +281,10 @@
             <span data-en="Anything we should know" data-pt="Algo que devamos saber">Anything we should know</span>
             <textarea name="note" rows="2" data-en-placeholder="First time, kids, hotel name…" data-pt-placeholder="Primeira vez, crianças, nome do hotel…" placeholder="First time, kids, hotel name…"></textarea>
           </label>
+          <p class="ticket-warn" data-warn hidden></p>
           <button class="btn btn-wa" type="submit" data-en="Copy and open Airbnb" data-pt="Copiar e abrir o Airbnb">Copy and open Airbnb</button>
         </form>
+        </div>
       </div>
     </section>
 
@@ -305,8 +324,7 @@
     <p data-en="No owned website found — 2026-09-13. They host as an individual on Airbnb." data-pt="Sem site próprio encontrado — 2026-09-13. Anunciam no Airbnb como particular.">No owned website found — 2026-09-13. They host as an individual on Airbnb.</p>
     <p><a href="https://www.airbnb.com/experiences/6612487" rel="noopener">Airbnb 6612487</a></p>
   </footer>
-  <a class="dock is-wa" href="#book" data-reserve-dock>Open Airbnb to book</a>
-  <a class="bag-dock" href="#book" hidden data-bag-dock>Book</a>
+  <a class="dock is-wa" href="#book" data-reserve-dock>Book on Airbnb</a>
   <div class="zoom-layer" data-zoom-layer hidden>
     <div class="zoom-back" data-zoom-close></div>
     <img alt="">
@@ -333,8 +351,9 @@
   <script src="lang.js"></script>
   <script src="hero.js?v=pan2"></script>
   <script src="zoom.js"></script>
-  <script src="book.js?v=pka1"></script>
-  <script src="order-fx.js?v=fx2"></script>
+  <script src="calendar.js?v=cal1"></script>
+  <script src="book.js?v=pka3"></script>
+  <script src="order-fx.js?v=fx3"></script>
   <script src="fx.js?v=1"></script>
 </body>
 </html>

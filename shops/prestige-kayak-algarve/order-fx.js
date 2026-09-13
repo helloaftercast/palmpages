@@ -43,7 +43,7 @@
   }
 
   function flyFrom(btn) {
-    const dock = document.querySelector("[data-bag-dock]");
+    const dock = document.querySelector("[data-reserve-dock]");
     pop(btn);
     if (!dock || dock.hidden) return;
     pop(dock);

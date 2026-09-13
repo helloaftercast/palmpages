@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Small-group kayak from Praia de Benagil at sunrise or sunset. About two hours. Ends at the Marinha arches. Book on WhatsApp.">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=kko2">
+  <link rel="stylesheet" href="styles.css?v=kko4">
   <link rel="stylesheet" href="fx.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +41,7 @@
       <a href="#tour" data-en="The tour" data-pt="O passeio">The tour</a>
       <a href="#kit" data-en="Included" data-pt="Incluído">Included</a>
       <a href="#meet" data-en="Meeting point" data-pt="Encontro">Meeting point</a>
+      <a href="#dates" data-en="Dates" data-pt="Datas">Dates</a>
       <a href="#fares" data-en="Fares" data-pt="Preços">Fares</a>
       <a href="#book" data-en="Book" data-pt="Reservar">Book</a>
     </nav>
@@ -189,39 +190,55 @@
             </div>
           </dl>
           <div class="hero-actions">
-            <a class="btn btn-wa" href="#book" data-en="Send the booking" data-pt="Enviar a reserva">Send the booking</a>
+            <a class="btn btn-wa" href="#book" data-en="Book on WhatsApp" data-pt="Reservar no WhatsApp">Book on WhatsApp</a>
             <a class="btn btn-ghost" href="https://www.google.com/maps/search/Praia+de+Benagil+Estrada+de+Benagil" rel="noopener" data-en="Open in Maps" data-pt="Abrir no Maps">Open in Maps</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="book" class="block menu-block">
-      <h2 data-en="Write the booking on your phone" data-pt="Escrevam a reserva no telemóvel">Write the booking on your phone</h2>
-      <p class="intro" data-en="Tap who is coming. Pick sunrise or sunset. The site writes the WhatsApp. No card, no third-party calendar." data-pt="Toquem em quem vem. Escolham nascer ou pôr do sol. O site escreve o WhatsApp. Sem cartão, sem calendário de terceiros.">Tap who is coming. Pick sunrise or sunset. The site writes the WhatsApp. No card, no third-party calendar.</p>
-      <div class="sheet">
-        <div class="sheet-grid">
-          <div class="sheet-col">
-            <p class="sheet-kicker">Kai'n Koa Adventures</p>
-            <h3 class="sheet-h" data-en="Places" data-pt="Lugares">Places</h3>
-            <ul class="sheet-list">
-              <li><button type="button" class="add add-line" data-add="1" data-id="adult" data-name-en="Guest place" data-name-pt="Lugar" data-price="40"><span>Guest place</span><b>€40</b></button></li>
-              <li><button type="button" class="add add-line" data-add="1" data-id="pair" data-name-en="Two people" data-name-pt="Duas pessoas" data-price="70"><span>Two people</span><b>€70</b></button></li>
-            </ul>
+    <section id="dates" class="block">
+      <h2 data-en="Which launches look taken" data-pt="Que saídas parecem ocupadas">Which launches look taken</h2>
+      <p class="intro" data-en="A note of days that already look full. Not live, not remaining seats. Sunrise or sunset, sea permitting. WhatsApp still confirms." data-pt="Uma nota dos dias que já parecem cheios. Não é em tempo real, não são lugares livres. Nascer ou pôr do sol, se o mar deixar. O WhatsApp confirma.">A note of days that already look full. Not live, not remaining seats. Sunrise or sunset, sea permitting. WhatsApp still confirms.</p>
+      <div class="launch-cal" data-availability="availability.json" data-slots="sunrise,sunset" data-empty-en="Scroll the days. Sunrise or sunset. None marked taken. Not a live calendar." data-empty-pt="Deslizem os dias. Nascer ou pôr do sol. Ainda não há saídas marcadas. Não é em tempo real." data-confirm-en="Confirm on WhatsApp." data-confirm-pt="Confirmem no WhatsApp.">
+        <p class="launch-cal-status" data-cal-status></p>
+        <div class="launch-cal-pick">
+          <div class="launch-cal-days-rail" data-cal-rail>
+            <button type="button" class="launch-cal-nudge is-up" data-cal-up aria-label="Earlier days" hidden>
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 8l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="launch-cal-days-wrap">
+              <ol class="launch-cal-days" data-cal-days></ol>
+            </div>
+            <div class="launch-cal-fade is-top" aria-hidden="true"></div>
+            <button type="button" class="launch-cal-nudge is-down" data-cal-down aria-label="Later days">
+              <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
+          <div class="launch-cal-slots" data-cal-slots></div>
         </div>
+        <p class="note" data-cal-updated></p>
       </div>
     </section>
 
-    <section class="block">
-      <div class="ticket" id="ticket">
-        <div class="ticket-bag">
+    <section id="book" class="block">
+      <h2 data-en="Write the booking on your phone" data-pt="Escrevam a reserva no telemóvel">Write the booking on your phone</h2>
+      <p class="intro" data-en="Tap who is coming, pick sunrise or sunset, then send it on WhatsApp. No card here — WhatsApp confirms the sea and the seat." data-pt="Toquem em quem vem, escolham nascer ou pôr do sol e enviem no WhatsApp. Sem cartão aqui — o WhatsApp confirma o mar e o lugar.">Tap who is coming, pick sunrise or sunset, then send it on WhatsApp. No card here — WhatsApp confirms the sea and the seat.</p>
+      <div class="order" id="ticket">
+        <div class="order-places">
+          <p class="sheet-kicker">Kai'n Koa Adventures</p>
+          <h3 class="sheet-h" data-en="Places" data-pt="Lugares">Places</h3>
+          <ul class="sheet-list">
+            <li><button type="button" class="add add-line" data-add="1" data-id="adult" data-name-en="Guest place" data-name-pt="Lugar" data-price="40"><span data-en="Guest place" data-pt="Lugar">Guest place</span><b>€40</b></button></li>
+            <li><button type="button" class="add add-line" data-add="1" data-id="pair" data-name-en="Two people" data-name-pt="Duas pessoas" data-price="70"><span data-en="Two people" data-pt="Duas pessoas">Two people</span><b>€70</b></button></li>
+          </ul>
+        </div>
+        <div class="order-ticket">
           <h3 data-en="Your booking" data-pt="A vossa reserva">Your booking</h3>
-          <p class="ticket-empty" data-empty data-en="Tap a place above." data-pt="Toquem num lugar acima.">Tap a place above.</p>
+          <p class="ticket-empty" data-empty data-en="Tap a place above to start." data-pt="Toquem num lugar acima para começar.">Tap a place above to start.</p>
           <ul class="ticket-lines" data-lines hidden></ul>
           <p class="ticket-sum" data-total hidden></p>
-        </div>
-        <form class="ticket-form" data-form>
+          <form class="ticket-form" data-form novalidate>
           <label>
             <span data-en="Your name" data-pt="O vosso nome">Your name</span>
             <input type="text" name="name" required autocomplete="name" data-en-placeholder="e.g. Marta" data-pt-placeholder="ex. Marta" placeholder="e.g. Marta">
@@ -257,8 +274,10 @@
             <span data-en="Anything we should know" data-pt="Algo que devamos saber">Anything we should know</span>
             <textarea name="note" rows="2" data-en-placeholder="First time, kids, hotel name…" data-pt-placeholder="Primeira vez, crianças, nome do hotel…" placeholder="First time, kids, hotel name…"></textarea>
           </label>
+          <p class="ticket-warn" data-warn hidden></p>
           <button class="btn btn-wa" type="submit" data-en="Send on WhatsApp" data-pt="Enviar no WhatsApp">Send on WhatsApp</button>
         </form>
+        </div>
       </div>
     </section>
 
@@ -294,8 +313,7 @@
     <p><a href="https://kainkoadventures.com" rel="nofollow">kainkoadventures.com</a> <span data-en="— still on their Instagram. The homepage is a Namecheap parking page. Inner URLs return 500." data-pt="— ainda no Instagram. A homepage é uma página Namecheap. Os URLs interiores devolvem 500.">— still on their Instagram. The homepage is a Namecheap parking page. Inner URLs return 500.</span></p>
     <p>WhatsApp +351 939 886 336 · <a href="https://www.instagram.com/kainkoa_adventures/" rel="noopener">@kainkoa_adventures</a> · <a href="https://www.facebook.com/kainkoa.adventures" rel="noopener">Facebook</a></p>
   </footer>
-  <a class="dock is-wa" href="#book" data-reserve-dock>WhatsApp to book</a>
-  <a class="bag-dock" href="#book" hidden data-bag-dock>Book</a>
+  <a class="dock is-wa" href="#book" data-reserve-dock>Book on WhatsApp</a>
   <div class="zoom-layer" data-zoom-layer hidden>
     <div class="zoom-back" data-zoom-close></div>
     <img alt="">
@@ -322,8 +340,9 @@
   <script src="lang.js"></script>
   <script src="hero.js?v=pan2"></script>
   <script src="zoom.js"></script>
-  <script src="book.js?v=kko1"></script>
-  <script src="order-fx.js?v=fx2"></script>
+  <script src="calendar.js?v=cal1"></script>
+  <script src="book.js?v=kko3"></script>
+  <script src="order-fx.js?v=fx3"></script>
   <script src="fx.js?v=1"></script>
 </body>
 </html>
