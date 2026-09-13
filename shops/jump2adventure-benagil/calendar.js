@@ -160,14 +160,61 @@
   function pickDay(day) {
     selectedDay = day;
     render();
-    var chip = daysEl && daysEl.querySelector('[data-day="' + day + '"]');
-    if (chip && chip.scrollIntoView) {
-      chip.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+
+  function dayStep() {
+    var wrap = daysEl && daysEl.parentElement;
+    if (!wrap) return 0;
+    var first = wrap.querySelector("li");
+    var next = first && first.nextElementSibling;
+    if (first && next) return next.offsetTop - first.offsetTop;
+    return first ? first.offsetHeight : 0;
+  }
+
+  function easeOut(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function glide(el, to, ms) {
+    var from = el.scrollTop;
+    var dist = to - from;
+    if (!dist) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.scrollTop = to;
+      return;
     }
+    var start = performance.now();
+    function frame(now) {
+      var t = Math.min(1, (now - start) / ms);
+      el.scrollTop = from + dist * easeOut(t);
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function bindDayScroll() {
+    var wrap = daysEl && daysEl.parentElement;
+    if (!wrap || wrap.dataset.bound === "1") return;
+    wrap.dataset.bound = "1";
+    var locked = false;
+    wrap.addEventListener("wheel", function (e) {
+      if (!e.deltaY) return;
+      e.preventDefault();
+      if (locked) return;
+      var step = dayStep();
+      if (!step) return;
+      locked = true;
+      var max = wrap.scrollHeight - wrap.clientHeight;
+      var next = Math.max(0, Math.min(max, wrap.scrollTop + (e.deltaY > 0 ? step : -step)));
+      glide(wrap, next, 320);
+      window.setTimeout(function () { locked = false; }, 300);
+    }, { passive: false });
   }
 
   function render() {
     if (!daysEl || !slotsEl) return;
+    var wrap = daysEl.parentElement;
+    var keepY = wrap ? wrap.scrollTop : 0;
     var now = lisbonNowParts();
     var days = visibleDays(now);
     if (days.indexOf(selectedDay) === -1) {
@@ -191,6 +238,8 @@
       li.appendChild(btn);
       daysEl.appendChild(li);
     });
+    if (wrap) wrap.scrollTop = keepY;
+    bindDayScroll();
 
     slotsEl.innerHTML = "";
     if (!selectedDay) return;

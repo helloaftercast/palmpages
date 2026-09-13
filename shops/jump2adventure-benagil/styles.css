@@ -2258,28 +2258,44 @@ body.order-chat-open {
 }
 
 .launch-cal-pick {
+  --cal-row: 3.95rem;
+  --cal-gap: 0.5rem;
+  --cal-pane: calc(var(--cal-row) * 2 + var(--cal-gap));
   display: grid;
   grid-template-columns: minmax(11rem, 14rem) minmax(11rem, 14rem);
-  gap: 0.5rem;
-  align-items: stretch;
+  gap: var(--cal-gap);
+  align-items: start;
   justify-content: start;
 }
 
 .launch-cal-days-wrap {
+  height: var(--cal-pane);
   overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: y proximity;
-  scrollbar-width: thin;
-  max-height: 8.4rem;
-  mask-image: linear-gradient(#000, #000 calc(100% - 1.1rem), transparent);
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.launch-cal-days-wrap::-webkit-scrollbar {
+  display: none;
 }
 
 .launch-cal-days {
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cal-gap);
+  margin: 0;
+  padding: 0;
+}
+
+.launch-cal-days li {
+  margin: 0;
+  padding: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .launch-cal-day {
@@ -2290,14 +2306,15 @@ body.order-chat-open {
   justify-content: center;
   gap: 0.15rem;
   width: 100%;
-  min-height: 3.95rem;
+  height: var(--cal-row);
+  min-height: var(--cal-row);
   padding: 0.55rem 0.4rem;
   border: 1px solid var(--line);
   background: var(--foam);
   color: var(--ink);
   font: inherit;
   cursor: pointer;
-  scroll-snap-align: start;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 }
 
 .launch-cal-day b {
@@ -2316,6 +2333,7 @@ body.order-chat-open {
   background: var(--night);
   border-color: var(--night);
   color: #fff;
+  transform: scale(1.02);
 }
 
 .launch-cal-day.is-on span {
@@ -2329,13 +2347,14 @@ body.order-chat-open {
 .launch-cal-slots {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-height: 8.4rem;
+  gap: var(--cal-gap);
+  height: var(--cal-pane);
 }
 
 .launch-cal-slot {
   appearance: none;
-  flex: 1;
+  height: var(--cal-row);
+  flex: none;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--ink);
@@ -2345,6 +2364,7 @@ body.order-chat-open {
   padding: 0.85rem 1rem;
   text-align: left;
   cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
 .launch-cal-slot:hover:not(:disabled) {
@@ -2393,6 +2413,15 @@ body.order-chat-open {
   .cond-dot,
   .wave-mark path,
   .kayak-mark .kayak-wave { animation: none; }
+
+  .launch-cal-day,
+  .launch-cal-slot {
+    transition: none;
+  }
+
+  .launch-cal-day.is-on {
+    transform: none;
+  }
 }
 
 .dock {
