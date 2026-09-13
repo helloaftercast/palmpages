@@ -2257,36 +2257,78 @@ body.order-chat-open {
   margin-bottom: 1rem;
 }
 
+.launch-cal-pick {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) minmax(11rem, 14rem);
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: start;
+}
+
+.launch-cal-days-wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding: 0.15rem 0 0.45rem;
+  mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 1.5rem), transparent);
+}
+
 .launch-cal-days {
   list-style: none;
-  display: grid;
-  gap: 0.7rem;
+  display: flex;
+  gap: 0.5rem;
+  width: max-content;
 }
 
 .launch-cal-day {
-  display: grid;
-  grid-template-columns: 9.5rem 1fr;
-  gap: 0.8rem;
+  appearance: none;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 0.7rem 0.85rem;
-  background: var(--foam);
+  justify-content: center;
+  gap: 0.15rem;
+  min-width: 4.6rem;
+  padding: 0.65rem 0.7rem;
   border: 1px solid var(--line);
+  background: var(--foam);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  scroll-snap-align: start;
 }
 
-.launch-cal-day.is-taken {
-  opacity: 0.55;
-}
-
-.launch-cal-date {
+.launch-cal-day b {
   font-family: var(--serif);
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
+.launch-cal-day span {
+  font-size: 0.78rem;
+  color: var(--mute);
+}
+
+.launch-cal-day.is-on {
+  background: var(--night);
+  border-color: var(--night);
+  color: #fff;
+}
+
+.launch-cal-day.is-on span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.launch-cal-day.is-taken {
+  opacity: 0.5;
+}
+
 .launch-cal-slots {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .launch-cal-slot {
@@ -2295,10 +2337,10 @@ body.order-chat-open {
   background: #fff;
   color: var(--ink);
   font: inherit;
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
+  padding: 0.85rem 1rem;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -2315,10 +2357,23 @@ body.order-chat-open {
   text-decoration: line-through;
 }
 
+.launch-cal-empty {
+  color: var(--mute);
+  font-size: 0.95rem;
+}
+
 @media (max-width: 860px) {
-  .launch-cal-day {
+  .launch-cal-pick {
     grid-template-columns: 1fr;
-    gap: 0.45rem;
+  }
+
+  .launch-cal-slots {
+    flex-direction: row;
+  }
+
+  .launch-cal-slot {
+    flex: 1;
+    text-align: center;
   }
 }
 

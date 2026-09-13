@@ -3,6 +3,7 @@
   if (!root) return;
 
   var daysEl = root.querySelector("[data-cal-days]");
+  var slotsEl = root.querySelector("[data-cal-slots]");
   var updatedEl = root.querySelector("[data-cal-updated]");
   var statusEl = root.querySelector("[data-cal-status]");
   var data = {
@@ -13,6 +14,9 @@
     busy: []
   };
   var busySet = Object.create(null);
+  var selectedDay = "";
+  var DAYS = 14;
+  var LEAD_MIN = 90;
 
   function lang() {
     return (window.getPpLang && window.getPpLang()) || document.documentElement.getAttribute("data-lang") || "en";
@@ -22,26 +26,11 @@
     return lang() === "pt";
   }
 
-  function lisbonNow() {
-    var parts = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Lisbon",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit"
-    }).formatToParts(new Date());
-    var get = function (type) {
-      return (parts.find(function (p) { return p.type === type; }) || {}).value;
-    };
-    return get("year") + "-" + get("month") + "-" + get("day");
-  }
-
   function addDays(ymd, n) {
     var bits = ymd.split("-");
     var d = new Date(Date.UTC(+bits[0], +bits[1] - 1, +bits[2] + n));
     return d.toISOString().slice(0, 10);
   }
-
-  var LEAD_MIN = 90;
 
   function lisbonNowParts() {
     var parts = new Intl.DateTimeFormat("en-GB", {
@@ -67,15 +56,6 @@
     return Number(bits[0]) * 60 + Number(bits[1]);
   }
 
-  function weekday(ymd) {
-    var bits = ymd.split("-");
-    var d = new Date(Date.UTC(+bits[0], +bits[1] - 1, +bits[2]));
-    return new Intl.DateTimeFormat(isPt() ? "pt-PT" : "en-GB", {
-      weekday: "short",
-      timeZone: "UTC"
-    }).format(d);
-  }
-
   function markBusy(list) {
     busySet = Object.create(null);
     (list || []).forEach(function (key) {
@@ -87,8 +67,54 @@
     return Boolean(busySet[day] || busySet[day + "T" + slot]);
   }
 
-  function dayTaken(day) {
-    return data.slots.every(function (slot) { return isBusy(day, slot); });
+  function slotGone(day, slot, now) {
+    return day === now.ymd && slotMinutes(slot) < now.minutes;
+  }
+
+  function openSlots(day, now) {
+    return data.slots.filter(function (slot) {
+      return !slotGone(day, slot, now) && !isBusy(day, slot);
+    });
+  }
+
+  function visibleDays(now) {
+    var list = [];
+    for (var i = 0; i < DAYS; i += 1) {
+      var day = addDays(now.ymd, i);
+      if (data.slots.some(function (slot) { return !slotGone(day, slot, now); })) {
+        list.push(day);
+      }
+    }
+    return list;
+  }
+
+  function weekday(ymd) {
+    var bits = ymd.split("-");
+    var d = new Date(Date.UTC(+bits[0], +bits[1] - 1, +bits[2]));
+    return new Intl.DateTimeFormat(isPt() ? "pt-PT" : "en-GB", {
+      weekday: "short",
+      timeZone: "UTC"
+    }).format(d);
+  }
+
+  function monthDay(ymd) {
+    var bits = ymd.split("-");
+    var d = new Date(Date.UTC(+bits[0], +bits[1] - 1, +bits[2]));
+    return new Intl.DateTimeFormat(isPt() ? "pt-PT" : "en-GB", {
+      day: "numeric",
+      month: "short",
+      timeZone: "UTC"
+    }).format(d);
+  }
+
+  function slotLabel(slot, taken) {
+    var name = slot === "09:30"
+      ? (isPt() ? "Manhã" : "Morning")
+      : (isPt() ? "Tarde" : "Afternoon");
+    if (taken) {
+      return isPt() ? name + " · ocupado" : name + " · taken";
+    }
+    return name + " · " + slot;
   }
 
   function formatUpdated(iso) {
@@ -131,52 +157,74 @@
     if (ticket) ticket.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function pickDay(day) {
+    selectedDay = day;
+    render();
+    var chip = daysEl && daysEl.querySelector('[data-day="' + day + '"]');
+    if (chip && chip.scrollIntoView) {
+      chip.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+    }
+  }
+
   function render() {
-    if (!daysEl) return;
+    if (!daysEl || !slotsEl) return;
     var now = lisbonNowParts();
-    var today = now.ymd;
+    var days = visibleDays(now);
+    if (days.indexOf(selectedDay) === -1) {
+      selectedDay = days[0] || "";
+    }
+
     daysEl.innerHTML = "";
-    for (var i = 0; i < 12; i += 1) {
-      var day = addDays(today, i);
+    days.forEach(function (day) {
       var li = document.createElement("li");
-      li.className = "launch-cal-day" + (dayTaken(day) ? " is-taken" : "");
-      var head = document.createElement("p");
-      head.className = "launch-cal-date";
-      head.textContent = weekday(day) + " " + day;
-      li.appendChild(head);
-      var row = document.createElement("div");
-      row.className = "launch-cal-slots";
-      data.slots.forEach(function (slot) {
-        if (day === today && slotMinutes(slot) < now.minutes) return;
-        var taken = isBusy(day, slot);
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "launch-cal-slot" + (taken ? " is-taken" : "");
-        btn.textContent = taken
-          ? (isPt() ? slot + " ocupado" : slot + " taken")
-          : slot;
-        btn.disabled = taken;
-        if (!taken) {
-          btn.addEventListener("click", (function (pickedDay, pickedSlot) {
-            return function () { setForm(pickedDay, pickedSlot); };
-          })(day, slot));
-        }
-        row.appendChild(btn);
-      });
-      if (!row.childNodes.length) continue;
-      li.appendChild(row);
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("data-day", day);
+      btn.className = "launch-cal-day" + (day === selectedDay ? " is-on" : "") + (openSlots(day, now).length ? "" : " is-taken");
+      var wd = document.createElement("b");
+      wd.textContent = weekday(day);
+      var md = document.createElement("span");
+      md.textContent = day === now.ymd ? (isPt() ? "Hoje" : "Today") : monthDay(day);
+      btn.appendChild(wd);
+      btn.appendChild(md);
+      btn.addEventListener("click", function () { pickDay(day); });
+      li.appendChild(btn);
       daysEl.appendChild(li);
+    });
+
+    slotsEl.innerHTML = "";
+    if (!selectedDay) return;
+    data.slots.forEach(function (slot) {
+      if (slotGone(selectedDay, slot, now)) return;
+      var taken = isBusy(selectedDay, slot);
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "launch-cal-slot" + (taken ? " is-taken" : "");
+      btn.textContent = slotLabel(slot, taken);
+      btn.disabled = taken;
+      if (!taken) {
+        btn.addEventListener("click", function () { setForm(selectedDay, slot); });
+      }
+      slotsEl.appendChild(btn);
+    });
+    if (!slotsEl.childNodes.length) {
+      var empty = document.createElement("p");
+      empty.className = "launch-cal-empty";
+      empty.textContent = isPt()
+        ? "Este dia já não tem saída. Deslizem para outro."
+        : "No launch left this day. Swipe to another.";
+      slotsEl.appendChild(empty);
     }
 
     if (statusEl) {
       if (!data.busy.length) {
         statusEl.textContent = isPt()
-          ? "Ainda não há saídas marcadas como ocupadas. Isto é uma nota, não lugares livres. 09:30 e 14:00 saem se o mar deixar."
-          : "No launches marked taken. This is a note, not remaining seats. 09:30 and 14:00 still go out if the sea allows.";
+          ? "Deslizem o dia. Manhã 09:30, tarde 14:00. Ainda não há saídas marcadas como ocupadas. Não é o Peek."
+          : "Swipe the day. Morning 09:30, afternoon 14:00. None marked taken. Not Peek.";
       } else {
         statusEl.textContent = isPt()
-          ? "Cinzento = essa saída parece ocupada. Não é em tempo real, não são lugares livres."
-          : "Grey = that launch looks taken. Not live, not remaining seats.";
+          ? "Deslizem o dia. Cinzento = essa saída parece ocupada. Não é em tempo real."
+          : "Swipe the day. Grey = that launch looks taken. Not live.";
       }
     }
 
