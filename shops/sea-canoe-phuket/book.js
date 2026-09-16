@@ -109,7 +109,7 @@
   }
 
   function dockLabel() {
-    return isTh() ? "จองทางอีเมล" : "Book via email";
+    return isTh() ? "ส่งคำขอจอง" : "Send booking request";
   }
 
   function syncDock() {
