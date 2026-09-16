@@ -58,25 +58,12 @@
   }
 
   function money(n) {
-    if (!n || n === 0) return isTh() ? "สอบถาม" : "ask";
     return "฿" + Number(n).toLocaleString("en-US");
   }
 
   function lineMoney(item) {
-    if (!item.price || item.price === 0) {
-      return item.qty > 1 ? money(0) + " × " + item.qty : money(0);
-    }
-    return money(item.price * item.qty);
-  }
-
-  function pricedTotal() {
-    return cart.reduce(function (sum, item) {
-      return sum + (item.price || 0) * item.qty;
-    }, 0);
-  }
-
-  function hasAsk() {
-    return cart.some(function (item) { return !item.price || item.price === 0; });
+    if (!item.price) return "";
+    return money(item.price);
   }
 
   function count() {
@@ -119,13 +106,7 @@
   }
 
   function dockLabel() {
-    var n = count();
-    var priced = pricedTotal();
-    if (!n) return isTh() ? "จองทัวร์" : "Book a tour";
-    var extra = hasAsk()
-      ? (priced > 0 ? money(priced) + (isTh() ? " + สอบถาม" : " + ask") : (isTh() ? "สอบถาม" : "ask"))
-      : money(priced);
-    return (isTh() ? "ส่งการจอง · " : "Send booking · ") + extra;
+    return isTh() ? "จองทาง WhatsApp" : "Book via WhatsApp";
   }
 
   function syncDock() {
@@ -178,7 +159,7 @@
           "<b>" + item.qty + "</b>" +
           "<button type=\"button\" data-qty=\"" + item.id + "\" data-d=\"1\" aria-label=\"Add one\">+</button>" +
         "</span>" +
-        "<strong>" + lineMoney(item) + "</strong>";
+        (lineMoney(item) ? "<strong>" + lineMoney(item) + "</strong>" : "<strong></strong>");
       linesEl.appendChild(li);
     });
   }
@@ -256,18 +237,13 @@
 
   function message(data) {
     var rows = cart.map(function (item) {
-      return "• " + itemName(item) + " × " + item.qty + " — " + lineMoney(item);
+      var price = lineMoney(item);
+      return "• " + itemName(item) + (item.qty > 1 ? " × " + item.qty : "") + (price ? " — " + price + (isTh() ? " ต่อคน" : " per person") : "");
     });
-    var priced = pricedTotal();
     var th = isTh();
-    var estLine;
-    if (hasAsk() && priced > 0) {
-      estLine = th ? "ประมาณ " + money(priced) + " + รายการที่ต้องยืนยัน" : "Est. " + money(priced) + " + items to confirm";
-    } else if (hasAsk()) {
-      estLine = th ? "รบกวนยืนยันราคา" : "Please confirm prices";
-    } else {
-      estLine = th ? "ประมาณ " + money(priced) : "Est. " + money(priced);
-    }
+    var priceLine = hasDayTrip()
+      ? (th ? "ราคาต่อคน: ฿4,850" : "Price per person: ฿4,850")
+      : "";
     var lines = th ? [
       "จอง Paddle Asia — คายัคส่วนตัว อ่าวพังงา",
       "",
@@ -279,7 +255,7 @@
       "",
       rows.join("\n"),
       "",
-      estLine,
+      priceLine,
       "ยังไม่ได้ชำระ รบกวนยืนยันด้วยครับ/ค่ะ"
     ] : [
       "Booking for Paddle Asia — private kayak, Phang Nga Bay",
@@ -292,7 +268,7 @@
       "",
       rows.join("\n"),
       "",
-      estLine,
+      priceLine,
       "Not paid. Please confirm."
     ];
     return lines.filter(function (line) { return line !== ""; }).join("\n");
@@ -358,16 +334,12 @@
     if (emptyEl) emptyEl.hidden = has;
     if (linesEl) linesEl.hidden = !has;
     if (totalEl) {
-      totalEl.hidden = !has;
-      var priced = pricedTotal();
-      if (isTh()) {
-        if (hasAsk() && priced > 0) totalEl.textContent = "ประมาณ " + money(priced) + " + รายการที่ต้องยืนยัน";
-        else if (hasAsk()) totalEl.textContent = "ยืนยันราคาในแชท";
-        else totalEl.textContent = "ประมาณ " + money(priced);
+      if (hasDayTrip()) {
+        totalEl.hidden = false;
+        totalEl.textContent = isTh() ? "ราคาต่อคน: ฿4,850" : "Price per person: ฿4,850";
       } else {
-        if (hasAsk() && priced > 0) totalEl.textContent = "Est. " + money(priced) + " + items to confirm";
-        else if (hasAsk()) totalEl.textContent = "Confirm prices in chat";
-        else totalEl.textContent = "Est. " + money(priced);
+        totalEl.hidden = true;
+        totalEl.textContent = "";
       }
     }
     renderLines();
