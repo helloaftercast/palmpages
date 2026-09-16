@@ -27,7 +27,6 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light;
 }
 
 body {
@@ -1749,7 +1748,7 @@ body.order-chat-open {
   background: #0084ff;
 }
 
-/* ── header / footer wordmark: white logo on navy, no neon glow ── */
+/* ── garden lantern sign (nav) + small vintage foot ── */
 
 .top {
   overflow: visible;
@@ -1765,44 +1764,137 @@ body.order-chat-open {
 .mark {
   display: inline-flex;
   align-items: center;
-  line-height: 0;
+  gap: 0.42rem;
   position: relative;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  text-shadow: none;
-  animation: none;
-  filter: none;
+  padding: 0.42rem 1.2rem 0.42rem 1.05rem;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #f7fff4;
   text-decoration: none;
+  border: 2.5px solid #9fd4a4;
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(28, 52, 34, 0.92) 0%, rgba(14, 28, 18, 0.95) 100%);
+  text-shadow:
+    0 0 4px #fff,
+    0 0 12px #8fd498,
+    0 0 28px rgba(107, 143, 113, 0.85),
+    0 0 48px rgba(201, 168, 108, 0.45);
+  box-shadow:
+    0 0 10px rgba(143, 212, 152, 0.75),
+    0 0 28px rgba(107, 143, 113, 0.55),
+    0 0 54px rgba(201, 168, 108, 0.28),
+    inset 0 0 16px rgba(159, 212, 164, 0.28),
+    inset 0 -2px 0 rgba(201, 168, 108, 0.25);
+  animation: garden-glow 6.8s linear infinite;
 }
 
 .mark:hover {
-  opacity: 0.92;
-  filter: none;
+  opacity: 1;
+  filter: brightness(1.12);
+}
+
+.mark em {
+  margin-left: 0.2rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #e8d4a8;
+  text-shadow:
+    0 0 6px rgba(232, 212, 168, 0.9),
+    0 0 16px rgba(201, 168, 108, 0.55);
+}
+
+.mark .deco.leaf {
+  display: inline-block;
+  width: 0.95rem;
+  height: 1.35rem;
+  border-radius: 80% 20% 70% 30% / 50% 40% 60% 50%;
+  background:
+    linear-gradient(145deg, #c8f0c4 0%, #6bb878 40%, #2f6a42 100%);
+  box-shadow:
+    inset -2px 0 0 rgba(255, 255, 255, 0.28),
+    0 0 10px rgba(143, 212, 152, 0.85);
+  opacity: 1;
+  pointer-events: none;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(107, 143, 113, 0.8));
+}
+
+.mark .leaf-l { transform: rotate(-28deg); }
+.mark .leaf-r { transform: rotate(22deg) scaleX(-1); }
+
+.mark .deco.berry {
+  position: absolute;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe9a8, #c9a86c 55%, #8a6a38);
+  box-shadow: 0 0 8px rgba(201, 168, 108, 0.9);
+  pointer-events: none;
+}
+
+.mark .berry.b1 { top: 0.2rem; left: 1.55rem; }
+.mark .berry.b2 { bottom: 0.22rem; right: 1.15rem; }
+
+@keyframes garden-glow {
+  0%, 100% { filter: brightness(1.05); }
+  3.2% { filter: brightness(0.72); }
+  3.8% { filter: brightness(1.12); }
+  5.8% { filter: brightness(0.85); }
+  6.4% { filter: brightness(1.05); }
+  52% { filter: brightness(1.05); }
+  52.6% { filter: brightness(0.68); }
+  53.5% { filter: brightness(1.18); }
+  54.2% { filter: brightness(1.05); }
 }
 
 .foot-mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.35rem;
   margin: 0 auto 0.55rem;
-  padding: 0;
+  padding: 0.22rem 0.75rem;
   text-decoration: none;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  text-shadow: none;
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #d8e2d4;
+  border: 1px solid rgba(107, 143, 113, 0.45);
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(245, 240, 230, 0.06), rgba(0, 0, 0, 0.16));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 1px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease), filter 0.15s var(--ease);
   animation: none;
   filter: none;
 }
 
+.foot-mark .deco.leaf {
+  width: 0.55rem;
+  height: 0.8rem;
+  border-radius: 80% 20% 70% 30% / 50% 40% 60% 50%;
+  background: linear-gradient(145deg, #8fb896, #4a7c59);
+  opacity: 0.85;
+}
+
+.foot-mark em {
+  margin-left: 0.2rem;
+  font-size: 0.88em;
+  font-style: italic;
+  font-weight: 500;
+  color: #a8c4aa;
+}
+
 .foot-mark:hover {
-  opacity: 0.92;
-  filter: none;
+  color: #f3f7f0;
+  border-color: rgba(139, 176, 140, 0.75);
+  filter: brightness(1.06);
 }
 
 .order-chat.is-line .chat-go {
@@ -1825,9 +1917,29 @@ body.order-chat-open {
 }
 
 @media (max-width: 520px) {
+  .mark {
+    font-size: 1.4rem;
+    padding: 0.34rem 0.9rem 0.34rem 0.8rem;
+    gap: 0.3rem;
+  }
+
+  .mark .deco.leaf {
+    width: 0.78rem;
+    height: 1.1rem;
+  }
+
+  .mark .deco.berry {
+    width: 0.3rem;
+    height: 0.3rem;
+  }
+
   .lang-switch {
     margin-left: auto;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark { animation: none; filter: brightness(1.08); }
 }
 
 .hero-stage {
@@ -1982,7 +2094,7 @@ body.order-chat-open {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: transparent;
+  background: #fff;
   flex: 0 0 auto;
 }
 
@@ -2445,7 +2557,7 @@ body.order-chat-open {
 }
 .top .mark img.word-logo {
   width: auto;
-  height: 40px;
+  height: 36px;
   border-radius: 0;
   background: transparent;
 }
