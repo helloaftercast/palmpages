@@ -893,17 +893,6 @@ h2 {
   color: #3f3a34;
 }
 
-.step-quote {
-  margin: 0.75rem 0 0;
-  padding: 0.15rem 0 0.15rem 0.95rem;
-  border-left: 3px solid var(--orange);
-  font-family: var(--serif);
-  font-size: 1.12rem;
-  font-style: italic;
-  font-weight: 500;
-  color: #2a261f;
-}
-
 .note {
   margin-top: 1.3rem;
   color: var(--mute);
