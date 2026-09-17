@@ -1,56 +1,77 @@
 (function () {
   var KEY = "pp-lang";
+  var VISIBLE = ["en", "ru", "zh"];
+  var FALLBACK = ["en", "ru", "zh", "th"];
 
   function detect() {
     try {
       var saved = localStorage.getItem(KEY);
-      if (saved === "en" || saved === "th") return saved;
+      if (saved === "th") return "en";
+      if (VISIBLE.indexOf(saved) !== -1) return saved;
     } catch (err) {}
     var nav = String(navigator.language || navigator.userLanguage || "").toLowerCase();
-    return nav.indexOf("th") === 0 ? "th" : "en";
+    if (nav.indexOf("zh") === 0) return "zh";
+    if (nav.indexOf("ru") === 0) return "ru";
+    return "en";
   }
 
-  function textFor(el, lang) {
-    var en = el.getAttribute("data-en");
-    var th = el.getAttribute("data-th");
-    if (en == null && th == null) return null;
-    if (lang === "th") return th != null ? th : en;
-    return en != null ? en : th;
+  function attrFor(el, lang, suffix) {
+    var keys = [lang].concat(FALLBACK);
+    var i;
+    for (i = 0; i < keys.length; i += 1) {
+      var val = el.getAttribute("data-" + keys[i] + suffix);
+      if (val != null) return val;
+    }
+    return null;
+  }
+
+  function htmlLang(lang) {
+    if (lang === "zh") return "zh-CN";
+    return lang;
   }
 
   function apply(lang) {
-    if (lang !== "en" && lang !== "th") lang = "en";
-    document.documentElement.lang = lang;
+    if (VISIBLE.indexOf(lang) === -1) lang = "en";
+    document.documentElement.lang = htmlLang(lang);
     document.documentElement.setAttribute("data-lang", lang);
     try {
       localStorage.setItem(KEY, lang);
     } catch (err) {}
 
-    document.querySelectorAll("[data-en], [data-th]").forEach(function (el) {
-      var next = textFor(el, lang);
+    document.querySelectorAll("[data-en], [data-th], [data-ru], [data-zh]").forEach(function (el) {
+      var next = attrFor(el, lang, "");
       if (next != null) el.textContent = next;
     });
 
-    document.querySelectorAll("[data-en-placeholder], [data-th-placeholder]").forEach(function (el) {
-      var en = el.getAttribute("data-en-placeholder");
-      var th = el.getAttribute("data-th-placeholder");
-      var next = lang === "th" ? (th != null ? th : en) : (en != null ? en : th);
+    document.querySelectorAll("[data-en-placeholder], [data-th-placeholder], [data-ru-placeholder], [data-zh-placeholder]").forEach(function (el) {
+      var next = attrFor(el, lang, "-placeholder");
       if (next != null) el.setAttribute("placeholder", next);
     });
 
     document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
-      btn.classList.toggle("is-active", btn.getAttribute("data-set-lang") === lang);
-      btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === lang ? "true" : "false");
+      var on = btn.getAttribute("data-set-lang") === lang;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
 
-    document.querySelectorAll("[data-add][data-name-en], [data-add][data-name-th]").forEach(function (btn) {
-      var en = btn.getAttribute("data-name-en");
-      var th = btn.getAttribute("data-name-th");
-      var name = lang === "th" ? (th || en) : (en || th);
+    document.querySelectorAll("[data-add]").forEach(function (btn) {
+      var name =
+        btn.getAttribute("data-name-" + lang) ||
+        btn.getAttribute("data-name-en") ||
+        btn.getAttribute("data-name-ru") ||
+        btn.getAttribute("data-name-zh") ||
+        btn.getAttribute("data-name-th") ||
+        btn.getAttribute("data-name");
       if (!name) return;
       btn.setAttribute("data-name", name);
       var label = btn.querySelector("span");
-      if (label && !label.hasAttribute("data-en") && !label.hasAttribute("data-th")) {
+      if (
+        label &&
+        !label.hasAttribute("data-en") &&
+        !label.hasAttribute("data-th") &&
+        !label.hasAttribute("data-ru") &&
+        !label.hasAttribute("data-zh")
+      ) {
         label.textContent = name;
       }
     });

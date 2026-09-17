@@ -893,6 +893,17 @@ h2 {
   color: #3f3a34;
 }
 
+.step-quote {
+  margin: 0.75rem 0 0;
+  padding: 0.15rem 0 0.15rem 0.95rem;
+  border-left: 3px solid var(--orange);
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #2a261f;
+}
+
 .note {
   margin-top: 1.3rem;
   color: var(--mute);
@@ -1726,6 +1737,24 @@ body.order-chat-open {
 
 .btn-line:hover {
   box-shadow: 0 8px 20px rgba(6, 199, 85, 0.28);
+}
+
+html[data-lang="zh"] {
+  --sans: "Noto Sans SC", Manrope, "Helvetica Neue", sans-serif;
+}
+
+html[data-lang="ru"] .hero-tag,
+html[data-lang="ru"] h2,
+html[data-lang="ru"] h3,
+html[data-lang="zh"] .hero-tag,
+html[data-lang="zh"] h2,
+html[data-lang="zh"] h3 {
+  font-family: var(--sans);
+}
+
+.lang-th-hidden,
+.lang-switch [data-set-lang="th"] {
+  display: none !important;
 }
 
 .lang-switch {

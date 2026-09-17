@@ -7,6 +7,133 @@
     "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"
   ];
 
+  var COPY = {
+    en: {
+      byWt: "by wt",
+      ask: "ask",
+      today: "Today, ",
+      closing: "Kitchen closing soon — pick another day",
+      order: "Order · ",
+      total: "Weight & price confirmed by kitchen",
+      greet: "Hi Mr. Jeff, I'd like a table.",
+      sendLine: "Send on LINE",
+      sendWa: "Send on WhatsApp",
+      dockLine: "LINE to reserve",
+      dockWa: "Chat on WhatsApp",
+      replyLine: "Got it — we'll weigh the catch and confirm the price. Message copied; paste it in LINE.",
+      replyWa: "Got it — we'll weigh the catch and confirm the price. See you soon.",
+      openLine: "Open LINE",
+      openWa: "Open WhatsApp",
+      msg: [
+        "Pre-order for Mr.Jeff, Lamai",
+        "",
+        "Name: {name}",
+        "{ch}: {phone}",
+        "People: {people}",
+        "Arrive: {day} {slot}",
+        "{note}",
+        "",
+        "{rows}",
+        "",
+        "Weight & price confirmed by kitchen.",
+        "Not paid — cash only. Khob khun!"
+      ]
+    },
+    ru: {
+      byWt: "на вес",
+      ask: "уточнить",
+      today: "Сегодня, ",
+      closing: "Кухня скоро закрывается — выберите другой день",
+      order: "Заказ · ",
+      total: "Кухня подтвердит вес и цену",
+      greet: "Здравствуйте, мистер Джефф, хотим столик.",
+      sendLine: "Отправить в LINE",
+      sendWa: "Отправить в WhatsApp",
+      dockLine: "LINE — забронировать",
+      dockWa: "Написать в WhatsApp",
+      replyLine: "Приняли — взвесим улов и подтвердим цену. Сообщение скопировано, вставьте в LINE.",
+      replyWa: "Приняли — взвесим улов и подтвердим цену. До встречи.",
+      openLine: "Открыть LINE",
+      openWa: "Открыть WhatsApp",
+      msg: [
+        "Предзаказ в Mr.Jeff, Ламай",
+        "",
+        "Имя: {name}",
+        "{ch}: {phone}",
+        "Гостей: {people}",
+        "Приход: {day} {slot}",
+        "{note}",
+        "",
+        "{rows}",
+        "",
+        "Кухня подтвердит вес и цену.",
+        "Не оплачено — только наличные. Спасибо!"
+      ]
+    },
+    zh: {
+      byWt: "按重量",
+      ask: "询价",
+      today: "今天，",
+      closing: "厨房快打烊了 — 请换一天",
+      order: "点单 · ",
+      total: "厨房确认重量和价格",
+      greet: "你好 Mr. Jeff，想订一张桌子。",
+      sendLine: "用 LINE 发送",
+      sendWa: "用 WhatsApp 发送",
+      dockLine: "用 LINE 订位",
+      dockWa: "用 WhatsApp 联系",
+      replyLine: "收到了——我们会称重并确认价格。信息已复制，粘贴到 LINE 即可。",
+      replyWa: "收到了——我们会称重并确认价格。回头见。",
+      openLine: "打开 LINE",
+      openWa: "打开 WhatsApp",
+      msg: [
+        "Mr.Jeff 拉迈 · 提前点餐",
+        "",
+        "姓名：{name}",
+        "{ch}：{phone}",
+        "人数：{people}",
+        "到达：{day} {slot}",
+        "{note}",
+        "",
+        "{rows}",
+        "",
+        "厨房确认重量和价格。",
+        "尚未付款 — 只收现金。谢谢！"
+      ]
+    },
+    th: {
+      byWt: "ตามน้ำหนัก",
+      ask: "สอบถาม",
+      today: "วันนี้, ",
+      closing: "ครัวใกล้ปิดแล้ว — เลือกวันอื่นนะ",
+      order: "ออเดอร์ · ",
+      total: "ครัวยืนยันน้ำหนักและราคา",
+      greet: "สวัสดีครับ/ค่ะ ร้าน Mr.Jeff ขอจองโต๊ะหน่อย",
+      sendLine: "ส่งทาง LINE",
+      sendWa: "ส่งทาง WhatsApp",
+      dockLine: "ทัก LINE จองโต๊ะ",
+      dockWa: "ทัก WhatsApp จองโต๊ะ",
+      replyLine: "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ — ข้อความคัดลอกไว้แล้ว วางใน LINE ได้เลย",
+      replyWa: "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ เจอกันครับ",
+      openLine: "เปิด LINE",
+      openWa: "เปิด WhatsApp",
+      msg: [
+        "สั่งล่วงหน้า ร้าน Mr.Jeff ละไม",
+        "",
+        "ชื่อ: {name}",
+        "{ch}: {phone}",
+        "จำนวนคน: {people}",
+        "เวลามาถึง: {day} {slot}",
+        "{note}",
+        "",
+        "{rows}",
+        "",
+        "ครัวยืนยันน้ำหนักและราคา",
+        "ยังไม่ชำระ — รับเงินสดเท่านั้น ขอบคุณครับ/ค่ะ"
+      ]
+    }
+  };
+
   var linesEl = document.querySelector("[data-lines]");
   var emptyEl = document.querySelector("[data-empty]");
   var totalEl = document.querySelector("[data-total]");
@@ -23,8 +150,9 @@
     return (window.getPpLang && window.getPpLang()) || document.documentElement.getAttribute("data-lang") || "en";
   }
 
-  function isTh() {
-    return lang() === "th";
+  function t(key) {
+    var pack = COPY[lang()] || COPY.en;
+    return pack[key] != null ? pack[key] : COPY.en[key];
   }
 
   function bangkokParts(date) {
@@ -47,21 +175,13 @@
     return parts.y + "-" + parts.m + "-" + parts.d;
   }
 
-  function byWt() {
-    return isTh() ? "ตามน้ำหนัก" : "by wt";
-  }
-
-  function askWord() {
-    return isTh() ? "สอบถาม" : "ask";
-  }
-
   function money(n) {
     return "฿" + n.toLocaleString("en-TH");
   }
 
   function lineLabel(item) {
     if (item.kind === "cook") return "—";
-    if (!item.price || item.price === 0) return item.ask ? askWord() : byWt();
+    if (!item.price || item.price === 0) return item.ask ? t("ask") : t("byWt");
     return money(item.price * item.qty);
   }
 
@@ -70,25 +190,28 @@
   }
 
   function itemName(item) {
-    return isTh() ? (item.nameTh || item.nameEn) : (item.nameEn || item.nameTh);
+    var L = lang();
+    if (L === "zh") return item.nameZh || item.nameEn || item.nameRu || item.nameTh;
+    if (L === "ru") return item.nameRu || item.nameEn || item.nameZh || item.nameTh;
+    if (L === "th") return item.nameTh || item.nameEn;
+    return item.nameEn || item.nameRu || item.nameZh || item.nameTh;
   }
 
   function channel() {
-    if (!form) return isTh() ? "line" : "whatsapp";
+    if (!form) return "whatsapp";
     var picked = form.querySelector('input[name="channel"]:checked');
-    return picked ? picked.value : (isTh() ? "line" : "whatsapp");
+    return picked ? picked.value : "whatsapp";
   }
 
   function setDefaultChannel() {
     if (!form || channelTouched) return;
-    var want = isTh() ? "line" : "whatsapp";
-    var radio = form.querySelector('input[name="channel"][value="' + want + '"]');
+    var radio = form.querySelector('input[name="channel"][value="whatsapp"]');
     if (radio) radio.checked = true;
     syncChannelUi();
   }
 
   function greet() {
-    return isTh() ? "สวัสดีครับ/ค่ะ ร้าน Mr.Jeff ขอจองโต๊ะหน่อย" : "Hi Mr. Jeff, I'd like a table.";
+    return t("greet");
   }
 
   function syncChannelUi() {
@@ -97,19 +220,17 @@
     if (submit) {
       submit.classList.toggle("btn-wa", ch === "whatsapp");
       submit.classList.toggle("btn-line", ch === "line");
-      submit.textContent = ch === "line"
-        ? (isTh() ? "ส่งทาง LINE" : "Send on LINE")
-        : (isTh() ? "ส่งทาง WhatsApp" : "Send on WhatsApp");
+      submit.textContent = ch === "line" ? t("sendLine") : t("sendWa");
     }
     if (reserveDock) {
       if (ch === "line") {
         reserveDock.href = "https://line.me/R/msg/text/?" + encodeURIComponent(greet());
-        reserveDock.textContent = isTh() ? "ทัก LINE จองโต๊ะ" : "LINE to reserve";
+        reserveDock.textContent = t("dockLine");
         reserveDock.classList.add("is-line");
         reserveDock.classList.remove("is-wa");
       } else {
         reserveDock.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(greet());
-        reserveDock.textContent = isTh() ? "ทัก WhatsApp จองโต๊ะ" : "Chat on WhatsApp";
+        reserveDock.textContent = t("dockWa");
         reserveDock.classList.add("is-wa");
         reserveDock.classList.remove("is-line");
       }
@@ -127,6 +248,8 @@
       id: item.id,
       nameEn: item.nameEn,
       nameTh: item.nameTh,
+      nameRu: item.nameRu,
+      nameZh: item.nameZh,
       price: item.price,
       ask: item.ask,
       kind: item.kind,
@@ -176,7 +299,7 @@
       return;
     }
     dock.hidden = false;
-    dock.textContent = (isTh() ? "ออเดอร์ · " : "Order · ") + n + " · " + byWt();
+    dock.textContent = t("order") + n + " · " + t("byWt");
   }
 
   function render() {
@@ -185,7 +308,7 @@
     if (linesEl) linesEl.hidden = !has;
     if (totalEl) {
       totalEl.hidden = !has;
-      totalEl.textContent = isTh() ? "ครัวยืนยันน้ำหนักและราคา" : "Weight & price confirmed by kitchen";
+      totalEl.textContent = t("total");
     }
     renderLines();
     markAdds();
@@ -203,7 +326,7 @@
       var iso = next.toISOString().slice(0, 10);
       var opt = document.createElement("option");
       opt.value = iso;
-      opt.textContent = iso === ymd(now) ? (isTh() ? "วันนี้, " : "Today, ") + iso : iso;
+      opt.textContent = iso === ymd(now) ? t("today") + iso : iso;
       dayEl.appendChild(opt);
     }
   }
@@ -231,9 +354,7 @@
     if (!slotEl.options.length) {
       var opt = document.createElement("option");
       opt.value = "";
-      opt.textContent = isTh()
-        ? "ครัวใกล้ปิดแล้ว — เลือกวันอื่นนะ"
-        : "Kitchen closing soon — pick another day";
+      opt.textContent = t("closing");
       slotEl.appendChild(opt);
     } else if (keep) {
       slotEl.value = keep;
@@ -243,59 +364,31 @@
   function message(data) {
     var rows = cart.map(function (item) {
       return "• " + itemName(item) + " × " + item.qty + " — " + lineLabel(item);
-    });
-    var th = isTh();
-    var chLabel = data.channel === "line" ? "LINE" : "WhatsApp";
-    var lines = th ? [
-      "สั่งล่วงหน้า ร้าน Mr.Jeff ละไม",
-      "",
-      "ชื่อ: " + data.name,
-      chLabel + ": " + data.phone,
-      "จำนวนคน: " + data.people,
-      "เวลามาถึง: " + data.day + " " + data.slot,
-      data.note ? "หมายเหตุ: " + data.note : "",
-      "",
-      rows.join("\n"),
-      "",
-      "ครัวยืนยันน้ำหนักและราคา",
-      "ยังไม่ชำระ — รับเงินสดเท่านั้น ขอบคุณครับ/ค่ะ"
-    ] : [
-      "Pre-order for Mr.Jeff, Lamai",
-      "",
-      "Name: " + data.name,
-      chLabel + ": " + data.phone,
-      "People: " + data.people,
-      "Arrive: " + data.day + " " + data.slot,
-      data.note ? "Note: " + data.note : "",
-      "",
-      rows.join("\n"),
-      "",
-      "Weight & price confirmed by kitchen.",
-      "Not paid — cash only. Khob khun!"
-    ];
-    return lines.filter(function (line) { return line !== ""; }).join("\n");
+    }).join("\n");
+    var noteKey = lang() === "zh" ? "备注：" : lang() === "ru" ? "Заметка: " : lang() === "th" ? "หมายเหตุ: " : "Note: ";
+    var note = data.note ? noteKey + data.note : "";
+    return t("msg").map(function (line) {
+      return line
+        .replace("{name}", data.name)
+        .replace("{ch}", data.channel === "line" ? "LINE" : "WhatsApp")
+        .replace("{phone}", data.phone)
+        .replace("{people}", data.people)
+        .replace("{day}", data.day)
+        .replace("{slot}", data.slot)
+        .replace("{note}", note)
+        .replace("{rows}", rows);
+    }).filter(function (line) { return line !== ""; }).join("\n");
   }
 
   function prepareChat(ch) {
     if (!chatLayer) return;
-    var th = isTh();
     chatLayer.setAttribute("data-name", "Mr.Jeff");
     if (ch === "line") {
-      chatLayer.setAttribute(
-        "data-reply",
-        th
-          ? "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ — ข้อความคัดลอกไว้แล้ว วางใน LINE ได้เลย"
-          : "Got it — we'll weigh the catch and confirm the price. Message copied; paste it in LINE."
-      );
-      chatLayer.setAttribute("data-continue", th ? "เปิด LINE" : "Open LINE");
+      chatLayer.setAttribute("data-reply", t("replyLine"));
+      chatLayer.setAttribute("data-continue", t("openLine"));
     } else {
-      chatLayer.setAttribute(
-        "data-reply",
-        th
-          ? "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ เจอกันครับ"
-          : "Got it — we'll weigh the catch and confirm the price. See you soon."
-      );
-      chatLayer.setAttribute("data-continue", th ? "เปิด WhatsApp" : "Open WhatsApp");
+      chatLayer.setAttribute("data-reply", t("replyWa"));
+      chatLayer.setAttribute("data-continue", t("openWa"));
     }
     chatLayer.classList.toggle("is-line", ch === "line");
     chatLayer.classList.toggle("is-wa", ch !== "line");
@@ -309,6 +402,8 @@
         id: id,
         nameEn: addBtn.getAttribute("data-name-en") || addBtn.getAttribute("data-name"),
         nameTh: addBtn.getAttribute("data-name-th") || addBtn.getAttribute("data-name"),
+        nameRu: addBtn.getAttribute("data-name-ru") || addBtn.getAttribute("data-name-en"),
+        nameZh: addBtn.getAttribute("data-name-zh") || addBtn.getAttribute("data-name-en"),
         price: Number(addBtn.getAttribute("data-price")),
         ask: addBtn.getAttribute("data-ask") === "1" || id.indexOf("side-") === 0,
         kind: id.indexOf("cook-") === 0 ? "cook" : "catch"
