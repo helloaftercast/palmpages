@@ -404,7 +404,7 @@ h1 {
 }
 
 .shots button:nth-child(1) img {
-  object-position: 50% 58%;
+  object-position: 48% 62%;
 }
 
 .shots button:nth-child(2) img {
@@ -1732,7 +1732,8 @@ body.order-chat-open {
 .mark.mark-has-logo {
   display: inline-flex;
   align-items: center;
-  padding: 0;
+  gap: 0.55rem;
+  padding: 0.12rem 0.2rem 0.12rem 0.12rem;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -1747,18 +1748,44 @@ body.order-chat-open {
 
 .mark.mark-has-logo:hover {
   opacity: 1;
-  filter: brightness(1.07);
+  filter: brightness(1.06);
 }
 
-.mark.mark-has-logo img {
-  height: 58px;
-  width: auto;
-  max-width: min(58vw, 250px);
+.mark.mark-has-logo .mark-avatar {
+  height: 52px;
+  width: 52px;
+  max-width: none;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f3ead8;
+  flex: none;
+}
+
+.mark.mark-has-logo .mark-word {
+  font-family: var(--serif);
+  font-size: 1.28rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f6efe4;
+  line-height: 1;
+}
+
+.mark.mark-has-logo .mark-word em {
+  margin-left: 0;
+  font-style: normal;
+  font-weight: 400;
+  color: #e8a83a;
+  text-shadow: none;
 }
 
 @media (max-width: 520px) {
-  .mark.mark-has-logo img {
-    height: 46px;
+  .mark.mark-has-logo .mark-avatar {
+    height: 44px;
+    width: 44px;
+  }
+  .mark.mark-has-logo .mark-word {
+    font-size: 1.08rem;
   }
 }
 
