@@ -298,7 +298,7 @@
       "data-reply",
       es
         ? "Listo — confirmamos mesa y precios. Nos vemos en Doña Yola."
-        : "Got it — we'll confirm your table and any ask-price items. See you at Doña Yola."
+        : "Got it — we'll confirm your table and send any prices. See you at Doña Yola."
     );
     chatLayer.setAttribute("data-continue", es ? "Abrir WhatsApp" : "Open WhatsApp");
     chatLayer.classList.add("is-wa");

@@ -21,6 +21,7 @@
 .hero.is-playing .hero-copy > :nth-child(4) { animation-delay: 0.9s; }
 .hero.is-playing .hero-copy > :nth-child(5) { animation-delay: 1.1s; }
 .hero.is-playing .hero-copy > :nth-child(6) { animation-delay: 1.3s; }
+.hero.is-playing .hero-copy > :nth-child(7) { animation-delay: 1.45s; }
 
 .hero.is-settled .hero-copy > * {
   opacity: 1;
