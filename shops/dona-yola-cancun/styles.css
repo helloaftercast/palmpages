@@ -1293,27 +1293,28 @@ body.order-chat-open {
 
 .top {
   overflow: visible;
-  min-height: 74px;
+  min-height: 92px;
 }
 
 .mark {
   display: inline-block;
   position: relative;
-  padding: 0.36rem 1.45rem 0.36rem 1.85rem;
-  font-size: 1.5rem;
+  flex-shrink: 0;
+  padding: 0.5rem 1.75rem 0.5rem 2.35rem;
+  font-size: 2.05rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  border: 2px solid rgba(232, 163, 23, 0.9);
-  border-radius: 14px;
+  border: 2.5px solid rgba(232, 163, 23, 0.95);
+  border-radius: 16px;
   color: #fff8ef;
   background: rgba(42, 18, 12, 0.5);
   text-shadow:
-    0 0 6px rgba(255, 212, 92, 0.9),
-    0 0 16px rgba(196, 92, 38, 0.5);
+    0 0 8px rgba(255, 212, 92, 1),
+    0 0 22px rgba(196, 92, 38, 0.7);
   box-shadow:
-    0 0 10px rgba(232, 163, 23, 0.5),
-    0 0 26px rgba(196, 92, 38, 0.32),
-    inset 0 0 12px rgba(232, 163, 23, 0.25);
+    0 0 14px rgba(232, 163, 23, 0.6),
+    0 0 36px rgba(196, 92, 38, 0.42),
+    inset 0 0 16px rgba(232, 163, 23, 0.3);
   animation: neon-flicker 6.5s linear infinite;
 }
 
@@ -1323,39 +1324,39 @@ body.order-chat-open {
 }
 
 .mark em {
-  margin-left: 0.3rem;
-  font-size: 0.78rem;
+  margin-left: 0.38rem;
+  font-size: 0.98rem;
   font-style: normal;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ffe08a;
   text-shadow:
-    0 0 6px rgba(255, 212, 92, 0.9),
-    0 0 14px rgba(232, 184, 74, 0.55);
+    0 0 8px rgba(255, 212, 92, 1),
+    0 0 18px rgba(232, 184, 74, 0.7);
 }
 
 .mark .deco.chile {
   position: absolute;
-  left: 0.38rem;
+  left: 0.48rem;
   top: 50%;
-  width: 0.46rem;
-  height: 0.74rem;
-  margin-top: -0.28rem;
+  width: 0.62rem;
+  height: 0.98rem;
+  margin-top: -0.36rem;
   background:
     radial-gradient(circle at 38% 36%, #f07040 0 38%, #c43020 39% 78%, #8a1c12 79%);
   border-radius: 50% 50% 46% 46% / 28% 28% 72% 72%;
-  box-shadow: 0 0 8px rgba(196, 48, 32, 0.7);
+  box-shadow: 0 0 12px rgba(196, 48, 32, 0.85);
   pointer-events: none;
 }
 
 .mark .deco.chile::after {
   content: "";
   position: absolute;
-  top: -0.18rem;
+  top: -0.24rem;
   left: 52%;
-  width: 0.16rem;
-  height: 0.22rem;
+  width: 0.2rem;
+  height: 0.28rem;
   background: #2d6a45;
   border-radius: 2px 2px 0 0;
   transform: rotate(-28deg);
@@ -1363,34 +1364,34 @@ body.order-chat-open {
 
 .mark .deco.steam {
   position: absolute;
-  left: 0.58rem;
-  width: 2px;
-  height: 0.38rem;
+  left: 0.72rem;
+  width: 3px;
+  height: 0.5rem;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   pointer-events: none;
   animation: steam-rise 2.4s ease-in-out infinite;
 }
 
-.mark .deco.steam.s1 { top: 0.18rem; animation-delay: 0s; }
-.mark .deco.steam.s2 { top: 0.12rem; left: 0.78rem; height: 0.32rem; opacity: 0.7; animation-delay: 0.7s; }
+.mark .deco.steam.s1 { top: 0.22rem; animation-delay: 0s; }
+.mark .deco.steam.s2 { top: 0.14rem; left: 0.98rem; height: 0.42rem; opacity: 0.7; animation-delay: 0.7s; }
 
 @keyframes steam-rise {
-  0%, 100% { transform: translateY(2px); opacity: 0.35; }
-  50% { transform: translateY(-2px); opacity: 0.95; }
+  0%, 100% { transform: translateY(3px); opacity: 0.35; }
+  50% { transform: translateY(-4px); opacity: 0.95; }
 }
 
 .mark .deco.lime {
   position: absolute;
-  right: -0.28rem;
-  bottom: -0.28rem;
-  width: 0.7rem;
-  height: 0.7rem;
+  right: -0.38rem;
+  bottom: -0.38rem;
+  width: 0.95rem;
+  height: 0.95rem;
   border-radius: 50%;
   background:
     radial-gradient(circle at 40% 40%, #e8f08a 0 28%, #2d6a45 29% 70%, #1f4a30 71%);
-  box-shadow: 0 0 8px rgba(45, 106, 69, 0.55);
+  box-shadow: 0 0 12px rgba(45, 106, 69, 0.7);
   pointer-events: none;
 }
 
@@ -1444,10 +1445,10 @@ body.order-chat-open {
 
 @media (max-width: 520px) {
   .mark {
-    font-size: 1.22rem;
-    padding: 0.3rem 1.15rem 0.3rem 1.55rem;
+    font-size: 1.55rem;
+    padding: 0.4rem 1.35rem 0.4rem 1.9rem;
   }
-  .mark em { font-size: 0.65rem; }
+  .mark em { font-size: 0.78rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
