@@ -405,7 +405,7 @@
         nameRu: addBtn.getAttribute("data-name-ru") || addBtn.getAttribute("data-name-en"),
         nameZh: addBtn.getAttribute("data-name-zh") || addBtn.getAttribute("data-name-en"),
         price: Number(addBtn.getAttribute("data-price")),
-        ask: addBtn.getAttribute("data-ask") === "1" || id.indexOf("side-") === 0,
+        ask: addBtn.getAttribute("data-ask") === "1" || id.indexOf("side-") === 0 || id.indexOf("thai-") === 0,
         kind: id.indexOf("cook-") === 0 ? "cook" : "catch"
       });
       return;
@@ -470,6 +470,28 @@
     } catch (err) {}
     render();
   });
+
+  var board = document.querySelector(".menu-board");
+  if (board) {
+    board.addEventListener("click", function (e) {
+      var tab = e.target.closest("[data-menu-tab]");
+      if (!tab || !board.contains(tab)) return;
+      var id = tab.getAttribute("data-menu-tab");
+      board.querySelectorAll("[data-menu-tab]").forEach(function (btn) {
+        var on = btn === tab;
+        btn.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      board.querySelectorAll("[data-menu-panel]").forEach(function (panel) {
+        var on = panel.getAttribute("data-menu-panel") === id;
+        panel.hidden = !on;
+        if (on) {
+          panel.querySelectorAll("[data-fx]").forEach(function (el) {
+            el.classList.add("is-in");
+          });
+        }
+      });
+    });
+  }
 
   render();
 })();
