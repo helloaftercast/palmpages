@@ -55,6 +55,11 @@
       }
     });
 
+    document.querySelectorAll("[data-wa-en]").forEach(function (a) {
+      var href = lang === "es" ? a.getAttribute("data-wa-es") : a.getAttribute("data-wa-en");
+      if (href) a.setAttribute("href", href);
+    });
+
     window.dispatchEvent(new CustomEvent("pp-lang", { detail: { lang: lang } }));
   }
 

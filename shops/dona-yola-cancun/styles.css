@@ -378,7 +378,7 @@ h1 {
 }
 
 .shots button:nth-child(4) img {
-  object-position: 50% 35%;
+  object-position: 32% 68%;
 }
 
 .shots button:hover img {
@@ -848,7 +848,17 @@ blockquote {
   font-size: 1.15rem;
   font-style: italic;
   font-weight: 500;
-  color: #1f303c;
+  color: var(--ink);
+}
+
+.quotes cite {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--mute);
 }
 
 .visit {
@@ -860,9 +870,38 @@ blockquote {
   padding: 4.2rem 1.2rem;
 }
 
-.visit-copy {
-  width: min(720px, 100%);
+.visit-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 2.1rem;
+  align-items: center;
+  width: min(1100px, 100%);
   margin: 0 auto;
+}
+
+.visit-shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #2a1a12;
+  cursor: zoom-in;
+}
+
+.visit-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 48%;
+}
+
+.visit-copy {
+  width: 100%;
+  margin: 0;
 }
 
 .visit h2 {
@@ -900,8 +939,8 @@ blockquote {
 }
 
 .foot {
-  background: #1a2a36;
-  color: #7a90a0;
+  background: #2a1a12;
+  color: #c4b09a;
   padding: 1.4rem 1.2rem 5.5rem;
   text-align: center;
   font-size: 0.92rem;
@@ -963,7 +1002,8 @@ blockquote {
   .shots,
   .sheet-grid,
   .ticket,
-  .ticket-form {
+  .ticket-form,
+  .visit-grid {
     grid-template-columns: 1fr;
   }
 

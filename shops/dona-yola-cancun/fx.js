@@ -86,7 +86,7 @@
   }
   tag(".block > h2, .visit-copy > h2", "left");
   tag(".block > .intro, .block > .note, .visit-copy > p, .visit-copy > dl, .visit-copy > .hero-actions", "");
-  tag(".shots button", "scale", 0.09, 5);
+  tag(".shots button, .visit-shot", "scale", 0.09, 5);
   tag(".steps li, .platters article", "", 0.1, 3);
   tag(".sheet, .ticket", "scale");
   tag(".sheet-list li", "", 0.045, 8);
