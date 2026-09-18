@@ -454,15 +454,20 @@ h1 {
 
 .menu-split {
   display: grid;
-  grid-template-columns: 10.8rem minmax(0, 1fr);
-  gap: 0 1.5rem;
+  grid-template-columns: 11.2rem minmax(0, 1fr);
+  gap: 0 1.35rem;
   align-items: start;
 }
 
 .menu-cats {
+  position: sticky;
+  top: 4.6rem;
+  max-height: calc(100vh - 6.2rem);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.22rem;
+  padding-right: 0.15rem;
 }
 
 .menu-cats button {
@@ -473,10 +478,10 @@ h1 {
   background: transparent;
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0.62rem 0.75rem;
+  letter-spacing: 0.02em;
+  padding: 0.42rem 0.6rem;
   cursor: pointer;
 }
 
@@ -1137,14 +1142,23 @@ blockquote {
   }
 
   .menu-cats {
+    position: static;
+    max-height: none;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0.3rem;
+    padding: 0 0 0.4rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .menu-cats button {
     width: auto;
-    flex: 1 1 6.5rem;
+    flex: 0 0 auto;
     text-align: center;
+    white-space: nowrap;
+    padding: 0.45rem 0.7rem;
   }
 
   .sheet-col + .sheet-col {

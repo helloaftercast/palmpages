@@ -6,7 +6,7 @@
   <title>Mr.Jeff — Fresh Seafood &amp; Thai Food, Lamai</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Meet Mr. Jeff in Maret, Lamai. Fresh seafood by weight — king lobster, prawns, crab — cooked your way. Cash only. Daily 13:00–23:00. WhatsApp for visitors.">
-  <link rel="stylesheet" href="styles.css?v=mj15">
+  <link rel="stylesheet" href="styles.css?v=mj16">
   <link rel="stylesheet" href="fx.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,7 +143,7 @@
 
     <section id="menu" class="block menu-block">
       <h2 data-en="Menu" data-ru="Меню" data-zh="菜单" data-th="เมนู">Menu</h2>
-      <p class="intro" data-en="From the Google listing. Tap a category, then a dish. No invented ฿/kg — the kitchen weighs it and confirms in chat." data-ru="По карте Google. Сначала категория, потом блюдо. Без выдуманных ฿/кг — кухня взвесит и подтвердит в чате." data-zh="按谷歌地图上的菜单分类点。先选一类，再点菜。没有乱编的 ฿/公斤——厨房称完在聊天里确认。" data-th="ตามเมนูใน Google เลือกหมวดก่อน แล้วค่อยเลือกจาน ไม่มีราคา ฿/กก. เดาเอา — ครัวชั่งจริงแล้วยืนยันทางแชท">From the Google listing. Tap a category, then a dish. No invented ฿/kg — the kitchen weighs it and confirms in chat.</p>
+      <p class="intro" data-en="Same sections as the Google Maps menu. Tap a category on the left, then a dish. Seafood by weight — no invented ฿/kg. Other pages: ask Mr. Jeff in chat." data-ru="Те же разделы, что в меню Google Maps. Слева категория, справа блюдо. Морепродукты на вес — без выдуманных ฿/кг. Остальное уточните у мистера Джеффа." data-zh="分类跟谷歌地图上的菜单一样。左边选品类，右边点菜。海鲜按重量，没有乱编的 ฿/公斤。其他页在聊天里问 Mr. Jeff。" data-th="หมวดเดียวกับเมนูใน Google Maps เลือกหมวดซ้าย แล้วเลือกจาน ซีฟู้ดตามน้ำหนัก ไม่มีราคา ฿/กก. เดาเอา หน้าอื่นถามคุณเจฟในแชท">Same sections as the Google Maps menu. Tap a category on the left, then a dish. Seafood by weight — no invented ฿/kg. Other pages: ask Mr. Jeff in chat.</p>
       <div class="sheet">
         <svg class="sheet-frieze" viewBox="0 0 1040 36" aria-hidden="true">
           <g fill="none" fill-rule="evenodd">
@@ -165,46 +165,28 @@
           <p class="sheet-kicker">Mr.Jeff</p>
           <div class="menu-split">
             <div class="menu-cats" role="tablist" aria-label="Menu categories">
-              <button type="button" role="tab" id="tab-seafood" aria-controls="panel-seafood" aria-selected="true" data-menu-tab="seafood" data-en="Seafood" data-ru="Морепродукты" data-zh="海鲜" data-th="ของสด">Seafood</button>
-              <button type="button" role="tab" id="tab-cook" aria-controls="panel-cook" aria-selected="false" data-menu-tab="cook" data-en="Cooking" data-ru="Приготовление" data-zh="做法" data-th="วิธีปรุง">Cooking</button>
-              <button type="button" role="tab" id="tab-thai" aria-controls="panel-thai" aria-selected="false" data-menu-tab="thai" data-en="Thai" data-ru="Тайское" data-zh="泰式" data-th="อาหารไทย">Thai</button>
-              <button type="button" role="tab" id="tab-popular" aria-controls="panel-popular" aria-selected="false" data-menu-tab="popular" data-en="Popular" data-ru="Популярное" data-zh="常点" data-th="จานฮิต">Popular</button>
+              <button type="button" role="tab" id="tab-popular" aria-controls="panel-popular" aria-selected="true" data-menu-tab="popular" data-en="Popular" data-ru="Популярное" data-zh="常点" data-th="จานฮิต">Popular</button>
+              <button type="button" role="tab" id="tab-appetizer" aria-controls="panel-appetizer" aria-selected="false" data-menu-tab="appetizer" data-en="Appetizer" data-ru="Закуски" data-zh="前菜" data-th="อาหารทานเล่น">Appetizer</button>
+              <button type="button" role="tab" id="tab-salad" aria-controls="panel-salad" aria-selected="false" data-menu-tab="salad" data-en="Salad" data-ru="Салаты" data-zh="沙拉" data-th="ยำ">Salad</button>
+              <button type="button" role="tab" id="tab-soup" aria-controls="panel-soup" aria-selected="false" data-menu-tab="soup" data-en="Soup" data-ru="Супы" data-zh="汤" data-th="ต้ม">Soup</button>
+              <button type="button" role="tab" id="tab-fish" aria-controls="panel-fish" aria-selected="false" data-menu-tab="fish" data-en="Fish" data-ru="Рыба" data-zh="鱼" data-th="ปลา">Fish</button>
+              <button type="button" role="tab" id="tab-seafood" aria-controls="panel-seafood" aria-selected="false" data-menu-tab="seafood" data-en="Seafood" data-ru="Морепродукты" data-zh="海鲜" data-th="อาหารทะเล">Seafood</button>
+              <button type="button" role="tab" id="tab-steamed" aria-controls="panel-steamed" aria-selected="false" data-menu-tab="steamed" data-en="Steamed" data-ru="На пару" data-zh="蒸" data-th="นึ่ง">Steamed</button>
+              <button type="button" role="tab" id="tab-fried" aria-controls="panel-fried" aria-selected="false" data-menu-tab="fried" data-en="Fried" data-ru="Жареное" data-zh="炸" data-th="ทอด">Fried</button>
+              <button type="button" role="tab" id="tab-grill" aria-controls="panel-grill" aria-selected="false" data-menu-tab="grill" data-en="Grill" data-ru="Гриль" data-zh="烤" data-th="ย่าง">Grill</button>
+              <button type="button" role="tab" id="tab-sauce" aria-controls="panel-sauce" aria-selected="false" data-menu-tab="sauce" data-en="Sauce" data-ru="Соусы" data-zh="酱汁" data-th="น้ำซอส">Sauce</button>
+              <button type="button" role="tab" id="tab-thai" aria-controls="panel-thai" aria-selected="false" data-menu-tab="thai" data-en="Thai food" data-ru="Тайское" data-zh="泰式" data-th="อาหารไทย">Thai food</button>
+              <button type="button" role="tab" id="tab-veg" aria-controls="panel-veg" aria-selected="false" data-menu-tab="veg" data-en="Vegetable" data-ru="Овощи" data-zh="蔬菜" data-th="ผัก">Vegetable</button>
+              <button type="button" role="tab" id="tab-rice" aria-controls="panel-rice" aria-selected="false" data-menu-tab="rice" data-en="Rice" data-ru="Рис" data-zh="饭" data-th="ข้าว">Rice</button>
+              <button type="button" role="tab" id="tab-noodles" aria-controls="panel-noodles" aria-selected="false" data-menu-tab="noodles" data-en="Noodles" data-ru="Лапша" data-zh="面" data-th="เส้น">Noodles</button>
+              <button type="button" role="tab" id="tab-curry" aria-controls="panel-curry" aria-selected="false" data-menu-tab="curry" data-en="Curry" data-ru="Карри" data-zh="咖喱" data-th="แกง">Curry</button>
+              <button type="button" role="tab" id="tab-dessert" aria-controls="panel-dessert" aria-selected="false" data-menu-tab="dessert" data-en="Dessert" data-ru="Десерт" data-zh="甜品" data-th="ของหวาน">Dessert</button>
+              <button type="button" role="tab" id="tab-drinks" aria-controls="panel-drinks" aria-selected="false" data-menu-tab="drinks" data-en="Drinks" data-ru="Напитки" data-zh="饮料" data-th="เครื่องดื่ม">Drinks</button>
+              <button type="button" role="tab" id="tab-beer" aria-controls="panel-beer" aria-selected="false" data-menu-tab="beer" data-en="Beer" data-ru="Пиво" data-zh="啤酒" data-th="เบียร์">Beer</button>
+              <button type="button" role="tab" id="tab-wine" aria-controls="panel-wine" aria-selected="false" data-menu-tab="wine" data-en="Wine" data-ru="Вино" data-zh="葡萄酒" data-th="ไวน์">Wine</button>
             </div>
             <div class="menu-panels">
-              <div class="menu-panel" role="tabpanel" id="panel-seafood" data-menu-panel="seafood" aria-labelledby="tab-seafood">
-                <h3 class="sheet-h" data-en="Seafood · by weight" data-ru="Морепродукты · на вес" data-zh="海鲜 · 按重量" data-th="ของสด · ตามน้ำหนัก">Seafood · by weight</h3>
-                <ul class="sheet-list">
-                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-lobster" data-name-en="King lobster" data-name-ru="Королевский лобстер" data-name-zh="帝王龙虾" data-name-th="กุ้งมังกร" data-price="0"><span>King lobster</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-prawns" data-name-en="Prawns" data-name-ru="Креветки" data-name-zh="大虾" data-name-th="กุ้ง" data-price="0"><span>Prawns</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-crab" data-name-en="Crab" data-name-ru="Краб" data-name-zh="螃蟹" data-name-th="ปู" data-price="0"><span>Crab</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-fish" data-name-en="Fish" data-name-ru="Рыба" data-name-zh="鱼" data-name-th="ปลา" data-price="0"><span>Fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-mussels" data-name-en="Mussels" data-name-ru="Мидии" data-name-zh="贻贝" data-name-th="หอยแมลงภู่" data-price="0"><span>Mussels</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
-                </ul>
-                <p class="sheet-mix" data-en="Weighed at the kitchen. King lobster is the house star. Pick a cooking style in the next tab." data-ru="Взвешивают на кухне. Королевский лобстер — звезда дома. Способ приготовления — в соседней вкладке." data-zh="厨房称重。帝王龙虾是镇店菜。做法去旁边「做法」里点。" data-th="ชั่งน้ำหนักที่ครัว กุ้งมังกรคือดาวเด่น เลือกวิธีปรุงในแท็บถัดไป">Weighed at the kitchen. King lobster is the house star. Pick a cooking style in the next tab.</p>
-              </div>
-              <div class="menu-panel" role="tabpanel" id="panel-cook" data-menu-panel="cook" aria-labelledby="tab-cook" hidden>
-                <h3 class="sheet-h" data-en="How to cook it" data-ru="Как приготовить" data-zh="怎么做" data-th="วิธีปรุง">How to cook it</h3>
-                <ul class="sheet-list">
-                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-grilled" data-name-en="Cooking: Grilled" data-name-ru="Приготовление: на гриле" data-name-zh="做法：烤" data-name-th="วิธีปรุง: ย่าง" data-price="0"><span data-en="Grilled" data-ru="На гриле" data-zh="烤" data-th="ย่าง">Grilled</span><b>—</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-fried" data-name-en="Cooking: Fried" data-name-ru="Приготовление: жареное" data-name-zh="做法：炸" data-name-th="วิธีปรุง: ทอด" data-price="0"><span data-en="Fried" data-ru="Жареное" data-zh="炸" data-th="ทอด">Fried</span><b>—</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-bbq" data-name-en="Cooking: BBQ" data-name-ru="Приготовление: BBQ" data-name-zh="做法：BBQ" data-name-th="วิธีปรุง: บาร์บีคิว" data-price="0"><span data-en="BBQ" data-ru="BBQ" data-zh="BBQ" data-th="บาร์บีคิว">BBQ</span><b>—</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-steamed" data-name-en="Cooking: Steamed" data-name-ru="Приготовление: на пару" data-name-zh="做法：蒸" data-name-th="วิธีปรุง: นึ่ง" data-price="0"><span data-en="Steamed" data-ru="На пару" data-zh="蒸" data-th="นึ่ง">Steamed</span><b>—</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-curry" data-name-en="Cooking: Curry powder sauce" data-name-ru="Приготовление: соус карри" data-name-zh="做法：咖喱粉" data-name-th="วิธีปรุง: ผัดผงกะหรี่" data-price="0"><span data-en="Curry powder sauce" data-ru="Соус карри" data-zh="咖喱粉" data-th="ผัดผงกะหรี่">Curry powder sauce</span><b>—</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-garlic" data-name-en="Cooking: Garlic" data-name-ru="Приготовление: чеснок" data-name-zh="做法：蒜香" data-name-th="วิธีปรุง: กระเทียม" data-price="0"><span data-en="Garlic" data-ru="Чеснок" data-zh="蒜香" data-th="กระเทียม">Garlic</span><b>—</b></button></li>
-                </ul>
-                <p class="sheet-mix" data-en="Crab + curry powder is a regular call. Mix two styles in the note if you need them." data-ru="Краб + карри — частый заказ. Два способа — напишите в заметке." data-zh="螃蟹 + 咖喱粉是常点。两种做法写在备注里就行。" data-th="ปู + ผัดผงกะหรี่ สั่งกันบ่อย ถ้าอยากได้สองแบบ เขียนไว้ในหมายเหตุได้">Crab + curry powder is a regular call. Mix two styles in the note if you need them.</p>
-              </div>
-              <div class="menu-panel" role="tabpanel" id="panel-thai" data-menu-panel="thai" aria-labelledby="tab-thai" hidden>
-                <h3 class="sheet-h sheet-h-orange" data-en="Thai dishes" data-ru="Тайские блюда" data-zh="泰式小菜" data-th="อาหารไทย">Thai dishes</h3>
-                <ul class="sheet-list">
-                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-padthai" data-name-en="Pad Thai" data-name-ru="Пад тай" data-name-zh="泰式炒河粉" data-name-th="ผัดไทย" data-price="0"><span>Pad Thai</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="thai-padthai-crab" data-name-en="Pad Thai with crab" data-name-ru="Пад тай с крабом" data-name-zh="螃蟹炒河粉" data-name-th="ผัดไทยปู" data-price="0"><span>Pad Thai with crab</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-seaweed" data-name-en="Seaweed salad" data-name-ru="Салат из водорослей" data-name-zh="海草沙拉" data-name-th="ยำสาหร่าย" data-price="0"><span>Seaweed salad</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
-                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-rice" data-name-en="Fried rice" data-name-ru="Жареный рис" data-name-zh="炒饭" data-name-th="ข้าวผัด" data-price="0"><span>Fried rice</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
-                </ul>
-                <p class="sheet-mix" data-en="Ask Mr. Jeff for today’s price. Pad Thai with crab is the one people mention." data-ru="Цену дня спросите у мистера Джеффа. Пад тай с крабом часто хвалят." data-zh="当天价格问 Mr. Jeff。螃蟹炒河粉是客人常提的那份。" data-th="ราคาวันนี้ถามคุณเจฟ ผัดไทยปูคือจานที่คนพูดถึง">Ask Mr. Jeff for today’s price. Pad Thai with crab is the one people mention.</p>
-              </div>
-              <div class="menu-panel" role="tabpanel" id="panel-popular" data-menu-panel="popular" aria-labelledby="tab-popular" hidden>
+              <div class="menu-panel" role="tabpanel" id="panel-popular" data-menu-panel="popular" aria-labelledby="tab-popular">
                 <h3 class="sheet-h" data-en="Often ordered" data-ru="Часто заказывают" data-zh="常点" data-th="สั่งบ่อย">Often ordered</h3>
                 <ul class="sheet-list">
                   <li><button type="button" class="add add-line" data-add="1" data-id="catch-lobster" data-name-en="King lobster" data-name-ru="Королевский лобстер" data-name-zh="帝王龙虾" data-name-th="กุ้งมังกร" data-price="0"><span>King lobster</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
@@ -217,7 +199,157 @@
                   <li><button type="button" class="add add-line" data-add="1" data-id="catch-mussels" data-name-en="Mussels" data-name-ru="Мидии" data-name-zh="贻贝" data-name-th="หอยแมลงภู่" data-price="0"><span>Mussels</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
                   <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-padthai" data-name-en="Pad Thai" data-name-ru="Пад тай" data-name-zh="泰式炒河粉" data-name-th="ผัดไทย" data-price="0"><span>Pad Thai</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
                 </ul>
-                <p class="sheet-mix" data-en="Dishes people name on Google. Catch is still weighed at the kitchen." data-ru="Блюда, которые называют в Google. Улов всё равно взвесят на кухне." data-zh="谷歌评价里常点的几道。海鲜仍按厨房称重。" data-th="จานที่คนพูดถึงใน Google ของสดยังชั่งที่ครัว">Dishes people name on Google. Catch is still weighed at the kitchen.</p>
+                <p class="sheet-mix" data-en="Named on Google. Catch is still weighed at the kitchen." data-ru="Так называют в Google. Улов всё равно взвесят на кухне." data-zh="谷歌上常点的。海鲜仍按厨房称重。" data-th="จานที่คนพูดถึงใน Google ของสดยังชั่งที่ครัว">Named on Google. Catch is still weighed at the kitchen.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-appetizer" data-menu-panel="appetizer" aria-labelledby="tab-appetizer" hidden>
+                <h3 class="sheet-h" data-en="Appetizer" data-ru="Закуски" data-zh="前菜" data-th="อาหารทานเล่น">Appetizer</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="app-page" data-name-en="Appetizer — from the Google page" data-name-ru="Закуска — со страницы Google" data-name-zh="前菜（谷歌菜单那一页）" data-name-th="อาหารทานเล่น จากหน้าเมนู Google" data-price="0"><span data-en="From this page" data-ru="С этой страницы" data-zh="这一页上的前菜" data-th="จากหน้านี้">From this page</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Tell Mr. Jeff which plate from the appetizer photos." data-ru="Напишите мистеру Джеффу, какое блюдо с фото закусок." data-zh="告诉 Mr. Jeff 前菜照片里的哪一道。" data-th="บอกคุณเจฟว่าต้องการจานไหนจากหน้ารูปอาหารทานเล่น">Tell Mr. Jeff which plate from the appetizer photos.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-salad" data-menu-panel="salad" aria-labelledby="tab-salad" hidden>
+                <h3 class="sheet-h" data-en="Salad" data-ru="Салаты" data-zh="沙拉" data-th="ยำ">Salad</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-seaweed" data-name-en="Seaweed salad" data-name-ru="Салат из водорослей" data-name-zh="海草沙拉" data-name-th="ยำสาหร่าย" data-price="0"><span>Seaweed salad</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="salad-page" data-name-en="Salad — from the Google page" data-name-ru="Салат — со страницы Google" data-name-zh="沙拉（谷歌菜单那一页）" data-name-th="ยำ จากหน้าเมนู Google" data-price="0"><span data-en="Other salads" data-ru="Другие салаты" data-zh="其他沙拉" data-th="ยำอื่น">Other salads</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Seaweed salad is the one reviews name. The rest — ask." data-ru="Салат из водорослей хвалят в отзывах. Остальное — спросите." data-zh="评价里常提海草沙拉。其余询价。" data-th="ยำสาหร่ายคือจานที่รีวิวพูดถึง ที่เหลือสอบถาม">Seaweed salad is the one reviews name. The rest — ask.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-soup" data-menu-panel="soup" aria-labelledby="tab-soup" hidden>
+                <h3 class="sheet-h" data-en="Soup" data-ru="Супы" data-zh="汤" data-th="ต้ม">Soup</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="soup-page" data-name-en="Soup — from the Google page" data-name-ru="Суп — со страницы Google" data-name-zh="汤（谷歌菜单那一页）" data-name-th="ต้ม จากหน้าเมนู Google" data-price="0"><span data-en="From this page" data-ru="С этой страницы" data-zh="这一页上的汤" data-th="จากหน้านี้">From this page</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Soup page on Google. Tell Mr. Jeff which bowl." data-ru="Страница супов в Google. Напишите, какой бульон." data-zh="谷歌上的汤页。告诉 Mr. Jeff 要哪碗。" data-th="หน้าต้มใน Google บอกคุณเจฟว่าต้องการชามไหน">Soup page on Google. Tell Mr. Jeff which bowl.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-fish" data-menu-panel="fish" aria-labelledby="tab-fish" hidden>
+                <h3 class="sheet-h" data-en="Fish · by weight" data-ru="Рыба · на вес" data-zh="鱼 · 按重量" data-th="ปลา · ตามน้ำหนัก">Fish · by weight</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-fish-fried" data-name-en="Fried fish" data-name-ru="Жареная рыба" data-name-zh="炸鱼" data-name-th="ปลาทอด" data-price="0"><span>Fried fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-fish-grilled" data-name-en="Grilled fish" data-name-ru="Рыба на гриле" data-name-zh="烤鱼" data-name-th="ปลาย่าง" data-price="0"><span>Grilled fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-fish-steamed" data-name-en="Steamed fish" data-name-ru="Рыба на пару" data-name-zh="蒸鱼" data-name-th="ปลานึ่ง" data-price="0"><span>Steamed fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-fish" data-name-en="Fish" data-name-ru="Рыба" data-name-zh="鱼" data-name-th="ปลา" data-price="0"><span data-en="Fish — say how to cook" data-ru="Рыба — скажите, как готовить" data-zh="鱼——注明做法" data-th="ปลา — บอกวิธีปรุง">Fish — say how to cook</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Whole fish page on Google. Fried and grilled are the ones people name." data-ru="Отдельная страница рыбы в Google. Жареную и гриль называют чаще." data-zh="谷歌上单独有鱼这一页。评价里常点炸鱼和烤鱼。" data-th="มีหน้าปลาแยกใน Google ปลาทอดกับปลาย่างคือจานที่คนพูดถึง">Whole fish page on Google. Fried and grilled are the ones people name.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-seafood" data-menu-panel="seafood" aria-labelledby="tab-seafood" hidden>
+                <h3 class="sheet-h" data-en="Seafood · by weight" data-ru="Морепродукты · на вес" data-zh="海鲜 · 按重量" data-th="อาหารทะเล · ตามน้ำหนัก">Seafood · by weight</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-lobster" data-name-en="King lobster" data-name-ru="Королевский лобстер" data-name-zh="帝王龙虾" data-name-th="กุ้งมังกร" data-price="0"><span>King lobster</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-prawns" data-name-en="Prawns" data-name-ru="Креветки" data-name-zh="大虾" data-name-th="กุ้ง" data-price="0"><span>Prawns</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-crab" data-name-en="Crab" data-name-ru="Краб" data-name-zh="螃蟹" data-name-th="ปู" data-price="0"><span>Crab</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-mussels" data-name-en="Mussels" data-name-ru="Мидии" data-name-zh="贻贝" data-name-th="หอยแมลงภู่" data-price="0"><span>Mussels</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="catch-fish" data-name-en="Fish" data-name-ru="Рыба" data-name-zh="鱼" data-name-th="ปลา" data-price="0"><span>Fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="From the ice. Pick a cook style under Steamed, Fried, Grill or Sauce." data-ru="Со льда. Способ — во вкладках На пару, Жареное, Гриль или Соусы." data-zh="冰台上的货。做法去「蒸 / 炸 / 烤 / 酱汁」。" data-th="ของสดจากถังน้ำแข็ง เลือกวิธีปรุงที่แท็บ นึ่ง ทอด ย่าง หรือน้ำซอส">From the ice. Pick a cook style under Steamed, Fried, Grill or Sauce.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-steamed" data-menu-panel="steamed" aria-labelledby="tab-steamed" hidden>
+                <h3 class="sheet-h" data-en="Steamed" data-ru="На пару" data-zh="蒸" data-th="นึ่ง">Steamed</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-fish-steamed" data-name-en="Steamed fish" data-name-ru="Рыба на пару" data-name-zh="蒸鱼" data-name-th="ปลานึ่ง" data-price="0"><span>Steamed fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-prawns-steamed" data-name-en="Steamed prawns" data-name-ru="Креветки на пару" data-name-zh="蒸大虾" data-name-th="กุ้งนึ่ง" data-price="0"><span>Steamed prawns</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-crab-steamed" data-name-en="Steamed crab" data-name-ru="Краб на пару" data-name-zh="蒸蟹" data-name-th="ปูนึ่ง" data-price="0"><span>Steamed crab</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-steamed" data-name-en="Cooking: Steamed" data-name-ru="Приготовление: на пару" data-name-zh="做法：蒸" data-name-th="วิธีปรุง: นึ่ง" data-price="0"><span data-en="Steam my catch" data-ru="Приготовить улов на пару" data-zh="我点的海鲜请蒸" data-th="นึ่งของที่เลือก">Steam my catch</span><b>—</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Steamed seafood page on Google. Kitchen weighs the catch." data-ru="Страница «на пару» в Google. Кухня взвесит улов." data-zh="谷歌上的蒸海鲜页。厨房称重。" data-th="หน้าซีฟู้ดนึ่งใน Google ครัวชั่งของสด">Steamed seafood page on Google. Kitchen weighs the catch.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-fried" data-menu-panel="fried" aria-labelledby="tab-fried" hidden>
+                <h3 class="sheet-h" data-en="Fried" data-ru="Жареное" data-zh="炸" data-th="ทอด">Fried</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-prawns-fried" data-name-en="Fried prawns" data-name-ru="Жареные креветки" data-name-zh="炸大虾" data-name-th="กุ้งทอด" data-price="0"><span>Fried prawns</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-fish-fried" data-name-en="Fried fish" data-name-ru="Жареная рыба" data-name-zh="炸鱼" data-name-th="ปลาทอด" data-price="0"><span>Fried fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-fried" data-name-en="Cooking: Fried" data-name-ru="Приготовление: жареное" data-name-zh="做法：炸" data-name-th="วิธีปรุง: ทอด" data-price="0"><span data-en="Fry my catch" data-ru="Жарить улов" data-zh="我点的海鲜请炸" data-th="ทอดของที่เลือก">Fry my catch</span><b>—</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Fried prawns and fried fish are named in reviews." data-ru="Жареные креветки и рыбу называют в отзывах." data-zh="评价里常点炸虾、炸鱼。" data-th="กุ้งทอดกับปลาทอดคือจานที่รีวิวพูดถึง">Fried prawns and fried fish are named in reviews.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-grill" data-menu-panel="grill" aria-labelledby="tab-grill" hidden>
+                <h3 class="sheet-h" data-en="Grill / BBQ" data-ru="Гриль / BBQ" data-zh="烤 / BBQ" data-th="ย่าง / บาร์บีคิว">Grill / BBQ</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-prawns-grilled" data-name-en="Grilled prawns" data-name-ru="Креветки на гриле" data-name-zh="烤大虾" data-name-th="กุ้งย่าง" data-price="0"><span>Grilled prawns</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-fish-grilled" data-name-en="Grilled fish" data-name-ru="Рыба на гриле" data-name-zh="烤鱼" data-name-th="ปลาย่าง" data-price="0"><span>Grilled fish</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-grilled" data-name-en="Cooking: Grilled" data-name-ru="Приготовление: на гриле" data-name-zh="做法：烤" data-name-th="วิธีปรุง: ย่าง" data-price="0"><span data-en="Grill my catch" data-ru="Улов на гриле" data-zh="我点的海鲜请烤" data-th="ย่างของที่เลือก">Grill my catch</span><b>—</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-bbq" data-name-en="Cooking: BBQ" data-name-ru="Приготовление: BBQ" data-name-zh="做法：BBQ" data-name-th="วิธีปรุง: บาร์บีคิว" data-price="0"><span data-en="BBQ" data-ru="BBQ" data-zh="BBQ" data-th="บาร์บีคิว">BBQ</span><b>—</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Grilled prawns are in the photo gallery too." data-ru="Креветки на гриле есть и в галерее." data-zh="烤大虾在相册里也有。" data-th="กุ้งย่างมีในรูปด้วย">Grilled prawns are in the photo gallery too.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-sauce" data-menu-panel="sauce" aria-labelledby="tab-sauce" hidden>
+                <h3 class="sheet-h" data-en="Sauce" data-ru="Соусы" data-zh="酱汁" data-th="น้ำซอส">Sauce</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-garlic" data-name-en="Cooking: Garlic" data-name-ru="Приготовление: чеснок" data-name-zh="做法：蒜香" data-name-th="วิธีปรุง: กระเทียม" data-price="0"><span data-en="Garlic" data-ru="Чеснок" data-zh="蒜香" data-th="กระเทียม">Garlic</span><b>—</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-prawns-garlic" data-name-en="Garlic prawns" data-name-ru="Креветки с чесноком" data-name-zh="蒜香大虾" data-name-th="กุ้งกระเทียม" data-price="0"><span>Garlic prawns</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-curry" data-name-en="Cooking: Curry powder sauce" data-name-ru="Приготовление: соус карри" data-name-zh="做法：咖喱粉" data-name-th="วิธีปรุง: ผัดผงกะหรี่" data-price="0"><span data-en="Curry powder sauce" data-ru="Соус карри" data-zh="咖喱粉" data-th="ผัดผงกะหรี่">Curry powder sauce</span><b>—</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Garlic prawns (gambas al ajo) show up in reviews. Mix sauces in the note." data-ru="Креветки с чесноком часто хвалят. Два соуса — в заметке." data-zh="评价里有蒜香大虾。两种酱写在备注里。" data-th="กุ้งกระเทียมมีในรีวิว ถ้าอยากได้สองซอส เขียนในหมายเหตุ">Garlic prawns (gambas al ajo) show up in reviews. Mix sauces in the note.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-thai" data-menu-panel="thai" aria-labelledby="tab-thai" hidden>
+                <h3 class="sheet-h sheet-h-orange" data-en="Thai food" data-ru="Тайская кухня" data-zh="泰式" data-th="อาหารไทย">Thai food</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-padthai" data-name-en="Pad Thai" data-name-ru="Пад тай" data-name-zh="泰式炒河粉" data-name-th="ผัดไทย" data-price="0"><span>Pad Thai</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="thai-padthai-crab" data-name-en="Pad Thai with crab" data-name-ru="Пад тай с крабом" data-name-zh="螃蟹炒河粉" data-name-th="ผัดไทยปู" data-price="0"><span>Pad Thai with crab</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="thai-page" data-name-en="Thai food — from the Google page" data-name-ru="Тайское — со страницы Google" data-name-zh="泰式（谷歌菜单那一页）" data-name-th="อาหารไทย จากหน้าเมนู Google" data-price="0"><span data-en="Other Thai dishes" data-ru="Другие тайские блюда" data-zh="其他泰式" data-th="อาหารไทยอื่น">Other Thai dishes</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Pad Thai with crab is the one people mention." data-ru="Пад тай с крабом часто хвалят." data-zh="螃蟹炒河粉是客人常提的那份。" data-th="ผัดไทยปูคือจานที่คนพูดถึง">Pad Thai with crab is the one people mention.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-veg" data-menu-panel="veg" aria-labelledby="tab-veg" hidden>
+                <h3 class="sheet-h" data-en="Vegetable" data-ru="Овощи" data-zh="蔬菜" data-th="ผัก">Vegetable</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="veg-page" data-name-en="Vegetable — from the Google page" data-name-ru="Овощи — со страницы Google" data-name-zh="蔬菜（谷歌菜单那一页）" data-name-th="ผัก จากหน้าเมนู Google" data-price="0"><span data-en="From this page" data-ru="С этой страницы" data-zh="这一页上的蔬菜" data-th="จากหน้านี้">From this page</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Vegetable page on Google. Tell Mr. Jeff which plate." data-ru="Страница овощей в Google. Напишите, какое блюдо." data-zh="谷歌上的蔬菜页。告诉 Mr. Jeff 要哪道。" data-th="หน้าผักใน Google บอกคุณเจฟว่าจานไหน">Vegetable page on Google. Tell Mr. Jeff which plate.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-rice" data-menu-panel="rice" aria-labelledby="tab-rice" hidden>
+                <h3 class="sheet-h" data-en="Rice" data-ru="Рис" data-zh="饭" data-th="ข้าว">Rice</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-rice" data-name-en="Fried rice" data-name-ru="Жареный рис" data-name-zh="炒饭" data-name-th="ข้าวผัด" data-price="0"><span>Fried rice</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="rice-page" data-name-en="Rice — from the Google page" data-name-ru="Рис — со страницы Google" data-name-zh="饭（谷歌菜单那一页）" data-name-th="ข้าว จากหน้าเมนู Google" data-price="0"><span data-en="Other rice" data-ru="Другой рис" data-zh="其他饭类" data-th="ข้าวอื่น">Other rice</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Fried rice is named in reviews." data-ru="Жареный рис упоминают в отзывах." data-zh="评价里有炒饭。" data-th="ข้าวผัดมีในรีวิว">Fried rice is named in reviews.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-noodles" data-menu-panel="noodles" aria-labelledby="tab-noodles" hidden>
+                <h3 class="sheet-h" data-en="Noodles" data-ru="Лапша" data-zh="面" data-th="เส้น">Noodles</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="side-padthai" data-name-en="Pad Thai" data-name-ru="Пад тай" data-name-zh="泰式炒河粉" data-name-th="ผัดไทย" data-price="0"><span>Pad Thai</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="thai-padthai-crab" data-name-en="Pad Thai with crab" data-name-ru="Пад тай с крабом" data-name-zh="螃蟹炒河粉" data-name-th="ผัดไทยปู" data-price="0"><span>Pad Thai with crab</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="noodle-page" data-name-en="Noodles — from the Google page" data-name-ru="Лапша — со страницы Google" data-name-zh="面（谷歌菜单那一页）" data-name-th="เส้น จากหน้าเมนู Google" data-price="0"><span data-en="Other noodles" data-ru="Другая лапша" data-zh="其他面" data-th="เส้นอื่น">Other noodles</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Noodle page on Google. Pad Thai is the named dish." data-ru="Страница лапши в Google. Пад тай — известное блюдо." data-zh="谷歌上的面页。常点的是炒河粉。" data-th="หน้าเส้นใน Google ผัดไทยคือจานที่คนรู้จัก">Noodle page on Google. Pad Thai is the named dish.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-curry" data-menu-panel="curry" aria-labelledby="tab-curry" hidden>
+                <h3 class="sheet-h" data-en="Curry" data-ru="Карри" data-zh="咖喱" data-th="แกง">Curry</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-id="pop-crab-curry" data-name-en="Crab with curry powder" data-name-ru="Краб в соусе карри" data-name-zh="咖喱粉炒蟹" data-name-th="ปูผัดผงกะหรี่" data-price="0"><span>Crab with curry powder</span><b data-en="by wt" data-ru="на вес" data-zh="按重量" data-th="ตามน้ำหนัก">by wt</b></button></li>
+                  <li><button type="button" class="add add-line" data-add="1" data-id="cook-curry" data-name-en="Cooking: Curry powder sauce" data-name-ru="Приготовление: соус карри" data-name-zh="做法：咖喱粉" data-name-th="วิธีปรุง: ผัดผงกะหรี่" data-price="0"><span data-en="Curry powder sauce" data-ru="Соус карри" data-zh="咖喱粉" data-th="ผัดผงกะหรี่">Curry powder sauce</span><b>—</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Crab with curry powder is a regular call." data-ru="Краб + карри — частый заказ." data-zh="咖喱粉炒蟹是常点。" data-th="ปูผัดผงกะหรี่ สั่งกันบ่อย">Crab with curry powder is a regular call.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-dessert" data-menu-panel="dessert" aria-labelledby="tab-dessert" hidden>
+                <h3 class="sheet-h" data-en="Dessert" data-ru="Десерт" data-zh="甜品" data-th="ของหวาน">Dessert</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="dessert-page" data-name-en="Dessert — from the Google page" data-name-ru="Десерт — со страницы Google" data-name-zh="甜品（谷歌菜单那一页）" data-name-th="ของหวาน จากหน้าเมนู Google" data-price="0"><span data-en="From this page" data-ru="С этой страницы" data-zh="这一页上的甜品" data-th="จากหน้านี้">From this page</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Dessert page on Google. Ask what’s on today." data-ru="Страница десертов в Google. Спросите, что есть сегодня." data-zh="谷歌上的甜品页。问今天有什么。" data-th="หน้าของหวานใน Google ถามว่าวันนี้มีอะไร">Dessert page on Google. Ask what’s on today.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-drinks" data-menu-panel="drinks" aria-labelledby="tab-drinks" hidden>
+                <h3 class="sheet-h" data-en="Drinks" data-ru="Напитки" data-zh="饮料" data-th="เครื่องดื่ม">Drinks</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="drink-page" data-name-en="Drinks — from the Google page" data-name-ru="Напитки — со страницы Google" data-name-zh="饮料（谷歌菜单那一页）" data-name-th="เครื่องดื่ม จากหน้าเมนู Google" data-price="0"><span data-en="From this page" data-ru="С этой страницы" data-zh="这一页上的饮料" data-th="จากหน้านี้">From this page</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Soft drinks page on Google. Name the bottle in chat." data-ru="Страница напитков в Google. Напишите, что взять." data-zh="谷歌上的饮料页。在聊天里说要哪瓶。" data-th="หน้าเครื่องดื่มใน Google บอกในแชทว่าต้องการอะไร">Soft drinks page on Google. Name the bottle in chat.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-beer" data-menu-panel="beer" aria-labelledby="tab-beer" hidden>
+                <h3 class="sheet-h" data-en="Beer" data-ru="Пиво" data-zh="啤酒" data-th="เบียร์">Beer</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="beer-page" data-name-en="Beer — from the Google page" data-name-ru="Пиво — со страницы Google" data-name-zh="啤酒（谷歌菜单那一页）" data-name-th="เบียร์ จากหน้าเมนู Google" data-price="0"><span data-en="From this page" data-ru="С этой страницы" data-zh="这一页上的啤酒" data-th="จากหน้านี้">From this page</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Beer page on Google. Ask which bottles they have tonight." data-ru="Страница пива в Google. Спросите, что есть сегодня." data-zh="谷歌上的啤酒页。问今晚有哪几瓶。" data-th="หน้าเบียร์ใน Google ถามว่าคืนนี้มีอะไร">Beer page on Google. Ask which bottles they have tonight.</p>
+              </div>
+              <div class="menu-panel" role="tabpanel" id="panel-wine" data-menu-panel="wine" aria-labelledby="tab-wine" hidden>
+                <h3 class="sheet-h" data-en="Wine" data-ru="Вино" data-zh="葡萄酒" data-th="ไวน์">Wine</h3>
+                <ul class="sheet-list">
+                  <li><button type="button" class="add add-line" data-add="1" data-ask="1" data-id="wine-page" data-name-en="Wine — from the Google page" data-name-ru="Вино — со страницы Google" data-name-zh="葡萄酒（谷歌菜单那一页）" data-name-th="ไวน์ จากหน้าเมนู Google" data-price="0"><span data-en="From this page" data-ru="С этой страницы" data-zh="这一页上的酒" data-th="จากหน้านี้">From this page</span><b data-en="ask" data-ru="уточнить" data-zh="询价" data-th="สอบถาม">ask</b></button></li>
+                </ul>
+                <p class="sheet-mix" data-en="Wine page on Google. Ask Mr. Jeff what’s open." data-ru="Страница вина в Google. Спросите, что открыто." data-zh="谷歌上的葡萄酒页。问 Mr. Jeff 今晚开哪支。" data-th="หน้าไวน์ใน Google ถามคุณเจฟว่าเปิดอะไร">Wine page on Google. Ask Mr. Jeff what’s open.</p>
               </div>
             </div>
           </div>
@@ -351,7 +483,7 @@
   <script src="lang.js?v=mj6"></script>
   <script src="hero.js?v=pan2"></script>
   <script src="zoom.js"></script>
-  <script src="order.js?v=mj8"></script>
+  <script src="order.js?v=mj9"></script>
   <script src="order-fx.js?v=fx2"></script>
   <script src="fx.js?v=2"></script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"3ac2d6bcfa374b2fb5195c955411867a"}'></script>

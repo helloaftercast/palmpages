@@ -477,6 +477,7 @@
       var tab = e.target.closest("[data-menu-tab]");
       if (!tab || !board.contains(tab)) return;
       var id = tab.getAttribute("data-menu-tab");
+      tab.scrollIntoView({ inline: "center", block: "nearest" });
       board.querySelectorAll("[data-menu-tab]").forEach(function (btn) {
         var on = btn === tab;
         btn.setAttribute("aria-selected", on ? "true" : "false");
