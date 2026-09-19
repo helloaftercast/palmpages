@@ -35,53 +35,79 @@
       color: #1E3A5F;
     }
     [hidden] { display: none !important; }
-    .hero-bg {
+    .page-hero-img {
       position: absolute;
-      inset: -24px;
-      background: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=70") center/cover no-repeat;
-      filter: blur(10px) brightness(0.72);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: blur(10px) brightness(0.5);
       transform: scale(1.08);
     }
-    .hero-bg::after {
-      content: "";
+    .page-hero-veil {
       position: absolute;
       inset: 0;
-      background: rgba(228, 242, 248, 0.58);
+      z-index: 1;
+      background: rgba(30, 20, 10, 0.45);
+    }
+    .signboard {
+      position: relative;
+      width: min(92vw, 680px);
+      margin: 2.4rem auto 0;
+      overflow: hidden;
+      border-radius: 6px;
+      box-shadow: 0 22px 56px rgba(20, 10, 0, 0.4);
+    }
+    .signboard-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .signboard-veil {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 20, 10, 0.7);
+    }
+    .signboard-copy {
+      position: relative;
+      z-index: 1;
+      padding: 3.4rem 1.4rem 3.1rem;
+      text-align: center;
+    }
+    .neon-name,
+    .neon-sub {
+      color: #E8C56A;
+      animation: neon-breathe 2.5s ease-in-out infinite;
     }
     .neon-name {
-      display: inline-block;
-      margin-top: 1.4rem;
-      padding: 0.18em 0.72em 0.26em;
-      background: #0c1a28;
-      border: 2px solid #D4AF37;
-      border-radius: 8px;
-      color: #ffe9a3;
-      font-size: clamp(2.8rem, 9vw, 4.2rem);
-      letter-spacing: 0.08em;
-      line-height: 1.1;
-      animation: neon-breathe 2.5s ease-in-out infinite;
+      margin: 0;
+      font-size: clamp(3.4rem, 13vw, 5.6rem);
+      letter-spacing: 0.2em;
+      line-height: 1.05;
+      text-indent: 0.2em;
+    }
+    .neon-sub {
+      margin: 1rem 0 0;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
     }
     @keyframes neon-breathe {
       0%, 100% {
-        color: #e0c36a;
         text-shadow:
-          0 0 4px #d4af37,
-          0 0 12px rgba(212, 175, 55, 0.45),
-          0 0 22px rgba(212, 175, 55, 0.2);
-        box-shadow:
-          0 0 10px rgba(212, 175, 55, 0.35),
-          inset 0 0 12px rgba(212, 175, 55, 0.08);
+          0 0 4px rgba(232, 197, 106, 0.45),
+          0 0 14px rgba(212, 175, 55, 0.28),
+          0 0 28px rgba(212, 175, 55, 0.12);
       }
       50% {
-        color: #fff6c8;
         text-shadow:
-          0 0 10px #ffe08a,
-          0 0 22px #d4af37,
-          0 0 40px rgba(255, 200, 80, 0.75);
-        box-shadow:
-          0 0 22px rgba(212, 175, 55, 0.85),
-          0 0 40px rgba(212, 175, 55, 0.35),
-          inset 0 0 18px rgba(255, 220, 120, 0.22);
+          0 0 10px rgba(255, 232, 160, 0.95),
+          0 0 24px rgba(232, 197, 106, 0.7),
+          0 0 44px rgba(212, 175, 55, 0.45);
       }
     }
     .plate,
@@ -183,47 +209,32 @@
 </head>
 <body class="font-sans antialiased pb-28">
   <header id="home" class="relative overflow-hidden text-center">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="relative z-10 max-w-xl mx-auto px-6 pt-14 pb-12">
+    <img class="page-hero-img" src="https://picsum.photos/id/431/1920/1080" alt="">
+    <div class="page-hero-veil" aria-hidden="true"></div>
+    <div class="relative z-10 max-w-2xl mx-auto px-6 pt-14 pb-16">
       <div class="absolute top-4 right-4 z-20 flex items-center gap-3 text-2xl" role="group" aria-label="Language">
         <button type="button" data-set-lang="en" aria-pressed="false" title="English">🇬🇧</button>
         <button type="button" data-set-lang="th" aria-pressed="false" title="ไทย">🇹🇭</button>
         <button type="button" data-set-lang="zh" aria-pressed="true" title="中文" class="text-base tracking-widest">中文</button>
       </div>
-      <div class="flex flex-col items-center">
-        <a href="#home">
-          <span class="plate-logo">
-            <span class="plate-inner">
-              <img src="photos/logo-avatar.jpg?v=mj13" width="104" height="104" alt="Mr. JEFF">
-            </span>
-          </span>
-        </a>
-        <h1 class="neon-name font-serif italic">Mr.Jeff</h1>
+      <div class="signboard">
+        <img class="signboard-photo" src="photos/room.jpg?v=mj7" alt="Mr.Jeff dining room">
+        <div class="signboard-veil" aria-hidden="true"></div>
+        <div class="signboard-copy">
+          <h1 class="neon-name font-serif">Mr.Jeff</h1>
+          <p class="neon-sub font-serif" data-en="Lamai / Maret · near Coco Splash" data-zh="拉迈 / Maret · 靠近 Coco Splash">拉迈 / Maret · 靠近 Coco Splash</p>
+        </div>
       </div>
-      <p class="text-xs tracking-[0.28em] uppercase text-ivory/60 mt-2" data-en="Lamai / Maret · near Coco Splash" data-zh="拉迈 / Maret · 靠近 Coco Splash">拉迈 / Maret · 靠近 Coco Splash</p>
-      <nav class="mt-10 flex flex-col items-center gap-4 font-serif text-[1.65rem] tracking-[0.34em] uppercase">
-        <a href="#home" data-en="Home" data-zh="首页">首页</a>
-        <a href="#about" data-en="About" data-zh="关于">关于</a>
-        <a href="#menu" data-en="Food Menu" data-zh="菜单">菜单</a>
-        <a href="#order" data-en="Order" data-zh="点单">点单</a>
-        <a href="#contact" data-en="Contact" data-zh="联系">联系</a>
-      </nav>
-      <div class="mt-10 flex flex-wrap justify-center gap-3">
-        <a class="chat-btn inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm text-white" style="background:#25D366" data-fly-open="wa-hero" href="https://wa.me/66620454983?text=Hi%20Mr.%20Jeff%2C%20I%27d%20like%20a%20table.">
-          <span aria-hidden="true">🟢</span> WhatsApp
-        </a>
-        <a class="chat-btn inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm text-white" style="background:#06C755" data-fly-open="line-hero" href="https://line.me/R/msg/text/?%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%9A%2F%E0%B8%84%E0%B9%88%E0%B8%B0%20%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%20Mr.Jeff">
-          <span aria-hidden="true">💬</span> LINE
-        </a>
+      <div class="home-lede mt-10 font-serif text-[1.15rem] leading-[1.8] text-[#F5E6C8]">
+        <p data-en="Meet Mr. Jeff — the friendly owner at the door." data-zh="门口那位热情的老板，就是 Mr. Jeff。">门口那位热情的老板，就是 Mr. Jeff。</p>
+        <p class="mt-4" data-en="King lobster, prawns, crab, mussels — pick your catch, say how you want it cooked." data-zh="帝王龙虾、大虾、螃蟹、贻贝——自己挑海鲜，告诉厨房怎么做。">帝王龙虾、大虾、螃蟹、贻贝——自己挑海鲜，告诉厨房怎么做。</p>
+        <p class="mt-4" data-en="Cash only. Fresh seafood by weight." data-zh="只收现金。鲜海鲜按重量计价。">只收现金。鲜海鲜按重量计价。</p>
       </div>
+      <a class="chat-btn mt-8 inline-flex items-center justify-center rounded-full px-8 py-3 text-sm text-white" style="background:#25D366" data-fly-open="wa-hero" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" href="https://wa.me/66620454983?text=Hi%20Mr.%20Jeff%2C%20I%27d%20like%20a%20table.">Order via WhatsApp</a>
     </div>
   </header>
 
   <main>
-    <section id="about" class="max-w-2xl mx-auto px-6 py-12 text-center">
-      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase text-gold" data-en="About" data-zh="关于">关于</h2>
-      <p class="mt-6 text-[1.05rem] leading-8 text-ivory/80" data-en="Meet Mr. Jeff — the friendly owner at the door. King lobster, prawns, crab, mussels — pick your catch, say how you want it cooked. Cash only. Fresh seafood by weight." data-zh="门口那位热情的老板，就是 Mr. Jeff。帝王龙虾、大虾、螃蟹、贻贝——自己挑海鲜，告诉厨房怎么做。只收现金。鲜海鲜按重量计价。">门口那位热情的老板，就是 Mr. Jeff。帝王龙虾、大虾、螃蟹、贻贝——自己挑海鲜，告诉厨房怎么做。只收现金。鲜海鲜按重量计价。</p>
-    </section>
 
     <section id="menu" class="max-w-5xl mx-auto px-6 py-8">
       <h2 class="font-serif text-4xl tracking-[0.28em] uppercase text-center text-gold" data-en="Food Menu" data-zh="菜单">菜单</h2>
@@ -372,8 +383,8 @@
       </div>
     </section>
 
-    <section id="order" class="max-w-2xl mx-auto px-6 py-16">
-      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase text-center text-gold" data-en="Order" data-zh="点单">点单</h2>
+    <section id="about" class="max-w-2xl mx-auto px-6 py-16">
+      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase text-center text-gold" data-en="About" data-zh="关于">关于</h2>
       <ol class="mt-10 space-y-8">
         <li class="flex gap-5">
           <span class="font-serif text-3xl text-gold w-10">01</span>
@@ -455,7 +466,7 @@
   <nav class="bottom-nav" aria-label="Quick">
     <a href="#home" class="rounded-full px-3 py-2 text-xs tracking-widest uppercase" data-en="Home" data-zh="首页">首页</a>
     <a href="#menu" class="rounded-full px-3 py-2 text-xs tracking-widest uppercase" data-en="Menu" data-zh="菜单">菜单</a>
-    <a href="#order" class="rounded-full px-3 py-2 text-xs tracking-widest uppercase" data-en="Order" data-zh="点单">点单</a>
+    <a href="#about" class="rounded-full px-3 py-2 text-xs tracking-widest uppercase" data-en="About" data-zh="关于">关于</a>
     <button type="button" id="cart-dock" class="rounded-full px-3 py-2 text-xs bg-gold text-night" data-en="Bag 0" data-zh="已加购 0">已加购 0</button>
   </nav>
 
