@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mr.Jeff — Lamai / Maret</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Mr. Jeff in Maret, Lamai. Fresh seafood. Cash only. Order via WhatsApp.">
+  <meta name="description" content="Mr. Jeff in Maret, Lamai. Fresh seafood by weight. Cash only. Order via WhatsApp.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -15,8 +15,9 @@
             night: "#1A1A1A",
             gold: "#D4AF37",
             ivory: "#F5F0EB",
-            mist: "#E4F2F8",
-            sage: "#8FA37A"
+            parchment: "#F3E9D2",
+            sage: "#748E78",
+            moss: "#5F7A63"
           },
           fontFamily: {
             serif: ['"Cormorant Garamond"', "Georgia", "serif"],
@@ -32,10 +33,22 @@
   <style>
     html { scroll-behavior: smooth; }
     body {
-      background: #E4F2F8;
+      background-color: #F3E9D2;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.28), transparent 42%),
+        radial-gradient(circle at 80% 70%, rgba(116, 142, 120, 0.08), transparent 40%),
+        linear-gradient(rgba(243, 233, 210, 0.9), rgba(243, 233, 210, 0.9));
       color: #1A1A1A;
     }
     [hidden] { display: none !important; }
+    .paper-grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    }
     .hero {
       position: relative;
       overflow: hidden;
@@ -69,7 +82,7 @@
       right: 0;
       bottom: 0;
       height: 72px;
-      background: linear-gradient(transparent, #E4F2F8);
+      background: linear-gradient(transparent, #F3E9D2);
       pointer-events: none;
       z-index: 1;
     }
@@ -155,7 +168,7 @@
       to { opacity: 1; transform: none; }
     }
     .plate {
-      --ring: #8FA37A;
+      --ring: #748E78;
       width: 100%;
       max-width: min(88vw, 280px);
       aspect-ratio: 1 / 1;
@@ -171,7 +184,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 1.5px dotted var(--ring);
+      border: 1.5px dashed var(--ring);
       padding: 7px;
       box-sizing: border-box;
       display: block;
@@ -208,26 +221,26 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(228, 242, 248, 0.92);
+      background: rgba(243, 233, 210, 0.92);
       backdrop-filter: blur(12px);
       margin: 0 -0.75rem;
       padding: 0.55rem 0.75rem 0.15rem;
     }
     .cat-pill {
       flex: 0 0 auto;
-      border: 1px solid rgba(212, 175, 55, 0.45);
+      border: 1px solid rgba(116, 142, 120, 0.45);
       border-radius: 999px;
       padding: 0.55rem 1.05rem;
       font-size: 0.78rem;
       letter-spacing: 0.08em;
       white-space: nowrap;
       color: #1A1A1A;
-      background: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.45);
     }
     .cat-pill.is-on {
-      background: #D4AF37;
-      color: #1A1A1A;
-      border-color: #D4AF37;
+      background: #748E78;
+      color: #F5F0EB;
+      border-color: #748E78;
     }
     .cat-rail {
       display: flex;
@@ -378,6 +391,7 @@
   </style>
 </head>
 <body class="font-sans antialiased pb-24">
+  <div class="paper-grain" aria-hidden="true"></div>
   <header id="home" class="hero">
     <div class="hero-photo">
       <img src="photos/hero.jpg" alt="">
@@ -385,13 +399,14 @@
     </div>
     <div class="absolute top-4 right-4 z-20 flex items-center gap-5">
       <nav class="desk-nav items-center gap-5 text-xs tracking-[0.18em] uppercase text-[#F5F0EB]">
-        <a href="#home" data-en="Home" data-zh="首页">首页</a>
-        <a href="#menu" data-en="Menu" data-zh="菜单">菜单</a>
-        <a href="#about" data-en="About" data-zh="关于">关于</a>
+        <a href="#home" data-en="Home" data-zh="首页" data-ru="Главная">首页</a>
+        <a href="#menu" data-en="Menu" data-zh="菜单" data-ru="Меню">菜单</a>
+        <a href="#about" data-en="About" data-zh="关于" data-ru="О нас">关于</a>
       </nav>
       <div class="flex items-center gap-3 text-2xl" role="group" aria-label="Language">
         <button type="button" data-set-lang="en" aria-pressed="false" title="English">🇬🇧</button>
         <button type="button" data-set-lang="th" aria-pressed="false" title="ไทย">🇹🇭</button>
+        <button type="button" data-set-lang="ru" aria-pressed="false" title="Русский">🇷🇺</button>
         <button type="button" data-set-lang="zh" aria-pressed="true" title="中文" class="text-base tracking-widest">中文</button>
       </div>
     </div>
@@ -401,45 +416,52 @@
         <span class="sign-veil"></span>
         <div class="sign-copy">
           <h1 class="neon-name font-serif">Mr.Jeff</h1>
-          <p class="neon-sub font-serif" data-en="Lamai / Maret · near Coco Splash" data-zh="拉迈 / Maret · 靠近 Coco Splash">拉迈 / Maret · 靠近 Coco Splash</p>
+          <p class="neon-sub font-serif" data-en="Lamai / Maret · near Coco Splash" data-zh="拉迈 / Maret · 靠近 Coco Splash" data-ru="Ламай / Марет · рядом с Coco Splash">拉迈 / Maret · 靠近 Coco Splash</p>
         </div>
       </div>
-      <p class="rise d3 mt-5 text-sm sm:text-base tracking-wide text-[#F5E6C8]" data-en="4.9 ★ (667 reviews) · Seafood · ฿200–1,200 · Daily 13:00–23:00" data-zh="4.9 ★ (667条) · 海鲜馆 · ฿200–1,200 · 每日 13:00–23:00">4.9 ★ (667条) · 海鲜馆 · ฿200–1,200 · 每日 13:00–23:00</p>
-      <a href="#menu" class="chat-btn rise d4 mt-5 inline-flex items-center justify-center rounded-full px-10 py-4 text-base sm:text-lg font-semibold text-white w-full sm:w-auto" style="background:#25D366" data-en="Order via WhatsApp" data-zh="Order via WhatsApp">Order via WhatsApp</a>
+      <p class="rise d2 mt-5 text-sm sm:text-base tracking-wide text-[#F5E6C8]" data-en="4.9 ★ (667 reviews) · Seafood · ฿200–1,200 · Daily 13:00–23:00" data-zh="4.9 ★ (667条) · 海鲜馆 · ฿200–1,200 · 每日 13:00–23:00" data-ru="4,9 ★ (667 отзывов) · Морепродукты · ฿200–1,200 · Ежедневно 13:00–23:00">4.9 ★ (667条) · 海鲜馆 · ฿200–1,200 · 每日 13:00–23:00</p>
+      <a href="#menu" class="chat-btn rise d3 mt-5 inline-flex items-center justify-center rounded-full px-10 py-4 text-base sm:text-lg font-semibold text-white w-full sm:w-auto" style="background:#748E78" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp">Order via WhatsApp</a>
     </div>
   </header>
 
-  <main>
+  <main class="relative z-10">
     <section id="menu" class="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 pt-4 pb-10 md:pt-6 md:pb-16">
       <div class="cat-wrap">
         <nav id="cat-rail" class="cat-rail" aria-label="Menu categories"></nav>
       </div>
       <div id="dish-grid" class="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10"></div>
-      <p class="mt-10 text-center text-xs tracking-[0.08em] text-night/40 leading-6" data-zh="以上为招牌推荐，完整菜单请到店查看。" data-en="More dishes available in-store.">以上为招牌推荐，完整菜单请到店查看。</p>
+      <p class="mt-10 text-center text-xs tracking-[0.08em] text-night/40 leading-6" data-zh="以上为招牌推荐，完整菜单请到店查看。" data-en="More dishes available in-store." data-ru="Больше блюд — в ресторане.">以上为招牌推荐，完整菜单请到店查看。</p>
     </section>
 
     <section id="about" class="max-w-6xl mx-auto px-6 py-12">
-      <h2 class="font-serif text-3xl tracking-[0.22em] uppercase text-center text-gold" data-en="How it works" data-zh="点单流程">点单流程</h2>
-      <ol class="mt-10 space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-10">
+      <h2 class="font-serif text-3xl tracking-[0.22em] uppercase text-center text-moss" data-en="How it works" data-zh="点单流程" data-ru="Как заказать">点单流程</h2>
+      <ol class="mt-10 space-y-8 md:space-y-0 md:grid md:grid-cols-4 md:gap-8">
         <li class="flex gap-5">
-          <span class="font-serif text-3xl text-gold w-10">01</span>
+          <span class="font-serif text-3xl text-moss w-10">01</span>
           <div>
-            <h3 class="font-serif text-2xl" data-en="Pick the seafood" data-zh="挑海鲜">挑海鲜</h3>
-            <p class="mt-2 text-night/60" data-en="Tap a plate. The kitchen still confirms the catch." data-zh="点一张盘子。厨房会再确认当天的海鲜。">点一张盘子。厨房会再确认当天的海鲜。</p>
+            <h3 class="font-serif text-2xl" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">挑海鲜</h3>
+            <p class="mt-2 text-night/60" data-en="King lobster, prawns, fish, mussels, crab — priced when the kitchen weighs it." data-zh="帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。" data-ru="Королевский лобстер, креветки, рыба, мидии, краб — цена по весу на кухне.">帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。</p>
           </div>
         </li>
         <li class="flex gap-5">
-          <span class="font-serif text-3xl text-gold w-10">02</span>
+          <span class="font-serif text-3xl text-moss w-10">02</span>
           <div>
-            <h3 class="font-serif text-2xl" data-en="Send the chat" data-zh="发到聊天">发到聊天</h3>
-            <p class="mt-2 text-night/60" data-en="Preview the ticket, then open WhatsApp or LINE." data-zh="先预览点单，再发到 WhatsApp 或 LINE。">先预览点单，再发到 WhatsApp 或 LINE。</p>
+            <h3 class="font-serif text-2xl" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">说做法</h3>
+            <p class="mt-2 text-night/60" data-en="Grilled, fried, BBQ, steamed, or curry powder sauce — the crab curry powder is a house favourite." data-zh="烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。" data-ru="Гриль, жарка, барбекю, на пару или с карри-порошком — краб с карри любим гостями.">烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。</p>
           </div>
         </li>
         <li class="flex gap-5">
-          <span class="font-serif text-3xl text-gold w-10">03</span>
+          <span class="font-serif text-3xl text-moss w-10">03</span>
           <div>
-            <h3 class="font-serif text-2xl" data-en="Cash only" data-zh="只收现金">只收现金</h3>
-            <p class="mt-2 text-night/60" data-en="Not paid in the chat. Cash at the till." data-zh="聊天里不付款。到店付现金。">聊天里不付款。到店付现金。</p>
+            <h3 class="font-serif text-2xl" data-en="Add Thai sides" data-zh="加泰式配菜" data-ru="Тайские гарниры">加泰式配菜</h3>
+            <p class="mt-2 text-night/60" data-en="Pad Thai, seaweed salad, fried rice — ask Mr. Jeff for today’s price." data-zh="泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。" data-ru="Пад тай, салат из морских водорослей, жареный рис — цену уточняйте у мистера Джеффа.">泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。</p>
+          </div>
+        </li>
+        <li class="flex gap-5">
+          <span class="font-serif text-3xl text-moss w-10">04</span>
+          <div>
+            <h3 class="font-serif text-2xl" data-en="Pay cash" data-zh="现金结账" data-ru="Оплата наличными">现金结账</h3>
+            <p class="mt-2 text-night/60" data-en="Send the order ahead on LINE or WhatsApp; weight and price confirmed by the kitchen. Cash only at the till." data-zh="提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。" data-ru="Отправьте заказ в LINE или WhatsApp; кухня подтвердит вес и цену. На месте только наличные.">提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。</p>
           </div>
         </li>
       </ol>
@@ -447,14 +469,14 @@
 
     <section id="reviews" class="max-w-6xl mx-auto px-6 py-8">
       <div class="flex items-end justify-between gap-4">
-        <h2 class="font-serif text-3xl tracking-[0.22em] uppercase text-gold" data-en="Reviews" data-zh="评价">评价</h2>
+        <h2 class="font-serif text-3xl tracking-[0.22em] uppercase text-moss" data-en="Reviews" data-zh="评价" data-ru="Отзывы">评价</h2>
         <div class="flex gap-2">
-          <button type="button" id="rev-prev" class="w-9 h-9 rounded-full border border-gold/50" aria-label="Previous">‹</button>
-          <button type="button" id="rev-next" class="w-9 h-9 rounded-full border border-gold/50" aria-label="Next">›</button>
+          <button type="button" id="rev-prev" class="w-9 h-9 rounded-full border border-moss/50" aria-label="Previous">‹</button>
+          <button type="button" id="rev-next" class="w-9 h-9 rounded-full border border-moss/50" aria-label="Next">›</button>
         </div>
       </div>
       <div id="review-rail" class="review-rail mt-8">
-        <figure class="review-card rounded-2xl bg-white/70 border border-gold/20 p-5">
+        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
           <div class="flex items-center gap-3">
             <img src="https://i.pravatar.cc/150?img=12" alt="" class="w-12 h-12 rounded-full object-cover">
             <div>
@@ -462,9 +484,9 @@
               <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
             </div>
           </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。">帝王龙虾非常好——泰国最好的，Mr. Jeff。</blockquote>
+          <blockquote class="mt-4 leading-7 text-night/70" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。" data-ru="Очень хороший королевский лобстер — лучший в Таиланде, мистер Джефф.">帝王龙虾非常好——泰国最好的，Mr. Jeff。</blockquote>
         </figure>
-        <figure class="review-card rounded-2xl bg-white/70 border border-gold/20 p-5">
+        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
           <div class="flex items-center gap-3">
             <img src="https://i.pravatar.cc/150?img=32" alt="" class="w-12 h-12 rounded-full object-cover">
             <div>
@@ -472,9 +494,9 @@
               <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
             </div>
           </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。">非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。</blockquote>
+          <blockquote class="mt-4 leading-7 text-night/70" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。" data-ru="Большое спасибо за всё в ресторане Mr Jeff в Ламаи. Мистер Джефф очень дружелюбный… обязательно вернёмся.">非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。</blockquote>
         </figure>
-        <figure class="review-card rounded-2xl bg-white/70 border border-gold/20 p-5">
+        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
           <div class="flex items-center gap-3">
             <img src="https://i.pravatar.cc/150?img=47" alt="" class="w-12 h-12 rounded-full object-cover">
             <div>
@@ -482,23 +504,55 @@
               <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
             </div>
           </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！">食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！</blockquote>
+          <blockquote class="mt-4 leading-7 text-night/70" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！" data-ru="Все продукты свежие, блюда вкусные, атмосфера приятная, чисто и уютно. На отдыхе регулярно заезжаем на Самуи!">食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！</blockquote>
+        </figure>
+        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
+          <div class="flex items-center gap-3">
+            <img src="https://i.pravatar.cc/150?img=5" alt="" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <p class="font-semibold" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p>
+              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
+            </div>
+          </div>
+          <blockquote class="mt-4 leading-7 text-night/70" data-en="Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend." data-zh="海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。" data-ru="Потрясающие морепродукты, креветки в чесночном масле — обязательно попробуйте. Мистер Джефф — легенда.">海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。</blockquote>
+        </figure>
+        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
+          <div class="flex items-center gap-3">
+            <img src="https://i.pravatar.cc/150?img=8" alt="" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <p class="font-semibold" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p>
+              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
+            </div>
+          </div>
+          <blockquote class="mt-4 leading-7 text-night/70" data-en="Best crab curry powder I've ever had. The vibe is super local and welcoming." data-zh="我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。" data-ru="Лучший краб с карри, что я пробовал. Атмосфера очень местная и гостеприимная.">我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。</blockquote>
+        </figure>
+        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
+          <div class="flex items-center gap-3">
+            <img src="https://i.pravatar.cc/150?img=15" alt="" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <p class="font-semibold" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p>
+              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
+            </div>
+          </div>
+          <blockquote class="mt-4 leading-7 text-night/70" data-en="Great value for money, fresh catch every day. Will come back again." data-zh="性价比很高，每天都有新鲜渔获。还会再来。" data-ru="Отличное соотношение цены и качества, каждый день свежий улов. Обязательно вернёмся.">性价比很高，每天都有新鲜渔获。还会再来。</blockquote>
         </figure>
       </div>
     </section>
 
     <section class="max-w-6xl mx-auto px-6 pt-4 pb-8 text-center">
       <div class="flex flex-wrap justify-center gap-2">
-        <span class="chip" data-en="Outdoor seating" data-zh="露天座位">露天座位</span>
-        <span class="chip" data-en="Free Wi-Fi" data-zh="免费 Wi-Fi">免费 Wi-Fi</span>
-        <span class="chip" data-en="Bar on site" data-zh="现场有酒吧">现场有酒吧</span>
-        <span class="chip" data-en="LGBTQ+ friendly" data-zh="对 LGBTQ+ 友善">对 LGBTQ+ 友善</span>
+        <span class="chip" data-en="Outdoor seating" data-zh="露天座位" data-ru="Летняя веранда">露天座位</span>
+        <span class="chip" data-en="Free Wi-Fi" data-zh="免费 Wi-Fi" data-ru="Бесплатный Wi-Fi">免费 Wi-Fi</span>
+        <span class="chip" data-en="Bar on site" data-zh="现场有酒吧" data-ru="Бар на месте">现场有酒吧</span>
+        <span class="chip" data-en="LGBTQ+ friendly" data-zh="对 LGBTQ+ 友善" data-ru="Дружелюбно к ЛГБТК+">对 LGBTQ+ 友善</span>
       </div>
     </section>
 
     <section id="contact" class="max-w-xl mx-auto px-6 pb-16 text-center text-sm leading-7 text-night/55">
-      <p data-en="137/4 Maret, Lamai, Koh Samui 84310 — near Coco Splash." data-zh="137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。">137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。</p>
-      <p data-en="Daily 13:00–23:00" data-zh="每日 13:00–23:00">每日 13:00–23:00</p>
+      <p data-en="137/4 Maret, Lamai, Koh Samui 84310 — near Coco Splash." data-zh="137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。" data-ru="137/4 Марет, Ламай, Самуи 84310 — рядом с Coco Splash.">137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。</p>
+      <p data-en="Open every day, 13:00 – 23:00." data-zh="每日 13:00–23:00。" data-ru="Ежедневно 13:00–23:00.">每日 13:00–23:00。</p>
+      <p data-en="Pay: Cash only · seafood by weight." data-zh="支付：只收现金 · 海鲜按重量。" data-ru="Оплата: только наличные · морепродукты по весу.">支付：只收现金 · 海鲜按重量。</p>
+      <p data-en="Chat: LINE for locals · WhatsApp for visitors." data-zh="聊天：本地用 LINE · 游客用 WhatsApp。" data-ru="Чат: LINE для местных · WhatsApp для туристов.">聊天：本地用 LINE · 游客用 WhatsApp。</p>
       <p><a class="underline decoration-gold/60" href="https://wa.me/66620454983">+66 62 045 4983</a></p>
     </section>
   </main>
@@ -515,40 +569,40 @@
   <div id="cart-backdrop" hidden class="fixed inset-0 z-40 bg-black/55 opacity-0"></div>
   <aside id="cart-sidebar" hidden class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-[#1A1A1A] text-[#F5F0EB] shadow-2xl flex flex-col border-l border-gold/30 opacity-0 scale-95">
     <div class="flex items-center justify-between px-6 py-5 border-b border-gold/30">
-      <h2 class="font-serif text-2xl tracking-[0.18em] uppercase" data-en="Order" data-zh="点单">点单</h2>
+      <h2 class="font-serif text-2xl tracking-[0.18em] uppercase" data-en="Order" data-zh="点单" data-ru="Заказ">点单</h2>
       <button type="button" id="cart-close" class="text-2xl leading-none" aria-label="Close">×</button>
     </div>
-    <p id="cart-empty" class="px-6 py-8 text-[#F5F0EB]/70" data-en="Tap a plate, then send the chat." data-zh="先点菜，再发到聊天。">先点菜，再发到聊天。</p>
+    <p id="cart-empty" class="px-6 py-8 text-[#F5F0EB]/70" data-en="Tap a plate, then send the chat." data-zh="先点菜，再发到聊天。" data-ru="Выберите блюдо, затем отправьте в чат.">先点菜，再发到聊天。</p>
     <ul id="cart-lines" class="flex-1 overflow-auto px-6 py-4 space-y-4" hidden></ul>
     <div class="p-6 space-y-3">
-      <button type="button" id="send-order" class="w-full rounded-full py-3 text-night font-semibold" style="background:#D4AF37" data-en="Send order" data-zh="发送点单">发送点单</button>
-      <button type="button" id="cart-continue" class="w-full rounded-full border border-gold/50 py-3" data-en="Continue Browsing" data-zh="继续点单">继续点单</button>
+      <button type="button" id="send-order" class="w-full rounded-full py-3 text-night font-semibold" style="background:#D4AF37" data-en="Send order" data-zh="发送点单" data-ru="Отправить заказ">发送点单</button>
+      <button type="button" id="cart-continue" class="w-full rounded-full border border-gold/50 py-3" data-en="Continue Browsing" data-zh="继续点单" data-ru="Продолжить выбор">继续点单</button>
     </div>
   </aside>
 
   <div id="info-back" hidden class="modal-back fixed inset-0 z-[55] bg-black/60 opacity-0"></div>
   <div id="info-modal" hidden class="overlay-card rounded-2xl border border-gold/35 p-6 shadow-2xl">
-    <h3 class="font-serif text-2xl tracking-[0.12em]" data-en="Your table" data-zh="点单信息">点单信息</h3>
+    <h3 class="font-serif text-2xl tracking-[0.12em]" data-en="Your table" data-zh="点单信息" data-ru="Данные заказа">点单信息</h3>
     <form id="info-form" class="mt-5 space-y-4">
       <label class="block text-sm">
-        <span data-en="Name" data-zh="姓名">姓名</span>
+        <span data-en="Name" data-zh="姓名" data-ru="Имя">姓名</span>
         <input name="guest" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none">
       </label>
       <label class="block text-sm">
-        <span data-en="Guests" data-zh="人数">人数</span>
+        <span data-en="Guests" data-zh="人数" data-ru="Гостей">人数</span>
         <input name="people" type="number" min="1" value="2" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none">
       </label>
       <label class="block text-sm">
-        <span data-en="Note" data-zh="备注">备注</span>
+        <span data-en="Note" data-zh="备注" data-ru="Комментарий">备注</span>
         <textarea name="note" rows="3" class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></textarea>
       </label>
       <div>
-        <p class="text-sm text-ivory/60" data-en="Selected dishes" data-zh="已选菜品">已选菜品</p>
+        <p class="text-sm text-ivory/60" data-en="Selected dishes" data-zh="已选菜品" data-ru="Выбранные блюда">已选菜品</p>
         <ul id="info-items" class="mt-2 space-y-1 text-sm text-ivory/85"></ul>
       </div>
       <div class="flex gap-3 pt-2">
-        <button type="button" id="info-back-btn" class="flex-1 rounded-full border border-gold/40 py-2.5" data-en="Back" data-zh="返回">返回</button>
-        <button type="submit" class="flex-1 rounded-full py-2.5 text-night font-semibold" style="background:#D4AF37" data-en="Preview" data-zh="预览点单">预览点单</button>
+        <button type="button" id="info-back-btn" class="flex-1 rounded-full border border-gold/40 py-2.5" data-en="Back" data-zh="返回" data-ru="Назад">返回</button>
+        <button type="submit" class="flex-1 rounded-full py-2.5 text-night font-semibold" style="background:#D4AF37" data-en="Preview" data-zh="预览点单" data-ru="Предпросмотр">预览点单</button>
       </div>
     </form>
   </div>
@@ -560,7 +614,7 @@
         <span class="w-9 h-9 rounded-full bg-[#25D366] inline-flex items-center justify-center text-white text-sm">MJ</span>
         <div>
           <p class="text-sm font-semibold text-white">Mr.Jeff</p>
-          <p class="text-[11px] text-white/55" data-en="WhatsApp preview" data-zh="WhatsApp 预览">WhatsApp 预览</p>
+          <p class="text-[11px] text-white/55" data-en="WhatsApp preview" data-zh="WhatsApp 预览" data-ru="Предпросмотр WhatsApp">WhatsApp 预览</p>
         </div>
       </div>
       <div class="p-4 min-h-[180px] bg-[#0b141a]">
@@ -571,10 +625,10 @@
         <button type="button" id="send-line" class="chat-btn flex-1 rounded-full py-3 text-white font-semibold" style="background:#06C755">LINE</button>
       </div>
     </div>
-    <button type="button" id="preview-close" class="mt-3 w-full text-center text-sm text-ivory/60" data-en="Close" data-zh="关闭">关闭</button>
+    <button type="button" id="preview-close" class="mt-3 w-full text-center text-sm text-ivory/60" data-en="Close" data-zh="关闭" data-ru="Закрыть">关闭</button>
   </div>
 
-  <div id="sent-toast" hidden class="sent-toast" data-en="Sent ✓✓" data-zh="已发送 ✓✓">已发送 ✓✓</div>
+  <div id="sent-toast" hidden class="sent-toast" data-en="Sent ✓✓" data-zh="已发送 ✓✓" data-ru="Отправлено ✓✓">已发送 ✓✓</div>
 
   <script>
     (function () {
@@ -586,102 +640,77 @@
       var closing = {};
 
       var CATS = [
-        { id: "seafood", en: "Signature Seafood", zh: "招牌海鲜" },
-        { id: "thai", en: "Thai Food", zh: "泰式料理" },
-        { id: "drinks", en: "Drinks", zh: "饮品" },
-        { id: "dessert", en: "Dessert", zh: "甜点" }
+        { id: "seafood", en: "Seafood", zh: "海鲜", ru: "Морепродукты" },
+        { id: "spaghetti", en: "Spaghetti", zh: "意面", ru: "Паста" },
+        { id: "grilled", en: "Grilled", zh: "烧烤", ru: "Гриль" },
+        { id: "drinks", en: "Drinks", zh: "饮品", ru: "Напитки" }
       ];
 
       var MENU = {
         seafood: [
-          { id: "sig-lobster", price: 200, label: "฿200.00", img: PHOTO + "dish-lobster-garlic.jpg?v=mj21",
-            nameEn: "Signature Fried Lobster with Garlic & Pepper", nameZh: "招牌蒜香胡椒炒龙虾",
-            descEn: "Fresh local lobster, tossed in garlic butter with white pepper and herbs, finished with the house sauce.",
-            descZh: "新鲜本地龙虾，蒜蓉黄油炒制，配白胡椒和香草，淋上特调酱汁。" },
-          { id: "sig-platter", price: 850, label: "฿850", img: "https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Grilled Fish with Seafood Platter", nameZh: "烤海鲜拼盘",
-            descEn: "Daily catch of prawns, squid, mussels and fish, charcoal-grilled with Thai spicy-sour dip.",
-            descZh: "每日新鲜捕捞的大虾、鱿鱼、贻贝和鲜鱼，炭烤后配上泰式酸辣蘸料。" },
-          { id: "sig-mussels", price: 280, label: "฿280", img: PHOTO + "dish-mussels.jpg?v=mj21",
-            nameEn: "Steamed Mussels with Herbs", nameZh: "香草蒸贻贝",
-            descEn: "Fresh mussels steamed with lemongrass, galangal and Thai basil, kept in their own juice.",
-            descZh: "新鲜贻贝用香茅、南姜和九层塔蒸熟，保留原汁原味。" },
-          { id: "sig-prawns", price: 350, label: "฿350", img: PHOTO + "dish-prawns-grill.jpg?v=mj21",
-            nameEn: "Grilled Prawns", nameZh: "烤大虾",
-            descEn: "Large tiger prawns on charcoal, with garlic butter or Thai seafood sauce.",
-            descZh: "大号老虎虾炭烤，配蒜蓉黄油或泰式海鲜酱。" },
-          { id: "sig-salt-fish", price: 450, label: "฿450", img: PHOTO + "dish-fish-fried.jpg?v=mj21",
-            nameEn: "Grilled Fish on Salt", nameZh: "盐烤鱼",
-            descEn: "A whole sea fish wrapped in coarse salt and charcoal-grilled, tender and juicy.",
-            descZh: "整条海鱼用粗盐包裹炭烤，肉质鲜嫩多汁。" },
-          { id: "sig-shark", price: 380, label: "฿380", img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Shark Steak", nameZh: "鲨鱼排",
-            descEn: "House shark steak, seared outside and tender inside, with black pepper sauce.",
-            descZh: "特色鲨鱼排，煎至外焦里嫩，配黑胡椒酱。" },
-          { id: "sig-garlic-prawns", price: 320, label: "฿320", img: PHOTO + "dish-prawns-baked.jpg?v=mj21",
-            nameEn: "Garlic Butter Prawns", nameZh: "蒜蓉黄油大虾",
-            descEn: "Prawns pan-fried in garlic butter, served with French bread.",
-            descZh: "大虾用蒜蓉黄油煎香，配法式面包。" },
-          { id: "sig-tuna", price: 400, label: "฿400", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Barbecue Tuna", nameZh: "烤金枪鱼",
-            descEn: "Fresh tuna steak on charcoal, seared outside and tender inside.",
-            descZh: "新鲜金枪鱼排炭烤，外焦里嫩。" },
-          { id: "sig-salmon", price: 380, label: "฿380", img: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Salmon Steak", nameZh: "三文鱼排",
-            descEn: "Norwegian salmon pan-seared with lemon butter.",
-            descZh: "挪威三文鱼煎制，配柠檬黄油汁。" }
+          { id: "sea-lobster", price: 0, label: "by wt", img: PHOTO + "dish-lobster-garlic.jpg?v=mj21",
+            nameEn: "King Lobster", nameZh: "帝王龙虾", nameRu: "Королевский лобстер",
+            descEn: "Fresh catch, priced by weight. Pick your own.",
+            descZh: "新鲜渔获，按重量计价。自己挑。",
+            descRu: "Свежий улов, цена по весу. Выбирайте сами." },
+          { id: "sea-prawns", price: 0, label: "by wt", img: PHOTO + "dish-prawns-grill.jpg?v=mj21",
+            nameEn: "Prawns", nameZh: "大虾", nameRu: "Креветки",
+            descEn: "Grilled, fried, steamed, or with garlic sauce.",
+            descZh: "烤、炸、清蒸或蒜蓉酱。",
+            descRu: "Гриль, жарка, на пару или с чесночным соусом." },
+          { id: "sea-crab", price: 0, label: "by wt", img: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Crab", nameZh: "螃蟹", nameRu: "Краб",
+            descEn: "Kitchen weighs and quotes before cooking.",
+            descZh: "厨房先称重报价，再下锅。",
+            descRu: "Кухня взвешивает и называет цену до приготовления." },
+          { id: "sea-mussels", price: 0, label: "by wt", img: PHOTO + "dish-mussels.jpg?v=mj21",
+            nameEn: "Mussels", nameZh: "贻贝", nameRu: "Мидии",
+            descEn: "Fresh from the ice chest, steamed with herbs.",
+            descZh: "冰柜里现取，香草清蒸。",
+            descRu: "Свежие из ледяного ящика, на пару с травами." },
+          { id: "sea-fish", price: 0, label: "by wt", img: PHOTO + "dish-fish-fried.jpg?v=mj21",
+            nameEn: "Fish", nameZh: "鲜鱼", nameRu: "Рыба",
+            descEn: "Whole fish grilled or fried, market price.",
+            descZh: "整条烤或炸，按市价。",
+            descRu: "Целая рыба на гриле или жареная, по рыночной цене." }
         ],
-        thai: [
-          { id: "thai-padthai", price: 180, label: "฿180", img: "https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Phad Thai & Calamari", nameZh: "泰式炒河粉配鱿鱼",
-            descEn: "Classic Pad Thai with fresh calamari rings, bean sprouts and crushed peanuts.",
-            descZh: "经典泰式炒河粉，配新鲜鱿鱼圈、豆芽、花生碎。" },
-          { id: "thai-pineapple", price: 180, label: "฿180", img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Pineapple Fried Rice", nameZh: "菠萝炒饭",
-            descEn: "Thai fried rice with prawns, cashews and raisins, served in a fresh pineapple.",
-            descZh: "泰式经典炒饭，配大虾、腰果、葡萄干，盛在新鲜菠萝壳中。" },
-          { id: "thai-tomyum", price: 220, label: "฿220", img: "https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Tom Yum Goong", nameZh: "冬阴功汤",
-            descEn: "Hot-and-sour prawn soup with lemongrass, galangal and kaffir lime leaf.",
-            descZh: "酸辣虾汤，香茅、南姜、柠檬叶熬制。" },
-          { id: "thai-green", price: 200, label: "฿200", img: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Green Curry Chicken", nameZh: "绿咖喱鸡",
-            descEn: "Thai green curry in coconut milk, with chicken and Thai basil.",
-            descZh: "泰式绿咖喱，椰奶香浓，配鸡肉和九层塔。" },
-          { id: "thai-glory", price: 120, label: "฿120", img: "https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Stir-fried Morning Glory", nameZh: "泰式炒空心菜",
-            descEn: "Garlic, high heat, still crisp.",
-            descZh: "蒜蓉大火快炒，爽脆可口。" },
-          { id: "thai-somtum", price: 150, label: "฿150", img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Som Tum", nameZh: "青木瓜沙拉",
-            descEn: "Classic green papaya salad with peanuts, cherry tomatoes and lime.",
-            descZh: "泰式经典凉拌，青木瓜丝、花生、小番茄、青柠汁。" }
+        spaghetti: [
+          { id: "spa-seafood", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Seafood Spaghetti", nameZh: "海鲜意面", nameRu: "Паста с морепродуктами",
+            descEn: "Prawns, squid, mussels in a light tomato sauce.",
+            descZh: "大虾、鱿鱼、贻贝，轻番茄汁。",
+            descRu: "Креветки, кальмары, мидии в лёгком томатном соусе." },
+          { id: "spa-garlic", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Garlic & Oil", nameZh: "蒜香油意面", nameRu: "С чесноком и маслом",
+            descEn: "Aglio e olio with chilli and parsley.",
+            descZh: "蒜香橄榄油，配辣椒和欧芹。",
+            descRu: "Альо-олио с чили и петрушкой." }
+        ],
+        grilled: [
+          { id: "gr-platter", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Grilled Seafood Platter", nameZh: "烤海鲜拼盘", nameRu: "Ассорти морепродуктов на гриле",
+            descEn: "Prawns, squid, mussels and fish over charcoal.",
+            descZh: "大虾、鱿鱼、贻贝和鲜鱼炭烤。",
+            descRu: "Креветки, кальмары, мидии и рыба на углях." },
+          { id: "gr-fish", price: 0, label: "ask", img: PHOTO + "dish-fish-chili.jpg?v=mj21",
+            nameEn: "Grilled Fish", nameZh: "烤鱼", nameRu: "Рыба на гриле",
+            descEn: "Whole fish, charred outside, tender inside.",
+            descZh: "整条烤，外焦里嫩。",
+            descRu: "Целая рыба, снаружи поджаристая, внутри нежная." }
         ],
         drinks: [
-          { id: "drink-coconut", price: 80, label: "฿80", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Fresh Coconut", nameZh: "新鲜椰子", descEn: "", descZh: "" },
-          { id: "drink-tea", price: 60, label: "฿60", img: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Thai Iced Tea", nameZh: "泰式冰茶", descEn: "", descZh: "" },
-          { id: "drink-shake", price: 90, label: "฿90", img: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Fresh Fruit Shake", nameZh: "鲜榨果汁",
-            descEn: "Mango, pineapple or watermelon.", descZh: "芒果、菠萝、西瓜可选" },
-          { id: "drink-singha", price: 80, label: "฿80", img: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Singha Beer", nameZh: "胜狮啤酒", descEn: "", descZh: "" },
-          { id: "drink-chang", price: 70, label: "฿70", img: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Chang Beer", nameZh: "象牌啤酒", descEn: "", descZh: "" },
-          { id: "drink-mojito", price: 150, label: "฿150", img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Mojito", nameZh: "莫吉托", descEn: "", descZh: "" }
-        ],
-        dessert: [
-          { id: "des-mango", price: 150, label: "฿150", img: PHOTO + "dish-mango.jpg?v=mj21",
-            nameEn: "Mango Sticky Rice", nameZh: "芒果糯米饭", descEn: "", descZh: "" },
-          { id: "des-pudding", price: 90, label: "฿90", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Coconut Pudding", nameZh: "泰式椰奶冻", descEn: "", descZh: "" },
-          { id: "des-roti", price: 80, label: "฿80", img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Banana Roti", nameZh: "香蕉煎饼", descEn: "", descZh: "" },
-          { id: "des-ice", price: 60, label: "฿60", img: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Ice Cream", nameZh: "冰淇淋",
-            descEn: "Coconut, mango or vanilla.", descZh: "椰子/芒果/香草可选" }
+          { id: "dr-coconut", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Fresh Coconut", nameZh: "新鲜椰子", nameRu: "Свежий кокос",
+            descEn: "", descZh: "", descRu: "" },
+          { id: "dr-tea", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Thai Iced Tea", nameZh: "泰式冰茶", nameRu: "Тайский чай со льдом",
+            descEn: "", descZh: "", descRu: "" },
+          { id: "dr-shake", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Fruit Shake", nameZh: "鲜榨果汁", nameRu: "Фруктовый шейк",
+            descEn: "Mango, pineapple or watermelon.", descZh: "芒果、菠萝或西瓜。", descRu: "Манго, ананас или арбуз." },
+          { id: "dr-beer", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
+            nameEn: "Local Beer", nameZh: "本地啤酒", nameRu: "Местное пиво",
+            descEn: "Singha or Chang, cold from the ice.", descZh: "胜狮或象牌，冰镇。", descRu: "Сингха или Чанг, ледяное." }
         ]
       };
 
@@ -701,10 +730,10 @@
       }
 
       function applyLang(next) {
-        lang = next === "th" ? "en" : (next === "en" ? "en" : "zh");
+        lang = next === "th" ? "en" : (next === "en" ? "en" : (next === "ru" ? "ru" : "zh"));
         document.documentElement.setAttribute("data-lang", lang);
-        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-        document.querySelectorAll("[data-en][data-zh]").forEach(function (el) {
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : (lang === "ru" ? "ru" : "en");
+        document.querySelectorAll("[data-en][data-zh][data-ru]").forEach(function (el) {
           if (el.closest("#cart-lines") || el.closest("#info-items") || el.closest("#preview-text") || el.closest("#dish-grid") || el.closest("#cat-rail")) return;
           var val = el.getAttribute("data-" + lang) || el.getAttribute("data-en");
           if (val != null) el.textContent = val;
@@ -719,7 +748,7 @@
       }
 
       function itemName(item) {
-        return lang === "zh" ? item.nameZh : item.nameEn;
+        return lang === "zh" ? item.nameZh : (lang === "ru" ? item.nameRu : item.nameEn);
       }
 
       function count() {
@@ -736,7 +765,7 @@
         if (!dish) return;
         var found = cart.find(function (row) { return row.id === id; });
         if (found) found.qty += 1;
-        else cart.push({ id: dish.id, nameEn: dish.nameEn, nameZh: dish.nameZh, price: dish.price, label: dish.label, qty: 1 });
+        else cart.push({ id: dish.id, nameEn: dish.nameEn, nameZh: dish.nameZh, nameRu: dish.nameRu, price: dish.price, label: dish.label, qty: 1 });
         render();
       }
 
@@ -748,25 +777,27 @@
         render();
       }
 
-      function baht(n) {
-        return "฿" + n;
+      function priceLabel(item) {
+        if (item.label === "by wt") return t({ en: "by wt", zh: "按重量", ru: "по весу" });
+        if (item.label === "ask") return t({ en: "ask", zh: "询价", ru: "уточнить" });
+        return item.label;
       }
 
       function message() {
         var rows = cart.map(function (item) {
-          return "• " + itemName(item) + " × " + item.qty + " — " + baht(item.price * item.qty);
+          return "• " + itemName(item) + " × " + item.qty + " — " + priceLabel(item);
         }).join("\n");
-        var note = guest.note ? guest.note : t({ en: "(none)", zh: "无" });
+        var note = guest.note ? guest.note : t({ en: "(none)", zh: "无", ru: "нет" });
         return [
-          t({ en: "Pre-order for Mr.Jeff, Lamai", zh: "Mr.Jeff 拉迈 · 提前点餐" }),
-          t({ en: "Name: ", zh: "姓名：" }) + guest.name,
-          t({ en: "Guests: ", zh: "人数：" }) + guest.people,
-          t({ en: "Note: ", zh: "备注：" }) + note,
+          t({ en: "Pre-order for Mr.Jeff, Lamai", zh: "Mr.Jeff 拉迈 · 提前点餐", ru: "Предзаказ для Mr.Jeff, Ламай" }),
+          t({ en: "Name: ", zh: "姓名：", ru: "Имя: " }) + guest.name,
+          t({ en: "Guests: ", zh: "人数：", ru: "Гостей: " }) + guest.people,
+          t({ en: "Note: ", zh: "备注：", ru: "Комментарий: " }) + note,
           "",
           rows,
           "",
-          t({ en: "Kitchen confirms the catch if needed.", zh: "如需称重，厨房再确认。" }),
-          t({ en: "Not paid — cash only. Khob khun!", zh: "尚未付款 — 只收现金。谢谢！" })
+          t({ en: "Kitchen confirms the catch if needed.", zh: "如需称重，厨房再确认。", ru: "Кухня подтвердит вес при необходимости." }),
+          t({ en: "Not paid — cash only. Khob khun!", zh: "尚未付款 — 只收现金。谢谢！", ru: "Не оплачено — только наличные. Спасибо!" })
         ].join("\n");
       }
 
@@ -787,7 +818,7 @@
       function renderCats() {
         var rail = document.getElementById("cat-rail");
         rail.innerHTML = CATS.map(function (cat) {
-          return "<button type=\"button\" class=\"cat-pill" + (cat.id === active ? " is-on" : "") + "\" data-cat=\"" + cat.id + "\" data-en=\"" + cat.en + "\" data-zh=\"" + cat.zh + "\">" + (lang === "zh" ? cat.zh : cat.en) + "</button>";
+          return "<button type=\"button\" class=\"cat-pill" + (cat.id === active ? " is-on" : "") + "\" data-cat=\"" + cat.id + "\" data-en=\"" + cat.en + "\" data-zh=\"" + cat.zh + "\" data-ru=\"" + cat.ru + "\">" + (lang === "zh" ? cat.zh : (lang === "ru" ? cat.ru : cat.en)) + "</button>";
         }).join("");
       }
 
@@ -795,15 +826,15 @@
         var grid = document.getElementById("dish-grid");
         grid.innerHTML = MENU[active].map(function (dish) {
           var q = qtyOf(dish.id);
-          var desc = lang === "zh" ? dish.descZh : dish.descEn;
+          var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
           return (
             "<article class=\"dish-card relative rounded-2xl bg-white/70 border border-sage/25 p-3 sm:p-5 text-center" + (q ? " is-added" : "") + "\" data-dish-id=\"" + dish.id + "\">" +
               "<span class=\"dish-badge " + (q ? "flex" : "hidden") + " absolute top-3 right-3 min-w-7 h-7 rounded-full bg-gold text-night text-sm font-bold items-center justify-center\">" + q + "</span>" +
               "<span class=\"plate\"><span class=\"plate-inner\"><img src=\"" + dish.img + "\" alt=\"\"></span></span>" +
-              "<h4 class=\"mt-4 font-serif text-2xl leading-snug\" data-en=\"" + escapeHtml(dish.nameEn) + "\" data-zh=\"" + escapeHtml(dish.nameZh) + "\">" + escapeHtml(lang === "zh" ? dish.nameZh : dish.nameEn) + "</h4>" +
-              (desc ? "<p class=\"mt-2 text-sm text-night/55\" data-en=\"" + escapeHtml(dish.descEn) + "\" data-zh=\"" + escapeHtml(dish.descZh) + "\">" + escapeHtml(desc) + "</p>" : "") +
-              "<p class=\"mt-2 font-serif text-lg text-gold\">" + dish.label + "</p>" +
-              "<button type=\"button\" class=\"order-btn mt-4 rounded-full border border-gold/50 px-4 py-1.5 text-sm\" data-add=\"" + dish.id + "\" data-en=\"+ Order\" data-zh=\"+ Order\">+ Order</button>" +
+              "<h4 class=\"mt-4 font-serif text-2xl leading-snug\" data-en=\"" + escapeHtml(dish.nameEn) + "\" data-zh=\"" + escapeHtml(dish.nameZh) + "\" data-ru=\"" + escapeHtml(dish.nameRu) + "\">" + escapeHtml(lang === "zh" ? dish.nameZh : (lang === "ru" ? dish.nameRu : dish.nameEn)) + "</h4>" +
+              (desc ? "<p class=\"mt-2 text-sm text-night/55\" data-en=\"" + escapeHtml(dish.descEn) + "\" data-zh=\"" + escapeHtml(dish.descZh) + "\" data-ru=\"" + escapeHtml(dish.descRu) + "\">" + escapeHtml(desc) + "</p>" : "") +
+              "<p class=\"mt-2 font-serif text-lg text-moss\">" + escapeHtml(priceLabel(dish)) + "</p>" +
+              "<button type=\"button\" class=\"order-btn mt-4 rounded-full border border-sage/50 px-4 py-1.5 text-sm\" data-add=\"" + dish.id + "\" data-en=\"+ Order\" data-zh=\"+ Order\" data-ru=\"+ Заказ\">+ Order</button>" +
             "</article>"
           );
         }).join("");
@@ -830,7 +861,7 @@
           var li = document.createElement("li");
           li.className = "flex items-center justify-between gap-3";
           li.innerHTML =
-            "<span class=\"flex-1\">" + escapeHtml(itemName(item)) + "<i class=\"block text-xs text-[#F5F0EB]/50 not-italic\">" + item.label + "</i></span>" +
+            "<span class=\"flex-1\">" + escapeHtml(itemName(item)) + "<i class=\"block text-xs text-[#F5F0EB]/50 not-italic\">" + escapeHtml(priceLabel(item)) + "</i></span>" +
             "<span class=\"inline-flex items-center gap-2\">" +
               "<button type=\"button\" class=\"w-7 h-7 border border-gold/40\" data-qty=\"" + item.id + "\" data-d=\"-1\">−</button>" +
               "<b>" + item.qty + "</b>" +
@@ -839,7 +870,7 @@
           lines.appendChild(li);
         });
         document.getElementById("info-items").innerHTML = cart.map(function (item) {
-          return "<li>" + escapeHtml(itemName(item)) + " × " + item.qty + " — " + baht(item.price * item.qty) + "</li>";
+          return "<li>" + escapeHtml(itemName(item)) + " × " + item.qty + " — " + escapeHtml(priceLabel(item)) + "</li>";
         }).join("");
       }
 
@@ -890,7 +921,7 @@
 
       function toast() {
         var el = document.getElementById("sent-toast");
-        el.textContent = t({ en: "Sent ✓✓", zh: "已发送 ✓✓" });
+        el.textContent = t({ en: "Sent ✓✓", zh: "已发送 ✓✓", ru: "Отправлено ✓✓" });
         el.hidden = false;
         setTimeout(function () { el.hidden = true; }, 2000);
       }
