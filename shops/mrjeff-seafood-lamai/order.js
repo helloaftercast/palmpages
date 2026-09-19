@@ -405,9 +405,13 @@
         nameRu: addBtn.getAttribute("data-name-ru") || addBtn.getAttribute("data-name-en"),
         nameZh: addBtn.getAttribute("data-name-zh") || addBtn.getAttribute("data-name-en"),
         price: Number(addBtn.getAttribute("data-price")),
-        ask: addBtn.getAttribute("data-ask") === "1" || id.indexOf("side-") === 0 || id.indexOf("thai-") === 0,
+        ask: addBtn.getAttribute("data-ask") === "1" || id.indexOf("side-") === 0 || id.indexOf("thai-") === 0 || id.indexOf("dessert-") === 0,
         kind: id.indexOf("cook-") === 0 ? "cook" : "catch"
       });
+      if (addBtn.getAttribute("data-go-ticket") === "1") {
+        var ticket = document.getElementById("ticket");
+        if (ticket) ticket.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
       return;
     }
     var qtyBtn = e.target.closest("[data-qty]");
@@ -526,6 +530,35 @@
   document.querySelectorAll("[data-menu-book-link]").forEach(function (a) {
     a.addEventListener("click", function () {
       showJeffMenu(a.getAttribute("data-menu-book-link"));
+    });
+  });
+
+  var catPop = document.querySelector("[data-cat-pop]");
+  var hamBtn = document.querySelector("[data-menu-open]");
+
+  function setCatPop(open) {
+    if (!catPop) return;
+    catPop.hidden = !open;
+    document.body.classList.toggle("cat-pop-on", open);
+    if (hamBtn) hamBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  if (hamBtn) {
+    hamBtn.addEventListener("click", function () {
+      setCatPop(catPop && catPop.hidden);
+    });
+  }
+  document.querySelectorAll("[data-menu-close]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      setCatPop(false);
+    });
+  });
+  document.querySelectorAll("[data-menu-tab-link]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var tab = a.getAttribute("data-menu-tab-link");
+      var book = tab === "drinks" || tab === "beer" || tab === "wine" ? "drinks" : "food";
+      showJeffMenu(book, tab);
+      setCatPop(false);
     });
   });
 
