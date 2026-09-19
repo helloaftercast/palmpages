@@ -472,27 +472,62 @@
   });
 
   var board = document.querySelector(".menu-board");
-  if (board) {
-    board.addEventListener("click", function (e) {
-      var tab = e.target.closest("[data-menu-tab]");
-      if (!tab || !board.contains(tab)) return;
-      var id = tab.getAttribute("data-menu-tab");
-      tab.scrollIntoView({ inline: "center", block: "nearest" });
-      board.querySelectorAll("[data-menu-tab]").forEach(function (btn) {
-        var on = btn === tab;
-        btn.setAttribute("aria-selected", on ? "true" : "false");
-      });
-      board.querySelectorAll("[data-menu-panel]").forEach(function (panel) {
-        var on = panel.getAttribute("data-menu-panel") === id;
-        panel.hidden = !on;
-        if (on) {
-          panel.querySelectorAll("[data-fx]").forEach(function (el) {
-            el.classList.add("is-in");
-          });
-        }
-      });
+  var BOOK_DEFAULT = { food: "seafood", drinks: "drinks" };
+
+  function revealFx(root) {
+    if (!root) return;
+    root.querySelectorAll("[data-fx]").forEach(function (el) {
+      el.classList.add("is-in");
     });
   }
+
+  function showJeffMenu(book, tab) {
+    if (!board) return;
+    book = book === "drinks" ? "drinks" : "food";
+    if (!tab) tab = BOOK_DEFAULT[book];
+    board.setAttribute("data-open-book", book);
+    board.querySelectorAll("[data-menu-book]").forEach(function (btn) {
+      btn.setAttribute("aria-selected", btn.getAttribute("data-menu-book") === book ? "true" : "false");
+    });
+    board.querySelectorAll("[data-menu-cats]").forEach(function (rail) {
+      var on = rail.getAttribute("data-menu-cats") === book;
+      rail.hidden = !on;
+      if (on) revealFx(rail);
+    });
+    var rail = board.querySelector('[data-menu-cats="' + book + '"]');
+    if (rail) {
+      rail.querySelectorAll("[data-menu-tab]").forEach(function (btn) {
+        var on = btn.getAttribute("data-menu-tab") === tab;
+        btn.setAttribute("aria-selected", on ? "true" : "false");
+        if (on) btn.scrollIntoView({ inline: "center", block: "nearest" });
+      });
+    }
+    board.querySelectorAll("[data-menu-panel]").forEach(function (panel) {
+      var on = panel.getAttribute("data-menu-panel") === tab;
+      panel.hidden = !on;
+      if (on) revealFx(panel);
+    });
+  }
+  window.showJeffMenu = showJeffMenu;
+
+  if (board) {
+    board.addEventListener("click", function (e) {
+      var bookBtn = e.target.closest("[data-menu-book]");
+      if (bookBtn && board.contains(bookBtn)) {
+        showJeffMenu(bookBtn.getAttribute("data-menu-book"));
+        return;
+      }
+      var tab = e.target.closest("[data-menu-tab]");
+      if (!tab || !board.contains(tab)) return;
+      showJeffMenu(board.getAttribute("data-open-book") || "food", tab.getAttribute("data-menu-tab"));
+    });
+  }
+
+  document.querySelectorAll("[data-menu-book-link]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      showJeffMenu(a.getAttribute("data-menu-book-link"));
+    });
+  });
 
   render();
 })();
