@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mr.Jeff — Lamai / Maret</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Mr. Jeff in Maret, Lamai. Fresh seafood by weight. Cash only. WhatsApp for visitors.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#748E78",
+            inkdeep: "#5c735f",
+            parchment: "#efe2c4",
+            cream: "#f6edd6",
+            gold: "#c4a35a",
+            coal: "#2b2418"
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', "Georgia", "serif"],
+            sans: ['"Manrope"', "sans-serif"]
+          },
+          letterSpacing: {
+            brand: "0.42em"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;600;700&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light; }
+    body {
+      background-color: #efe2c4;
+      background-image:
+        radial-gradient(circle at 18% 12%, rgba(196,163,90,0.16), transparent 36%),
+        radial-gradient(circle at 82% 88%, rgba(116,142,120,0.1), transparent 32%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+    }
+    [hidden] { display: none !important; }
+    .dish-card.is-added { box-shadow: 0 0 0 2px #c4a35a; }
+    .envelope-fly {
+      animation: envelope-fly 900ms cubic-bezier(.22,.8,.32,1) forwards;
+    }
+    @keyframes envelope-fly {
+      0% { transform: scale(1) translate(0,0); opacity: 1; }
+      45% { transform: scale(.28) translate(8vw,-18vh); opacity: 1; }
+      100% { transform: scale(.06) translate(42vw,-58vh); opacity: 0; }
+    }
+    html[data-lang="zh"] [data-en]:not([data-zh]) { }
+  </style>
+</head>
+<body class="text-coal font-sans antialiased">
+  <header id="home" class="max-w-xl mx-auto px-6 pt-12 pb-8 text-center">
+    <a href="#home" class="inline-block">
+      <img src="photos/logo-avatar.jpg?v=mj13" width="112" height="112" alt="Mr. JEFF"
+           class="w-28 h-28 rounded-full object-cover mx-auto ring-2 ring-gold/50 shadow-lg">
+    </a>
+    <p class="mt-5 font-serif italic text-lg text-coal/70">Mr.Jeff</p>
+    <p class="text-xs tracking-[0.28em] uppercase text-coal/50 mt-1" data-en="Lamai / Maret · near Coco Splash" data-zh="拉迈 / Maret · 靠近 Coco Splash" data-ru="Ламай / Марет · рядом с Coco Splash" data-th="ละไม / มะเร็ต · ใกล้ Coco Splash">Lamai / Maret · near Coco Splash</p>
+    <nav class="mt-10 flex flex-col items-center gap-4 font-serif text-[1.65rem] tracking-[0.34em] uppercase">
+      <a href="#home" class="hover:text-inkdeep">Home</a>
+      <a href="#about" class="hover:text-inkdeep">About</a>
+      <a href="#menu" class="hover:text-inkdeep">Food Menu</a>
+      <a href="#order" class="hover:text-inkdeep">Order</a>
+      <a href="#contact" class="hover:text-inkdeep">Contact</a>
+    </nav>
+    <a href="https://wa.me/66620454983?text=Hi%20Mr.%20Jeff%2C%20I%27d%20like%20a%20table."
+       class="mt-10 inline-flex items-center justify-center rounded-full bg-ink text-white px-8 py-3 text-sm tracking-wide shadow-md hover:bg-inkdeep">
+      Order via WhatsApp
+    </a>
+    <div class="mt-8 flex items-center justify-center gap-4 text-2xl" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true" title="English">🇬🇧</button>
+      <button type="button" data-set-lang="th" aria-pressed="false" title="ไทย">🇹🇭</button>
+      <button type="button" data-set-lang="zh" aria-pressed="false" title="中文" class="text-base tracking-widest">中文</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="max-w-2xl mx-auto px-6 py-12 text-center">
+      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase">About</h2>
+      <p class="mt-6 text-[1.05rem] leading-8 text-coal/80" data-en="Meet Mr. Jeff — the friendly owner at the door. King lobster, prawns, crab, mussels — pick your catch, say how you want it cooked. Cash only. Fresh seafood by weight." data-zh="门口那位热情的老板，就是 Mr. Jeff。帝王龙虾、大虾、螃蟹、贻贝——自己挑海鲜，告诉厨房怎么做。只收现金。鲜海鲜按重量计价。" data-ru="Знакомьтесь, мистер Джефф — радушный хозяин у входа. Королевский лобстер, креветки, краб, мидии — выбирайте улов и скажите, как приготовить. Только наличные. Свежие морепродукты на вес." data-th="พบกับคุณเจฟ — เจ้าของร้านที่ยืนต้อนรับหน้าประตู กุ้งมังกร กุ้ง ปู หอยแมลงภู่ — เลือกของสด บอกวิธีปรุง รับเงินสดเท่านั้น ซีฟู้ดสดขายตามน้ำหนัก">门口那位热情的老板，就是 Mr. Jeff。帝王龙虾、大虾、螃蟹、贻贝——自己挑海鲜，告诉厨房怎么做。只收现金。鲜海鲜按重量计价。</p>
+    </section>
+
+    <section id="menu" class="max-w-5xl mx-auto px-6 py-8">
+      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase text-center">Food Menu</h2>
+      <p class="mt-4 text-center text-coal/60" data-en="Four shelves. Tap a cover, then a plate." data-zh="四个分类。先点封面，再点菜。" data-ru="Четыре полки. Нажмите обложку, затем блюдо." data-th="สี่หมวด กดปก แล้วกดจาน">四个分类。先点封面，再点菜。</p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-6" id="cat-grid">
+        <button type="button" data-open-cat="seafood" class="group text-left bg-cream/70 rounded-sm overflow-hidden shadow-md">
+          <div class="overflow-hidden h-56">
+            <img src="photos/dish-lobster.jpg?v=mj19" alt="Seafood at Mr.Jeff" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          </div>
+          <div class="py-5 text-center">
+            <p class="font-serif text-3xl tracking-[0.22em] uppercase">Seafood</p>
+            <p class="text-sm text-coal/55 mt-1">海鲜</p>
+          </div>
+        </button>
+        <button type="button" data-open-cat="spaghetti" class="group text-left bg-cream/70 rounded-sm overflow-hidden shadow-md">
+          <div class="overflow-hidden h-56">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=1400&q=80" alt="Noodles" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          </div>
+          <div class="py-5 text-center">
+            <p class="font-serif text-3xl tracking-[0.22em] uppercase">Spaghetti</p>
+            <p class="text-sm text-coal/55 mt-1">意面</p>
+          </div>
+        </button>
+        <button type="button" data-open-cat="grill" class="group text-left bg-cream/70 rounded-sm overflow-hidden shadow-md">
+          <div class="overflow-hidden h-56">
+            <img src="photos/dish-prawns-grill.jpg?v=mj19" alt="Grill at Mr.Jeff" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          </div>
+          <div class="py-5 text-center">
+            <p class="font-serif text-3xl tracking-[0.22em] uppercase">Grilled</p>
+            <p class="text-sm text-coal/55 mt-1">烧烤</p>
+          </div>
+        </button>
+        <button type="button" data-open-cat="drinks" class="group text-left bg-cream/70 rounded-sm overflow-hidden shadow-md">
+          <div class="overflow-hidden h-56">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1400&q=80" alt="Drinks" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          </div>
+          <div class="py-5 text-center">
+            <p class="font-serif text-3xl tracking-[0.22em] uppercase">Drinks</p>
+            <p class="text-sm text-coal/55 mt-1">饮品</p>
+          </div>
+        </button>
+      </div>
+
+      <div id="dish-panels" class="mt-12 space-y-4">
+        <div data-cat-panel="seafood" hidden>
+          <h3 class="font-serif text-3xl tracking-[0.2em] uppercase text-center">Seafood · 海鲜</h3>
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="catch-lobster">
+              <img src="photos/dish-lobster.jpg?v=mj19" alt="King lobster at Mr.Jeff" class="w-full h-48 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">帝王龙虾</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">King lobster</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="By weight. Kitchen quotes after the scale." data-zh="按重量计价。厨房称重后再报价。" data-ru="На вес. Кухня назовёт цену после весов." data-th="คิดตามน้ำหนัก ครัวบอกราคาหลังชั่ง">按重量计价。厨房称重后再报价。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep">฿200–1,200</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-id="catch-lobster" data-name-en="King lobster" data-name-zh="帝王龙虾" data-name-ru="Королевский лобстер" data-name-th="กุ้งมังกร" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="catch-prawns">
+              <img src="photos/dish-prawns-baked.jpg?v=mj19" alt="Prawns at Mr.Jeff" class="w-full h-48 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">大虾</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Prawns</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="Grilled, fried, steamed or garlic." data-zh="烤、炸、蒸或蒜蓉。" data-ru="Гриль, жарка, пар или чеснок." data-th="ย่าง ทอด นึ่ง หรือกระเทียม">烤、炸、蒸或蒜蓉。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="by wt" data-zh="按重量" data-ru="на вес" data-th="ตามน้ำหนัก">按重量</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-id="catch-prawns" data-name-en="Prawns" data-name-zh="大虾" data-name-ru="Креветки" data-name-th="กุ้ง" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="catch-crab">
+              <img src="photos/seafood.jpg" alt="Catch on ice at Mr.Jeff" class="w-full h-48 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">螃蟹</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Crab</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="Quoted after the kitchen weighs it." data-zh="厨房称重后报价。" data-ru="Цена после взвешивания." data-th="ครัวชั่งแล้วบอกราคา">厨房称重后报价。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="by wt" data-zh="按重量" data-ru="на вес" data-th="ตามน้ำหนัก">按重量</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-id="catch-crab" data-name-en="Crab" data-name-zh="螃蟹" data-name-ru="Краб" data-name-th="ปู" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="catch-mussels">
+              <img src="photos/dish-mussels.jpg?v=mj19" alt="Mussels at Mr.Jeff" class="w-full h-48 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">贻贝</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Mussels</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="Fresh seafood from the ice." data-zh="新鲜海鲜。" data-ru="Свежие морепродукты со льда." data-th="อาหารทะเลสด">新鲜海鲜。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="by wt" data-zh="按重量" data-ru="на вес" data-th="ตามน้ำหนัก">按重量</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-id="catch-mussels" data-name-en="Mussels" data-name-zh="贻贝" data-name-ru="Мидии" data-name-th="หอยแมลงภู่" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="catch-fish">
+              <img src="photos/dish-fish-fried.jpg?v=mj19" alt="Fried fish at Mr.Jeff" class="w-full h-48 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">鲜鱼</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Fish</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="By weight. Say how to cook it." data-zh="按重量计价。告诉厨房怎么做。" data-ru="На вес. Скажите, как приготовить." data-th="คิดตามน้ำหนัก บอกวิธีปรุง">按重量计价。告诉厨房怎么做。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="by wt" data-zh="按重量" data-ru="на вес" data-th="ตามน้ำหนัก">按重量</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-id="catch-fish" data-name-en="Fish" data-name-zh="鲜鱼" data-name-ru="Рыба" data-name-th="ปลา" data-price="0">+ Order</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div data-cat-panel="spaghetti" hidden>
+          <h3 class="font-serif text-3xl tracking-[0.2em] uppercase text-center">Spaghetti · 意面</h3>
+          <p class="mt-3 text-center text-sm text-coal/55" data-en="Google’s Thai / noodle page — not Italian pasta. Ask what’s on." data-zh="谷歌菜单上的泰式粉面，不是意式面。问当天有什么。" data-ru="Тайская лапша со страницы Google, не итальянская паста." data-th="เส้นไทยจากหน้า Google ไม่ใช่สปาเก็ตตี้">谷歌菜单上的泰式粉面，不是意式面。问当天有什么。</p>
+          <div class="mt-8 grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="thai-padthai">
+              <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=1400&q=80" alt="Pad Thai">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">Pad Thai</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">泰式炒河粉</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="On the Google Thai page. Ask today’s price." data-zh="谷歌泰式菜单上有。询当天价格。" data-ru="На тайской странице Google. Спросите цену." data-th="มีในหน้าอาหารไทย ถามราคาวันนี้">谷歌泰式菜单上有。询当天价格。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="ask" data-zh="询价" data-ru="уточнить" data-th="สอบถาม">询价</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-ask="1" data-id="thai-padthai" data-name-en="Pad Thai" data-name-zh="Pad Thai" data-name-ru="Пад тай" data-name-th="ผัดไทย" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="thai-padthai-crab">
+              <img src="https://images.unsplash.com/photo-1637806939900-33e999766741?auto=format&fit=crop&w=1400&q=80" alt="Pad Thai with crab">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">Pad Thai with crab</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">蟹肉炒河粉</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="Named on Google. Ask if they have it tonight." data-zh="谷歌菜单上的名字。问今晚有没有。" data-ru="Есть в Google. Спросите, есть ли сегодня." data-th="มีชื่อใน Google ถามว่ามีคืนนี้ไหม">谷歌菜单上的名字。问今晚有没有。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="ask" data-zh="询价" data-ru="уточнить" data-th="สอบถาม">询价</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-ask="1" data-id="thai-padthai-crab" data-name-en="Pad Thai with crab" data-name-zh="蟹肉炒河粉" data-name-ru="Пад тай с крабом" data-name-th="ผัดไทยปู" data-price="0">+ Order</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div data-cat-panel="grill" hidden>
+          <h3 class="font-serif text-3xl tracking-[0.2em] uppercase text-center">Grilled · 烧烤</h3>
+          <div class="mt-8 grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="pop-prawns-grilled">
+              <img src="photos/dish-prawns-grill.jpg?v=mj19" alt="Grilled prawns at Mr.Jeff" class="w-full h-48 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">烤大虾</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Grilled prawns</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="From the grill page. Kitchen weighs the catch." data-zh="谷歌烧烤页上的烤虾。厨房称重。" data-ru="Со страницы гриля. Кухня взвесит." data-th="จากหน้าย่าง ครัวชั่งน้ำหนัก">谷歌烧烤页上的烤虾。厨房称重。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="by wt" data-zh="按重量" data-ru="на вес" data-th="ตามน้ำหนัก">按重量</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-id="pop-prawns-grilled" data-name-en="Grilled prawns" data-name-zh="烤大虾" data-name-ru="Креветки на гриле" data-name-th="กุ้งย่าง" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="pop-prawns-skewer">
+              <img src="photos/dish-prawns-skewer.jpg?v=mj19" alt="Prawn skewers at Mr.Jeff" class="w-full h-48 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">烤虾串</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Prawn skewers</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="Guest photo from Google reviews." data-zh="谷歌评论里的实拍。" data-ru="Фото гостя из отзывов Google." data-th="รูปจากรีวิว Google">谷歌评论里的实拍。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="by wt" data-zh="按重量" data-ru="на вес" data-th="ตามน้ำหนัก">按重量</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-id="pop-prawns-skewer" data-name-en="Prawn skewers" data-name-zh="烤虾串" data-name-ru="Креветки на шпажках" data-name-th="กุ้งย่างเสียบไม้" data-price="0">+ Order</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div data-cat-panel="drinks" hidden>
+          <h3 class="font-serif text-3xl tracking-[0.2em] uppercase text-center">Drinks · 饮品</h3>
+          <div class="mt-8 grid sm:grid-cols-3 gap-6">
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="drink-page">
+              <img src="https://images.unsplash.com/photo-1544145945-f90425316c80?auto=format&fit=crop&w=1200&q=80" alt="Soft drinks" class="w-full h-40 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">软饮</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Soft drinks</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="From the Google drinks page. Name the bottle in chat." data-zh="谷歌饮料页。在聊天里说要哪一瓶。" data-ru="Со страницы напитков Google." data-th="จากหน้าเครื่องดื่ม บอกชื่อขวดในแชท">谷歌饮料页。在聊天里说要哪一瓶。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="ask" data-zh="询价" data-ru="уточнить" data-th="สอบถาม">询价</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-ask="1" data-id="drink-page" data-name-en="Soft drinks" data-name-zh="软饮" data-name-ru="Напитки" data-name-th="เครื่องดื่ม" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="beer-page">
+              <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=1200&q=80" alt="Beer" class="w-full h-40 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">啤酒</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Beer</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="Ask which bottles they have tonight." data-zh="问今晚有哪些瓶子。" data-ru="Спросите, какие бутылки есть сегодня." data-th="ถามว่าคืนนี้มีขวดอะไร">问今晚有哪些瓶子。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="ask" data-zh="询价" data-ru="уточнить" data-th="สอบถาม">询价</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-ask="1" data-id="beer-page" data-name-en="Beer" data-name-zh="啤酒" data-name-ru="Пиво" data-name-th="เบียร์" data-price="0">+ Order</button>
+              </div>
+            </article>
+            <article class="dish-card relative bg-cream/80 overflow-hidden shadow" data-dish-id="wine-page">
+              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80" alt="Wine" class="w-full h-40 object-cover">
+              <span class="dish-badge hidden absolute top-3 right-3 min-w-7 h-7 px-1 rounded-full bg-gold text-white text-sm font-bold items-center justify-center">0</span>
+              <div class="p-5">
+                <h4 class="font-serif text-2xl">葡萄酒</h4>
+                <p class="text-xs tracking-[0.2em] uppercase text-coal/45 mt-1">Wine</p>
+                <p class="mt-2 text-sm text-coal/70" data-en="Ask Mr. Jeff what’s open." data-zh="问 Mr. Jeff 今晚开了什么。" data-ru="Спросите мистера Джеффа, что открыто." data-th="ถามคุณเจฟว่าเปิดอะไร">问 Mr. Jeff 今晚开了什么。</p>
+                <p class="mt-2 font-serif text-lg text-inkdeep" data-en="ask" data-zh="询价" data-ru="уточнить" data-th="สอบถาม">询价</p>
+                <button type="button" class="order-btn mt-4 rounded-full border border-ink/30 bg-white/50 px-4 py-1.5 text-sm" data-add data-ask="1" data-id="wine-page" data-name-en="Wine" data-name-zh="葡萄酒" data-name-ru="Вино" data-name-th="ไวน์" data-price="0">+ Order</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="max-w-2xl mx-auto px-6 py-16">
+      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase text-center">Order</h2>
+      <ol class="mt-10 space-y-8">
+        <li class="flex gap-5">
+          <span class="font-serif text-3xl text-gold w-10">01</span>
+          <div>
+            <h3 class="font-serif text-2xl" data-en="Pick the catch" data-zh="先挑海鲜" data-ru="Выберите улов" data-th="เลือกของสด">先挑海鲜</h3>
+            <p class="mt-2 text-coal/70" data-en="You choose. The kitchen weighs it." data-zh="自己挑选，厨房称重。" data-ru="Вы выбираете. Кухня взвешивает." data-th="เลือกเอง ครัวเป็นคนชั่ง">自己挑选，厨房称重。</p>
+          </div>
+        </li>
+        <li class="flex gap-5">
+          <span class="font-serif text-3xl text-gold w-10">02</span>
+          <div>
+            <h3 class="font-serif text-2xl" data-en="Send the chat" data-zh="发到聊天" data-ru="Напишите в чат" data-th="ส่งในแชท">发到聊天</h3>
+            <p class="mt-2 text-coal/70" data-en="WhatsApp or LINE — confirm how to cook." data-zh="WhatsApp 或 LINE 确认做法。" data-ru="WhatsApp или LINE — как готовить." data-th="WhatsApp หรือ LINE ยืนยันวิธีปรุง">WhatsApp 或 LINE 确认做法。</p>
+          </div>
+        </li>
+        <li class="flex gap-5">
+          <span class="font-serif text-3xl text-gold w-10">03</span>
+          <div>
+            <h3 class="font-serif text-2xl" data-en="Pay cash" data-zh="柜台只收现金" data-ru="Только наличные" data-th="จ่ายเงินสดที่ร้าน">柜台只收现金</h3>
+            <p class="mt-2 text-coal/70" data-en="Not paid in the chat. Cash at the till." data-zh="聊天里不付款。到店付现金。" data-ru="В чате не платят. Наличные на кассе." data-th="ไม่จ่ายในแชท จ่ายเงินสดที่ร้าน">聊天里不付款。到店付现金。</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="reviews" class="max-w-5xl mx-auto px-6 py-8">
+      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase text-center" data-en="Reviews" data-zh="评价" data-ru="Отзывы" data-th="รีวิว">评价</h2>
+      <div class="mt-10 grid md:grid-cols-3 gap-5">
+        <figure class="bg-cream/80 p-6 shadow">
+          <blockquote class="leading-7">“帝王龙虾非常好——泰国最好的，Mr. Jeff。”</blockquote>
+          <figcaption class="mt-4 text-sm text-coal/50">Aung minn969</figcaption>
+        </figure>
+        <figure class="bg-cream/80 p-6 shadow">
+          <blockquote class="leading-7">“非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。”</blockquote>
+          <figcaption class="mt-4 text-sm text-coal/50">แป้ง โฟน</figcaption>
+        </figure>
+        <figure class="bg-cream/80 p-6 shadow">
+          <blockquote class="leading-7">“食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！”</blockquote>
+          <figcaption class="mt-4 text-sm text-coal/50">Екатерина</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-2xl mx-auto px-6 py-16 text-center">
+      <h2 class="font-serif text-4xl tracking-[0.28em] uppercase">Contact</h2>
+      <p class="mt-6 leading-8 text-coal/80" data-en="137/4 Maret, Lamai, Koh Samui 84310 — near Coco Splash. Look for the ice chest; after dark, the amber lights." data-zh="137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。认门口的冰柜，晚上认琥珀色的灯。" data-ru="137/4 Maret, Ламай, Самуи 84310 — рядом с Coco Splash. Ищите ледник; вечером — янтарный свет." data-th="137/4 มะเร็ต ละไม สมุย 84310 ใกล้ Coco Splash หาตู้เย็นหน้าบ้าน กลางคืนดูไฟสีส้ม">137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。认门口的冰柜，晚上认琥珀色的灯。</p>
+      <p class="mt-4" data-en="Every day, 13:00–23:00. Check Google Maps for today’s hours." data-zh="每天 13:00–23:00（请到 Google Maps 看当天时间）。" data-ru="Каждый день, 13:00–23:00. Часы дня — в Google Maps." data-th="ทุกวัน 13:00–23:00 ดูชั่วโมงวันนี้ใน Google Maps">每天 13:00–23:00（请到 Google Maps 看当天时间）。</p>
+      <p class="mt-2" data-en="Cash only · seafood by weight" data-zh="只收现金 · 海鲜按重量" data-ru="Только наличные · морепродукты на вес" data-th="รับเงินสดเท่านั้น · ซีฟู้ดตามน้ำหนัก">只收现金 · 海鲜按重量</p>
+      <p class="mt-6"><a class="underline decoration-gold/60" href="https://www.google.com/maps/search/Mr.Jeff+Fresh+Seafood+Lamai+Samui">Google Maps</a> · <a class="underline decoration-gold/60" href="https://wa.me/66620454983">+66 62 045 4983</a></p>
+    </section>
+  </main>
+
+  <footer class="pb-28 text-center text-sm text-coal/55">
+    Mr.Jeff 在线 <span class="text-sky-500 tracking-tight">✓✓</span>
+  </footer>
+
+  <button type="button" id="cart-dock" hidden
+          class="fixed bottom-5 right-5 z-30 rounded-full bg-ink text-white px-5 py-3 shadow-lg text-sm">
+    已加购 0 件
+  </button>
+
+  <div id="cart-backdrop" hidden class="fixed inset-0 z-40 bg-coal/40"></div>
+  <aside id="cart-sidebar" hidden class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-cream shadow-2xl flex flex-col">
+    <div id="cart-sheet" class="flex flex-col h-full">
+      <div class="flex items-center justify-between px-6 py-5 border-b border-gold/30">
+        <h2 class="font-serif text-2xl tracking-[0.18em] uppercase">Order</h2>
+        <button type="button" id="cart-close" class="text-2xl leading-none" aria-label="Close">×</button>
+      </div>
+      <p id="cart-empty" class="px-6 py-8 text-coal/50" data-en="Tap a plate, then send the chat." data-zh="先点菜，再发到聊天。" data-ru="Нажмите блюдо, затем отправьте чат." data-th="กดจาน แล้วส่งแชท">先点菜，再发到聊天。</p>
+      <ul id="cart-lines" class="flex-1 overflow-auto px-6 py-4 space-y-4" hidden></ul>
+      <p class="px-6 text-sm text-coal/55" data-en="Weight & price confirmed by kitchen. Cash only." data-zh="厨房确认重量和价格。只收现金。" data-ru="Кухня подтвердит вес и цену. Только наличные." data-th="ครัวยืนยันน้ำหนักและราคา รับเงินสดเท่านั้น">厨房确认重量和价格。只收现金。</p>
+      <div class="p-6 space-y-3">
+        <button type="button" id="send-wa" class="w-full rounded-full bg-ink text-white py-3">Send Order via WhatsApp</button>
+        <a id="send-line" href="#" class="block text-center text-sm underline text-coal/60">LINE</a>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    (function () {
+      var WA = "66620454983";
+      var cart = [];
+      var lang = "zh";
+
+      function t(map) {
+        return map[lang] || map.zh || map.en;
+      }
+
+      function applyLang(next) {
+        lang = next;
+        document.documentElement.setAttribute("data-lang", lang);
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
+        document.querySelectorAll("[data-en]").forEach(function (el) {
+          var val = el.getAttribute("data-" + lang) || el.getAttribute("data-en");
+          if (val != null) el.textContent = val;
+        });
+        document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === lang ? "true" : "false");
+        });
+        render();
+      }
+
+      function itemName(item) {
+        if (lang === "zh") return item.nameZh || item.nameEn;
+        if (lang === "ru") return item.nameRu || item.nameEn;
+        if (lang === "th") return item.nameTh || item.nameEn;
+        return item.nameEn;
+      }
+
+      function priceLabel(item) {
+        return item.ask ? t({ en: "ask", zh: "询价", ru: "уточнить", th: "สอบถาม" })
+          : t({ en: "by wt", zh: "按重量", ru: "на вес", th: "ตามน้ำหนัก" });
+      }
+
+      function count() {
+        return cart.reduce(function (n, row) { return n + row.qty; }, 0);
+      }
+
+      function qtyOf(id) {
+        var row = cart.find(function (item) { return item.id === id; });
+        return row ? row.qty : 0;
+      }
+
+      function add(item) {
+        var found = cart.find(function (row) { return row.id === item.id; });
+        if (found) found.qty += 1;
+        else cart.push({
+          id: item.id,
+          nameEn: item.nameEn,
+          nameZh: item.nameZh,
+          nameRu: item.nameRu,
+          nameTh: item.nameTh,
+          ask: item.ask,
+          qty: 1
+        });
+        render();
+        openCart();
+      }
+
+      function setQty(id, qty) {
+        var found = cart.find(function (row) { return row.id === id; });
+        if (!found) return;
+        if (qty < 1) cart.splice(cart.indexOf(found), 1);
+        else found.qty = qty;
+        render();
+      }
+
+      function message() {
+        var rows = cart.map(function (item) {
+          return "• " + itemName(item) + " × " + item.qty + " — " + priceLabel(item);
+        }).join("\n");
+        return [
+          t({ en: "Pre-order for Mr.Jeff, Lamai", zh: "Mr.Jeff 拉迈 · 提前点餐", ru: "Предзаказ в Mr.Jeff, Ламай", th: "สั่งล่วงหน้า ร้าน Mr.Jeff ละไม" }),
+          "",
+          rows,
+          "",
+          t({ en: "Weight & price confirmed by kitchen.", zh: "厨房确认重量和价格。", ru: "Кухня подтвердит вес и цену.", th: "ครัวยืนยันน้ำหนักและราคา" }),
+          t({ en: "Not paid — cash only. Khob khun!", zh: "尚未付款 — 只收现金。谢谢！", ru: "Не оплачено — только наличные.", th: "ยังไม่ชำระ — รับเงินสดเท่านั้น" })
+        ].join("\n");
+      }
+
+      function waHref() {
+        return "https://wa.me/" + WA + "?text=" + encodeURIComponent(message());
+      }
+
+      function render() {
+        var n = count();
+        var dock = document.getElementById("cart-dock");
+        dock.hidden = n === 0;
+        dock.textContent = t({ en: "Order · " + n, zh: "已加购 " + n + " 件", ru: "Заказ · " + n, th: "ออเดอร์ · " + n });
+
+        document.querySelectorAll(".dish-card").forEach(function (card) {
+          var id = card.getAttribute("data-dish-id");
+          var q = qtyOf(id);
+          card.classList.toggle("is-added", q > 0);
+          var badge = card.querySelector(".dish-badge");
+          if (!badge) return;
+          badge.textContent = String(q);
+          badge.classList.toggle("hidden", q === 0);
+          badge.classList.toggle("flex", q > 0);
+        });
+
+        var empty = document.getElementById("cart-empty");
+        var lines = document.getElementById("cart-lines");
+        empty.hidden = n > 0;
+        lines.hidden = n === 0;
+        lines.innerHTML = "";
+        cart.forEach(function (item) {
+          var li = document.createElement("li");
+          li.className = "flex items-center justify-between gap-3";
+          li.innerHTML =
+            "<span class=\"flex-1\">" + itemName(item) + "<i class=\"block text-xs text-coal/45 not-italic\">" + priceLabel(item) + "</i></span>" +
+            "<span class=\"inline-flex items-center gap-2\">" +
+              "<button type=\"button\" class=\"w-7 h-7 border border-gold/40\" data-qty=\"" + item.id + "\" data-d=\"-1\">−</button>" +
+              "<b>" + item.qty + "</b>" +
+              "<button type=\"button\" class=\"w-7 h-7 border border-gold/40\" data-qty=\"" + item.id + "\" data-d=\"1\">+</button>" +
+            "</span>";
+          lines.appendChild(li);
+        });
+        document.getElementById("send-line").href = "https://line.me/R/msg/text/?" + encodeURIComponent(message());
+      }
+
+      function openCart() {
+        document.getElementById("cart-sidebar").hidden = false;
+        document.getElementById("cart-backdrop").hidden = false;
+      }
+
+      function closeCart() {
+        document.getElementById("cart-sidebar").hidden = true;
+        document.getElementById("cart-backdrop").hidden = true;
+        document.getElementById("cart-sheet").classList.remove("envelope-fly");
+      }
+
+      document.querySelectorAll("[data-open-cat]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var id = btn.getAttribute("data-open-cat");
+          document.querySelectorAll("[data-cat-panel]").forEach(function (panel) {
+            panel.hidden = panel.getAttribute("data-cat-panel") !== id;
+          });
+          var open = document.querySelector('[data-cat-panel="' + id + '"]');
+          if (open) open.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      document.addEventListener("click", function (e) {
+        var addBtn = e.target.closest("[data-add]");
+        var card = e.target.closest(".dish-card");
+        if (addBtn || (card && !e.target.closest("[data-qty]"))) {
+          var src = addBtn || card.querySelector("[data-add]");
+          if (!src) return;
+          if (card && !addBtn && e.target.closest("a")) return;
+          add({
+            id: src.getAttribute("data-id"),
+            nameEn: src.getAttribute("data-name-en"),
+            nameZh: src.getAttribute("data-name-zh"),
+            nameRu: src.getAttribute("data-name-ru"),
+            nameTh: src.getAttribute("data-name-th"),
+            ask: src.getAttribute("data-ask") === "1"
+          });
+          return;
+        }
+        var qtyBtn = e.target.closest("[data-qty]");
+        if (qtyBtn) {
+          var found = cart.find(function (row) { return row.id === qtyBtn.getAttribute("data-qty"); });
+          if (found) setQty(found.id, found.qty + Number(qtyBtn.getAttribute("data-d")));
+        }
+      });
+
+      document.getElementById("cart-dock").addEventListener("click", openCart);
+      document.getElementById("cart-close").addEventListener("click", closeCart);
+      document.getElementById("cart-backdrop").addEventListener("click", closeCart);
+      document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          applyLang(btn.getAttribute("data-set-lang"));
+        });
+      });
+
+      document.getElementById("send-wa").addEventListener("click", function () {
+        if (!cart.length) return;
+        var sheet = document.getElementById("cart-sheet");
+        sheet.classList.remove("envelope-fly");
+        void sheet.offsetWidth;
+        sheet.classList.add("envelope-fly");
+        var href = waHref();
+        setTimeout(function () {
+          window.open(href, "_blank");
+          closeCart();
+        }, 880);
+      });
+
+      applyLang("zh");
+    })();
+  </script>
+</body>
+</html>
