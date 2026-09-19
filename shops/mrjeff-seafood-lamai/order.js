@@ -7,133 +7,6 @@
     "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00"
   ];
 
-  var COPY = {
-    en: {
-      byWt: "by wt",
-      ask: "ask",
-      today: "Today, ",
-      closing: "Kitchen closing soon — pick another day",
-      order: "Order · ",
-      total: "Weight & price confirmed by kitchen",
-      greet: "Hi Mr. Jeff, I'd like a table.",
-      sendLine: "Send on LINE",
-      sendWa: "Send on WhatsApp",
-      dockLine: "LINE to reserve",
-      dockWa: "Chat on WhatsApp",
-      replyLine: "Got it — we'll weigh the catch and confirm the price. Message copied; paste it in LINE.",
-      replyWa: "Got it — we'll weigh the catch and confirm the price. See you soon.",
-      openLine: "Open LINE",
-      openWa: "Open WhatsApp",
-      msg: [
-        "Pre-order for Mr.Jeff, Lamai",
-        "",
-        "Name: {name}",
-        "{ch}: {phone}",
-        "People: {people}",
-        "Arrive: {day} {slot}",
-        "{note}",
-        "",
-        "{rows}",
-        "",
-        "Weight & price confirmed by kitchen.",
-        "Not paid — cash only. Khob khun!"
-      ]
-    },
-    ru: {
-      byWt: "на вес",
-      ask: "уточнить",
-      today: "Сегодня, ",
-      closing: "Кухня скоро закрывается — выберите другой день",
-      order: "Заказ · ",
-      total: "Кухня подтвердит вес и цену",
-      greet: "Здравствуйте, мистер Джефф, хотим столик.",
-      sendLine: "Отправить в LINE",
-      sendWa: "Отправить в WhatsApp",
-      dockLine: "LINE — забронировать",
-      dockWa: "Написать в WhatsApp",
-      replyLine: "Приняли — взвесим улов и подтвердим цену. Сообщение скопировано, вставьте в LINE.",
-      replyWa: "Приняли — взвесим улов и подтвердим цену. До встречи.",
-      openLine: "Открыть LINE",
-      openWa: "Открыть WhatsApp",
-      msg: [
-        "Предзаказ в Mr.Jeff, Ламай",
-        "",
-        "Имя: {name}",
-        "{ch}: {phone}",
-        "Гостей: {people}",
-        "Приход: {day} {slot}",
-        "{note}",
-        "",
-        "{rows}",
-        "",
-        "Кухня подтвердит вес и цену.",
-        "Не оплачено — только наличные. Спасибо!"
-      ]
-    },
-    zh: {
-      byWt: "按重量",
-      ask: "询价",
-      today: "今天，",
-      closing: "厨房快打烊了 — 请换一天",
-      order: "点单 · ",
-      total: "厨房确认重量和价格",
-      greet: "你好 Mr. Jeff，想订一张桌子。",
-      sendLine: "用 LINE 发送",
-      sendWa: "用 WhatsApp 发送",
-      dockLine: "用 LINE 订位",
-      dockWa: "用 WhatsApp 联系",
-      replyLine: "收到了——我们会称重并确认价格。信息已复制，粘贴到 LINE 即可。",
-      replyWa: "收到了——我们会称重并确认价格。回头见。",
-      openLine: "打开 LINE",
-      openWa: "打开 WhatsApp",
-      msg: [
-        "Mr.Jeff 拉迈 · 提前点餐",
-        "",
-        "姓名：{name}",
-        "{ch}：{phone}",
-        "人数：{people}",
-        "到达：{day} {slot}",
-        "{note}",
-        "",
-        "{rows}",
-        "",
-        "厨房确认重量和价格。",
-        "尚未付款 — 只收现金。谢谢！"
-      ]
-    },
-    th: {
-      byWt: "ตามน้ำหนัก",
-      ask: "สอบถาม",
-      today: "วันนี้, ",
-      closing: "ครัวใกล้ปิดแล้ว — เลือกวันอื่นนะ",
-      order: "ออเดอร์ · ",
-      total: "ครัวยืนยันน้ำหนักและราคา",
-      greet: "สวัสดีครับ/ค่ะ ร้าน Mr.Jeff ขอจองโต๊ะหน่อย",
-      sendLine: "ส่งทาง LINE",
-      sendWa: "ส่งทาง WhatsApp",
-      dockLine: "ทัก LINE จองโต๊ะ",
-      dockWa: "ทัก WhatsApp จองโต๊ะ",
-      replyLine: "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ — ข้อความคัดลอกไว้แล้ว วางใน LINE ได้เลย",
-      replyWa: "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ เจอกันครับ",
-      openLine: "เปิด LINE",
-      openWa: "เปิด WhatsApp",
-      msg: [
-        "สั่งล่วงหน้า ร้าน Mr.Jeff ละไม",
-        "",
-        "ชื่อ: {name}",
-        "{ch}: {phone}",
-        "จำนวนคน: {people}",
-        "เวลามาถึง: {day} {slot}",
-        "{note}",
-        "",
-        "{rows}",
-        "",
-        "ครัวยืนยันน้ำหนักและราคา",
-        "ยังไม่ชำระ — รับเงินสดเท่านั้น ขอบคุณครับ/ค่ะ"
-      ]
-    }
-  };
-
   var linesEl = document.querySelector("[data-lines]");
   var emptyEl = document.querySelector("[data-empty]");
   var totalEl = document.querySelector("[data-total]");
@@ -150,9 +23,8 @@
     return (window.getPpLang && window.getPpLang()) || document.documentElement.getAttribute("data-lang") || "en";
   }
 
-  function t(key) {
-    var pack = COPY[lang()] || COPY.en;
-    return pack[key] != null ? pack[key] : COPY.en[key];
+  function isTh() {
+    return lang() === "th";
   }
 
   function bangkokParts(date) {
@@ -175,13 +47,21 @@
     return parts.y + "-" + parts.m + "-" + parts.d;
   }
 
+  function byWt() {
+    return isTh() ? "ตามน้ำหนัก" : "by wt";
+  }
+
+  function askWord() {
+    return isTh() ? "สอบถาม" : "ask";
+  }
+
   function money(n) {
     return "฿" + n.toLocaleString("en-TH");
   }
 
   function lineLabel(item) {
     if (item.kind === "cook") return "—";
-    if (!item.price || item.price === 0) return item.ask ? t("ask") : t("byWt");
+    if (!item.price || item.price === 0) return item.ask ? askWord() : byWt();
     return money(item.price * item.qty);
   }
 
@@ -190,28 +70,25 @@
   }
 
   function itemName(item) {
-    var L = lang();
-    if (L === "zh") return item.nameZh || item.nameEn || item.nameRu || item.nameTh;
-    if (L === "ru") return item.nameRu || item.nameEn || item.nameZh || item.nameTh;
-    if (L === "th") return item.nameTh || item.nameEn;
-    return item.nameEn || item.nameRu || item.nameZh || item.nameTh;
+    return isTh() ? (item.nameTh || item.nameEn) : (item.nameEn || item.nameTh);
   }
 
   function channel() {
-    if (!form) return "whatsapp";
+    if (!form) return isTh() ? "line" : "whatsapp";
     var picked = form.querySelector('input[name="channel"]:checked');
-    return picked ? picked.value : "whatsapp";
+    return picked ? picked.value : (isTh() ? "line" : "whatsapp");
   }
 
   function setDefaultChannel() {
     if (!form || channelTouched) return;
-    var radio = form.querySelector('input[name="channel"][value="whatsapp"]');
+    var want = isTh() ? "line" : "whatsapp";
+    var radio = form.querySelector('input[name="channel"][value="' + want + '"]');
     if (radio) radio.checked = true;
     syncChannelUi();
   }
 
   function greet() {
-    return t("greet");
+    return isTh() ? "สวัสดีครับ/ค่ะ ร้าน Mr.Jeff ขอจองโต๊ะหน่อย" : "Hi Mr. Jeff, I'd like a table.";
   }
 
   function syncChannelUi() {
@@ -220,17 +97,19 @@
     if (submit) {
       submit.classList.toggle("btn-wa", ch === "whatsapp");
       submit.classList.toggle("btn-line", ch === "line");
-      submit.textContent = ch === "line" ? t("sendLine") : t("sendWa");
+      submit.textContent = ch === "line"
+        ? (isTh() ? "ส่งทาง LINE" : "Send on LINE")
+        : (isTh() ? "ส่งทาง WhatsApp" : "Send on WhatsApp");
     }
     if (reserveDock) {
       if (ch === "line") {
         reserveDock.href = "https://line.me/R/msg/text/?" + encodeURIComponent(greet());
-        reserveDock.textContent = t("dockLine");
+        reserveDock.textContent = isTh() ? "ทัก LINE จองโต๊ะ" : "LINE to reserve";
         reserveDock.classList.add("is-line");
         reserveDock.classList.remove("is-wa");
       } else {
         reserveDock.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(greet());
-        reserveDock.textContent = t("dockWa");
+        reserveDock.textContent = isTh() ? "ทัก WhatsApp จองโต๊ะ" : "Chat on WhatsApp";
         reserveDock.classList.add("is-wa");
         reserveDock.classList.remove("is-line");
       }
@@ -248,8 +127,6 @@
       id: item.id,
       nameEn: item.nameEn,
       nameTh: item.nameTh,
-      nameRu: item.nameRu,
-      nameZh: item.nameZh,
       price: item.price,
       ask: item.ask,
       kind: item.kind,
@@ -299,7 +176,7 @@
       return;
     }
     dock.hidden = false;
-    dock.textContent = t("order") + n + " · " + t("byWt");
+    dock.textContent = (isTh() ? "ออเดอร์ · " : "Order · ") + n + " · " + byWt();
   }
 
   function render() {
@@ -308,7 +185,7 @@
     if (linesEl) linesEl.hidden = !has;
     if (totalEl) {
       totalEl.hidden = !has;
-      totalEl.textContent = t("total");
+      totalEl.textContent = isTh() ? "ครัวยืนยันน้ำหนักและราคา" : "Weight & price confirmed by kitchen";
     }
     renderLines();
     markAdds();
@@ -326,7 +203,7 @@
       var iso = next.toISOString().slice(0, 10);
       var opt = document.createElement("option");
       opt.value = iso;
-      opt.textContent = iso === ymd(now) ? t("today") + iso : iso;
+      opt.textContent = iso === ymd(now) ? (isTh() ? "วันนี้, " : "Today, ") + iso : iso;
       dayEl.appendChild(opt);
     }
   }
@@ -354,7 +231,9 @@
     if (!slotEl.options.length) {
       var opt = document.createElement("option");
       opt.value = "";
-      opt.textContent = t("closing");
+      opt.textContent = isTh()
+        ? "ครัวใกล้ปิดแล้ว — เลือกวันอื่นนะ"
+        : "Kitchen closing soon — pick another day";
       slotEl.appendChild(opt);
     } else if (keep) {
       slotEl.value = keep;
@@ -364,31 +243,59 @@
   function message(data) {
     var rows = cart.map(function (item) {
       return "• " + itemName(item) + " × " + item.qty + " — " + lineLabel(item);
-    }).join("\n");
-    var noteKey = lang() === "zh" ? "备注：" : lang() === "ru" ? "Заметка: " : lang() === "th" ? "หมายเหตุ: " : "Note: ";
-    var note = data.note ? noteKey + data.note : "";
-    return t("msg").map(function (line) {
-      return line
-        .replace("{name}", data.name)
-        .replace("{ch}", data.channel === "line" ? "LINE" : "WhatsApp")
-        .replace("{phone}", data.phone)
-        .replace("{people}", data.people)
-        .replace("{day}", data.day)
-        .replace("{slot}", data.slot)
-        .replace("{note}", note)
-        .replace("{rows}", rows);
-    }).filter(function (line) { return line !== ""; }).join("\n");
+    });
+    var th = isTh();
+    var chLabel = data.channel === "line" ? "LINE" : "WhatsApp";
+    var lines = th ? [
+      "สั่งล่วงหน้า ร้าน Mr.Jeff ละไม",
+      "",
+      "ชื่อ: " + data.name,
+      chLabel + ": " + data.phone,
+      "จำนวนคน: " + data.people,
+      "เวลามาถึง: " + data.day + " " + data.slot,
+      data.note ? "หมายเหตุ: " + data.note : "",
+      "",
+      rows.join("\n"),
+      "",
+      "ครัวยืนยันน้ำหนักและราคา",
+      "ยังไม่ชำระ — รับเงินสดเท่านั้น ขอบคุณครับ/ค่ะ"
+    ] : [
+      "Pre-order for Mr.Jeff, Lamai",
+      "",
+      "Name: " + data.name,
+      chLabel + ": " + data.phone,
+      "People: " + data.people,
+      "Arrive: " + data.day + " " + data.slot,
+      data.note ? "Note: " + data.note : "",
+      "",
+      rows.join("\n"),
+      "",
+      "Weight & price confirmed by kitchen.",
+      "Not paid — cash only. Khob khun!"
+    ];
+    return lines.filter(function (line) { return line !== ""; }).join("\n");
   }
 
   function prepareChat(ch) {
     if (!chatLayer) return;
+    var th = isTh();
     chatLayer.setAttribute("data-name", "Mr.Jeff");
     if (ch === "line") {
-      chatLayer.setAttribute("data-reply", t("replyLine"));
-      chatLayer.setAttribute("data-continue", t("openLine"));
+      chatLayer.setAttribute(
+        "data-reply",
+        th
+          ? "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ — ข้อความคัดลอกไว้แล้ว วางใน LINE ได้เลย"
+          : "Got it — we'll weigh the catch and confirm the price. Message copied; paste it in LINE."
+      );
+      chatLayer.setAttribute("data-continue", th ? "เปิด LINE" : "Open LINE");
     } else {
-      chatLayer.setAttribute("data-reply", t("replyWa"));
-      chatLayer.setAttribute("data-continue", t("openWa"));
+      chatLayer.setAttribute(
+        "data-reply",
+        th
+          ? "รับแล้วครับ เดี๋ยวชั่งของสดแล้วยืนยันราคาให้ เจอกันครับ"
+          : "Got it — we'll weigh the catch and confirm the price. See you soon."
+      );
+      chatLayer.setAttribute("data-continue", th ? "เปิด WhatsApp" : "Open WhatsApp");
     }
     chatLayer.classList.toggle("is-line", ch === "line");
     chatLayer.classList.toggle("is-wa", ch !== "line");
@@ -402,16 +309,10 @@
         id: id,
         nameEn: addBtn.getAttribute("data-name-en") || addBtn.getAttribute("data-name"),
         nameTh: addBtn.getAttribute("data-name-th") || addBtn.getAttribute("data-name"),
-        nameRu: addBtn.getAttribute("data-name-ru") || addBtn.getAttribute("data-name-en"),
-        nameZh: addBtn.getAttribute("data-name-zh") || addBtn.getAttribute("data-name-en"),
         price: Number(addBtn.getAttribute("data-price")),
-        ask: addBtn.getAttribute("data-ask") === "1" || id.indexOf("side-") === 0 || id.indexOf("thai-") === 0 || id.indexOf("dessert-") === 0,
+        ask: addBtn.getAttribute("data-ask") === "1" || id.indexOf("side-") === 0,
         kind: id.indexOf("cook-") === 0 ? "cook" : "catch"
       });
-      if (addBtn.getAttribute("data-go-ticket") === "1") {
-        var ticket = document.getElementById("ticket");
-        if (ticket) ticket.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
       return;
     }
     var qtyBtn = e.target.closest("[data-qty]");
@@ -473,93 +374,6 @@
       setDefaultChannel();
     } catch (err) {}
     render();
-  });
-
-  var board = document.querySelector(".menu-board");
-  var BOOK_DEFAULT = { food: "seafood", drinks: "drinks" };
-
-  function revealFx(root) {
-    if (!root) return;
-    root.querySelectorAll("[data-fx]").forEach(function (el) {
-      el.classList.add("is-in");
-    });
-  }
-
-  function showJeffMenu(book, tab) {
-    if (!board) return;
-    book = book === "drinks" ? "drinks" : "food";
-    if (!tab) tab = BOOK_DEFAULT[book];
-    board.setAttribute("data-open-book", book);
-    board.querySelectorAll("[data-menu-book]").forEach(function (btn) {
-      btn.setAttribute("aria-selected", btn.getAttribute("data-menu-book") === book ? "true" : "false");
-    });
-    board.querySelectorAll("[data-menu-cats]").forEach(function (rail) {
-      var on = rail.getAttribute("data-menu-cats") === book;
-      rail.hidden = !on;
-      if (on) revealFx(rail);
-    });
-    var rail = board.querySelector('[data-menu-cats="' + book + '"]');
-    if (rail) {
-      rail.querySelectorAll("[data-menu-tab]").forEach(function (btn) {
-        var on = btn.getAttribute("data-menu-tab") === tab;
-        btn.setAttribute("aria-selected", on ? "true" : "false");
-        if (on) btn.scrollIntoView({ inline: "center", block: "nearest" });
-      });
-    }
-    board.querySelectorAll("[data-menu-panel]").forEach(function (panel) {
-      var on = panel.getAttribute("data-menu-panel") === tab;
-      panel.hidden = !on;
-      if (on) revealFx(panel);
-    });
-  }
-  window.showJeffMenu = showJeffMenu;
-
-  if (board) {
-    board.addEventListener("click", function (e) {
-      var bookBtn = e.target.closest("[data-menu-book]");
-      if (bookBtn && board.contains(bookBtn)) {
-        showJeffMenu(bookBtn.getAttribute("data-menu-book"));
-        return;
-      }
-      var tab = e.target.closest("[data-menu-tab]");
-      if (!tab || !board.contains(tab)) return;
-      showJeffMenu(board.getAttribute("data-open-book") || "food", tab.getAttribute("data-menu-tab"));
-    });
-  }
-
-  document.querySelectorAll("[data-menu-book-link]").forEach(function (a) {
-    a.addEventListener("click", function () {
-      showJeffMenu(a.getAttribute("data-menu-book-link"));
-    });
-  });
-
-  var catPop = document.querySelector("[data-cat-pop]");
-  var hamBtn = document.querySelector("[data-menu-open]");
-
-  function setCatPop(open) {
-    if (!catPop) return;
-    catPop.hidden = !open;
-    document.body.classList.toggle("cat-pop-on", open);
-    if (hamBtn) hamBtn.setAttribute("aria-expanded", open ? "true" : "false");
-  }
-
-  if (hamBtn) {
-    hamBtn.addEventListener("click", function () {
-      setCatPop(catPop && catPop.hidden);
-    });
-  }
-  document.querySelectorAll("[data-menu-close]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      setCatPop(false);
-    });
-  });
-  document.querySelectorAll("[data-menu-tab-link]").forEach(function (a) {
-    a.addEventListener("click", function () {
-      var tab = a.getAttribute("data-menu-tab-link");
-      var book = tab === "drinks" || tab === "beer" || tab === "wine" ? "drinks" : "food";
-      showJeffMenu(book, tab);
-      setCatPop(false);
-    });
   });
 
   render();

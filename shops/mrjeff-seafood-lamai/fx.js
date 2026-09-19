@@ -90,7 +90,6 @@
   tag(".steps li, .platters article", "", 0.1, 3);
   tag(".sheet, .ticket", "scale");
   tag(".sheet-list li", "", 0.045, 8);
-  tag(".menu-cats button", "", 0.04, 6);
   tag(".quotes li", "", 0.1, 3);
 
   var io = new IntersectionObserver(
