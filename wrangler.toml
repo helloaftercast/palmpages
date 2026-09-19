@@ -1,6 +1,6 @@
 name = "palmpages"
 compatibility_date = "2026-09-18"
-# Static assets only. Lets `npx wrangler deploy` run without a prompt.
+# Static assets only. `npx wrangler deploy --yes` should not prompt.
 
 [assets]
 directory = "."
