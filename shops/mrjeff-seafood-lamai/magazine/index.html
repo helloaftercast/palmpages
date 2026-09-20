@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mr.Jeff — Lamai / Maret</title>
+  <title>Mr.Jeff — Food Menu · Lamai / Maret</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Mr. Jeff in Maret, Lamai. Fresh seafood by weight. Cash only. Order via WhatsApp.">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,16 +12,16 @@
       theme: {
         extend: {
           colors: {
-            night: "#1A1A1A",
+            night: "#040809",
             gold: "#D4AF37",
-            ivory: "#F5F0EB",
-            parchment: "#F3E9D2",
-            sage: "#748E78",
-            moss: "#5F7A63"
+            parchment: "#ECE6D4",
+            sage: "#A3C49E",
+            moss: "#748E78"
           },
           fontFamily: {
-            serif: ['"Cormorant Garamond"', "Georgia", "serif"],
-            sans: ['"Manrope"', '"Noto Sans SC"', "sans-serif"]
+            serif: ['"Playfair Display"', "Georgia", "serif"],
+            body: ['"Lora"', '"Noto Sans SC"', "serif"],
+            sans: ['"Lora"', '"Noto Sans SC"', "sans-serif"]
           }
         }
       }
@@ -29,153 +29,154 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;600;700&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
   <style>
     html { scroll-behavior: smooth; }
     body {
-      background-color: #F3E9D2;
-      background-image:
-        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.28), transparent 42%),
-        radial-gradient(circle at 80% 70%, rgba(116, 142, 120, 0.08), transparent 40%),
-        linear-gradient(rgba(243, 233, 210, 0.9), rgba(243, 233, 210, 0.9));
-      color: #1A1A1A;
+      background: #ECE6D4;
+      color: #040809;
+      font-family: "Lora", "Noto Sans SC", serif;
     }
     [hidden] { display: none !important; }
-    .paper-grain {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.5;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-    }
     .hero {
       position: relative;
+      min-height: 92vh;
       overflow: hidden;
-      color: #F5F0EB;
+      color: #fff;
     }
     .hero-photo {
       position: absolute;
-      inset: -28px;
-      overflow: hidden;
+      inset: 0;
     }
     .hero-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: 50% 42%;
-      filter: blur(8px) brightness(0.72);
-      transform: scale(1.08);
     }
     .photo-veil {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(90deg, rgba(8, 8, 8, 0.42) 0%, rgba(8, 8, 8, 0.28) 55%, rgba(8, 8, 8, 0.4) 100%),
-        linear-gradient(180deg, rgba(8, 8, 8, 0.22) 0%, rgba(8, 8, 8, 0.18) 52%, rgba(8, 8, 8, 0.58) 100%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 72px;
-      background: linear-gradient(transparent, #F3E9D2);
-      pointer-events: none;
-      z-index: 1;
+      background: linear-gradient(180deg, rgba(8,8,8,0.28) 0%, rgba(8,8,8,0.18) 42%, rgba(8,8,8,0.55) 100%);
     }
     .hero-copy {
       position: relative;
       z-index: 2;
-      max-width: 42rem;
-      margin: 0 auto;
-      padding: 6.2rem 1.4rem 1.8rem;
-      text-align: center;
+      min-height: 92vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .signboard {
-      position: relative;
-      width: min(92vw, 420px);
-      aspect-ratio: 16 / 10;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-    }
-    .signboard img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 40%;
-    }
-    .signboard .sign-veil {
-      position: absolute;
-      inset: 0;
-      background: rgba(30, 20, 10, 0.7);
-    }
-    .signboard .sign-copy {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-      padding: 1.2rem 1.4rem;
+      text-align: center;
+      padding: 7rem 1.4rem 6rem;
     }
-    .neon-name,
-    .neon-sub {
-      color: #E8C56A;
-      animation: neon-breathe 2.5s ease-in-out infinite;
-    }
-    .neon-name {
-      margin: 0;
-      font-size: clamp(2.4rem, 9vw, 4.4rem);
-      letter-spacing: 0.2em;
-      line-height: 1.05;
-    }
-    .neon-sub {
-      margin: 0.85rem 0 0;
-      font-size: 0.78rem;
-      letter-spacing: 0.28em;
+    .brand-mark {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
+      color: #ECE6D4;
     }
-    @keyframes neon-breathe {
-      0%, 100% {
-        text-shadow:
-          0 0 4px rgba(232, 197, 106, 0.45),
-          0 0 14px rgba(212, 175, 55, 0.28),
-          0 0 28px rgba(212, 175, 55, 0.12);
-      }
-      50% {
-        text-shadow:
-          0 0 10px rgba(255, 232, 160, 0.95),
-          0 0 24px rgba(232, 197, 106, 0.7),
-          0 0 44px rgba(212, 175, 55, 0.45);
-      }
+    .hero-title {
+      margin: 1.1rem 0 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.6rem, 7vw, 60px);
+      letter-spacing: 4px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: #fff;
     }
-    .rise {
-      opacity: 0;
-      animation: fade-in-up 0.72s cubic-bezier(0.22, 0.82, 0.2, 1) both;
+    .hero-sub {
+      margin: 1rem 0 0;
+      max-width: 34rem;
+      font-family: "Lora", serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #ECE6D4;
     }
-    .d1 { animation-delay: 0.08s; }
-    .d2 { animation-delay: 0.22s; }
-    .d3 { animation-delay: 0.38s; }
-    .d4 { animation-delay: 0.54s; }
-    @keyframes fade-in-up {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: none; }
+    .hero-meta {
+      margin-top: 0.7rem;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: rgba(236,230,212,0.82);
+    }
+    .logo-dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(236,230,212,0.55);
+      background: #ECE6D4;
+    }
+    .logo-dot img { width: 100%; height: 100%; object-fit: cover; }
+    .top-nav a {
+      font-family: "Lora", serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ECE6D4;
+    }
+    .wa-pill {
+      margin-top: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.85rem 1.8rem;
+      background: #748E78;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+    .cat-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      padding: 0.85rem 0.75rem 0;
+      background: #ECE6D4;
+    }
+    .cat-rail {
+      display: flex;
+      gap: 1.15rem;
+      overflow-x: auto;
+      max-width: 100%;
+      padding: 0.65rem 1.2rem;
+      border-radius: 50px;
+      background: #B39C56;
+      scrollbar-width: none;
+    }
+    .cat-rail::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      flex: 0 0 auto;
+      font-family: "Lora", serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #fff;
+      background: none;
+      border: 0;
+      opacity: 0.72;
+    }
+    .cat-pill.is-on { opacity: 1; }
+    .section-kicker {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #040809;
     }
     .plate {
-      --ring: #748E78;
-      width: 100%;
-      max-width: min(88vw, 280px);
+      width: min(88vw, 450px);
       aspect-ratio: 1 / 1;
-      height: auto;
       margin: 0 auto;
       border-radius: 50%;
-      border: 1px solid var(--ring);
+      border: 2px solid #A3C49E;
       padding: 8px;
       box-sizing: border-box;
       display: block;
@@ -184,7 +185,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 1.5px dashed var(--ring);
+      border: 1px dashed #A3C49E;
       padding: 7px;
       box-sizing: border-box;
       display: block;
@@ -195,7 +196,6 @@
       height: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      object-position: center;
       border-radius: 50%;
       display: block;
       transition: transform 500ms ease;
@@ -205,53 +205,47 @@
       position: absolute;
       inset: 7px;
       border-radius: 50%;
-      box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.28);
+      box-shadow: inset 0 0 16px rgba(0,0,0,0.22);
       pointer-events: none;
     }
-    .dish-card {
-      cursor: pointer;
-      transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
-    }
-    .dish-card:hover .plate-inner img { transform: scale(1.06); }
-    .dish-card.is-added {
+    .dish-card { cursor: pointer; }
+    .dish-card:hover .plate-inner img { transform: scale(1.04); }
+    .dish-card.is-added .plate {
       border-color: #D4AF37;
-      box-shadow: 0 0 0 2px #D4AF37, 0 0 18px rgba(212, 175, 55, 0.22);
+      box-shadow: 0 0 0 2px #D4AF37;
     }
-    .cat-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(243, 233, 210, 0.92);
-      backdrop-filter: blur(12px);
-      margin: 0 -0.75rem;
-      padding: 0.55rem 0.75rem 0.15rem;
+    .dish-name {
+      margin-top: 1.35rem;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: #040809;
     }
-    .cat-pill {
-      flex: 0 0 auto;
-      border: 1px solid rgba(116, 142, 120, 0.45);
+    .dish-desc {
+      margin-top: 0.55rem;
+      font-family: "Lora", "Noto Sans SC", serif;
+      font-size: 16px;
+      line-height: 20.8px;
+      color: #040809;
+      max-width: 22rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .dish-price {
+      margin-top: 0.55rem;
+      font-size: 20px;
+      line-height: 23.8px;
+      color: #040809;
+    }
+    .order-btn {
+      margin-top: 0.85rem;
+      border: 1px solid #A3C49E;
       border-radius: 999px;
-      padding: 0.55rem 1.05rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-      color: #1A1A1A;
-      background: rgba(255, 255, 255, 0.45);
+      padding: 0.35rem 0.95rem;
+      font-size: 13px;
+      letter-spacing: 0.06em;
     }
-    .cat-pill.is-on {
-      background: #748E78;
-      color: #F5F0EB;
-      border-color: #748E78;
-    }
-    .cat-rail {
-      display: flex;
-      gap: 0.55rem;
-      overflow-x: auto;
-      padding: 0.2rem 0.15rem 0.6rem;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .cat-rail::-webkit-scrollbar { display: none; }
-    #menu { scroll-margin-top: 4.5rem; }
     .review-rail {
       display: flex;
       gap: 1rem;
@@ -259,301 +253,176 @@
       scroll-snap-type: x mandatory;
       padding-bottom: 0.4rem;
       scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
     }
     .review-rail::-webkit-scrollbar { display: none; }
-    .review-card {
-      flex: 0 0 min(86vw, 360px);
-      scroll-snap-align: start;
-    }
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid rgba(212, 175, 55, 0.55);
-      border-radius: 999px;
-      padding: 0.35rem 0.85rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
-      color: #8A6A12;
-      background: rgba(255, 255, 255, 0.45);
-    }
+    .review-card { flex: 0 0 min(86vw, 360px); scroll-snap-align: start; }
     .chat-btn { transition: transform 220ms ease, box-shadow 220ms ease; }
-    .chat-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-    }
-    .chat-btn.is-fly {
-      animation: btn-fly 860ms cubic-bezier(.22, .8, .32, 1) forwards;
-    }
+    .chat-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
+    .chat-btn.is-fly { animation: btn-fly 860ms cubic-bezier(.22,.8,.32,1) forwards; }
     @keyframes btn-fly {
-      0% { transform: scale(1) translate(0, 0); opacity: 1; }
-      40% { transform: scale(0.55) translate(12vw, -18vh); opacity: 1; }
-      100% { transform: scale(0.08) translate(38vw, -56vh); opacity: 0; }
+      0% { transform: scale(1) translate(0,0); opacity: 1; }
+      40% { transform: scale(0.55) translate(12vw,-18vh); opacity: 1; }
+      100% { transform: scale(0.08) translate(38vw,-56vh); opacity: 0; }
     }
-    #cart-sidebar, #cart-backdrop, #info-modal, #preview-modal {
-      transition: opacity 280ms ease, transform 280ms ease;
-    }
+    #cart-sidebar, #cart-backdrop, #info-modal, #preview-modal { transition: opacity 280ms ease, transform 280ms ease; }
     #cart-sidebar.is-open { transform: scale(1); opacity: 1; }
     #cart-sidebar.is-leave { transform: scale(0.94); opacity: 0; }
-    .overlay-card.is-open { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    .overlay-card.is-leave { opacity: 0; transform: translate(-50%, -50%) scale(0.94); }
+    .overlay-card.is-open { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    .overlay-card.is-leave { opacity: 0; transform: translate(-50%,-50%) scale(0.94); }
     #cart-backdrop.is-open, .modal-back.is-open { opacity: 1; }
     #cart-backdrop.is-leave, .modal-back.is-leave { opacity: 0; }
     .overlay-card {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      z-index: 60;
-      width: min(92vw, 440px);
-      max-height: 86svh;
-      overflow: auto;
-      transform: translate(-50%, -50%) scale(0.96);
-      opacity: 0;
-      background: #241c12;
-      color: #F5F0EB;
+      position: fixed; left: 50%; top: 50%; z-index: 60;
+      width: min(92vw, 440px); max-height: 86svh; overflow: auto;
+      transform: translate(-50%,-50%) scale(0.96); opacity: 0;
+      background: #241c12; color: #F5F0EB;
     }
-    .wa-frame {
-      background: #0b141a;
-      border-radius: 1.15rem;
-      overflow: hidden;
-    }
-    .wa-head {
-      background: #202c33;
-      padding: 0.85rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-    }
+    .wa-frame { background: #0b141a; border-radius: 1.15rem; overflow: hidden; }
+    .wa-head { background: #202c33; padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.7rem; }
     .bubble-out {
-      margin-left: auto;
-      max-width: 86%;
-      background: #005c4b;
-      color: #e9edef;
-      border-radius: 0.75rem 0.2rem 0.75rem 0.75rem;
-      padding: 0.75rem 0.85rem;
-      white-space: pre-wrap;
-      font-size: 0.86rem;
-      line-height: 1.55;
+      margin-left: auto; max-width: 86%; background: #005c4b; color: #e9edef;
+      border-radius: 0.75rem 0.2rem 0.75rem 0.75rem; padding: 0.75rem 0.85rem;
+      white-space: pre-wrap; font-size: 0.86rem; line-height: 1.55;
     }
     .cart-fab {
-      position: fixed;
-      right: 16px;
-      bottom: 18px;
-      z-index: 35;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: #D4AF37;
-      color: #1A1A1A;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+      position: fixed; right: 16px; bottom: 18px; z-index: 35;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #D4AF37; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0,0,0,0.28);
     }
     .cart-fab .count {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      min-width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: #1A1A1A;
-      color: #D4AF37;
-      border: 1px solid #D4AF37;
-      font-size: 0.72rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 5px;
+      position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px;
+      border-radius: 999px; background: #1A1A1A; color: #D4AF37;
+      border: 1px solid #D4AF37; font-size: 0.72rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; padding: 0 5px;
     }
     .sent-toast {
-      position: fixed;
-      right: 16px;
-      bottom: 88px;
-      z-index: 80;
-      background: rgba(26, 26, 26, 0.94);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      color: #F5F0EB;
-      border-radius: 999px;
-      padding: 0.65rem 1rem;
-      font-size: 0.85rem;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+      position: fixed; right: 16px; bottom: 88px; z-index: 80;
+      background: rgba(26,26,26,0.94); border: 1px solid rgba(212,175,55,0.5);
+      color: #F5F0EB; border-radius: 999px; padding: 0.65rem 1rem; font-size: 0.85rem;
     }
     .desk-nav { display: none; }
     @media (min-width: 768px) {
-      .plate { max-width: 100%; }
-      .hero-copy { padding: 6.4rem 3.2rem 2.2rem; }
       .desk-nav { display: flex; }
-      .cat-wrap { margin: 0; }
+      .hero-copy { padding: 8rem 3rem 6.5rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .rise, .neon-name, .neon-sub { animation: none; opacity: 1; }
       html { scroll-behavior: auto; }
     }
   </style>
 </head>
-<body class="font-sans antialiased pb-24">
-  <div class="paper-grain" aria-hidden="true"></div>
+<body class="antialiased pb-24">
   <header id="home" class="hero">
     <div class="hero-photo">
       <img src="../photos/hero.jpg" alt="">
       <span class="photo-veil"></span>
     </div>
-    <div class="absolute top-4 right-4 z-20 flex items-center gap-5">
-      <nav class="desk-nav items-center gap-5 text-xs tracking-[0.18em] uppercase text-[#F5F0EB]">
-        <a href="#home" data-en="Home" data-zh="首页" data-ru="Главная">首页</a>
-        <a href="#menu" data-en="Menu" data-zh="菜单" data-ru="Меню">菜单</a>
-        <a href="#about" data-en="About" data-zh="关于" data-ru="О нас">关于</a>
+    <div class="absolute top-5 left-5 z-20">
+      <a href="#home" class="logo-dot inline-block" aria-label="Mr.Jeff">
+        <img src="../photos/logo-avatar.jpg" alt="">
+      </a>
+    </div>
+    <div class="absolute top-6 right-5 z-20 flex items-center gap-6">
+      <nav class="desk-nav items-center gap-5">
+        <a href="#home" data-en="Home" data-zh="Home" data-ru="Home">Home</a>
+        <a href="#about" data-en="About" data-zh="About" data-ru="About">About</a>
+        <a href="#menu" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</a>
+        <a href="#menu" data-en="Order" data-zh="Order" data-ru="Order">Order</a>
+        <a href="#contact" data-en="Contact" data-zh="Contact" data-ru="Contact">Contact</a>
       </nav>
-      <div class="flex items-center gap-3 text-2xl" role="group" aria-label="Language">
+      <div class="flex items-center gap-2 text-xl" role="group" aria-label="Language">
         <button type="button" data-set-lang="en" aria-pressed="false" title="English">🇬🇧</button>
         <button type="button" data-set-lang="th" aria-pressed="false" title="ไทย">🇹🇭</button>
         <button type="button" data-set-lang="ru" aria-pressed="false" title="Русский">🇷🇺</button>
-        <button type="button" data-set-lang="zh" aria-pressed="true" title="中文" class="text-base tracking-widest">中文</button>
       </div>
     </div>
     <div class="hero-copy">
-      <div class="signboard rise d1">
-        <img src="../photos/room.jpg" alt="">
-        <span class="sign-veil"></span>
-        <div class="sign-copy">
-          <h1 class="neon-name font-serif">Mr.Jeff</h1>
-          <p class="neon-sub font-serif" data-en="Lamai / Maret · near Coco Splash" data-zh="拉迈 / Maret · 靠近 Coco Splash" data-ru="Ламай / Марет · рядом с Coco Splash">拉迈 / Maret · 靠近 Coco Splash</p>
-        </div>
-      </div>
-      <p class="rise d2 mt-5 text-sm sm:text-base tracking-wide text-[#F5E6C8]" data-en="4.9 ★ (667 reviews) · Seafood · ฿200–1,200 · Daily 13:00–23:00" data-zh="4.9 ★ (667条) · 海鲜馆 · ฿200–1,200 · 每日 13:00–23:00" data-ru="4,9 ★ (667 отзывов) · Морепродукты · ฿200–1,200 · Ежедневно 13:00–23:00">4.9 ★ (667条) · 海鲜馆 · ฿200–1,200 · 每日 13:00–23:00</p>
-      <a href="#menu" class="chat-btn rise d3 mt-5 inline-flex items-center justify-center rounded-full px-10 py-4 text-base sm:text-lg font-semibold text-white w-full sm:w-auto" style="background:#748E78" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp">Order via WhatsApp</a>
+      <p class="brand-mark">Mr.Jeff</p>
+      <h1 class="hero-title" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</h1>
+      <p class="hero-sub" data-en="Roadside shack energy — ice chest out front, grill in the back, Mr. Jeff at the door." data-zh="路边排档的劲儿——门口冰柜，后厨炭火，Mr. Jeff 在门边。" data-ru="Придорожный шалаш — ледник у входа, гриль сзади, мистер Джефф у двери.">路边排档的劲儿——门口冰柜，后厨炭火，Mr. Jeff 在门边。</p>
+      <p class="hero-meta" data-en="137/4 Maret, Lamai — near Coco Splash · Open daily 13:00 – 23:00 · LINE + WhatsApp · +66 62 045 4983" data-zh="137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983" data-ru="137/4 Марет, Ламай — рядом с Coco Splash · Ежедневно 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983">137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983</p>
+      <a href="#menu" class="wa-pill chat-btn" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp">Order via WhatsApp</a>
     </div>
   </header>
 
-  <main class="relative z-10">
-    <section id="menu" class="max-w-7xl mx-auto px-3 sm:px-6 md:px-10 pt-4 pb-10 md:pt-6 md:pb-16">
-      <div class="cat-wrap">
+  <main>
+    <section id="menu" class="max-w-[1400px] mx-auto px-4 sm:px-8 pt-10 pb-16">
+      <div class="cat-bar">
         <nav id="cat-rail" class="cat-rail" aria-label="Menu categories"></nav>
       </div>
-      <div id="dish-grid" class="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10"></div>
-      <p class="mt-10 text-center text-xs tracking-[0.08em] text-night/40 leading-6" data-zh="以上为招牌推荐，完整菜单请到店查看。" data-en="More dishes available in-store." data-ru="Больше блюд — в ресторане.">以上为招牌推荐，完整菜单请到店查看。</p>
+      <h2 id="cat-title" class="section-kicker mt-12">Seafood</h2>
+      <div id="dish-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-16"></div>
+      <p class="mt-14 text-center text-[13px] tracking-[0.08em] text-night/45" data-zh="以上为招牌推荐，完整菜单请到店查看。" data-en="More dishes available in-store." data-ru="Больше блюд — в ресторане.">以上为招牌推荐，完整菜单请到店查看。</p>
     </section>
 
-    <section id="about" class="max-w-6xl mx-auto px-6 py-12">
-      <h2 class="font-serif text-3xl tracking-[0.22em] uppercase text-center text-moss" data-en="How it works" data-zh="点单流程" data-ru="Как заказать">点单流程</h2>
-      <ol class="mt-10 space-y-8 md:space-y-0 md:grid md:grid-cols-4 md:gap-8">
-        <li class="flex gap-5">
-          <span class="font-serif text-3xl text-moss w-10">01</span>
-          <div>
-            <h3 class="font-serif text-2xl" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">挑海鲜</h3>
-            <p class="mt-2 text-night/60" data-en="King lobster, prawns, fish, mussels, crab — priced when the kitchen weighs it." data-zh="帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。" data-ru="Королевский лобстер, креветки, рыба, мидии, краб — цена по весу на кухне.">帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。</p>
-          </div>
+    <section id="about" class="max-w-6xl mx-auto px-6 py-16">
+      <h2 class="section-kicker" data-en="How it works" data-zh="点单流程" data-ru="Как заказать">点单流程</h2>
+      <ol class="mt-12 space-y-8 md:space-y-0 md:grid md:grid-cols-4 md:gap-8">
+        <li>
+          <h3 class="font-serif text-[24px] font-medium" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">挑海鲜</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="King lobster, prawns, fish, mussels, crab — priced when the kitchen weighs it." data-zh="帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。" data-ru="Королевский лобстер, креветки, рыба, мидии, краб — цена по весу на кухне.">帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。</p>
         </li>
-        <li class="flex gap-5">
-          <span class="font-serif text-3xl text-moss w-10">02</span>
-          <div>
-            <h3 class="font-serif text-2xl" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">说做法</h3>
-            <p class="mt-2 text-night/60" data-en="Grilled, fried, BBQ, steamed, or curry powder sauce — the crab curry powder is a house favourite." data-zh="烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。" data-ru="Гриль, жарка, барбекю, на пару или с карри-порошком — краб с карри любим гостями.">烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。</p>
-          </div>
+        <li>
+          <h3 class="font-serif text-[24px] font-medium" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">说做法</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Grilled, fried, BBQ, steamed, or curry powder sauce — the crab curry powder is a house favourite." data-zh="烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。" data-ru="Гриль, жарка, барбекю, на пару или с карри-порошком — краб с карри любим гостями.">烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。</p>
         </li>
-        <li class="flex gap-5">
-          <span class="font-serif text-3xl text-moss w-10">03</span>
-          <div>
-            <h3 class="font-serif text-2xl" data-en="Add Thai sides" data-zh="加泰式配菜" data-ru="Тайские гарниры">加泰式配菜</h3>
-            <p class="mt-2 text-night/60" data-en="Pad Thai, seaweed salad, fried rice — ask Mr. Jeff for today’s price." data-zh="泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。" data-ru="Пад тай, салат из морских водорослей, жареный рис — цену уточняйте у мистера Джеффа.">泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。</p>
-          </div>
+        <li>
+          <h3 class="font-serif text-[24px] font-medium" data-en="Add Thai sides" data-zh="加泰式配菜" data-ru="Тайские гарниры">加泰式配菜</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Pad Thai, seaweed salad, fried rice — ask Mr. Jeff for today’s price." data-zh="泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。" data-ru="Пад тай, салат из морских водорослей, жареный рис — цену уточняйте у мистера Джеффа.">泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。</p>
         </li>
-        <li class="flex gap-5">
-          <span class="font-serif text-3xl text-moss w-10">04</span>
-          <div>
-            <h3 class="font-serif text-2xl" data-en="Pay cash" data-zh="现金结账" data-ru="Оплата наличными">现金结账</h3>
-            <p class="mt-2 text-night/60" data-en="Send the order ahead on LINE or WhatsApp; weight and price confirmed by the kitchen. Cash only at the till." data-zh="提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。" data-ru="Отправьте заказ в LINE или WhatsApp; кухня подтвердит вес и цену. На месте только наличные.">提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。</p>
-          </div>
+        <li>
+          <h3 class="font-serif text-[24px] font-medium" data-en="Pay cash" data-zh="现金结账" data-ru="Оплата наличными">现金结账</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Send the order ahead on LINE or WhatsApp; weight and price confirmed by the kitchen. Cash only at the till." data-zh="提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。" data-ru="Отправьте заказ в LINE или WhatsApp; кухня подтвердит вес и цену. На месте только наличные.">提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。</p>
         </li>
       </ol>
     </section>
 
-    <section id="reviews" class="max-w-6xl mx-auto px-6 py-8">
+    <section id="reviews" class="max-w-6xl mx-auto px-6 py-12">
       <div class="flex items-end justify-between gap-4">
-        <h2 class="font-serif text-3xl tracking-[0.22em] uppercase text-moss" data-en="Reviews" data-zh="评价" data-ru="Отзывы">评价</h2>
+        <h2 class="section-kicker" data-en="Reviews" data-zh="评价" data-ru="Отзывы">评价</h2>
         <div class="flex gap-2">
-          <button type="button" id="rev-prev" class="w-9 h-9 rounded-full border border-moss/50" aria-label="Previous">‹</button>
-          <button type="button" id="rev-next" class="w-9 h-9 rounded-full border border-moss/50" aria-label="Next">›</button>
+          <button type="button" id="rev-prev" class="w-9 h-9 rounded-full border border-sage" aria-label="Previous">‹</button>
+          <button type="button" id="rev-next" class="w-9 h-9 rounded-full border border-sage" aria-label="Next">›</button>
         </div>
       </div>
-      <div id="review-rail" class="review-rail mt-8">
-        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
-          <div class="flex items-center gap-3">
-            <img src="https://i.pravatar.cc/150?img=12" alt="" class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold">Aung minn969</p>
-              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
-            </div>
-          </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。" data-ru="Очень хороший королевский лобстер — лучший в Таиланде, мистер Джефф.">帝王龙虾非常好——泰国最好的，Mr. Jeff。</blockquote>
+      <div id="review-rail" class="review-rail mt-10">
+        <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=12" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium">Aung minn969</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。" data-ru="Очень хороший королевский лобстер — лучший в Таиланде, мистер Джефф.">帝王龙虾非常好——泰国最好的，Mr. Jeff。</blockquote>
         </figure>
-        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
-          <div class="flex items-center gap-3">
-            <img src="https://i.pravatar.cc/150?img=32" alt="" class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold">แป้ง โฟน</p>
-              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
-            </div>
-          </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。" data-ru="Большое спасибо за всё в ресторане Mr Jeff в Ламаи. Мистер Джефф очень дружелюбный… обязательно вернёмся.">非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。</blockquote>
+        <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=32" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium">แป้ง โฟน</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。" data-ru="Большое спасибо за всё в ресторане Mr Jeff в Ламаи. Мистер Джефф очень дружелюбный… обязательно вернёмся.">非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。</blockquote>
         </figure>
-        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
-          <div class="flex items-center gap-3">
-            <img src="https://i.pravatar.cc/150?img=47" alt="" class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold">Екатерина</p>
-              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
-            </div>
-          </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！" data-ru="Все продукты свежие, блюда вкусные, атмосфера приятная, чисто и уютно. На отдыхе регулярно заезжаем на Самуи!">食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！</blockquote>
+        <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=47" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium">Екатерина</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！" data-ru="Все продукты свежие, блюда вкусные, атмосфера приятная, чисто и уютно. На отдыхе регулярно заезжаем на Самуи!">食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！</blockquote>
         </figure>
-        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
-          <div class="flex items-center gap-3">
-            <img src="https://i.pravatar.cc/150?img=5" alt="" class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p>
-              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
-            </div>
-          </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend." data-zh="海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。" data-ru="Потрясающие морепродукты, креветки в чесночном масле — обязательно попробуйте. Мистер Джефф — легенда.">海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。</blockquote>
+        <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=5" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend." data-zh="海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。" data-ru="Потрясающие морепродукты, креветки в чесночном масле — обязательно попробуйте. Мистер Джефф — легенда.">海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。</blockquote>
         </figure>
-        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
-          <div class="flex items-center gap-3">
-            <img src="https://i.pravatar.cc/150?img=8" alt="" class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p>
-              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
-            </div>
-          </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="Best crab curry powder I've ever had. The vibe is super local and welcoming." data-zh="我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。" data-ru="Лучший краб с карри, что я пробовал. Атмосфера очень местная и гостеприимная.">我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。</blockquote>
+        <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=8" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Best crab curry powder I've ever had. The vibe is super local and welcoming." data-zh="我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。" data-ru="Лучший краб с карри, что я пробовал. Атмосфера очень местная и гостеприимная.">我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。</blockquote>
         </figure>
-        <figure class="review-card rounded-2xl bg-white/70 border border-moss/20 p-5">
-          <div class="flex items-center gap-3">
-            <img src="https://i.pravatar.cc/150?img=15" alt="" class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <p class="font-semibold" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p>
-              <p class="text-gold text-sm" aria-label="5 stars">★★★★★</p>
-            </div>
-          </div>
-          <blockquote class="mt-4 leading-7 text-night/70" data-en="Great value for money, fresh catch every day. Will come back again." data-zh="性价比很高，每天都有新鲜渔获。还会再来。" data-ru="Отличное соотношение цены и качества, каждый день свежий улов. Обязательно вернёмся.">性价比很高，每天都有新鲜渔获。还会再来。</blockquote>
+        <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=15" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Great value for money, fresh catch every day. Will come back again." data-zh="性价比很高，每天都有新鲜渔获。还会再来。" data-ru="Отличное соотношение цены и качества, каждый день свежий улов. Обязательно вернёмся.">性价比很高，每天都有新鲜渔获。还会再来。</blockquote>
         </figure>
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 pt-4 pb-8 text-center">
-      <div class="flex flex-wrap justify-center gap-2">
-        <span class="chip" data-en="Outdoor seating" data-zh="露天座位" data-ru="Летняя веранда">露天座位</span>
-        <span class="chip" data-en="Free Wi-Fi" data-zh="免费 Wi-Fi" data-ru="Бесплатный Wi-Fi">免费 Wi-Fi</span>
-        <span class="chip" data-en="Bar on site" data-zh="现场有酒吧" data-ru="Бар на месте">现场有酒吧</span>
-        <span class="chip" data-en="LGBTQ+ friendly" data-zh="对 LGBTQ+ 友善" data-ru="Дружелюбно к ЛГБТК+">对 LGBTQ+ 友善</span>
+    <section id="contact" class="max-w-2xl mx-auto px-6 pb-20 text-center">
+      <h2 class="section-kicker" data-en="Find us" data-zh="找到我们" data-ru="Как нас найти">找到我们</h2>
+      <p class="font-serif text-[26px] sm:text-[30px] leading-snug mt-6" data-en="137/4 Maret, Lamai, Koh Samui 84310" data-zh="137/4 Maret，拉迈，苏梅岛 84310" data-ru="137/4 Марет, Ламай, Самуи 84310">137/4 Maret，拉迈，苏梅岛 84310</p>
+      <p class="mt-2 text-[16px] text-night/70" data-en="Near Coco Splash — look for the ice chest out front." data-zh="靠近 Coco Splash——认准门口的冰柜。" data-ru="Рядом с Coco Splash — ищите ледник у входа.">靠近 Coco Splash——认准门口的冰柜。</p>
+      <p class="mt-5"><a class="wa-pill chat-btn inline-block" href="https://www.google.com/maps/search/?api=1&query=Mr.Jeff+Seafood+Lamai+Koh+Samui" target="_blank" rel="noopener" data-en="Open in Google Maps" data-zh="在谷歌地图打开" data-ru="Открыть в Google Maps">在谷歌地图打开</a></p>
+      <div class="mt-8 text-[16px] leading-8 text-night/70">
+        <p data-en="Open every day, 13:00 – 23:00." data-zh="每日 13:00–23:00。" data-ru="Ежедневно 13:00–23:00.">每日 13:00–23:00。</p>
+        <p data-en="Pay: Cash only · seafood by weight." data-zh="支付：只收现金 · 海鲜按重量。" data-ru="Оплата: только наличные · морепродукты по весу.">支付：只收现金 · 海鲜按重量。</p>
+        <p data-en="Chat: LINE for locals · WhatsApp for visitors." data-zh="聊天：本地用 LINE · 游客用 WhatsApp。" data-ru="Чат: LINE для местных · WhatsApp для туристов.">聊天：本地用 LINE · 游客用 WhatsApp。</p>
+        <p class="mt-2"><a class="underline" href="https://wa.me/66620454983">+66 62 045 4983</a></p>
       </div>
-    </section>
-
-    <section id="contact" class="max-w-xl mx-auto px-6 pb-16 text-center text-sm leading-7 text-night/55">
-      <p data-en="137/4 Maret, Lamai, Koh Samui 84310 — near Coco Splash." data-zh="137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。" data-ru="137/4 Марет, Ламай, Самуи 84310 — рядом с Coco Splash.">137/4 Maret，拉迈，苏梅岛 84310——靠近 Coco Splash。</p>
-      <p data-en="Open every day, 13:00 – 23:00." data-zh="每日 13:00–23:00。" data-ru="Ежедневно 13:00–23:00.">每日 13:00–23:00。</p>
-      <p data-en="Pay: Cash only · seafood by weight." data-zh="支付：只收现金 · 海鲜按重量。" data-ru="Оплата: только наличные · морепродукты по весу.">支付：只收现金 · 海鲜按重量。</p>
-      <p data-en="Chat: LINE for locals · WhatsApp for visitors." data-zh="聊天：本地用 LINE · 游客用 WhatsApp。" data-ru="Чат: LINE для местных · WhatsApp для туристов.">聊天：本地用 LINE · 游客用 WhatsApp。</p>
-      <p><a class="underline decoration-gold/60" href="https://wa.me/66620454983">+66 62 045 4983</a></p>
     </section>
   </main>
 
@@ -584,21 +453,15 @@
   <div id="info-modal" hidden class="overlay-card rounded-2xl border border-gold/35 p-6 shadow-2xl">
     <h3 class="font-serif text-2xl tracking-[0.12em]" data-en="Your table" data-zh="点单信息" data-ru="Данные заказа">点单信息</h3>
     <form id="info-form" class="mt-5 space-y-4">
-      <label class="block text-sm">
-        <span data-en="Name" data-zh="姓名" data-ru="Имя">姓名</span>
-        <input name="guest" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none">
-      </label>
-      <label class="block text-sm">
-        <span data-en="Guests" data-zh="人数" data-ru="Гостей">人数</span>
-        <input name="people" type="number" min="1" value="2" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none">
-      </label>
-      <label class="block text-sm">
-        <span data-en="Note" data-zh="备注" data-ru="Комментарий">备注</span>
-        <textarea name="note" rows="3" class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></textarea>
-      </label>
+      <label class="block text-sm"><span data-en="Name" data-zh="姓名" data-ru="Имя">姓名</span>
+        <input name="guest" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></label>
+      <label class="block text-sm"><span data-en="Guests" data-zh="人数" data-ru="Гостей">人数</span>
+        <input name="people" type="number" min="1" value="2" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></label>
+      <label class="block text-sm"><span data-en="Note" data-zh="备注" data-ru="Комментарий">备注</span>
+        <textarea name="note" rows="3" class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></textarea></label>
       <div>
-        <p class="text-sm text-ivory/60" data-en="Selected dishes" data-zh="已选菜品" data-ru="Выбранные блюда">已选菜品</p>
-        <ul id="info-items" class="mt-2 space-y-1 text-sm text-ivory/85"></ul>
+        <p class="text-sm text-white/60" data-en="Selected dishes" data-zh="已选菜品" data-ru="Выбранные блюда">已选菜品</p>
+        <ul id="info-items" class="mt-2 space-y-1 text-sm text-white/85"></ul>
       </div>
       <div class="flex gap-3 pt-2">
         <button type="button" id="info-back-btn" class="flex-1 rounded-full border border-gold/40 py-2.5" data-en="Back" data-zh="返回" data-ru="Назад">返回</button>
@@ -617,15 +480,13 @@
           <p class="text-[11px] text-white/55" data-en="WhatsApp preview" data-zh="WhatsApp 预览" data-ru="Предпросмотр WhatsApp">WhatsApp 预览</p>
         </div>
       </div>
-      <div class="p-4 min-h-[180px] bg-[#0b141a]">
-        <div id="preview-text" class="bubble-out"></div>
-      </div>
+      <div class="p-4 min-h-[180px] bg-[#0b141a]"><div id="preview-text" class="bubble-out"></div></div>
       <div class="p-4 bg-[#111b21] flex gap-3">
         <button type="button" id="send-wa" class="chat-btn flex-1 rounded-full py-3 text-white font-semibold" style="background:#25D366">WhatsApp</button>
         <button type="button" id="send-line" class="chat-btn flex-1 rounded-full py-3 text-white font-semibold" style="background:#06C755">LINE</button>
       </div>
     </div>
-    <button type="button" id="preview-close" class="mt-3 w-full text-center text-sm text-ivory/60" data-en="Close" data-zh="关闭" data-ru="Закрыть">关闭</button>
+    <button type="button" id="preview-close" class="mt-3 w-full text-center text-sm text-white/60" data-en="Close" data-zh="关闭" data-ru="Закрыть">关闭</button>
   </div>
 
   <div id="sent-toast" hidden class="sent-toast" data-en="Sent ✓✓" data-zh="已发送 ✓✓" data-ru="Отправлено ✓✓">已发送 ✓✓</div>
@@ -638,88 +499,81 @@
       var lang = "zh";
       var guest = { name: "", people: "2", note: "" };
       var closing = {};
-
       var CATS = [
         { id: "seafood", en: "Seafood", zh: "海鲜", ru: "Морепродукты" },
         { id: "spaghetti", en: "Spaghetti", zh: "意面", ru: "Паста" },
         { id: "grilled", en: "Grilled", zh: "烧烤", ru: "Гриль" },
         { id: "drinks", en: "Drinks", zh: "饮品", ru: "Напитки" }
       ];
-
       var MENU = {
         seafood: [
-          { id: "sea-lobster", price: 0, label: "by wt", img: PHOTO + "dish-lobster-garlic.jpg?v=mj21",
+          { id: "sea-lobster", label: "by wt", img: PHOTO + "dish-lobster-garlic.jpg?v=mj21",
             nameEn: "King Lobster", nameZh: "帝王龙虾", nameRu: "Королевский лобстер",
             descEn: "Fresh catch, priced by weight. Pick your own.",
             descZh: "新鲜渔获，按重量计价。自己挑。",
             descRu: "Свежий улов, цена по весу. Выбирайте сами." },
-          { id: "sea-prawns", price: 0, label: "by wt", img: PHOTO + "dish-prawns-grill.jpg?v=mj21",
+          { id: "sea-prawns", label: "by wt", img: PHOTO + "dish-prawns-grill.jpg?v=mj21",
             nameEn: "Prawns", nameZh: "大虾", nameRu: "Креветки",
             descEn: "Grilled, fried, steamed, or with garlic sauce.",
             descZh: "烤、炸、清蒸或蒜蓉酱。",
             descRu: "Гриль, жарка, на пару или с чесночным соусом." },
-          { id: "sea-crab", price: 0, label: "by wt", img: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=800&q=80",
+          { id: "sea-crab", label: "by wt", img: PHOTO + "seafood.jpg",
             nameEn: "Crab", nameZh: "螃蟹", nameRu: "Краб",
             descEn: "Kitchen weighs and quotes before cooking.",
             descZh: "厨房先称重报价，再下锅。",
             descRu: "Кухня взвешивает и называет цену до приготовления." },
-          { id: "sea-mussels", price: 0, label: "by wt", img: PHOTO + "dish-mussels.jpg?v=mj21",
+          { id: "sea-mussels", label: "by wt", img: PHOTO + "dish-mussels.jpg?v=mj21",
             nameEn: "Mussels", nameZh: "贻贝", nameRu: "Мидии",
             descEn: "Fresh from the ice chest, steamed with herbs.",
             descZh: "冰柜里现取，香草清蒸。",
             descRu: "Свежие из ледяного ящика, на пару с травами." },
-          { id: "sea-fish", price: 0, label: "by wt", img: PHOTO + "dish-fish-fried.jpg?v=mj21",
+          { id: "sea-fish", label: "by wt", img: PHOTO + "dish-fish-fried.jpg?v=mj21",
             nameEn: "Fish", nameZh: "鲜鱼", nameRu: "Рыба",
             descEn: "Whole fish grilled or fried, market price.",
             descZh: "整条烤或炸，按市价。",
             descRu: "Целая рыба на гриле или жареная, по рыночной цене." }
         ],
         spaghetti: [
-          { id: "spa-seafood", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80",
+          { id: "spa-seafood", label: "ask", img: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80",
             nameEn: "Seafood Spaghetti", nameZh: "海鲜意面", nameRu: "Паста с морепродуктами",
             descEn: "Prawns, squid, mussels in a light tomato sauce.",
             descZh: "大虾、鱿鱼、贻贝，轻番茄汁。",
             descRu: "Креветки, кальмары, мидии в лёгком томатном соусе." },
-          { id: "spa-garlic", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80",
+          { id: "spa-garlic", label: "ask", img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80",
             nameEn: "Garlic & Oil", nameZh: "蒜香油意面", nameRu: "С чесноком и маслом",
             descEn: "Aglio e olio with chilli and parsley.",
             descZh: "蒜香橄榄油，配辣椒和欧芹。",
             descRu: "Альо-олио с чили и петрушкой." }
         ],
         grilled: [
-          { id: "gr-platter", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=800&q=80",
+          { id: "gr-platter", label: "ask", img: "https://images.unsplash.com/photo-1551248429-40975aa4de74?auto=format&fit=crop&w=800&q=80",
             nameEn: "Grilled Seafood Platter", nameZh: "烤海鲜拼盘", nameRu: "Ассорти морепродуктов на гриле",
             descEn: "Prawns, squid, mussels and fish over charcoal.",
             descZh: "大虾、鱿鱼、贻贝和鲜鱼炭烤。",
             descRu: "Креветки, кальмары, мидии и рыба на углях." },
-          { id: "gr-fish", price: 0, label: "ask", img: PHOTO + "dish-fish-chili.jpg?v=mj21",
+          { id: "gr-fish", label: "ask", img: PHOTO + "dish-fish-chili.jpg?v=mj21",
             nameEn: "Grilled Fish", nameZh: "烤鱼", nameRu: "Рыба на гриле",
             descEn: "Whole fish, charred outside, tender inside.",
             descZh: "整条烤，外焦里嫩。",
             descRu: "Целая рыба, снаружи поджаристая, внутри нежная." }
         ],
         drinks: [
-          { id: "dr-coconut", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+          { id: "dr-coconut", label: "ask", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
             nameEn: "Fresh Coconut", nameZh: "新鲜椰子", nameRu: "Свежий кокос",
             descEn: "", descZh: "", descRu: "" },
-          { id: "dr-tea", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=800&q=80",
+          { id: "dr-tea", label: "ask", img: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=800&q=80",
             nameEn: "Thai Iced Tea", nameZh: "泰式冰茶", nameRu: "Тайский чай со льдом",
             descEn: "", descZh: "", descRu: "" },
-          { id: "dr-shake", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+          { id: "dr-shake", label: "ask", img: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
             nameEn: "Fruit Shake", nameZh: "鲜榨果汁", nameRu: "Фруктовый шейк",
             descEn: "Mango, pineapple or watermelon.", descZh: "芒果、菠萝或西瓜。", descRu: "Манго, ананас или арбуз." },
-          { id: "dr-beer", price: 0, label: "ask", img: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
+          { id: "dr-beer", label: "ask", img: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
             nameEn: "Local Beer", nameZh: "本地啤酒", nameRu: "Местное пиво",
             descEn: "Singha or Chang, cold from the ice.", descZh: "胜狮或象牌，冰镇。", descRu: "Сингха или Чанг, ледяное." }
         ]
       };
-
       var active = "seafood";
-
-      function t(map) {
-        return map[lang] || map.zh || map.en;
-      }
-
+      function t(map) { return map[lang] || map.zh || map.en; }
       function findDish(id) {
         var keys = Object.keys(MENU);
         for (var i = 0; i < keys.length; i++) {
@@ -728,7 +582,6 @@
         }
         return null;
       }
-
       function applyLang(next) {
         lang = next === "th" ? "en" : (next === "en" ? "en" : (next === "ru" ? "ru" : "zh"));
         document.documentElement.setAttribute("data-lang", lang);
@@ -746,29 +599,17 @@
         renderMenu();
         render();
       }
-
-      function itemName(item) {
-        return lang === "zh" ? item.nameZh : (lang === "ru" ? item.nameRu : item.nameEn);
-      }
-
-      function count() {
-        return cart.reduce(function (n, row) { return n + row.qty; }, 0);
-      }
-
-      function qtyOf(id) {
-        var row = cart.find(function (item) { return item.id === id; });
-        return row ? row.qty : 0;
-      }
-
+      function itemName(item) { return lang === "zh" ? item.nameZh : (lang === "ru" ? item.nameRu : item.nameEn); }
+      function count() { return cart.reduce(function (n, row) { return n + row.qty; }, 0); }
+      function qtyOf(id) { var row = cart.find(function (item) { return item.id === id; }); return row ? row.qty : 0; }
       function add(id) {
         var dish = findDish(id);
         if (!dish) return;
         var found = cart.find(function (row) { return row.id === id; });
         if (found) found.qty += 1;
-        else cart.push({ id: dish.id, nameEn: dish.nameEn, nameZh: dish.nameZh, nameRu: dish.nameRu, price: dish.price, label: dish.label, qty: 1 });
+        else cart.push({ id: dish.id, nameEn: dish.nameEn, nameZh: dish.nameZh, nameRu: dish.nameRu, label: dish.label, qty: 1 });
         render();
       }
-
       function setQty(id, qty) {
         var found = cart.find(function (row) { return row.id === id; });
         if (!found) return;
@@ -776,70 +617,54 @@
         else found.qty = qty;
         render();
       }
-
       function priceLabel(item) {
         if (item.label === "by wt") return t({ en: "by wt", zh: "按重量", ru: "по весу" });
         if (item.label === "ask") return t({ en: "ask", zh: "询价", ru: "уточнить" });
         return item.label;
       }
-
       function message() {
-        var rows = cart.map(function (item) {
-          return "• " + itemName(item) + " × " + item.qty + " — " + priceLabel(item);
-        }).join("\n");
+        var rows = cart.map(function (item) { return "• " + itemName(item) + " × " + item.qty + " — " + priceLabel(item); }).join("\n");
         var note = guest.note ? guest.note : t({ en: "(none)", zh: "无", ru: "нет" });
         return [
           t({ en: "Pre-order for Mr.Jeff, Lamai", zh: "Mr.Jeff 拉迈 · 提前点餐", ru: "Предзаказ для Mr.Jeff, Ламай" }),
           t({ en: "Name: ", zh: "姓名：", ru: "Имя: " }) + guest.name,
           t({ en: "Guests: ", zh: "人数：", ru: "Гостей: " }) + guest.people,
-          t({ en: "Note: ", zh: "备注：", ru: "Комментарий: " }) + note,
-          "",
-          rows,
-          "",
+          t({ en: "Note: ", zh: "备注：", ru: "Комментарий: " }) + note, "", rows, "",
           t({ en: "Kitchen confirms the catch if needed.", zh: "如需称重，厨房再确认。", ru: "Кухня подтвердит вес при необходимости." }),
           t({ en: "Not paid — cash only. Khob khun!", zh: "尚未付款 — 只收现金。谢谢！", ru: "Не оплачено — только наличные. Спасибо!" })
         ].join("\n");
       }
-
-      function waHref() {
-        return "https://wa.me/" + WA + "?text=" + encodeURIComponent(message());
-      }
-
-      function lineHref() {
-        return "https://line.me/R/msg/text/?" + encodeURIComponent(message());
-      }
-
+      function waHref() { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(message()); }
+      function lineHref() { return "https://line.me/R/msg/text/?" + encodeURIComponent(message()); }
       function escapeHtml(str) {
         return String(str).replace(/[&<>"']/g, function (ch) {
           return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch];
         });
       }
-
+      function catName(cat) { return lang === "zh" ? cat.zh : (lang === "ru" ? cat.ru : cat.en); }
       function renderCats() {
-        var rail = document.getElementById("cat-rail");
-        rail.innerHTML = CATS.map(function (cat) {
-          return "<button type=\"button\" class=\"cat-pill" + (cat.id === active ? " is-on" : "") + "\" data-cat=\"" + cat.id + "\" data-en=\"" + cat.en + "\" data-zh=\"" + cat.zh + "\" data-ru=\"" + cat.ru + "\">" + (lang === "zh" ? cat.zh : (lang === "ru" ? cat.ru : cat.en)) + "</button>";
+        document.getElementById("cat-rail").innerHTML = CATS.map(function (cat) {
+          return "<button type=\"button\" class=\"cat-pill" + (cat.id === active ? " is-on" : "") + "\" data-cat=\"" + cat.id + "\">" + catName(cat) + "</button>";
         }).join("");
+        var on = CATS.find(function (c) { return c.id === active; });
+        document.getElementById("cat-title").textContent = on ? catName(on) : "";
       }
-
       function renderMenu() {
-        var grid = document.getElementById("dish-grid");
-        grid.innerHTML = MENU[active].map(function (dish) {
+        document.getElementById("dish-grid").innerHTML = MENU[active].map(function (dish) {
           var q = qtyOf(dish.id);
           var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
           return (
-            "<article class=\"dish-card relative rounded-2xl bg-white/70 border border-sage/25 p-3 sm:p-5 text-center" + (q ? " is-added" : "") + "\" data-dish-id=\"" + dish.id + "\">" +
-              "<span class=\"dish-badge " + (q ? "flex" : "hidden") + " absolute top-3 right-3 min-w-7 h-7 rounded-full bg-gold text-night text-sm font-bold items-center justify-center\">" + q + "</span>" +
+            "<article class=\"dish-card relative text-center" + (q ? " is-added" : "") + "\" data-dish-id=\"" + dish.id + "\">" +
+              "<span class=\"dish-badge " + (q ? "flex" : "hidden") + " absolute top-0 right-[12%] min-w-7 h-7 rounded-full bg-gold text-night text-sm font-bold items-center justify-center\">" + q + "</span>" +
               "<span class=\"plate\"><span class=\"plate-inner\"><img src=\"" + dish.img + "\" alt=\"\"></span></span>" +
-              "<h4 class=\"mt-4 font-serif text-2xl leading-snug\" data-en=\"" + escapeHtml(dish.nameEn) + "\" data-zh=\"" + escapeHtml(dish.nameZh) + "\" data-ru=\"" + escapeHtml(dish.nameRu) + "\">" + escapeHtml(lang === "zh" ? dish.nameZh : (lang === "ru" ? dish.nameRu : dish.nameEn)) + "</h4>" +
-              (desc ? "<p class=\"mt-2 text-sm text-night/55\" data-en=\"" + escapeHtml(dish.descEn) + "\" data-zh=\"" + escapeHtml(dish.descZh) + "\" data-ru=\"" + escapeHtml(dish.descRu) + "\">" + escapeHtml(desc) + "</p>" : "") +
-              "<p class=\"mt-2 font-serif text-lg text-moss\">" + escapeHtml(priceLabel(dish)) + "</p>" +
-              "<button type=\"button\" class=\"order-btn mt-4 rounded-full border border-sage/50 px-4 py-1.5 text-sm\" data-add=\"" + dish.id + "\" data-en=\"+ Order\" data-zh=\"+ Order\" data-ru=\"+ Заказ\">+ Order</button>" +
+              "<h3 class=\"dish-name\">" + escapeHtml(itemName(dish)) + "</h3>" +
+              (desc ? "<p class=\"dish-desc\">" + escapeHtml(desc) + "</p>" : "") +
+              "<p class=\"dish-price\">" + escapeHtml(priceLabel(dish)) + "</p>" +
+              "<button type=\"button\" class=\"order-btn\" data-add=\"" + dish.id + "\">+ Order</button>" +
             "</article>"
           );
         }).join("");
       }
-
       function render() {
         var n = count();
         document.getElementById("cart-count").textContent = String(n);
@@ -860,157 +685,98 @@
         cart.forEach(function (item) {
           var li = document.createElement("li");
           li.className = "flex items-center justify-between gap-3";
-          li.innerHTML =
-            "<span class=\"flex-1\">" + escapeHtml(itemName(item)) + "<i class=\"block text-xs text-[#F5F0EB]/50 not-italic\">" + escapeHtml(priceLabel(item)) + "</i></span>" +
+          li.innerHTML = "<span class=\"flex-1\">" + escapeHtml(itemName(item)) + "<i class=\"block text-xs text-[#F5F0EB]/50 not-italic\">" + escapeHtml(priceLabel(item)) + "</i></span>" +
             "<span class=\"inline-flex items-center gap-2\">" +
-              "<button type=\"button\" class=\"w-7 h-7 border border-gold/40\" data-qty=\"" + item.id + "\" data-d=\"-1\">−</button>" +
-              "<b>" + item.qty + "</b>" +
-              "<button type=\"button\" class=\"w-7 h-7 border border-gold/40\" data-qty=\"" + item.id + "\" data-d=\"1\">+</button>" +
-            "</span>";
+            "<button type=\"button\" class=\"w-7 h-7 border border-gold/40\" data-qty=\"" + item.id + "\" data-d=\"-1\">−</button><b>" + item.qty + "</b>" +
+            "<button type=\"button\" class=\"w-7 h-7 border border-gold/40\" data-qty=\"" + item.id + "\" data-d=\"1\">+</button></span>";
           lines.appendChild(li);
         });
         document.getElementById("info-items").innerHTML = cart.map(function (item) {
           return "<li>" + escapeHtml(itemName(item)) + " × " + item.qty + " — " + escapeHtml(priceLabel(item)) + "</li>";
         }).join("");
       }
-
       function showLayer(id, backId) {
-        var el = document.getElementById(id);
-        var back = document.getElementById(backId);
-        el.hidden = false;
-        back.hidden = false;
+        var el = document.getElementById(id), back = document.getElementById(backId);
+        el.hidden = false; back.hidden = false;
         requestAnimationFrame(function () {
-          el.classList.add("is-open");
-          back.classList.add("is-open");
-          el.classList.remove("is-leave");
-          back.classList.remove("is-leave");
+          el.classList.add("is-open"); back.classList.add("is-open");
+          el.classList.remove("is-leave"); back.classList.remove("is-leave");
         });
       }
-
       function hideLayer(id, backId) {
-        var key = id;
-        if (closing[key]) return;
-        closing[key] = true;
-        var el = document.getElementById(id);
-        var back = document.getElementById(backId);
-        el.classList.add("is-leave");
-        back.classList.add("is-leave");
-        el.classList.remove("is-open");
-        back.classList.remove("is-open");
+        if (closing[id]) return;
+        closing[id] = true;
+        var el = document.getElementById(id), back = document.getElementById(backId);
+        el.classList.add("is-leave"); back.classList.add("is-leave");
+        el.classList.remove("is-open"); back.classList.remove("is-open");
         setTimeout(function () {
-          el.hidden = true;
-          back.hidden = true;
-          el.classList.remove("is-leave");
-          back.classList.remove("is-leave");
-          closing[key] = false;
+          el.hidden = true; back.hidden = true;
+          el.classList.remove("is-leave"); back.classList.remove("is-leave");
+          closing[id] = false;
         }, 280);
       }
-
       function openCart() { showLayer("cart-sidebar", "cart-backdrop"); }
       function closeCart() { hideLayer("cart-sidebar", "cart-backdrop"); }
-      function openInfo() {
-        render();
-        showLayer("info-modal", "info-back");
-      }
+      function openInfo() { render(); showLayer("info-modal", "info-back"); }
       function closeInfo() { hideLayer("info-modal", "info-back"); }
-      function openPreview() {
-        document.getElementById("preview-text").textContent = message();
-        showLayer("preview-modal", "preview-back");
-      }
+      function openPreview() { document.getElementById("preview-text").textContent = message(); showLayer("preview-modal", "preview-back"); }
       function closePreview() { hideLayer("preview-modal", "preview-back"); }
-
       function toast() {
         var el = document.getElementById("sent-toast");
         el.textContent = t({ en: "Sent ✓✓", zh: "已发送 ✓✓", ru: "Отправлено ✓✓" });
         el.hidden = false;
         setTimeout(function () { el.hidden = true; }, 2000);
       }
-
       function flyOpen(btn, href) {
-        btn.classList.remove("is-fly");
-        void btn.offsetWidth;
-        btn.classList.add("is-fly");
-        setTimeout(function () {
-          window.open(href, "_blank", "noopener");
-          btn.classList.remove("is-fly");
-          closePreview();
-          toast();
-        }, 820);
+        btn.classList.remove("is-fly"); void btn.offsetWidth; btn.classList.add("is-fly");
+        setTimeout(function () { window.open(href, "_blank", "noopener"); btn.classList.remove("is-fly"); closePreview(); toast(); }, 820);
       }
-
       document.getElementById("cat-rail").addEventListener("click", function (e) {
         var btn = e.target.closest("[data-cat]");
         if (!btn) return;
         active = btn.getAttribute("data-cat");
-        renderCats();
-        renderMenu();
+        renderCats(); renderMenu();
       });
-
       document.getElementById("dish-grid").addEventListener("click", function (e) {
         var addBtn = e.target.closest("[data-add]");
         var card = e.target.closest(".dish-card");
         var id = addBtn ? addBtn.getAttribute("data-add") : (card && card.getAttribute("data-dish-id"));
         if (id) add(id);
       });
-
       document.getElementById("cart-lines").addEventListener("click", function (e) {
         var qtyBtn = e.target.closest("[data-qty]");
         if (!qtyBtn) return;
         var found = cart.find(function (row) { return row.id === qtyBtn.getAttribute("data-qty"); });
         if (found) setQty(found.id, found.qty + Number(qtyBtn.getAttribute("data-d")));
       });
-
       document.getElementById("cart-fab").addEventListener("click", openCart);
       document.getElementById("cart-close").addEventListener("click", closeCart);
       document.getElementById("cart-continue").addEventListener("click", closeCart);
       document.getElementById("cart-backdrop").addEventListener("click", closeCart);
-
       document.getElementById("send-order").addEventListener("click", function () {
         if (!cart.length) return;
-        closeCart();
-        setTimeout(openInfo, 200);
+        closeCart(); setTimeout(openInfo, 200);
       });
-
       document.getElementById("info-back").addEventListener("click", closeInfo);
-      document.getElementById("info-back-btn").addEventListener("click", function () {
-        closeInfo();
-        setTimeout(openCart, 200);
-      });
+      document.getElementById("info-back-btn").addEventListener("click", function () { closeInfo(); setTimeout(openCart, 200); });
       document.getElementById("info-form").addEventListener("submit", function (e) {
         e.preventDefault();
         guest.name = (this.guest.value || "").trim();
         guest.people = this.people.value || "1";
         guest.note = (this.note.value || "").trim();
         if (!guest.name) return;
-        closeInfo();
-        setTimeout(openPreview, 200);
+        closeInfo(); setTimeout(openPreview, 200);
       });
-
       document.getElementById("preview-back").addEventListener("click", closePreview);
       document.getElementById("preview-close").addEventListener("click", closePreview);
-      document.getElementById("send-wa").addEventListener("click", function () {
-        if (!cart.length) return;
-        flyOpen(this, waHref());
-      });
-      document.getElementById("send-line").addEventListener("click", function () {
-        if (!cart.length) return;
-        flyOpen(this, lineHref());
-      });
-
+      document.getElementById("send-wa").addEventListener("click", function () { if (cart.length) flyOpen(this, waHref()); });
+      document.getElementById("send-line").addEventListener("click", function () { if (cart.length) flyOpen(this, lineHref()); });
       document.querySelectorAll("[data-set-lang]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          applyLang(btn.getAttribute("data-set-lang"));
-        });
+        btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-set-lang")); });
       });
-
       var rail = document.getElementById("review-rail");
-      document.getElementById("rev-prev").addEventListener("click", function () {
-        rail.scrollBy({ left: -320, behavior: "smooth" });
-      });
-      document.getElementById("rev-next").addEventListener("click", function () {
-        rail.scrollBy({ left: 320, behavior: "smooth" });
-      });
-
+      document.getElementById("rev-prev").addEventListener("click", function () { rail.scrollBy({ left: -320, behavior: "smooth" }); });
+      document.getElementById("rev-next").addEventListener("click", function () { rail.scrollBy({ left: 320, behavior: "smooth" }); });
       applyLang("zh");
     })();
   </script>
