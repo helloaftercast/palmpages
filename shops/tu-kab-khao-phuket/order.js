@@ -1,6 +1,4 @@
 (function () {
-  var LINE_OA = "@tukabkhao";
-  var TEL = "6676608888";
   var LEAD_MIN = 90;
   var SLOTS = [
     "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
@@ -9,17 +7,12 @@
     "20:00", "20:30"
   ];
 
-  var linesEl = document.querySelector("[data-lines]");
-  var emptyEl = document.querySelector("[data-empty]");
-  var totalEl = document.querySelector("[data-total]");
   var form = document.querySelector("[data-form]");
   var dayEl = form && form.elements.namedItem("day");
   var slotEl = form && form.elements.namedItem("slot");
   var warnEl = document.querySelector("[data-warn]");
-  var dock = document.querySelector("[data-bag-dock]");
   var reserveDock = document.querySelector("[data-reserve-dock]");
   var chatLayer = document.querySelector("[data-order-chat]");
-  var cart = [];
 
   function lang() {
     return (window.getPpLang && window.getPpLang()) || document.documentElement.getAttribute("data-lang") || "en";
@@ -57,31 +50,6 @@
     return parts.y + "-" + parts.m + "-" + parts.d;
   }
 
-  function money(n) {
-    return "฿" + Number(n).toLocaleString("en-US");
-  }
-
-  function lineMoney(item) {
-    if (!item.price) return "";
-    return money(item.price * item.qty);
-  }
-
-  function pricedTotal() {
-    return cart.reduce(function (sum, item) {
-      return sum + (item.price || 0) * item.qty;
-    }, 0);
-  }
-
-  function count() {
-    return cart.reduce(function (sum, item) {
-      return sum + item.qty;
-    }, 0);
-  }
-
-  function itemName(item) {
-    return isTh() ? (item.nameTh || item.nameEn || item.name) : (item.nameEn || item.nameTh || item.name);
-  }
-
   function greet() {
     return isTh()
       ? "สวัสดีครับ/ค่ะ ร้านตู้กับข้าว ขอจองโต๊ะหน่อย"
@@ -92,85 +60,12 @@
     return "https://line.me/R/msg/text/?" + encodeURIComponent(text || greet());
   }
 
-  function telHref() {
-    return "tel:+" + TEL;
-  }
-
   function syncDock() {
     if (!reserveDock) return;
     reserveDock.href = lineHref(greet());
     reserveDock.textContent = isTh() ? "จองผ่าน LINE" : "LINE to reserve";
     reserveDock.classList.add("is-line");
     reserveDock.classList.remove("is-wa");
-  }
-
-  function add(item) {
-    var found = cart.find(function (row) { return row.id === item.id; });
-    if (found) found.qty += 1;
-    else cart.push({
-      id: item.id,
-      nameEn: item.nameEn,
-      nameTh: item.nameTh,
-      name: item.nameEn || item.nameTh,
-      price: item.price,
-      qty: 1
-    });
-    clearBad();
-    render();
-  }
-
-  function setQty(id, qty) {
-    var found = cart.find(function (row) { return row.id === id; });
-    if (!found) return;
-    if (qty < 1) cart.splice(cart.indexOf(found), 1);
-    else found.qty = qty;
-    render();
-  }
-
-  function markAdds() {
-    document.querySelectorAll("[data-add]").forEach(function (btn) {
-      var id = btn.getAttribute("data-id");
-      var found = cart.find(function (row) { return row.id === id; });
-      btn.classList.toggle("is-added", Boolean(found));
-    });
-  }
-
-  function renderLines() {
-    if (!linesEl) return;
-    linesEl.innerHTML = "";
-    cart.forEach(function (item) {
-      var li = document.createElement("li");
-      li.innerHTML =
-        "<span>" + itemName(item) + "</span>" +
-        "<span class=\"ticket-qty\">" +
-          "<button type=\"button\" data-qty=\"" + item.id + "\" data-d=\"-1\" aria-label=\"Remove one\">−</button>" +
-          "<b>" + item.qty + "</b>" +
-          "<button type=\"button\" data-qty=\"" + item.id + "\" data-d=\"1\" aria-label=\"Add one\">+</button>" +
-        "</span>" +
-        (lineMoney(item) ? "<strong>" + lineMoney(item) + "</strong>" : "<strong></strong>");
-      linesEl.appendChild(li);
-    });
-  }
-
-  function renderDock() {
-    var n = count();
-    if (reserveDock) reserveDock.hidden = n > 0;
-    if (!dock) return;
-    if (n === 0) {
-      dock.hidden = true;
-      return;
-    }
-    dock.hidden = false;
-    var priced = pricedTotal();
-    if (isTh()) {
-      dock.textContent = priced > 0
-        ? "ออเดอร์ · " + n + " · " + money(priced)
-        : "ออเดอร์ · " + n;
-    } else {
-      dock.textContent = priced > 0
-        ? "Order · " + n + " · " + money(priced)
-        : "Order · " + n;
-    }
   }
 
   function showWarn(msg) {
@@ -202,12 +97,6 @@
 
   function firstError() {
     if (!form) return null;
-    if (!cart.length) {
-      return {
-        el: document.querySelector(".sheet-list") || document.getElementById("ticket"),
-        msg: isTh() ? "แตะเมนูหรือโต๊ะด้านบนก่อน" : "Tap a dish or a table first."
-      };
-    }
     if (!form.name.value.trim()) {
       return { el: form.name, msg: isTh() ? "เขียนชื่อของคุณ" : "Write your name." };
     }
@@ -218,6 +107,9 @@
         msg: isTh() ? "เขียนเบอร์ที่ติดต่อได้" : "Write a number we can reach."
       };
     }
+    if (!form.people.value || Number(form.people.value) < 1) {
+      return { el: form.people, msg: isTh() ? "บอกจำนวนคน" : "How many people?" };
+    }
     if (!dayEl || !dayEl.value) {
       return { el: dayEl, msg: isTh() ? "เลือกวัน" : "Pick a day." };
     }
@@ -225,32 +117,6 @@
       return { el: slotEl, msg: isTh() ? "เลือกเวลา" : "Pick a time." };
     }
     return null;
-  }
-
-  function render() {
-    var has = cart.length > 0;
-    if (emptyEl) emptyEl.hidden = has;
-    if (linesEl) linesEl.hidden = !has;
-    if (totalEl) {
-      var priced = pricedTotal();
-      if (!has) {
-        totalEl.hidden = true;
-        totalEl.textContent = "";
-      } else {
-        totalEl.hidden = false;
-        if (priced > 0) {
-          totalEl.textContent = isTh()
-            ? money(priced) + " · ยืนยันทาง LINE"
-            : money(priced) + " · confirm on LINE";
-        } else {
-          totalEl.textContent = isTh() ? "จองโต๊ะ · ยืนยันทาง LINE" : "Table request · confirm on LINE";
-        }
-      }
-    }
-    renderLines();
-    markAdds();
-    renderDock();
-    syncDock();
   }
 
   function fillDays() {
@@ -303,15 +169,7 @@
   }
 
   function message(data) {
-    var rows = cart.map(function (item) {
-      var price = lineMoney(item);
-      return "• " + itemName(item) + " × " + item.qty + (price ? " — " + price : "");
-    });
-    var priced = pricedTotal();
     var th = isTh();
-    var sumLine = priced > 0
-      ? (th ? "รวมตามเมนู: " + money(priced) : "Menu total: " + money(priced))
-      : "";
     var lines = th ? [
       "จองโต๊ะ ร้านตู้กับข้าว ถนนพังงา เมืองเก่าภูเก็ต",
       "",
@@ -321,9 +179,7 @@
       "เวลามาถึง: " + data.day + " " + data.slot,
       data.note ? "หมายเหตุ: " + data.note : "",
       "",
-      rows.join("\n"),
-      "",
-      sumLine,
+      "ขอจองโต๊ะเท่านั้น อาหารสั่งที่ร้าน",
       "ยังไม่ชำระเงิน รบกวนยืนยันโต๊ะด้วยนะครับ/ค่ะ"
     ] : [
       "Table for Tu Kab Khao, Phang Nga Road, Phuket Old Town",
@@ -334,9 +190,7 @@
       "Arrive: " + data.day + " " + data.slot,
       data.note ? "Note: " + data.note : "",
       "",
-      rows.join("\n"),
-      "",
-      sumLine,
+      "Table only — we order food when we sit down.",
       "Not paid. Please confirm the table."
     ];
     return lines.filter(function (line) { return line !== ""; }).join("\n");
@@ -379,24 +233,6 @@
     return true;
   }
 
-  document.addEventListener("click", function (e) {
-    var addBtn = e.target.closest("[data-add]");
-    if (addBtn) {
-      add({
-        id: addBtn.getAttribute("data-id"),
-        nameEn: addBtn.getAttribute("data-name-en") || addBtn.getAttribute("data-name"),
-        nameTh: addBtn.getAttribute("data-name-th") || addBtn.getAttribute("data-name"),
-        price: Number(addBtn.getAttribute("data-price") || 0)
-      });
-      return;
-    }
-    var qtyBtn = e.target.closest("[data-qty]");
-    if (qtyBtn) {
-      var found = cart.find(function (row) { return row.id === qtyBtn.getAttribute("data-qty"); });
-      if (found) setQty(found.id, found.qty + Number(qtyBtn.getAttribute("data-d")));
-    }
-  });
-
   if (form) {
     try {
       fillDays();
@@ -415,23 +251,13 @@
 
   if (reserveDock) {
     reserveDock.addEventListener("click", function (e) {
-      if (count()) {
-        e.preventDefault();
-        sendBooking();
-      }
-    });
-  }
-
-  if (dock) {
-    dock.addEventListener("click", function (e) {
+      if (!form) return;
       e.preventDefault();
-      if (count() && !firstError()) {
+      if (!firstError()) {
         sendBooking();
         return;
       }
-      var bad = firstError();
-      if (bad) focusBad(bad.el, bad.msg);
-      else document.getElementById("ticket").scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("ticket").scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
 
@@ -440,8 +266,8 @@
       fillDays();
       fillSlots();
     } catch (err) {}
-    render();
+    syncDock();
   });
 
-  render();
+  syncDock();
 })();

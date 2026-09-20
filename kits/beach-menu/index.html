@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beach menu kit — PalmPages</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Reusable dark beach-club menu layout. Not a live restaurant.">
+  <!--
+    Kit, not a shop.
+    1. Copy this folder into /shops/<next-shop>/
+    2. Replace Coast House, WhatsApp, hours, dishes, photos.
+    3. Do not paste Crystal Bay names, prices, or their image files.
+    Visual pattern: navy/gold, sticky category pills, evening photo cards, V/VG/GF/S badges.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-booking data-checkout="whatsapp">
+  <a class="skip" href="#menu">Skip to menu</a>
+
+  <header class="nav" data-nav>
+    <a class="mark" href="#top">Coast House <small>Beach kitchen</small></a>
+    <ul class="nav-links">
+      <li><a class="is-on" href="#menu">Menu</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="btn-gold" href="https://wa.me/?text=Hi%20Coast%20House%2C%20I%27d%20like%20a%20table.">Reserve</a>
+  </header>
+
+  <section class="hero" id="top">
+    <img src="photos/hero.png" alt="" width="1536" height="864">
+    <div class="hero-veil"></div>
+    <div class="hero-copy">
+      <p class="kicker">From sunrise to late evening</p>
+      <h1>Our Menu</h1>
+      <p>No service charge. Kitchen until last order. Swap this line for the shop’s hours.</p>
+    </div>
+  </section>
+
+  <nav class="cats" data-cats aria-label="Menu categories">
+    <button type="button" data-target="evening">Evening</button>
+    <button type="button" data-target="starters">Starters</button>
+    <button type="button" data-target="mains">Mains</button>
+    <button type="button" data-target="drinks">Drinks</button>
+  </nav>
+
+  <p class="legend">
+    <span><b class="tag-v">V</b> Vegetarian</span>
+    <span><b class="tag-vg">VG</b> Vegan</span>
+    <span><b class="tag-gf">GF</b> Gluten free</span>
+    <span><b class="tag-s">S</b> Spicy</span>
+  </p>
+
+  <main id="menu">
+    <section class="block" id="evening" data-menu-section>
+      <div class="wrap">
+        <p class="kicker">Our recommendation for the evening</p>
+        <div class="rule"></div>
+        <h2>Start here if you sit down after six</h2>
+        <p class="lede">Four dishes the page can push. Replace photos and names with the next shop’s actual plates — not stock from another bay.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-photo"><img src="photos/evening.png" alt="" width="1376" height="768"></div>
+            <div class="card-body">
+              <h3>Table by the water</h3>
+              <p>Placeholder card. Put the shop’s signature main here.</p>
+              <span class="price">ask</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="photos/fish.png" alt="" width="1376" height="768"></div>
+            <div class="card-body">
+              <h3>Catch of the day</h3>
+              <p>Pan-cooked fish, house salad, two sauces.</p>
+              <span class="price">ask</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="photos/mussels.png" alt="" width="1376" height="768"></div>
+            <div class="card-body">
+              <h3>Shellfish to share</h3>
+              <p>Garlic, white wine, toasted bread.</p>
+              <span class="price">ask</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="photos/coconut.png" alt="" width="1376" height="768"></div>
+            <div class="card-body">
+              <h3>House coconut</h3>
+              <p>The drink they already serve in a young coconut.</p>
+              <span class="price">ask</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="starters" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Starters</h2>
+        <p class="note">Sample rows only. Type the real menu; do not keep these names if the shop does not cook them.</p>
+        <div class="row">
+          <div>
+            <span class="name">Garlic bread</span>
+            <p class="desc">House bread, garlic butter. Extra cheese if they offer it.</p>
+            <div class="tags"><span class="tag tag-v" title="Vegetarian">V</span></div>
+          </div>
+          <span class="price">ask</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Tomato toast</span>
+            <p class="desc">Cherry tomato, onion, basil, balsamic.</p>
+            <div class="tags"><span class="tag tag-v" title="Vegetarian">V</span></div>
+          </div>
+          <span class="price">ask</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Crispy squid</span>
+            <p class="desc">Fried squid, tartare.</p>
+          </div>
+          <span class="price">ask</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="mains" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Mains</h2>
+        <div class="row">
+          <div>
+            <span class="name">Green curry</span>
+            <p class="desc">Coconut, herbs. Protein as a price ladder on the next shop’s paper menu.</p>
+            <div class="tags"><span class="tag tag-s" title="Spicy">S</span></div>
+          </div>
+          <span class="price">ask</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Grilled fish</span>
+            <p class="desc">Local fillet, salad, fries, house sauces.</p>
+            <div class="tags"><span class="tag tag-gf" title="Gluten free">GF</span></div>
+          </div>
+          <span class="price">ask</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Vegetable wok</span>
+            <p class="desc">Season greens, garlic, soy.</p>
+            <div class="tags">
+              <span class="tag tag-v" title="Vegetarian">V</span>
+              <span class="tag tag-vg" title="Vegan">VG</span>
+            </div>
+          </div>
+          <span class="price">ask</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="drinks" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Drinks</h2>
+        <div class="row">
+          <div>
+            <span class="name">Coconut serve</span>
+            <p class="desc">Rum, pineapple, coconut milk.</p>
+          </div>
+          <span class="price">ask</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">House wine</span>
+            <p class="desc">Glass or bottle. Put the actual labels the shop pours.</p>
+          </div>
+          <span class="price">ask</span>
+        </div>
+        <a class="ask" href="https://wa.me/?text=Hi%20Coast%20House%2C%20a%20question%20about%20the%20menu.">Questions about the menu? Ask on WhatsApp →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="hours">
+    <div class="wrap foot-grid">
+      <div>
+        <a class="mark" href="#top">Coast House <small>Kit · not a live page</small></a>
+        <p class="addr" id="visit">Replace with street, Maps link, Instagram. WhatsApp is the checkout unless they already have a booking widget.</p>
+      </div>
+      <div>
+        <h3>Opening hours</h3>
+        <p class="hours"><span>Kitchen</span><span>until last order</span></p>
+        <p class="hours"><span>Bar</span><span>as posted</span></p>
+      </div>
+      <div>
+        <h3>Book</h3>
+        <a class="btn-gold" href="https://wa.me/?text=Hi%20Coast%20House%2C%20I%27d%20like%20a%20table.">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="fab" href="https://wa.me/?text=Hi%20Coast%20House%2C%20I%27d%20like%20a%20table." aria-label="WhatsApp">WA</a>
+  <p class="kit-flag">PalmPages kit. Copy into /shops/ for the next non-Samui restaurant. Do not publish this folder as a client.</p>
+  <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+# Secret iCal export URLs. Never put these in HTML or git.
+# They can include guest names. The worker strips that and only publishes busy dates.
+# ICAL_URL_JUMP2ADVENTURE_BENAGIL=

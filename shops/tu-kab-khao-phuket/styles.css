@@ -988,6 +988,64 @@ h2 {
   margin-top: 1.4rem;
 }
 
+.sig-dishes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sig-dishes article {
+  padding: 0 0 1.15rem;
+  overflow: hidden;
+}
+
+.sig-dishes article:not(:has(.sig-photo)) {
+  padding-top: 1.15rem;
+}
+
+.sig-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  border: 0;
+  background: var(--night);
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.sig-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.5s var(--ease);
+}
+
+.sig-photo:hover img {
+  transform: scale(1.05);
+}
+
+.sig-dishes h3,
+.sig-dishes p {
+  padding: 0 1rem;
+}
+
+.sig-dishes h3 {
+  margin-top: 0.15rem;
+}
+
+.ticket-need {
+  list-style: none;
+  margin: 0 0 1rem;
+}
+
+.ticket-need li {
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.98rem;
+}
+
 .platters article {
   border-top: 3px solid var(--orange);
   background: var(--foam);
@@ -1155,6 +1213,7 @@ blockquote {
 
   .steps,
   .platters,
+  .sig-dishes,
   .shots,
   .sheet-grid,
   .ticket,

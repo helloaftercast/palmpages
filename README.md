@@ -6,6 +6,8 @@ Static one-page site for restaurant and outdoor-operator websites (draft-first, 
 
 Draft shop (noindex): [`/shops/jump2adventure-benagil/`](https://palmpages.com/shops/jump2adventure-benagil/) — Benagil kayak, EN/PT, WhatsApp booking.
 
+Beach-club **menu kit** (noindex, not a live shop): [`kits/beach-menu/`](kits/beach-menu/) — dark navy + gold, sticky category pills, evening photo cards, diet badges, WhatsApp. Copy the folder, swap name / photos / dishes / number. Do not copy Crystal Bay’s menu or photos onto a client page.
+
 ## Booking checkout (product boundary)
 
 **Default: WhatsApp.** The page writes the message. We do not take a card and we do not take a cut.

@@ -134,7 +134,7 @@
             "name": "How do orders and bookings reach me?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A guest picks dishes or a tour, and the site opens WhatsApp with the message written out. You confirm it like any other chat. There is no online payment on the site — guests pay you the way they do today."
+              "text": "Default: a guest picks dishes or a tour, and the site opens WhatsApp with the message written out. There is no card on our page. If you already have Peek, Bókun or FareHarbor and send the official embed, Book can open that checkout instead. We still take 0%."
             }
           },
           {
@@ -142,7 +142,7 @@
             "name": "Do you take a percentage of my bookings?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. You pay once for the site. Orders and bookings go from the guest to your phone. We are not in the middle and we never see your money."
+              "text": "No. You pay once for the site. WhatsApp bookings never touch us. If guests check out on a Peek, Bókun or FareHarbor widget you already pay for, that platform still charges you — we still take 0%."
             }
           },
           {
@@ -166,7 +166,15 @@
             "name": "I run kayak or surf trips, not a restaurant.",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Same product. Price, duration, meeting point, what to bring, weather note, and WhatsApp to book. No GetYourGuide calendar and no third-party booking API."
+              "text": "Same product. Price, duration, meeting point, what to bring, weather note, and WhatsApp to book. If you already have Peek, Bókun or FareHarbor, Book can open your official widget after you send the embed and say yes in writing. We do not apply for those booking APIs, do not open a new account for you, and do not invent remaining seats."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you add a live booking calendar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only if you already have Peek, Bókun or FareHarbor and send us the official embed. Book then opens their checkout. We do not build our own booking system, do not scrape Viator for seats, and do not show remaining places we cannot see."
             }
           },
           {
@@ -599,7 +607,7 @@
         <div class="fit no">
           <h3>Not a fit</h3>
           <ul>
-            <li>You need card payments, a live calendar and a fleet — that is a different product</li>
+            <li>You need us to invent card payments and a live seat calendar — that is a different product. If you already have Peek or FareHarbor, we paste your official book button</li>
             <li>You run ten branches and need one system behind them all</li>
             <li>You want to redesign the site every weekend; buy a builder instead</li>
             <li>You already have a website that works. Keep it.</li>
@@ -659,15 +667,18 @@
       </details>
       <details>
         <summary>How do orders and bookings reach me?</summary>
-        <p>A guest taps through the page, picks dishes or a tour, and the site opens WhatsApp with the
-          message written out. You confirm it like any other chat. There is no app for you to learn
-          and nothing for the guest to install.</p>
-        <p>There is no online payment on the site. Guests pay you the way they do today. We stay out of the money.</p>
+        <p>Default: a guest taps through the page, picks dishes or a tour, and the site opens WhatsApp
+          with the message written out. You confirm it like any other chat. There is no app for you
+          to learn and nothing for the guest to install.</p>
+        <p>There is no card on our page. Guests pay you the way they do today. If you already have
+          Peek, Bókun or FareHarbor and send the official embed, Book can open that checkout instead.
+          We stay out of the money either way.</p>
       </details>
       <details>
         <summary>Do you take a percentage of my bookings?</summary>
-        <p>No. You pay once for the site and that is the end of it. Orders and bookings go straight from
-          the guest to your phone; we are not in the middle and we never see your money.</p>
+        <p>No. You pay once for the site and that is the end of it. WhatsApp bookings go from the guest
+          to your phone; we never see the money. If they check out on a Peek, Bókun or FareHarbor
+          widget you already pay for, that platform still charges you — we still take 0%.</p>
       </details>
       <details>
         <summary>Do you do SEO? Will ChatGPT recommend me?</summary>
@@ -690,7 +701,16 @@
       <details>
         <summary>I run kayak or surf trips, not a restaurant.</summary>
         <p>Same product. Price, duration, meeting point, what to bring, a weather note, and WhatsApp
-          to book. No GetYourGuide calendar and no third-party booking API — those are a different job.</p>
+          to book. That is the default.</p>
+        <p>If you already have Peek, Bókun or FareHarbor, Book can open your official widget after you
+          send the embed and say yes in writing. We do not apply for those booking APIs, do not open
+          a new account for you, and do not invent remaining seats. Platform fees stay with the platform.</p>
+      </details>
+      <details>
+        <summary>Can you add a live booking calendar?</summary>
+        <p>Only if you already have Peek, Bókun or FareHarbor and send us the official embed.
+          Book then opens their checkout. We do not build our own booking system, do not scrape
+          Viator for seats, and do not show remaining places we cannot see.</p>
       </details>
       <details>
         <summary>What if I only want a simple page, no ordering?</summary>
