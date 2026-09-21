@@ -598,7 +598,7 @@
       var CATS = [
         { id: "seafood", en: "Seafood", zh: "海鲜", ru: "Морепродукты" },
         { id: "fish", en: "Fish", zh: "鲜鱼", ru: "Рыба" },
-        { id: "spaghetti", en: "Spaghetti", zh: "意面", ru: "Паста" },
+        { id: "rice", en: "Rice", zh: "米饭", ru: "Рис" },
         { id: "grilled", en: "Grilled", zh: "烧烤", ru: "Гриль" },
         { id: "drinks", en: "Drinks", zh: "饮品", ru: "Напитки" }
       ];
@@ -642,17 +642,22 @@
             descZh: "整条酥炸，上面撒蒜。",
             descRu: "Целая рыба, хрустящая, сверху чеснок." }
         ],
-        spaghetti: [
-          { id: "spa-seafood", label: "ask", img: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Seafood Spaghetti", nameZh: "海鲜意面", nameRu: "Паста с морепродуктами",
-            descEn: "Prawns, squid, mussels in a light tomato sauce.",
-            descZh: "大虾、鱿鱼、贻贝，轻番茄汁。",
-            descRu: "Креветки, кальмары, мидии в лёгком томатном соусе." },
-          { id: "spa-garlic", label: "ask", img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Garlic & Oil", nameZh: "蒜香油意面", nameRu: "С чесноком и маслом",
-            descEn: "Aglio e olio with chilli and parsley.",
-            descZh: "蒜香橄榄油，配辣椒和欧芹。",
-            descRu: "Альо-олио с чили и петрушкой." }
+        rice: [
+          { id: "rice-shark", label: "ask", img: PHOTO + "rice-shark.jpg?v=mj25",
+            nameEn: "Shark Steak Rice", nameZh: "鲨鱼排饭", nameRu: "Стейк акулы с рисом",
+            descEn: "Grilled shark steak, fried rice, and two sauces.",
+            descZh: "烤鲨鱼排，配炒饭和两碟酱。",
+            descRu: "Стейк акулы на гриле, жареный рис и два соуса." },
+          { id: "rice-salmon", label: "ask", img: PHOTO + "rice-salmon.jpg?v=mj25",
+            nameEn: "Salmon Steak Rice", nameZh: "三文鱼排饭", nameRu: "Стейк лосося с рисом",
+            descEn: "Grilled salmon under a cream sauce, with fried rice.",
+            descZh: "烤三文鱼淋奶油酱，配炒饭。",
+            descRu: "Лосось на гриле под сливочным соусом, с жареным рисом." },
+          { id: "rice-pineapple", label: "ask", img: PHOTO + "rice-pineapple.jpg?v=mj25",
+            nameEn: "Pineapple Rice", nameZh: "菠萝饭", nameRu: "Рис в ананасе",
+            descEn: "Fried rice in a pineapple, with prawns and cashews.",
+            descZh: "菠萝船炒饭，配大虾和腰果。",
+            descRu: "Жареный рис в ананасе, с креветками и кешью." }
         ],
         grilled: [
           { id: "gr-fish", label: "ask", img: PHOTO + "dish-fish-chili.jpg?v=mj24",
