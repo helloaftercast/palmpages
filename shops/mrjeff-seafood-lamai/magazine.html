@@ -271,6 +271,7 @@
       padding: 0.7rem 0;
       background: #B39C56;
       cursor: pointer;
+      touch-action: pan-y;
       mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
     }
     .cat-track {
@@ -931,8 +932,6 @@
       var closing = {};
       var CATS = [
         { id: "seafood", en: "Seafood", zh: "海鲜", ru: "Морепродукты" },
-        { id: "fish", en: "Fish", zh: "鲜鱼", ru: "Рыба" },
-        { id: "crab", en: "Crab", zh: "螃蟹", ru: "Краб" },
         { id: "rice", en: "Rice", zh: "米饭", ru: "Рис" },
         { id: "pasta", en: "Pasta", zh: "意大利面", ru: "Паста" },
         { id: "drinks", en: "Drinks", zh: "饮品", ru: "Напитки" }
@@ -956,9 +955,7 @@
               { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "นึ่งมะนาว" },
               { id: "steam-ginger", en: "Steamed ginger soy sauce", zh: "姜丝豉油蒸", ru: "На пару с имбирём и соей", th: "นึ่งขิง" },
               { id: "thermidor", en: "Thermidor", zh: "芝士焗", ru: "Термидор", th: "เทอร์มิดอร์" }
-            ] }
-        ],
-        fish: [
+            ] },
           { id: "fish-whole", label: "฿350–400", img: PHOTO + "menu-fish-grill.jpg?v=mj22",
             nameEn: "Fish", nameZh: "鲜鱼", nameRu: "Рыба",
             descEn: "Whole fish. Price depends on the cooking style.",
@@ -979,9 +976,7 @@
               { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "ปลานึ่งมะนาว", label: "฿380" },
               { id: "aioli", en: "Aioli fish", zh: "蒜泥蛋黄酱", ru: "Айоли", th: "ปลาไอลีโอลี", label: "฿350" },
               { id: "filet", en: "Mr.Jeff fish filet", zh: "Mr.Jeff 鱼排", ru: "Филе Mr.Jeff", th: "มิสเตอร์เจฟ", label: "฿400" }
-            ] }
-        ],
-        crab: [
+            ] },
           { id: "crab-catch", label: "฿120 / 100g", img: PHOTO + "shop-crab-curry.jpg?v=mj24",
             nameEn: "Crab & King Crab", nameZh: "螃蟹 / 帝王蟹", nameRu: "Краб и камчатский краб",
             descEn: "Fresh catch, weighed at the ice chest. Pick your cooking style.",
@@ -1017,11 +1012,27 @@
             descRu: "Жареный рис в ананасе, с креветками и кешью." }
         ],
         pasta: [
-          { id: "pasta-meatballs", label: "ask", img: PHOTO + "pasta-meatballs.jpg?v=mj28",
-            nameEn: "Spaghetti & Meatballs", nameZh: "肉丸意大利面", nameRu: "Спагетти с фрикадельками",
-            descEn: "Spaghetti in tomato sauce, with meatballs and parmesan.",
-            descZh: "番茄肉酱意大利面，配肉丸和帕玛森芝士。",
-            descRu: "Спагетти в томатном соусе, с фрикадельками и пармезаном." }
+          { id: "pasta-spaghetti", label: "฿200–380", img: PHOTO + "pasta-meatballs.jpg?v=mj28",
+            nameEn: "Spaghetti", nameZh: "意大利面", nameRu: "Спагетти",
+            descEn: "Pick a sauce. Seafood and clam are ordered separately.",
+            descZh: "先选酱汁。海鲜和蛤蜊要分开点。",
+            descRu: "Выберите соус. Морепродукты и моллюски заказываются отдельно.",
+            methods: [
+              { id: "carbonara", en: "Carbonara", zh: "培根蛋奶", ru: "Карбонара", th: "คาร์โบนาร่า", label: "฿250" },
+              { id: "bolognese", en: "Bolognese", zh: "肉酱", ru: "Болоньезе", th: "โบโลเนส", label: "฿290" },
+              { id: "tomato", en: "Tomato sauce", zh: "番茄酱", ru: "Томатный соус", th: "ซอสมะเขือเทศ", label: "฿200" },
+              { id: "aioli", en: "Aioli", zh: "蒜泥蛋黄酱", ru: "Айоли", th: "ไอโอลี่", label: "฿200" },
+              { id: "pesto", en: "Pesto", zh: "青酱", ru: "Песто", th: "ซอสเพสโต้", label: "฿200" },
+              { id: "arrabbiata", en: "Arrabbiata sauce", zh: "阿布拉塔辣酱", ru: "Аррабиата", th: "ซอสอาราบิอาต้า", label: "฿220" },
+              { id: "seafood-aioli", en: "Seafood aioli sauce", zh: "海鲜蒜泥酱", ru: "Айоли с морепродуктами", th: "ซอสไอโอลี่ ซีฟู้ด", label: "฿380" },
+              { id: "clam-aioli", en: "Clam aioli sauce", zh: "蛤蜊蒜泥酱", ru: "Айоли с моллюсками", th: "ซอสไอโอลี่ หอย", label: "฿380" },
+              { id: "seafood-chilli", en: "Seafood chilli paste sauce", zh: "海鲜辣椒膏", ru: "Паста чили с морепродуктами", th: "ซอสพริกเผา ซีฟู้ด", label: "฿320" },
+              { id: "clam-chilli", en: "Clam chilli paste sauce", zh: "蛤蜊辣椒膏", ru: "Паста чили с моллюсками", th: "ซอสพริกเผา หอย", label: "฿320" },
+              { id: "seafood-tomato", en: "Seafood tomato sauce", zh: "海鲜番茄酱", ru: "Томатный с морепродуктами", th: "ซอสมะเขือเทศ ซีฟู้ด", label: "฿340" },
+              { id: "clam-tomato", en: "Clam tomato sauce", zh: "蛤蜊番茄酱", ru: "Томатный с моллюсками", th: "ซอสมะเขือเทศ หอย", label: "฿340" },
+              { id: "salmon-cream", en: "Salmon cream sauce", zh: "三文鱼奶油酱", ru: "Сливочный с лососем", th: "ซอสครีมแซลมอน", label: "฿290" },
+              { id: "chicken-cream", en: "Chicken cream sauce", zh: "鸡肉奶油酱", ru: "Сливочный с курицей", th: "ซอสครีมไก่", label: "฿290" }
+            ] }
         ],
         drinks: [
           { id: "dr-tipunch", group: "cocktail", label: "฿150", nameEn: "Ti Punch", nameZh: "Ti Punch", nameRu: "Ti Punch", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
@@ -1313,12 +1324,42 @@
         setTimeout(function () { window.open(href, "_blank", "noopener"); btn.classList.remove("is-fly"); closePreview(); toast(); }, 820);
       }
       var catRail = document.getElementById("cat-rail");
-      // Stop the drift on the first touch so the pill stays put under the finger.
-      catRail.addEventListener("pointerdown", function () { catRail.classList.add("is-paused"); });
+      var catSwipeX = 0;
+      var catSwiping = false;
+      var catDidSwipe = false;
+      // Tap pauses so a pill can be hit; a sideways drag starts the ticker again.
+      catRail.addEventListener("pointerdown", function (e) {
+        catSwipeX = e.clientX;
+        catSwiping = true;
+        catDidSwipe = false;
+        try { catRail.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+      catRail.addEventListener("pointermove", function (e) {
+        if (!catSwiping) return;
+        if (Math.abs(e.clientX - catSwipeX) > 24) {
+          catDidSwipe = true;
+          catRail.classList.remove("is-paused");
+        }
+      });
+      ["pointerup", "pointercancel"].forEach(function (ev) {
+        catRail.addEventListener(ev, function () {
+          catSwiping = false;
+          if (catDidSwipe) {
+            catRail.classList.remove("is-paused");
+            setTimeout(function () { catDidSwipe = false; }, 0);
+          }
+        });
+      });
       catRail.addEventListener("click", function (e) {
-        catRail.classList.add("is-paused");
+        if (catDidSwipe) {
+          e.preventDefault();
+          e.stopPropagation();
+          catRail.classList.remove("is-paused");
+          return;
+        }
         var btn = e.target.closest("[data-cat]");
         if (!btn) return;
+        catRail.classList.add("is-paused");
         active = btn.getAttribute("data-cat");
         renderCats(); renderMenu();
       });
