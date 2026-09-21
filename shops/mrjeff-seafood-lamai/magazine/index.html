@@ -495,6 +495,18 @@
       border: 1px solid rgba(212,175,55,0.28); background: rgba(245,240,235,0.05);
     }
     .method-chip.is-on { background: #748E78; border-color: #748E78; }
+    .method-chip.is-hot { border-color: rgba(212,175,55,0.55); background: rgba(212,175,55,0.07); }
+    .method-chip.is-hot.is-on { border-color: #748E78; background: #748E78; }
+    .method-tag {
+      display: flex; align-items: center; gap: 0.35rem;
+      margin-bottom: 0.3rem;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(212,175,55,0.9);
+    }
+    .method-tag::before { content: ""; width: 12px; height: 1px; background: rgba(212,175,55,0.7); }
+    .method-chip.is-on .method-tag { color: rgba(255,255,255,0.9); }
+    .method-chip.is-on .method-tag::before { background: rgba(255,255,255,0.7); }
     .method-en { display: block; font-family: "Lora", serif; font-size: 0.86rem; line-height: 1.25; }
     .method-local { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: rgba(245,240,235,0.72); }
     .method-th { display: block; margin-top: 0.1rem; font-size: 0.72rem; color: rgba(212,175,55,0.85); }
@@ -1129,8 +1141,8 @@
             descZh: "冰柜现挑现称，做法自己选。",
             descRu: "Свежий улов, взвесим у ледника. Способ приготовления на выбор.",
             methods: [
-              { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "เผา" },
-              { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареный с чесноком", th: "ทอดกระเทียม" },
+              { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "เผา", hot: true },
+              { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареный с чесноком", th: "ทอดกระเทียม", hot: true },
               { id: "garlic-pepper", en: "Fried garlic & pepper", zh: "蒜蓉胡椒炸", ru: "С чесноком и перцем", th: "ทอดกระเทียมพริกไทย" },
               { id: "cream-cheese", en: "Fried cream cheese sauce", zh: "奶油芝士酱炒", ru: "В сливочно-сырном соусе", th: "ผัดครีมชีส" },
               { id: "sweet-chilli", en: "Fried sweet & chilli", zh: "甜辣椒炒", ru: "Со сладким чили", th: "ผัดพริกหวาน" },
@@ -1139,7 +1151,7 @@
               { id: "curry-powder", en: "Fried curry powder", zh: "咖喱粉炒", ru: "С карри-порошком", th: "ผัดผงกะหรี่" },
               { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "นึ่งมะนาว" },
               { id: "steam-ginger", en: "Steamed ginger soy sauce", zh: "姜丝豉油蒸", ru: "На пару с имбирём и соей", th: "นึ่งขิง" },
-              { id: "thermidor", en: "Thermidor", zh: "芝士焗", ru: "Термидор", th: "เทอร์มิดอร์" }
+              { id: "thermidor", en: "Thermidor", zh: "芝士焗", ru: "Термидор", th: "เทอร์มิดอร์", hot: true }
             ] },
           { id: "fish-whole", label: "฿350–400", img: PHOTO + "menu-fish-grill.jpg?v=mj22",
             nameEn: "Fish", nameZh: "鲜鱼", nameRu: "Рыба",
@@ -1148,39 +1160,39 @@
             descRu: "Целая рыба. Цена зависит от способа приготовления.",
             methods: [
               { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "ปลาเผา", label: "฿390" },
-              { id: "bbq-salt", en: "BBQ with salt", zh: "盐烤", ru: "На гриле с солью", th: "ปลาเผาเกลือ", label: "฿390" },
+              { id: "bbq-salt", en: "BBQ with salt", zh: "盐烤", ru: "На гриле с солью", th: "ปลาเผาเกลือ", label: "฿390", hot: true },
               { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареная с чесноком", th: "ปลาทอดกระเทียม", label: "฿390" },
               { id: "garlic-pepper", en: "Fried garlic pepper", zh: "蒜蓉胡椒炸", ru: "С чесноком и перцем", th: "ปลาทอดกระเทียมพริกไทย", label: "฿390" },
               { id: "panang", en: "Fried panang curry", zh: "帕能咖喱", ru: "Пананг карри", th: "ราดซอสพะแนง", label: "฿390" },
-              { id: "sweet-sour", en: "Fried sweet & sour", zh: "糖醋", ru: "Кисло-сладкая", th: "ปลาทอดราดซอสเปรี้ยวหวาน", label: "฿400" },
+              { id: "sweet-sour", en: "Fried sweet & sour", zh: "糖醋", ru: "Кисло-сладкая", th: "ปลาทอดราดซอสเปรี้ยวหวาน", label: "฿400", hot: true },
               { id: "sweet-chilli", en: "Fried sweet chilli", zh: "甜辣椒", ru: "Сладкий чили", th: "ปลาราดพริก", label: "฿390" },
               { id: "holy-basil", en: "Fried holy basil", zh: "炒打抛叶", ru: "Со священным базиликом", th: "ปลาผัดกะเพรา", label: "฿390" },
               { id: "mango-salad", en: "Open fried fish with mango salad", zh: "香芒沙拉炸鱼", ru: "С манговым салатом", th: "ปลาทอดราดมะม่วง", label: "฿400" },
               { id: "ginger", en: "Fried ginger sauce", zh: "姜汁炒", ru: "С имбирным соусом", th: "ปลาผัดขิง", label: "฿390" },
               { id: "steam-ginger", en: "Steamed ginger soya", zh: "姜丝豉油蒸", ru: "На пару с имбирём и соей", th: "ปลานึ่งซีอิ๊ว", label: "฿400" },
-              { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "ปลานึ่งมะนาว", label: "฿380" },
+              { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "ปลานึ่งมะนาว", label: "฿380", hot: true },
               { id: "aioli", en: "Aioli fish", zh: "蒜泥蛋黄酱", ru: "Айоли", th: "ปลาไอลีโอลี", label: "฿350" },
               { id: "filet", en: "Mr.Jeff fish filet", zh: "Mr.Jeff 鱼排", ru: "Филе Mr.Jeff", th: "มิสเตอร์เจฟ", label: "฿400" }
             ] },
-          { id: "crab-catch", label: "฿120 / 100g", img: PHOTO + "shop-crab-curry.jpg?v=mj24",
+          { id: "crab-catch", label: "฿120 / 100g", img: PHOTO + "shop-crab-curry.jpg?v=mj32",
             nameEn: "Crab & King Crab", nameZh: "螃蟹 / 帝王蟹", nameRu: "Краб и камчатский краб",
             descEn: "Fresh catch, weighed at the ice chest. Pick your cooking style.",
             descZh: "冰柜现挑现称，做法自己选。",
             descRu: "Свежий улов, взвесим у ледника. Способ приготовления на выбор.",
             methods: [
-              { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "ปูเผา" },
-              { id: "curry-powder", en: "Curry powder", zh: "咖喱粉炒", ru: "С карри-порошком", th: "ปูผัดผงกะหรี่" },
+              { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "ปูเผา", hot: true },
+              { id: "curry-powder", en: "Curry powder", zh: "咖喱粉炒", ru: "С карри-порошком", th: "ปูผัดผงกะหรี่", hot: true },
               { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареный с чесноком", th: "ปูทอดกระเทียม" },
               { id: "garlic-pepper", en: "Fried garlic pepper", zh: "蒜蓉胡椒炸", ru: "С чесноком и перцем", th: "ปูทอดกระเทียมพริกไทย" },
               { id: "chilli-paste", en: "Chilli pasta", zh: "炒辣椒膏", ru: "С пастой чили", th: "ปูผัดพริกเผา" },
               { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "ปูนึ่งมะนาว" },
               { id: "panang", en: "Panang curry", zh: "帕能咖喱", ru: "Пананг карри", th: "ปูผัดซอสพะแนง" },
               { id: "holy-basil", en: "Fried holy basil", zh: "炒打抛叶", ru: "Со священным базиликом", th: "ปูผัดกะเพรา" },
-              { id: "black-pepper", en: "Black pepper", zh: "黑胡椒炒", ru: "С чёрным перцем", th: "ปูผัดพริกไทยดำ" }
+              { id: "black-pepper", en: "Black pepper", zh: "黑胡椒炒", ru: "С чёрным перцем", th: "ปูผัดพริกไทยดำ", hot: true }
             ] }
         ],
         steak: [
-          { id: "steak-board", label: "฿300–450", img: PHOTO + "menu-steak.jpg?v=mj31",
+          { id: "steak-board", label: "฿300–450", img: PHOTO + "menu-steak.jpg?v=mj32",
             nameEn: "Steak", nameZh: "牛排", nameRu: "Стейк",
             descEn: "From the steak board. Pick a cut.",
             descZh: "按牛排海报点，选一种。",
@@ -1465,9 +1477,13 @@
         document.getElementById("method-photo").src = dish.img;
         document.getElementById("method-name").textContent = itemName(dish);
         document.getElementById("method-price").textContent = priceLabel(dish);
-        document.getElementById("method-grid").innerHTML = dish.methods.map(function (m) {
+        // House picks ride at the top of the sheet.
+        var ordered = dish.methods.slice().sort(function (a, b) { return (b.hot ? 1 : 0) - (a.hot ? 1 : 0); });
+        var hotTag = escapeHtml(t({ en: "House pick", zh: "招牌", ru: "Хит" }));
+        document.getElementById("method-grid").innerHTML = ordered.map(function (m) {
           var q = qtyOf(dish.id + "::" + m.id);
-          return "<div class=\"method-chip" + (q ? " is-on" : "") + "\" data-method=\"" + m.id + "\">" +
+          return "<div class=\"method-chip" + (q ? " is-on" : "") + (m.hot ? " is-hot" : "") + "\" data-method=\"" + m.id + "\">" +
+            (m.hot ? "<span class=\"method-tag\">" + hotTag + "</span>" : "") +
             "<span class=\"method-en\">" + escapeHtml(m.en) + "</span>" +
             (lang === "en" ? "" : "<span class=\"method-local\">" + escapeHtml(lang === "zh" ? m.zh : m.ru) + "</span>") +
             "<span class=\"method-th\">" + escapeHtml(m.th) + "</span>" +
