@@ -273,13 +273,31 @@
       cursor: pointer;
       touch-action: pan-y;
       mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+      -webkit-overflow-scrolling: touch;
     }
     .cat-track {
       display: flex;
       width: max-content;
       animation: cat-drift 38s linear infinite;
     }
-    .cat-rail.is-paused .cat-track { animation-play-state: paused; }
+    /* After a tap, freeze the ticker and let the finger pan the pills. */
+    .cat-rail.is-paused {
+      overflow-x: auto;
+      overflow-y: hidden;
+      touch-action: pan-x;
+      cursor: grab;
+      scrollbar-width: none;
+      mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    }
+    .cat-rail.is-paused::-webkit-scrollbar { display: none; }
+    .cat-rail.is-paused .cat-track {
+      animation: none;
+      transform: none;
+      padding: 0 1.25rem;
+      gap: 0.35rem;
+      min-width: 100%;
+      justify-content: flex-start;
+    }
     .cat-pill {
       flex: 0 0 auto;
       padding: 0 1.15rem;
@@ -615,12 +633,33 @@
     .social-btn.wa:hover { background: #1ebe5a; border-color: #25D366; }
     .social-btn.line { border-color: rgba(6,199,85,0.55); background: #06C755; color: #fff; }
     .social-btn.line:hover { background: #05b34c; border-color: #06C755; }
-    .tag-chip {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      padding: 0.38rem 0.8rem; border-radius: 999px;
-      border: 1px solid rgba(212,175,55,0.32);
-      color: rgba(236,230,212,0.82);
-      font-size: 0.78rem; letter-spacing: 0.03em;
+    .foot-notes {
+      margin: 1.4rem auto 0;
+      max-width: 28rem;
+      text-align: left;
+    }
+    .foot-note {
+      display: grid;
+      grid-template-columns: 6.5rem 1fr;
+      gap: 0.85rem;
+      padding: 0.85rem 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.18);
+    }
+    .foot-note:last-child { border-bottom: 1px solid rgba(212, 175, 55, 0.18); }
+    .foot-note dt {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(212, 175, 55, 0.78);
+      padding-top: 0.12rem;
+    }
+    .foot-note dd {
+      margin: 0;
+      font-family: "Lora", "Noto Sans SC", serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(236, 230, 212, 0.78);
     }
     .desk-nav { display: none; }
     @media (min-width: 768px) {
@@ -959,18 +998,25 @@
         </a>
       </div>
 
-      <h2 class="foot-kicker mt-12" data-en="Good to know" data-zh="到店须知" data-ru="Полезно знать">到店须知</h2>
-      <div class="mt-5 flex flex-wrap justify-center gap-2">
-        <span class="tag-chip"><span aria-hidden="true">🏳️‍🌈</span><span data-en="LGBTQ+ welcome" data-zh="LGBTQ+ 友好" data-ru="ЛГБТК+ френдли">LGBTQ+ 友好</span></span>
-        <span class="tag-chip"><span aria-hidden="true">🐾</span><span data-en="Pet friendly" data-zh="可带宠物" data-ru="Можно с питомцами">可带宠物</span></span>
-        <span class="tag-chip"><span aria-hidden="true">🥡</span><span data-en="Takeaway" data-zh="可打包外带" data-ru="Еда навынос">可打包外带</span></span>
-        <span class="tag-chip"><span aria-hidden="true">🛵</span><span data-en="Delivery" data-zh="可外送" data-ru="Доставка">可外送</span></span>
-        <span class="tag-chip"><span aria-hidden="true">🌤</span><span data-en="Outdoor seating" data-zh="户外座位" data-ru="Места на улице">户外座位</span></span>
-        <span class="tag-chip"><span aria-hidden="true">📶</span><span data-en="Free Wi-Fi" data-zh="免费 Wi-Fi" data-ru="Бесплатный Wi-Fi">免费 Wi-Fi</span></span>
-        <span class="tag-chip"><span aria-hidden="true">👨‍👩‍👧</span><span data-en="Kid friendly" data-zh="适合带孩子" data-ru="Можно с детьми">适合带孩子</span></span>
-        <span class="tag-chip"><span aria-hidden="true">📅</span><span data-en="Reservations" data-zh="可预订" data-ru="Бронирование">可预订</span></span>
-        <span class="tag-chip"><span aria-hidden="true">💵</span><span data-en="Cash only" data-zh="只收现金" data-ru="Только наличные">只收现金</span></span>
-      </div>
+      <h2 class="foot-kicker mt-12" data-en="At the shack" data-zh="到店小记" data-ru="У шалаша">到店小记</h2>
+      <dl class="foot-notes">
+        <div class="foot-note">
+          <dt data-en="Pay" data-zh="结账" data-ru="Оплата">结账</dt>
+          <dd data-en="Cash only — the kitchen confirms weight at the ice chest." data-zh="只收现金。海鲜在门口冰柜现称，厨房再确认。" data-ru="Только наличные. Вес подтверждаем у ледника.">只收现金。海鲜在门口冰柜现称，厨房再确认。</dd>
+        </div>
+        <div class="foot-note">
+          <dt data-en="Chat" data-zh="聊天" data-ru="Чат">聊天</dt>
+          <dd data-en="LINE for locals, WhatsApp for visitors — send the order ahead if you like." data-zh="本地用 LINE，游客用 WhatsApp。想提前点，发过来就好。" data-ru="LINE для местных, WhatsApp для гостей. Можно отправить заказ заранее.">本地用 LINE，游客用 WhatsApp。想提前点，发过来就好。</dd>
+        </div>
+        <div class="foot-note">
+          <dt data-en="Table" data-zh="座位" data-ru="Столик">座位</dt>
+          <dd data-en="Outdoor seats under the fans. Kids, pets, and a quiet takeaway bag are all fine." data-zh="户外风扇下的位子。带孩子、带宠物、打包带走，都行。" data-ru="Места на улице под вентиляторами. С детьми, с питомцами и на вынос — пожалуйста.">户外风扇下的位子。带孩子、带宠物、打包带走，都行。</dd>
+        </div>
+        <div class="foot-note">
+          <dt data-en="House" data-zh="店里" data-ru="Дом">店里</dt>
+          <dd data-en="Wi-Fi on request. Reservations help on busy nights — just message Mr. Jeff." data-zh="Wi-Fi 问一声就有。人多时想留位，跟 Mr. Jeff 说一声。" data-ru="Wi-Fi по просьбе. В загруженные вечера лучше написать мистеру Джеффу.">Wi-Fi 问一声就有。人多时想留位，跟 Mr. Jeff 说一声。</dd>
+        </div>
+      </dl>
 
       <p class="mt-12 text-[13px] text-parchment/45" data-en="Open every day, 13:00 – 23:00 · 137/4 Maret, Lamai, Koh Samui 84310" data-zh="每日 13:00–23:00 · 137/4 Maret，拉迈，苏梅岛 84310" data-ru="Ежедневно 13:00–23:00 · 137/4 Марет, Ламай, Самуи 84310">每日 13:00–23:00 · 137/4 Maret，拉迈，苏梅岛 84310</p>
       <p class="mt-2 text-[12px] text-parchment/35">© 2026 Mr.Jeff · PalmPages</p>
@@ -1077,7 +1123,7 @@
       var closing = {};
       var CATS = [
         { id: "seafood", en: "Seafood", zh: "海鲜", ru: "Морепродукты" },
-        { id: "rice", en: "Rice", zh: "米饭", ru: "Рис" },
+        { id: "steak", en: "Steak", zh: "牛排", ru: "Стейк" },
         { id: "pasta", en: "Pasta", zh: "意大利面", ru: "Паста" },
         { id: "drinks", en: "Drinks", zh: "饮品", ru: "Напитки" }
       ];
@@ -1139,22 +1185,26 @@
               { id: "black-pepper", en: "Black pepper", zh: "黑胡椒炒", ru: "С чёрным перцем", th: "ปูผัดพริกไทยดำ" }
             ] }
         ],
-        rice: [
-          { id: "rice-shark", label: "ask", img: PHOTO + "rice-shark.jpg?v=mj25",
-            nameEn: "Shark Steak Rice", nameZh: "鲨鱼排饭", nameRu: "Стейк акулы с рисом",
-            descEn: "Grilled shark steak, fried rice, and two sauces.",
-            descZh: "烤鲨鱼排，配炒饭和两碟酱。",
-            descRu: "Стейк акулы на гриле, жареный рис и два соуса." },
-          { id: "rice-salmon", label: "ask", img: PHOTO + "rice-salmon.jpg?v=mj25",
-            nameEn: "Salmon Steak Rice", nameZh: "三文鱼排饭", nameRu: "Стейк лосося с рисом",
-            descEn: "Grilled salmon under a cream sauce, with fried rice.",
-            descZh: "烤三文鱼淋奶油酱，配炒饭。",
-            descRu: "Лосось на гриле под сливочным соусом, с жареным рисом." },
-          { id: "rice-pineapple", label: "ask", img: PHOTO + "rice-pineapple.jpg?v=mj25",
-            nameEn: "Pineapple Rice", nameZh: "菠萝饭", nameRu: "Рис в ананасе",
-            descEn: "Fried rice in a pineapple, with prawns and cashews.",
-            descZh: "菠萝船炒饭，配大虾和腰果。",
-            descRu: "Жареный рис в ананасе, с креветками и кешью." }
+        steak: [
+          { id: "steak-board", label: "฿300–450", img: PHOTO + "menu-steak.jpg?v=mj31",
+            nameEn: "Steak", nameZh: "牛排", nameRu: "Стейк",
+            descEn: "From the steak board. Pick a cut.",
+            descZh: "按牛排海报点，选一种。",
+            descRu: "Со стейк-меню. Выберите нарезку.",
+            methods: [
+              { id: "beef", en: "Beef steak", zh: "牛肉扒", ru: "Говяжий стейк", th: "สเต็กเนื้อ", label: "฿450" },
+              { id: "chicken-bread", en: "Chicken bread", zh: "鸡肉面包扒", ru: "Куриный стейк с хлебом", th: "สเต็กขนมปัง", label: "฿300" },
+              { id: "pork-fillet", en: "Pork fillet", zh: "猪里脊扒", ru: "Свиное филе", th: "สเต็กหมู", label: "฿300" },
+              { id: "salmon", en: "Salmon steak", zh: "三文鱼扒", ru: "Стейк лосося", th: "สเต็กแซลมอน", label: "฿420" },
+              { id: "chicken-panang", en: "Chicken panang skewer", zh: "帕能鸡肉串", ru: "Куриный шашлык пананг", th: "สเต็กไก่พะแนง", label: "฿350" },
+              { id: "beef-skewer", en: "Beef skewer", zh: "牛肉串", ru: "Говяжий шашлык", th: "สเต็กเนื้อ", label: "฿400" },
+              { id: "chicken-beef-skewer", en: "Chicken and beef skewer", zh: "鸡肉牛肉串", ru: "Шашлык из курицы и говядины", th: "สเต็กเนื้อและไก่", label: "฿450" },
+              { id: "duck", en: "Duck breast", zh: "鸭胸", ru: "Утиная грудка", th: "สเต็กเป็ด", label: "฿400" },
+              { id: "barracuda", en: "Barracuda steak", zh: "梭鱼扒", ru: "Стейк барракуды", th: "สเต็กปลากะพงดำ", label: "฿380" },
+              { id: "shark", en: "Shark steak", zh: "鲨鱼扒", ru: "Стейк акулы", th: "สเต็กปลาฉลาม", label: "฿400" },
+              { id: "pork-ribs", en: "Pork pairing ribs (BBQ)", zh: "BBQ 猪肋排", ru: "Свиные рёбра BBQ", th: "สเต็กซี่โครงหมู", label: "฿400" },
+              { id: "tuna", en: "Tuna steak", zh: "金枪鱼扒", ru: "Стейк тунца", th: "ทูน่าสเต็ก", label: "฿400" }
+            ] }
         ],
         pasta: [
           { id: "pasta-spaghetti", label: "฿200–380", img: PHOTO + "pasta-meatballs.jpg?v=mj28",
@@ -1307,7 +1357,8 @@
         }).join("");
         var track = document.querySelector("#cat-rail .cat-track");
         track.innerHTML = group;
-        if (!deskMq.matches) {
+        // While paused the rail is a manual scroller — one set of pills is enough.
+        if (!deskMq.matches && !document.getElementById("cat-rail").classList.contains("is-paused")) {
           // The loop resets at -50%, so each half of the track must outrun the viewport.
           var per = Math.max(1, Math.ceil(window.innerWidth / Math.max(track.scrollWidth, 1)));
           track.innerHTML = new Array(per * 2 + 1).join(group);
@@ -1511,6 +1562,7 @@
       var catSwipeX = 0;
       var catSwiping = false;
       var catDidSwipe = false;
+      var catScrollLeft = 0;
       function burstBubbles(e) {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         var ring = document.createElement("span");
@@ -1533,6 +1585,11 @@
           setTimeout(function (el) { el.remove(); }, 780, b);
         }
       }
+      function pauseCatRail() {
+        if (deskMq.matches || catRail.classList.contains("is-paused")) return;
+        catRail.classList.add("is-paused");
+        renderCats();
+      }
       function pickCat(id, evt) {
         if (!id) return;
         active = id;
@@ -1546,40 +1603,45 @@
           setTimeout(function () { catJumping = false; }, 700);
           return;
         }
-        catRail.classList.add("is-paused");
+        pauseCatRail();
         renderCats();
         renderMenu();
       }
-      // Desktop: click only. Phone: tap pauses the ticker; a sideways drag starts it again.
+      // Desktop: click only. Phone: tap freezes the ticker into a scroll strip;
+      // sideways drag pans the pills while paused (does not start the ticker again).
       catRail.addEventListener("pointerdown", function (e) {
         if (deskMq.matches) return;
         catSwipeX = e.clientX;
+        catScrollLeft = catRail.scrollLeft;
         catSwiping = true;
         catDidSwipe = false;
-        try { catRail.setPointerCapture(e.pointerId); } catch (err) {}
+        if (!catRail.classList.contains("is-paused")) {
+          try { catRail.setPointerCapture(e.pointerId); } catch (err) {}
+        }
       });
       catRail.addEventListener("pointermove", function (e) {
         if (deskMq.matches || !catSwiping) return;
-        if (Math.abs(e.clientX - catSwipeX) > 24) {
-          catDidSwipe = true;
-          catRail.classList.remove("is-paused");
+        var dx = e.clientX - catSwipeX;
+        if (Math.abs(dx) <= 10) return;
+        catDidSwipe = true;
+        if (!catRail.classList.contains("is-paused")) {
+          // First sideways drag freezes the marquee into a pan strip.
+          pauseCatRail();
+          catScrollLeft = catRail.scrollLeft;
         }
+        catRail.scrollLeft = catScrollLeft - dx;
       });
       ["pointerup", "pointercancel"].forEach(function (ev) {
         catRail.addEventListener(ev, function () {
           if (deskMq.matches) return;
           catSwiping = false;
-          if (catDidSwipe) {
-            catRail.classList.remove("is-paused");
-            setTimeout(function () { catDidSwipe = false; }, 0);
-          }
+          if (catDidSwipe) setTimeout(function () { catDidSwipe = false; }, 0);
         });
       });
       catRail.addEventListener("click", function (e) {
         if (!deskMq.matches && catDidSwipe) {
           e.preventDefault();
           e.stopPropagation();
-          catRail.classList.remove("is-paused");
           return;
         }
         var btn = e.target.closest("[data-cat]");
