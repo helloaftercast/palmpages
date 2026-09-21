@@ -169,30 +169,14 @@
       color: #ECE6D4;
     }
     .hero-title {
-      align-self: stretch;
-      width: 100vw;
-      margin: 1.3rem calc(50% - 50vw) 0;
-      overflow: hidden;
-      cursor: pointer;
+      margin: 1.1rem 0 0;
       font-family: "Playfair Display", Georgia, serif;
       font-weight: 500;
-      font-size: clamp(3.4rem, 17vw, 170px);
-      letter-spacing: 2px;
+      font-size: clamp(2.6rem, 7vw, 60px);
+      letter-spacing: 4px;
       line-height: 1.05;
       text-transform: uppercase;
       color: #fff;
-      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: hero-marquee 26s linear infinite;
-    }
-    .hero-title.is-paused .marquee-track { animation-play-state: paused; }
-    .marquee-word { flex: none; padding: 0 0.28em; }
-    @keyframes hero-marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
     }
     .hero-sub {
       margin: 1rem 0 0;
@@ -221,16 +205,19 @@
     .logo-deco .logo-dot { display: block; position: relative; z-index: 2; }
     .logo-garland {
       position: absolute; z-index: 1; pointer-events: none;
-      left: 50%; top: 36px; width: 78px; margin-left: -39px;
+      left: 50%; top: 42px; width: 88px; margin-left: -44px;
       overflow: visible;
     }
     .logo-garland .wire { fill: none; stroke: rgba(111,216,206,0.75); stroke-width: 1.1; stroke-linecap: round; }
     .logo-garland .string { stroke: rgba(126,184,212,0.6); stroke-width: 0.8; }
-    .logo-garland .charm { filter: drop-shadow(0 0 3px rgba(111,216,206,0.9)); }
-    .logo-garland .bead {
-      fill: #A8F0E4;
-      filter: drop-shadow(0 0 4px rgba(111,216,206,0.95));
-      animation: bead-twinkle 2.6s ease-in-out infinite;
+    .logo-garland .charm { filter: drop-shadow(0 0 2px rgba(111,216,206,0.5)); }
+    .logo-garland .charm.lit {
+      filter: drop-shadow(0 0 2.5px rgba(168,240,228,0.95)) drop-shadow(0 0 7px rgba(111,216,206,0.65));
+      animation: charm-flicker 5.2s linear infinite;
+    }
+    .logo-garland .charm.dim { opacity: 0.55; filter: none; }
+    .logo-garland .charm.warm {
+      filter: drop-shadow(0 0 2.5px rgba(255,196,92,0.95)) drop-shadow(0 0 8px rgba(255,140,60,0.6));
     }
     .logo-garland .swing {
       transform-box: fill-box;
@@ -238,12 +225,18 @@
       animation: charm-sway 3.6s ease-in-out infinite alternate;
     }
     @keyframes charm-sway {
-      from { transform: rotate(-7deg); }
-      to { transform: rotate(7deg); }
+      from { transform: rotate(-6deg); }
+      to { transform: rotate(6deg); }
     }
-    @keyframes bead-twinkle {
-      0%, 100% { opacity: 0.45; }
-      50% { opacity: 1; }
+    @keyframes charm-flicker {
+      0%, 100% { opacity: 1; }
+      4% { opacity: 0.5; }
+      6% { opacity: 1; }
+      9% { opacity: 0.72; }
+      11% { opacity: 1; }
+      53% { opacity: 1; }
+      55% { opacity: 0.45; }
+      57% { opacity: 1; }
     }
     .top-nav a {
       font-family: "Lora", serif;
@@ -268,24 +261,27 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      display: flex;
-      justify-content: center;
-      padding: 0.85rem 0.75rem 0;
+      width: 100vw;
+      margin: 0 calc(50% - 50vw);
+      padding: 0.85rem 0 0;
       background: #ECE6D4;
     }
     .cat-rail {
-      display: flex;
-      gap: 1.15rem;
-      overflow-x: auto;
-      max-width: 100%;
-      padding: 0.65rem 1.2rem;
-      border-radius: 50px;
+      overflow: hidden;
+      padding: 0.7rem 0;
       background: #B39C56;
-      scrollbar-width: none;
+      cursor: pointer;
+      mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
     }
-    .cat-rail::-webkit-scrollbar { display: none; }
+    .cat-track {
+      display: flex;
+      width: max-content;
+      animation: cat-drift 38s linear infinite;
+    }
+    .cat-rail.is-paused .cat-track { animation-play-state: paused; }
     .cat-pill {
       flex: 0 0 auto;
+      padding: 0 1.15rem;
       font-family: "Lora", serif;
       font-size: 14px;
       font-weight: 500;
@@ -294,12 +290,18 @@
       color: #fff;
       background: none;
       border: 0;
-      opacity: 0.72;
+      opacity: 0.68;
+      transition: opacity 0.2s ease;
     }
-    .cat-pill.is-on { opacity: 1; }
+    .cat-pill.is-on { opacity: 1; text-decoration: underline; text-underline-offset: 5px; }
+    @keyframes cat-drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
     .section-kicker {
       font-family: "Playfair Display", Georgia, serif;
-      font-size: 30px;
+      font-size: 24px;
+      line-height: 24px;
       font-weight: 400;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -410,15 +412,15 @@
       white-space: nowrap;
     }
     .dish-name {
-      margin-top: 1.35rem;
+      margin-top: 20px;
       font-family: "Playfair Display", Georgia, serif;
       font-size: 24px;
       font-weight: 500;
-      line-height: 1.15;
+      line-height: 24px;
       color: #040809;
     }
     .dish-desc {
-      margin-top: 0.55rem;
+      margin-top: 0.5rem;
       font-family: "Lora", "Noto Sans SC", serif;
       font-size: 16px;
       line-height: 20.8px;
@@ -428,7 +430,7 @@
       margin-right: auto;
     }
     .dish-price {
-      margin-top: 0.55rem;
+      margin-top: 0.4rem;
       font-size: 20px;
       line-height: 23.8px;
       color: #040809;
@@ -536,7 +538,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .logo-garland .swing, .logo-garland .bead, .marquee-track, .bubble-out .pv-line {
+      .logo-garland .swing, .logo-garland .charm, .cat-track, .bubble-out .pv-line {
         animation: none; opacity: 1; transform: none;
       }
     }
@@ -556,42 +558,42 @@
     <div class="absolute top-5 left-5 z-20">
       <a href="#home" class="logo-deco inline-block" aria-label="Mr.Jeff">
         <span class="logo-dot"><img src="photos/logo-avatar.jpg" alt=""></span>
-        <svg class="logo-garland" viewBox="0 0 78 42" width="78" height="42" aria-hidden="true">
+        <svg class="logo-garland" viewBox="0 0 78 44" width="88" height="50" aria-hidden="true">
           <defs>
             <g id="mj-fish">
-              <path fill="#6FD8CE" d="M -4 0 q 4 -3.6 8 0 q -4 3.6 -8 0 z"></path>
-              <path fill="#6FD8CE" d="M 4 0 l 3.4 -2.6 v 5.2 z"></path>
+              <path fill="currentColor" d="M -4 0 q 4 -3.6 8 0 q -4 3.6 -8 0 z"></path>
+              <path fill="currentColor" d="M 4 0 l 3.4 -2.6 v 5.2 z"></path>
               <circle fill="#0b2a33" cx="-1.6" cy="-0.6" r="0.6"></circle>
             </g>
             <g id="mj-shell">
-              <path fill="#7EB8D4" d="M 0 -3.4 L -4 1.4 Q 0 5.4 4 1.4 Z"></path>
-              <path fill="none" stroke="rgba(11,42,51,0.4)" stroke-width="0.5" d="M 0 -3.4 L -2.2 2.2 M 0 -3.4 L 0 3.4 M 0 -3.4 L 2.2 2.2"></path>
+              <path fill="currentColor" d="M 0 -3.4 L -4 1.4 Q 0 5.4 4 1.4 Z"></path>
+              <path fill="none" stroke="rgba(11,42,51,0.38)" stroke-width="0.5" d="M 0 -3.4 L -2.2 2.2 M 0 -3.4 L 0 3.4 M 0 -3.4 L 2.2 2.2"></path>
             </g>
           </defs>
           <path class="wire" d="M 4 4 Q 39 30 74 4"></path>
-          <circle class="bead" cx="22.2" cy="14" r="1" style="animation-delay:0s"></circle>
-          <circle class="bead" cx="33.4" cy="16.7" r="1" style="animation-delay:0.5s"></circle>
-          <circle class="bead" cx="44.6" cy="16.7" r="1" style="animation-delay:1s"></circle>
-          <circle class="bead" cx="55.8" cy="14" r="1" style="animation-delay:1.5s"></circle>
-          <g transform="translate(16.6 11.7)"><g class="swing" style="animation-delay:0s">
-            <line class="string" x1="0" y1="0" x2="0" y2="7"></line>
-            <use class="charm" href="#mj-fish" transform="translate(-1.4 10) scale(0.8)"></use>
+          <g transform="translate(11 8.7)"><g class="swing" style="animation-duration:3.2s">
+            <line class="string" x1="0" y1="0" x2="0" y2="5"></line>
+            <circle class="charm lit warm" cx="0" cy="6.5" r="1.6" fill="#FFC45C" style="animation-delay:0.4s"></circle>
           </g></g>
-          <g transform="translate(27.8 15.7)"><g class="swing" style="animation-delay:0.4s">
+          <g transform="translate(20.8 13.5)"><g class="swing" style="animation-duration:4.1s;animation-delay:0.6s">
+            <line class="string" x1="0" y1="0" x2="0" y2="11"></line>
+            <use class="charm" href="#mj-fish" color="#6FD8CE" transform="translate(-1.3 13.2) scale(0.75)"></use>
+          </g></g>
+          <g transform="translate(32 16.5)"><g class="swing" style="animation-duration:3.6s;animation-delay:0.2s">
+            <line class="string" x1="0" y1="0" x2="0" y2="6"></line>
+            <use class="charm lit" href="#mj-shell" color="#9FE8F5" transform="translate(0 9.1) scale(0.9)" style="animation-delay:1.9s"></use>
+          </g></g>
+          <g transform="translate(42.5 16.9)"><g class="swing" style="animation-duration:4.6s;animation-delay:0.9s">
+            <line class="string" x1="0" y1="0" x2="0" y2="14"></line>
+            <use class="charm lit" href="#mj-fish" color="#A8F0E4" transform="translate(-1.6 16.9) scale(0.95)" style="animation-delay:0s"></use>
+          </g></g>
+          <g transform="translate(53 14.9)"><g class="swing" style="animation-duration:3s;animation-delay:1.3s">
             <line class="string" x1="0" y1="0" x2="0" y2="8.5"></line>
-            <use class="charm" href="#mj-shell" transform="translate(0 11.7) scale(0.8)"></use>
+            <circle class="charm lit warm" cx="0" cy="9.8" r="1.3" fill="#FF8A5C" style="animation-delay:2.7s"></circle>
           </g></g>
-          <g transform="translate(39 17)"><g class="swing" style="animation-delay:0.8s">
-            <line class="string" x1="0" y1="0" x2="0" y2="10"></line>
-            <use class="charm" href="#mj-fish" transform="translate(-1.4 13) scale(0.8)"></use>
-          </g></g>
-          <g transform="translate(50.2 15.7)"><g class="swing" style="animation-delay:1.2s">
-            <line class="string" x1="0" y1="0" x2="0" y2="8.5"></line>
-            <use class="charm" href="#mj-shell" transform="translate(0 11.7) scale(0.8)"></use>
-          </g></g>
-          <g transform="translate(61.4 11.7)"><g class="swing" style="animation-delay:1.6s">
-            <line class="string" x1="0" y1="0" x2="0" y2="7"></line>
-            <use class="charm" href="#mj-fish" transform="translate(-1.4 10) scale(0.8)"></use>
+          <g transform="translate(65.6 9.5)"><g class="swing" style="animation-duration:3.9s;animation-delay:0.4s">
+            <line class="string" x1="0" y1="0" x2="0" y2="9"></line>
+            <use class="charm dim" href="#mj-shell" color="#7EB8D4" transform="translate(0 11.4) scale(0.7)"></use>
           </g></g>
         </svg>
       </a>
@@ -612,16 +614,7 @@
     </div>
     <div class="hero-copy">
       <p class="brand-mark">Mr.Jeff</p>
-      <h1 class="hero-title" id="hero-title" role="button" tabindex="0" aria-label="Food Menu" data-marquee>
-        <span class="marquee-track">
-          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</span>
-          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
-          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
-          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
-          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
-          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
-        </span>
-      </h1>
+      <h1 class="hero-title" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</h1>
       <p class="hero-sub" data-en="Roadside shack energy — ice chest out front, grill in the back, Mr. Jeff at the door." data-zh="路边排档的劲儿——门口冰柜，后厨炭火，Mr. Jeff 在门边。" data-ru="Придорожный шалаш — ледник у входа, гриль сзади, мистер Джефф у двери.">路边排档的劲儿——门口冰柜，后厨炭火，Mr. Jeff 在门边。</p>
       <p class="hero-meta" data-en="137/4 Maret, Lamai — near Coco Splash · Open daily 13:00 – 23:00 · LINE + WhatsApp · +66 62 045 4983" data-zh="137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983" data-ru="137/4 Марет, Ламай — рядом с Coco Splash · Ежедневно 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983">137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983</p>
       <a href="#menu" class="wa-pill chat-btn" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp">Order via WhatsApp</a>
@@ -631,7 +624,7 @@
   <main>
     <section id="menu" class="max-w-[1400px] mx-auto px-4 sm:px-8 pt-10 pb-16">
       <div class="cat-bar">
-        <nav id="cat-rail" class="cat-rail" aria-label="Menu categories"></nav>
+        <nav id="cat-rail" class="cat-rail" aria-label="Menu categories"><span class="cat-track"></span></nav>
       </div>
       <h2 id="cat-title" class="section-kicker mt-12">Seafood</h2>
       <div id="dish-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-16"></div>
@@ -642,19 +635,19 @@
       <h2 class="section-kicker" data-en="How it works" data-zh="点单流程" data-ru="Как заказать">点单流程</h2>
       <ol class="mt-12 space-y-8 md:space-y-0 md:grid md:grid-cols-4 md:gap-8">
         <li>
-          <h3 class="font-serif text-[24px] font-medium" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">挑海鲜</h3>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">挑海鲜</h3>
           <p class="mt-2 text-[16px] leading-[20.8px]" data-en="King lobster, prawns, fish, mussels, crab — priced when the kitchen weighs it." data-zh="帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。" data-ru="Королевский лобстер, креветки, рыба, мидии, краб — цена по весу на кухне.">帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。</p>
         </li>
         <li>
-          <h3 class="font-serif text-[24px] font-medium" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">说做法</h3>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">说做法</h3>
           <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Grilled, fried, BBQ, steamed, or curry powder sauce — the crab curry powder is a house favourite." data-zh="烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。" data-ru="Гриль, жарка, барбекю, на пару или с карри-порошком — краб с карри любим гостями.">烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。</p>
         </li>
         <li>
-          <h3 class="font-serif text-[24px] font-medium" data-en="Add Thai sides" data-zh="加泰式配菜" data-ru="Тайские гарниры">加泰式配菜</h3>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Add Thai sides" data-zh="加泰式配菜" data-ru="Тайские гарниры">加泰式配菜</h3>
           <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Pad Thai, seaweed salad, fried rice — ask Mr. Jeff for today’s price." data-zh="泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。" data-ru="Пад тай, салат из морских водорослей, жареный рис — цену уточняйте у мистера Джеффа.">泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。</p>
         </li>
         <li>
-          <h3 class="font-serif text-[24px] font-medium" data-en="Pay cash" data-zh="现金结账" data-ru="Оплата наличными">现金结账</h3>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Pay cash" data-zh="现金结账" data-ru="Оплата наличными">现金结账</h3>
           <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Send the order ahead on LINE or WhatsApp; weight and price confirmed by the kitchen. Cash only at the till." data-zh="提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。" data-ru="Отправьте заказ в LINE или WhatsApp; кухня подтвердит вес и цену. На месте только наличные.">提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。</p>
         </li>
       </ol>
@@ -1003,9 +996,14 @@
       }
       function catName(cat) { return lang === "zh" ? cat.zh : (lang === "ru" ? cat.ru : cat.en); }
       function renderCats() {
-        document.getElementById("cat-rail").innerHTML = CATS.map(function (cat) {
+        var group = CATS.map(function (cat) {
           return "<button type=\"button\" class=\"cat-pill" + (cat.id === active ? " is-on" : "") + "\" data-cat=\"" + cat.id + "\">" + catName(cat) + "</button>";
         }).join("");
+        var track = document.querySelector("#cat-rail .cat-track");
+        track.innerHTML = group;
+        // The loop resets at -50%, so each half of the track must outrun the viewport.
+        var per = Math.max(1, Math.ceil(window.innerWidth / Math.max(track.scrollWidth, 1)));
+        track.innerHTML = new Array(per * 2 + 1).join(group);
         var on = CATS.find(function (c) { return c.id === active; });
         document.getElementById("cat-title").textContent = on ? catName(on) : "";
       }
@@ -1132,7 +1130,11 @@
         btn.classList.remove("is-fly"); void btn.offsetWidth; btn.classList.add("is-fly");
         setTimeout(function () { window.open(href, "_blank", "noopener"); btn.classList.remove("is-fly"); closePreview(); toast(); }, 820);
       }
-      document.getElementById("cat-rail").addEventListener("click", function (e) {
+      var catRail = document.getElementById("cat-rail");
+      // Stop the drift on the first touch so the pill stays put under the finger.
+      catRail.addEventListener("pointerdown", function () { catRail.classList.add("is-paused"); });
+      catRail.addEventListener("click", function (e) {
+        catRail.classList.add("is-paused");
         var btn = e.target.closest("[data-cat]");
         if (!btn) return;
         active = btn.getAttribute("data-cat");
@@ -1181,16 +1183,6 @@
       applyLang("zh");
     })();
 
-    /* Hero title scrolls until the visitor taps it */
-    (function () {
-      var title = document.getElementById("hero-title");
-      if (!title) return;
-      function toggle() { title.classList.toggle("is-paused"); }
-      title.addEventListener("click", toggle);
-      title.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
-      });
-    })();
 
     /* Hero flash-in: pan the photo, glow the sign, then settle */
     (function () {
