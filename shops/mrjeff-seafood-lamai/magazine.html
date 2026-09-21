@@ -305,6 +305,66 @@
       border-color: #D4AF37;
       box-shadow: 0 0 0 2px #D4AF37;
     }
+    .drink-sheet { display: flex; flex-direction: column; gap: 2.4rem; }
+    .drink-group { display: flex; flex-direction: column; }
+    .drink-kicker {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0 0 0.4rem;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #040809;
+    }
+    .drink-kicker::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: #A6843D;
+    }
+    .drink-row {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.85rem 0;
+      border: 0;
+      border-bottom: 1px solid rgba(4, 8, 9, 0.12);
+      background: none;
+      text-align: left;
+      cursor: pointer;
+    }
+    .drink-row.is-added .drink-name { color: #5F7A63; }
+    .drink-name {
+      display: block;
+      font-family: "Lora", serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: #040809;
+    }
+    .drink-note {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: "Lora", serif;
+      font-size: 14px;
+      line-height: 1.45;
+      color: rgba(4, 8, 9, 0.55);
+    }
+    .drink-price {
+      flex-shrink: 0;
+      padding-top: 0.15rem;
+      font-family: "Lora", serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #8A6A2F;
+      white-space: nowrap;
+    }
     .dish-name {
       margin-top: 1.35rem;
       font-family: "Playfair Display", Georgia, serif;
@@ -672,18 +732,29 @@
             descRu: "Лобстер, креветки и моллюски, с жареным рисом." }
         ],
         drinks: [
-          { id: "dr-coconut", label: "ask", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Fresh Coconut", nameZh: "新鲜椰子", nameRu: "Свежий кокос",
-            descEn: "", descZh: "", descRu: "" },
-          { id: "dr-tea", label: "ask", img: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Thai Iced Tea", nameZh: "泰式冰茶", nameRu: "Тайский чай со льдом",
-            descEn: "", descZh: "", descRu: "" },
-          { id: "dr-shake", label: "ask", img: "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Fruit Shake", nameZh: "鲜榨果汁", nameRu: "Фруктовый шейк",
-            descEn: "Mango, pineapple or watermelon.", descZh: "芒果、菠萝或西瓜。", descRu: "Манго, ананас или арбуз." },
-          { id: "dr-beer", label: "ask", img: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
-            nameEn: "Local Beer", nameZh: "本地啤酒", nameRu: "Местное пиво",
-            descEn: "Singha or Chang, cold from the ice.", descZh: "胜狮或象牌，冰镇。", descRu: "Сингха или Чанг, ледяное." }
+          { id: "dr-tipunch", group: "cocktail", label: "฿150", nameEn: "Ti Punch", nameZh: "Ti Punch", nameRu: "Ti Punch", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-baan-issan", group: "cocktail", label: "฿150", nameEn: "Baan Issan", nameZh: "Baan Issan", nameRu: "Baan Issan", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-siam-mojito", group: "cocktail", label: "฿150", nameEn: "Siam Mojito", nameZh: "Siam Mojito", nameRu: "Siam Mojito", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-ginger", group: "cocktail", label: "฿150", nameEn: "Ginger Daiquiri", nameZh: "Ginger Daiquiri", nameRu: "Ginger Daiquiri", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-samui-libre", group: "cocktail", label: "฿150", nameEn: "Samui Libre", nameZh: "Samui Libre", nameRu: "Samui Libre", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-classic-mojito", group: "cocktail", label: "฿150", nameEn: "Classic Mojito", nameZh: "Classic Mojito", nameRu: "Classic Mojito", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-baan-samui", group: "cocktail", label: "฿150", nameEn: "Baan Samui", nameZh: "Baan Samui", nameRu: "Baan Samui", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-issan-colada", group: "cocktail", label: "฿150", nameEn: "Issan Colada", nameZh: "Issan Colada", nameRu: "Issan Colada", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-maitai", group: "cocktail", label: "฿150", nameEn: "Mai Tai", nameZh: "Mai Tai", nameRu: "Mai Tai", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-pina", group: "cocktail", label: "฿150", nameEn: "Pinacolada", nameZh: "Pinacolada", nameRu: "Pinacolada", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-sex", group: "cocktail", label: "฿150", nameEn: "Sex on The Beach", nameZh: "Sex on The Beach", nameRu: "Sex on The Beach", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-long", group: "cocktail", label: "฿150", nameEn: "Long Island", nameZh: "Long Island", nameRu: "Long Island", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-margarita", group: "cocktail", label: "฿150", nameEn: "Margarita", nameZh: "Margarita", nameRu: "Margarita", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-gin", group: "cocktail", label: "฿150", nameEn: "Gin tonic", nameZh: "Gin tonic", nameRu: "Gin tonic", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-tequila", group: "cocktail", label: "฿150", nameEn: "Tequila", nameZh: "Tequila", nameRu: "Tequila", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-sunrise", group: "cocktail", label: "฿150", nameEn: "Sunrise", nameZh: "Sunrise", nameRu: "Sunrise", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
+          { id: "dr-mojito", group: "cocktail", label: "฿150", nameEn: "Mojito", nameZh: "Mojito", nameRu: "Mojito", descEn: "Passion, strawberry or mango", descZh: "百香果、草莓或芒果", descRu: "Маракуйя, клубника или манго" },
+          { id: "dr-chang", group: "beer", label: "฿80 / 120", nameEn: "Chang", nameZh: "Chang", nameRu: "Chang", descEn: "Two prices on the menu", descZh: "菜单上两个价格", descRu: "Две цены в меню" },
+          { id: "dr-singha", group: "beer", label: "฿80 / 120", nameEn: "Singha", nameZh: "Singha", nameRu: "Singha", descEn: "Two prices on the menu", descZh: "菜单上两个价格", descRu: "Две цены в меню" },
+          { id: "dr-leo", group: "beer", label: "฿80 / 120", nameEn: "Leo", nameZh: "Leo", nameRu: "Leo", descEn: "Two prices on the menu", descZh: "菜单上两个价格", descRu: "Две цены в меню" },
+          { id: "dr-heineken", group: "beer", label: "฿100", nameEn: "Heineken", nameZh: "Heineken", nameRu: "Heineken", descEn: "Beer", descZh: "啤酒", descRu: "Пиво" },
+          { id: "dr-sanmiguel", group: "beer", label: "฿100", nameEn: "Sanmiguel Light", nameZh: "Sanmiguel Light", nameRu: "Sanmiguel Light", descEn: "Beer", descZh: "啤酒", descRu: "Пиво" },
+          { id: "dr-tiger", group: "beer", label: "฿100", nameEn: "Tiger", nameZh: "Tiger", nameRu: "Tiger", descEn: "Beer", descZh: "啤酒", descRu: "Пиво" }
         ]
       };
       var active = "seafood";
@@ -764,7 +835,32 @@
         document.getElementById("cat-title").textContent = on ? catName(on) : "";
       }
       function renderMenu() {
-        document.getElementById("dish-grid").innerHTML = MENU[active].map(function (dish) {
+        var grid = document.getElementById("dish-grid");
+        if (active === "drinks") {
+          grid.className = "drink-sheet mt-10 max-w-3xl mx-auto";
+          var titles = {
+            cocktail: { en: "Cocktail", zh: "鸡尾酒", ru: "Коктейли" },
+            beer: { en: "Beers", zh: "啤酒", ru: "Пиво" }
+          };
+          var html = "";
+          ["cocktail", "beer"].forEach(function (group) {
+            html += "<div class=\"drink-group\"><h3 class=\"drink-kicker\">" + escapeHtml(t(titles[group])) + "</h3>";
+            MENU.drinks.forEach(function (dish) {
+              if (dish.group !== group) return;
+              var q = qtyOf(dish.id);
+              var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
+              html += "<button type=\"button\" class=\"drink-row" + (q ? " is-added" : "") + "\" data-add=\"" + dish.id + "\" data-dish-id=\"" + dish.id + "\">" +
+                "<span><span class=\"drink-name\">" + escapeHtml(itemName(dish)) + (q ? " × " + q : "") + "</span>" +
+                (desc ? "<span class=\"drink-note\">" + escapeHtml(desc) + "</span>" : "") +
+                "</span><span class=\"drink-price\">" + escapeHtml(priceLabel(dish)) + "</span></button>";
+            });
+            html += "</div>";
+          });
+          grid.innerHTML = html;
+          return;
+        }
+        grid.className = "mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-16";
+        grid.innerHTML = MENU[active].map(function (dish) {
           var q = qtyOf(dish.id);
           var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
           return (
@@ -782,6 +878,14 @@
       function render() {
         var n = count();
         document.getElementById("cart-count").textContent = String(n);
+        document.querySelectorAll(".drink-row").forEach(function (row) {
+          var q = qtyOf(row.getAttribute("data-dish-id"));
+          row.classList.toggle("is-added", q > 0);
+          var name = row.querySelector(".drink-name");
+          if (!name) return;
+          var dish = findDish(row.getAttribute("data-dish-id"));
+          name.textContent = itemName(dish) + (q ? " × " + q : "");
+        });
         document.querySelectorAll(".dish-card").forEach(function (card) {
           var q = qtyOf(card.getAttribute("data-dish-id"));
           card.classList.toggle("is-added", q > 0);
