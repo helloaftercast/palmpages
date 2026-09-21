@@ -435,6 +435,14 @@
       line-height: 23.8px;
       color: #040809;
     }
+    .dish-styles {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 13px;
+      font-style: normal;
+      letter-spacing: 0.04em;
+      color: rgba(4, 8, 9, 0.5);
+    }
     .order-btn {
       margin-top: 0.85rem;
       border: 1px solid #A3C49E;
@@ -442,6 +450,70 @@
       padding: 0.35rem 0.95rem;
       font-size: 13px;
       letter-spacing: 0.06em;
+    }
+    #method-modal.method-sheet {
+      width: min(92vw, 460px);
+      max-height: 88svh;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .method-hero { position: relative; flex: none; height: 176px; }
+    .method-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .method-hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(26,26,26,0.05), rgba(36,28,18,0.94));
+    }
+    .method-cap { position: absolute; z-index: 2; left: 1.15rem; right: 1.15rem; bottom: 0.85rem; }
+    .method-x, .board-x {
+      position: absolute; z-index: 3; top: 0.6rem; right: 0.65rem;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(26,26,26,0.6); color: #F5F0EB; font-size: 1.25rem; line-height: 1;
+    }
+    .method-body { padding: 0.95rem 1.1rem 1.2rem; overflow: auto; }
+    .method-hint { font-size: 0.8rem; color: rgba(245,240,235,0.6); }
+    .method-grid { margin-top: 0.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .method-chip {
+      position: relative; text-align: left;
+      padding: 0.6rem 0.7rem; border-radius: 0.85rem;
+      border: 1px solid rgba(212,175,55,0.28); background: rgba(245,240,235,0.05);
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .method-chip.is-on { background: #748E78; border-color: #748E78; }
+    .method-en { display: block; font-family: "Lora", serif; font-size: 0.86rem; line-height: 1.25; }
+    .method-local { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: rgba(245,240,235,0.72); }
+    .method-th { display: block; margin-top: 0.1rem; font-size: 0.72rem; color: rgba(212,175,55,0.85); }
+    .method-chip.is-on .method-local, .method-chip.is-on .method-th { color: rgba(255,255,255,0.88); }
+    .method-count {
+      position: absolute; top: -7px; right: -7px; min-width: 21px; height: 21px;
+      border-radius: 999px; background: #D4AF37; color: #1A1A1A;
+      font-size: 0.7rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; padding: 0 5px;
+    }
+    .method-foot {
+      flex: none; padding: 0.8rem 1.1rem 1rem;
+      border-top: 1px solid rgba(212,175,55,0.2); background: #241c12;
+    }
+    .method-board-btn {
+      width: 100%; border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.45); padding: 0.6rem;
+      font-size: 0.85rem; color: #D4AF37;
+    }
+    .method-done {
+      margin-top: 0.55rem; width: 100%; border-radius: 999px; padding: 0.75rem;
+      background: #D4AF37; color: #1A1A1A; font-weight: 600;
+    }
+    .board-modal {
+      position: fixed; left: 50%; top: 50%; z-index: 70;
+      transform: translate(-50%,-50%) scale(0.96); opacity: 0;
+      transition: opacity 280ms ease, transform 280ms ease;
+    }
+    .board-modal.is-open { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    .board-modal.is-leave { opacity: 0; transform: translate(-50%,-50%) scale(0.94); }
+    .board-modal img {
+      display: block; max-width: 92vw; max-height: 86svh;
+      border-radius: 0.6rem; box-shadow: 0 22px 54px rgba(0,0,0,0.5);
     }
     .review-rail {
       display: flex;
@@ -461,7 +533,7 @@
       40% { transform: scale(0.55) translate(12vw,-18vh); opacity: 1; }
       100% { transform: scale(0.08) translate(38vw,-56vh); opacity: 0; }
     }
-    #cart-sidebar, #cart-backdrop, #info-modal, #preview-modal { transition: opacity 280ms ease, transform 280ms ease; }
+    #cart-sidebar, #cart-backdrop, #info-modal, #method-modal, #preview-modal { transition: opacity 280ms ease, transform 280ms ease; }
     #cart-sidebar.is-open { transform: scale(1); opacity: 1; }
     #cart-sidebar.is-leave { transform: scale(0.94); opacity: 0; }
     .overlay-card.is-open { opacity: 1; transform: translate(-50%,-50%) scale(1); }
@@ -794,6 +866,32 @@
     </div>
   </aside>
 
+  <div id="method-back" hidden class="modal-back fixed inset-0 z-[55] bg-black/60 opacity-0"></div>
+  <div id="method-modal" hidden class="overlay-card method-sheet rounded-2xl border border-gold/35 shadow-2xl">
+    <div class="method-hero">
+      <img id="method-photo" src="" alt="">
+      <button type="button" id="method-close" class="method-x" aria-label="Close">×</button>
+      <div class="method-cap">
+        <h3 id="method-name" class="font-serif text-2xl tracking-[0.08em]"></h3>
+        <p id="method-price" class="text-sm text-gold"></p>
+      </div>
+    </div>
+    <div class="method-body">
+      <p class="method-hint" data-en="Pick a cooking style — tap again to add another." data-zh="选一种做法，再点一下可加份。" data-ru="Выберите способ — нажмите ещё раз, чтобы добавить.">选一种做法，再点一下可加份。</p>
+      <div id="method-grid" class="method-grid"></div>
+    </div>
+    <div class="method-foot">
+      <button type="button" id="method-board" class="method-board-btn" data-en="See the menu board" data-zh="看菜单原图" data-ru="Посмотреть меню">看菜单原图</button>
+      <button type="button" id="method-done" class="method-done" data-en="Done" data-zh="完成" data-ru="Готово">完成</button>
+    </div>
+  </div>
+
+  <div id="board-back" hidden class="modal-back fixed inset-0 z-[65] bg-black/80 opacity-0"></div>
+  <div id="board-modal" hidden class="board-modal">
+    <img id="board-photo" src="" alt="Cooking method menu board">
+    <button type="button" id="board-close" class="board-x" aria-label="Close">×</button>
+  </div>
+
   <div id="info-back" hidden class="modal-back fixed inset-0 z-[55] bg-black/60 opacity-0"></div>
   <div id="info-modal" hidden class="overlay-card rounded-2xl border border-gold/35 p-6 shadow-2xl">
     <h3 class="font-serif text-2xl tracking-[0.12em]" data-en="Your table" data-zh="点单信息" data-ru="Данные заказа">点单信息</h3>
@@ -859,11 +957,25 @@
       ];
       var MENU = {
         seafood: [
-          { id: "sea-lobster", label: "by wt", img: PHOTO + "menu-lobster.jpg?v=mj22",
+          { id: "sea-lobster", label: "฿230 / 100g", img: PHOTO + "menu-lobster.jpg?v=mj22",
             nameEn: "King Lobster", nameZh: "帝王龙虾", nameRu: "Королевский лобстер",
-            descEn: "Fresh catch, priced by weight. Pick your own.",
-            descZh: "新鲜渔获，按重量计价。自己挑。",
-            descRu: "Свежий улов, цена по весу. Выбирайте сами." },
+            descEn: "Fresh catch, weighed at the ice chest. Pick your cooking style.",
+            descZh: "冰柜现挑现称，做法自己选。",
+            descRu: "Свежий улов, взвесим у ледника. Способ приготовления на выбор.",
+            board: PHOTO + "board-lobster.jpg?v=mj29",
+            methods: [
+              { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "เผา" },
+              { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареный с чесноком", th: "ทอดกระเทียม" },
+              { id: "garlic-pepper", en: "Fried garlic & pepper", zh: "蒜蓉胡椒炸", ru: "С чесноком и перцем", th: "ทอดกระเทียมพริกไทย" },
+              { id: "cream-cheese", en: "Fried cream cheese sauce", zh: "奶油芝士酱炒", ru: "В сливочно-сырном соусе", th: "ผัดครีมชีส" },
+              { id: "sweet-chilli", en: "Fried sweet & chilli", zh: "甜辣椒炒", ru: "Со сладким чили", th: "ผัดพริกหวาน" },
+              { id: "sweet-sour", en: "Fried sweet & sour", zh: "糖醋炒", ru: "Кисло-сладкий", th: "ผัดเปรี้ยวหวาน" },
+              { id: "tamarind", en: "With tamarind sauce", zh: "罗望子酱", ru: "В соусе тамаринд", th: "ซอสมะขาม" },
+              { id: "curry-powder", en: "Fried curry powder", zh: "咖喱粉炒", ru: "С карри-порошком", th: "ผัดผงกะหรี่" },
+              { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "นึ่งมะนาว" },
+              { id: "steam-ginger", en: "Steamed ginger soy sauce", zh: "姜丝豉油蒸", ru: "На пару с имбирём и соей", th: "นึ่งขิง" },
+              { id: "thermidor", en: "Thermidor", zh: "芝士焗", ru: "Термидор", th: "เทอร์มิดอร์" }
+            ] },
           { id: "sea-prawns", label: "by wt", img: PHOTO + "shop-squid.jpg?v=mj24",
             nameEn: "Prawns", nameZh: "大虾", nameRu: "Креветки",
             descEn: "Grilled or with garlic sauce.",
@@ -948,6 +1060,7 @@
         ]
       };
       var active = "seafood";
+      var methodDish = "";
       function t(map) { return map[lang] || map.zh || map.en; }
       function findDish(id) {
         var keys = Object.keys(MENU);
@@ -977,12 +1090,27 @@
       function itemName(item) { return lang === "zh" ? item.nameZh : (lang === "ru" ? item.nameRu : item.nameEn); }
       function count() { return cart.reduce(function (n, row) { return n + row.qty; }, 0); }
       function qtyOf(id) { var row = cart.find(function (item) { return item.id === id; }); return row ? row.qty : 0; }
-      function add(id) {
+      // A dish with cooking methods spreads over several rows, one per method.
+      function qtyOfDish(id) {
+        return cart.reduce(function (n, row) {
+          return row.id === id || row.id.indexOf(id + "::") === 0 ? n + row.qty : n;
+        }, 0);
+      }
+      function add(id, methodId) {
         var dish = findDish(id);
         if (!dish) return;
-        var found = cart.find(function (row) { return row.id === id; });
+        var method = methodId && dish.methods ? dish.methods.find(function (m) { return m.id === methodId; }) : null;
+        var rowId = method ? dish.id + "::" + method.id : dish.id;
+        var found = cart.find(function (row) { return row.id === rowId; });
         if (found) found.qty += 1;
-        else cart.push({ id: dish.id, nameEn: dish.nameEn, nameZh: dish.nameZh, nameRu: dish.nameRu, label: dish.label, qty: 1 });
+        else cart.push({
+          id: rowId,
+          nameEn: method ? dish.nameEn + " (" + method.en + ")" : dish.nameEn,
+          nameZh: method ? dish.nameZh + "（" + method.zh + "）" : dish.nameZh,
+          nameRu: method ? dish.nameRu + " (" + method.ru + ")" : dish.nameRu,
+          th: method ? method.th : "",
+          label: dish.label, qty: 1
+        });
         render();
       }
       function setQty(id, qty) {
@@ -998,7 +1126,10 @@
         return item.label;
       }
       function message() {
-        var rows = cart.map(function (item) { return "• " + itemName(item) + " × " + item.qty + " — " + priceLabel(item); }).join("\n");
+        var rows = cart.map(function (item) {
+          // The Thai method name rides along so the kitchen reads the order in its own script.
+          return "• " + itemName(item) + (item.th ? " · " + item.th : "") + " × " + item.qty + " — " + priceLabel(item);
+        }).join("\n");
         var note = guest.note ? guest.note : t({ en: "(none)", zh: "无", ru: "нет" });
         return [
           t({ en: "Pre-order for Mr.Jeff, Lamai", zh: "Mr.Jeff 拉迈 · 提前点餐", ru: "Предзаказ для Mr.Jeff, Ламай" }),
@@ -1056,19 +1187,42 @@
         }
         grid.className = "mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-16";
         grid.innerHTML = MENU[active].map(function (dish) {
-          var q = qtyOf(dish.id);
+          var q = qtyOfDish(dish.id);
           var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
+          var styles = dish.methods
+            ? t({ en: dish.methods.length + " cooking styles", zh: dish.methods.length + " 种做法", ru: dish.methods.length + " способов" })
+            : "";
+          var btn = dish.methods
+            ? "<button type=\"button\" class=\"order-btn\" data-methods=\"" + dish.id + "\">" + escapeHtml(t({ en: "Choose style", zh: "选做法", ru: "Выбрать" })) + "</button>"
+            : "<button type=\"button\" class=\"order-btn\" data-add=\"" + dish.id + "\">+ Order</button>";
           return (
             "<article class=\"dish-card relative text-center" + (q ? " is-added" : "") + "\" data-dish-id=\"" + dish.id + "\">" +
               "<span class=\"dish-badge " + (q ? "flex" : "hidden") + " absolute top-0 right-[12%] min-w-7 h-7 rounded-full bg-gold text-night text-sm font-bold items-center justify-center\">" + q + "</span>" +
               "<span class=\"plate\"><span class=\"plate-inner\"><img src=\"" + dish.img + "\" alt=\"\"></span></span>" +
               "<h3 class=\"dish-name\">" + escapeHtml(itemName(dish)) + "</h3>" +
               (desc ? "<p class=\"dish-desc\">" + escapeHtml(desc) + "</p>" : "") +
-              "<p class=\"dish-price\">" + escapeHtml(priceLabel(dish)) + "</p>" +
-              "<button type=\"button\" class=\"order-btn\" data-add=\"" + dish.id + "\">+ Order</button>" +
+              "<p class=\"dish-price\">" + escapeHtml(priceLabel(dish)) + (styles ? "<i class=\"dish-styles\">" + escapeHtml(styles) + "</i>" : "") + "</p>" +
+              btn +
             "</article>"
           );
         }).join("");
+      }
+      function renderMethods() {
+        var dish = findDish(methodDish);
+        if (!dish || !dish.methods) return;
+        document.getElementById("method-photo").src = dish.img;
+        document.getElementById("method-name").textContent = itemName(dish);
+        document.getElementById("method-price").textContent = priceLabel(dish);
+        document.getElementById("method-grid").innerHTML = dish.methods.map(function (m) {
+          var q = qtyOf(dish.id + "::" + m.id);
+          return "<button type=\"button\" class=\"method-chip" + (q ? " is-on" : "") + "\" data-method=\"" + m.id + "\">" +
+            (q ? "<span class=\"method-count\">" + q + "</span>" : "") +
+            "<span class=\"method-en\">" + escapeHtml(m.en) + "</span>" +
+            (lang === "en" ? "" : "<span class=\"method-local\">" + escapeHtml(lang === "zh" ? m.zh : m.ru) + "</span>") +
+            "<span class=\"method-th\">" + escapeHtml(m.th) + "</span>" +
+          "</button>";
+        }).join("");
+        document.getElementById("board-photo").src = dish.board || dish.img;
       }
       function render() {
         var n = count();
@@ -1082,7 +1236,7 @@
           name.textContent = itemName(dish) + (q ? " × " + q : "");
         });
         document.querySelectorAll(".dish-card").forEach(function (card) {
-          var q = qtyOf(card.getAttribute("data-dish-id"));
+          var q = qtyOfDish(card.getAttribute("data-dish-id"));
           card.classList.toggle("is-added", q > 0);
           var badge = card.querySelector(".dish-badge");
           if (!badge) return;
@@ -1107,6 +1261,7 @@
         document.getElementById("info-items").innerHTML = cart.map(function (item) {
           return "<li>" + escapeHtml(itemName(item)) + " × " + item.qty + " — " + escapeHtml(priceLabel(item)) + "</li>";
         }).join("");
+        if (methodDish && !document.getElementById("method-modal").hidden) renderMethods();
       }
       function showLayer(id, backId) {
         var el = document.getElementById(id), back = document.getElementById(backId);
@@ -1128,6 +1283,12 @@
           closing[id] = false;
         }, 280);
       }
+      function openMethods(id) {
+        methodDish = id;
+        renderMethods();
+        showLayer("method-modal", "method-back");
+      }
+      function closeMethods() { hideLayer("method-modal", "method-back"); }
       function openCart() { showLayer("cart-sidebar", "cart-backdrop"); }
       function closeCart() { hideLayer("cart-sidebar", "cart-backdrop"); }
       function openInfo() { render(); showLayer("info-modal", "info-back"); }
@@ -1163,11 +1324,29 @@
         renderCats(); renderMenu();
       });
       document.getElementById("dish-grid").addEventListener("click", function (e) {
+        var methodBtn = e.target.closest("[data-methods]");
+        if (methodBtn) { openMethods(methodBtn.getAttribute("data-methods")); return; }
         var addBtn = e.target.closest("[data-add]");
         var card = e.target.closest(".dish-card");
         var id = addBtn ? addBtn.getAttribute("data-add") : (card && card.getAttribute("data-dish-id"));
-        if (id) add(id);
+        if (!id) return;
+        var dish = findDish(id);
+        if (dish && dish.methods) openMethods(id);
+        else add(id);
       });
+      document.getElementById("method-grid").addEventListener("click", function (e) {
+        var chip = e.target.closest("[data-method]");
+        if (chip) add(methodDish, chip.getAttribute("data-method"));
+      });
+      document.getElementById("method-back").addEventListener("click", closeMethods);
+      document.getElementById("method-close").addEventListener("click", closeMethods);
+      document.getElementById("method-done").addEventListener("click", function () {
+        closeMethods();
+        if (cart.length) setTimeout(openCart, 200);
+      });
+      document.getElementById("method-board").addEventListener("click", function () { showLayer("board-modal", "board-back"); });
+      document.getElementById("board-back").addEventListener("click", function () { hideLayer("board-modal", "board-back"); });
+      document.getElementById("board-close").addEventListener("click", function () { hideLayer("board-modal", "board-back"); });
       document.getElementById("cart-lines").addEventListener("click", function (e) {
         var qtyBtn = e.target.closest("[data-qty]");
         if (!qtyBtn) return;
