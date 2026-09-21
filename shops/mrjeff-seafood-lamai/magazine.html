@@ -319,6 +319,30 @@
       color: #fff;
       font-size: 14px;
       letter-spacing: 0.08em;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.22s cubic-bezier(0.22, 0.82, 0.2, 1), box-shadow 0.22s ease;
+    }
+    .wa-pill:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
+    .wa-pill.is-tap {
+      animation: wa-tap 0.62s cubic-bezier(0.22, 0.82, 0.2, 1);
+    }
+    .wa-pill .wa-ripple {
+      position: absolute; inset: 0; pointer-events: none;
+      border-radius: inherit;
+      background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%), rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 55%);
+      opacity: 0;
+    }
+    .wa-pill.is-tap .wa-ripple { animation: wa-ripple 0.62s ease-out; }
+    @keyframes wa-tap {
+      0% { transform: scale(1); }
+      28% { transform: scale(0.94); }
+      62% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+    @keyframes wa-ripple {
+      0% { opacity: 0.9; transform: scale(0.35); }
+      100% { opacity: 0; transform: scale(2.4); }
     }
     .cat-bar {
       position: sticky;
@@ -343,9 +367,9 @@
       width: max-content;
       animation: cat-drift 38s linear infinite;
     }
-    /* After a tap, freeze the ticker; the finger drags the track itself. */
-    .cat-rail.is-paused { cursor: grab; }
+    /* Only freeze while the finger is dragging; release resumes the drift. */
     .cat-rail.is-dragging { cursor: grabbing; }
+    .cat-rail.is-paused { cursor: grab; }
     .cat-rail.is-paused .cat-track { animation: none; }
     .cat-pill {
       flex: 0 0 auto;
@@ -620,9 +644,7 @@
       40% { transform: scale(0.55) translate(12vw,-18vh); opacity: 1; }
       100% { transform: scale(0.08) translate(38vw,-56vh); opacity: 0; }
     }
-    #cart-sidebar, #cart-backdrop, #info-modal, #method-modal, #preview-modal { transition: opacity 280ms ease, transform 280ms ease; }
-    #cart-sidebar.is-open { transform: scale(1); opacity: 1; }
-    #cart-sidebar.is-leave { transform: scale(0.94); opacity: 0; }
+    #cart-backdrop, #info-modal, #method-modal, #preview-modal { transition: opacity 280ms ease, transform 280ms ease; }
     .overlay-card.is-open { opacity: 1; transform: translate(-50%,-50%) scale(1); }
     .overlay-card.is-leave { opacity: 0; transform: translate(-50%,-50%) scale(0.94); }
     #cart-backdrop.is-open, .modal-back.is-open { opacity: 1; }
@@ -668,6 +690,37 @@
       position: fixed; right: 16px; bottom: 18px; z-index: 35;
       width: 58px; height: 58px; border-radius: 50%;
       background: #D4AF37; color: #1A1A1A; box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cart-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,0.32); }
+    .cart-fab.is-pop {
+      animation: cart-pop 0.55s cubic-bezier(0.22, 0.82, 0.2, 1);
+    }
+    .cart-fab.is-pop::after {
+      content: "";
+      position: absolute; inset: -6px; border-radius: 50%;
+      border: 2px solid rgba(212,175,55,0.7);
+      animation: cart-ring 0.55s ease-out forwards;
+      pointer-events: none;
+    }
+    .cart-fab svg { transition: transform 0.35s cubic-bezier(0.22, 0.82, 0.2, 1); }
+    .cart-fab.is-pop svg { animation: cart-wiggle 0.55s ease; }
+    @keyframes cart-pop {
+      0% { transform: scale(1); }
+      35% { transform: scale(0.86); }
+      70% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    @keyframes cart-ring {
+      0% { transform: scale(0.7); opacity: 0.95; }
+      100% { transform: scale(1.55); opacity: 0; }
+    }
+    @keyframes cart-wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      30% { transform: rotate(-12deg); }
+      55% { transform: rotate(10deg); }
+      75% { transform: rotate(-4deg); }
     }
     .cart-fab .count {
       position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px;
@@ -675,6 +728,19 @@
       border: 1px solid #D4AF37; font-size: 0.72rem; font-weight: 700;
       display: flex; align-items: center; justify-content: center; padding: 0 5px;
     }
+    .cart-fab .count.is-bump { animation: count-bump 0.4s cubic-bezier(0.22, 0.82, 0.2, 1); }
+    @keyframes count-bump {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.35); }
+      100% { transform: scale(1); }
+    }
+    #cart-sidebar {
+      transform: translateX(110%);
+      opacity: 1;
+      transition: transform 420ms cubic-bezier(0.22, 0.82, 0.2, 1), opacity 280ms ease;
+    }
+    #cart-sidebar.is-open { transform: translateX(0); opacity: 1; }
+    #cart-sidebar.is-leave { transform: translateX(110%); opacity: 1; }
     .sent-toast {
       position: fixed; right: 16px; bottom: 88px; z-index: 80;
       background: rgba(26,26,26,0.94); border: 1px solid rgba(212,175,55,0.5);
@@ -890,7 +956,8 @@
       html { scroll-behavior: auto; }
       .logo-garland .swing, .logo-garland .charm, .cat-track, .bubble-out .pv-line, .cat-pop, .cat-pop-ring,
       .hero.is-playing .hero-stage, .hero-title, .hero.is-playing .sign-glow-mark,
-      .hero.is-playing .sign-glow-fish, .hero.is-playing .sign-glow-pill {
+      .hero.is-playing .sign-glow-fish, .hero.is-playing .sign-glow-pill,
+      .wa-pill.is-tap, .wa-pill.is-tap .wa-ripple, .cart-fab.is-pop, .cart-fab.is-pop::after, .cart-fab.is-pop svg, .cart-fab .count.is-bump {
         animation: none !important; opacity: 1; transform: none;
       }
       .cat-pop, .cat-pop-ring { display: none; }
@@ -971,7 +1038,7 @@
       <h1 class="hero-title" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</h1>
       <p class="hero-sub" data-en="The day's freshest seafood, brought to your table." data-zh="把每天最新鲜的海鲜，带到餐桌。" data-ru="Самые свежие морепродукты дня — к вашему столу.">把每天最新鲜的海鲜，带到餐桌。</p>
       <p class="hero-meta" data-en="137/4 Maret, Lamai — near Coco Splash · Open daily 13:00 – 23:00 · LINE + WhatsApp · +66 62 045 4983" data-zh="137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983" data-ru="137/4 Марет, Ламай — рядом с Coco Splash · Ежедневно 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983">137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983</p>
-      <a href="#menu" class="wa-pill chat-btn" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp">Order via WhatsApp</a>
+      <a href="#menu" id="hero-order" class="wa-pill chat-btn" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp"><span class="wa-ripple" aria-hidden="true"></span>Order via WhatsApp</a>
     </div>
   </header>
 
@@ -1115,7 +1182,7 @@
   </button>
 
   <div id="cart-backdrop" hidden class="fixed inset-0 z-40 bg-black/55 opacity-0"></div>
-  <aside id="cart-sidebar" hidden class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-[#1A1A1A] text-[#F5F0EB] shadow-2xl flex flex-col border-l border-gold/30 opacity-0 scale-95">
+  <aside id="cart-sidebar" hidden class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-[#1A1A1A] text-[#F5F0EB] shadow-2xl flex flex-col border-l border-gold/30">
     <div class="flex items-center justify-between px-6 py-5 border-b border-gold/30">
       <h2 class="font-serif text-2xl tracking-[0.18em] uppercase" data-en="Order" data-zh="点单" data-ru="Заказ">点单</h2>
       <button type="button" id="cart-close" class="text-2xl leading-none" aria-label="Close">×</button>
@@ -1338,6 +1405,7 @@
         ]
       };
       var active = "seafood";
+      var catRail = document.getElementById("cat-rail");
       var methodDish = "";
       function t(map) { return map[lang] || map.zh || map.en; }
       function findDish(id) {
@@ -1435,6 +1503,13 @@
       var deskMq = window.matchMedia("(min-width: 1024px)");
       var catGroups = 1;
       var catShift = 0;
+      var CAT_DRIFT_S = 38;
+      function getTrackTx(track) {
+        var matrix = getComputedStyle(track).transform;
+        if (!matrix || matrix === "none") return catShift || 0;
+        var parts = matrix.slice(matrix.indexOf("(") + 1, -1).split(",");
+        return parseFloat(parts[matrix.indexOf("matrix3d") === 0 ? 12 : 4]) || 0;
+      }
       // Pills repeat in identical groups, so any shift can wrap inside one group width.
       function shiftCatTrack(px) {
         var track = document.querySelector("#cat-rail .cat-track");
@@ -1446,11 +1521,58 @@
         catShift = px;
         track.style.transform = "translateX(" + px + "px)";
       }
+      function pauseCatRail() {
+        if (deskMq.matches) return;
+        var track = document.querySelector("#cat-rail .cat-track");
+        var here = getTrackTx(track);
+        catRail.classList.add("is-paused");
+        track.style.animationDelay = "";
+        shiftCatTrack(here);
+      }
+      function resumeCatRail() {
+        if (deskMq.matches || !catRail.classList.contains("is-paused")) return;
+        var track = document.querySelector("#cat-rail .cat-track");
+        var loop = track.scrollWidth / 2;
+        var here = catShift;
+        if (loop > 0) {
+          here = here % loop;
+          if (here > 0) here -= loop;
+        }
+        var progress = loop ? ((-here) / loop) % 1 : 0;
+        if (progress < 0) progress += 1;
+        catRail.classList.remove("is-paused", "is-dragging");
+        track.style.transform = "";
+        track.style.animation = "none";
+        void track.offsetWidth;
+        track.style.animation = "";
+        track.style.animationDelay = (-progress * CAT_DRIFT_S) + "s";
+        catShift = 0;
+      }
+      function markActivePills() {
+        document.querySelectorAll("#cat-rail .cat-pill").forEach(function (btn) {
+          btn.classList.toggle("is-on", btn.getAttribute("data-cat") === active);
+        });
+        var on = CATS.find(function (c) { return c.id === active; });
+        document.getElementById("cat-title").textContent = on ? catName(on) : "";
+      }
       function renderCats() {
+        var track = document.querySelector("#cat-rail .cat-track");
+        var wasPaused = catRail.classList.contains("is-paused");
+        var delay = "";
+        if (!deskMq.matches && !wasPaused && track.children.length) {
+          var loop = track.scrollWidth / 2;
+          var here = getTrackTx(track);
+          if (loop > 0) {
+            here = here % loop;
+            if (here > 0) here -= loop;
+            var progress = ((-here) / loop) % 1;
+            if (progress < 0) progress += 1;
+            delay = (-progress * CAT_DRIFT_S) + "s";
+          }
+        }
         var group = CATS.map(function (cat) {
           return "<button type=\"button\" class=\"cat-pill" + (cat.id === active ? " is-on" : "") + "\" data-cat=\"" + cat.id + "\">" + catName(cat) + "</button>";
         }).join("");
-        var track = document.querySelector("#cat-rail .cat-track");
         track.innerHTML = group;
         catGroups = 1;
         if (!deskMq.matches) {
@@ -1459,10 +1581,17 @@
           catGroups = per * 2 + 1;
           track.innerHTML = new Array(catGroups + 1).join(group);
         }
-        if (!deskMq.matches && document.getElementById("cat-rail").classList.contains("is-paused")) shiftCatTrack(catShift);
-        else track.style.transform = "";
-        var on = CATS.find(function (c) { return c.id === active; });
-        document.getElementById("cat-title").textContent = on ? catName(on) : "";
+        if (!deskMq.matches && wasPaused) shiftCatTrack(catShift);
+        else {
+          track.style.transform = "";
+          if (delay) {
+            track.style.animation = "none";
+            void track.offsetWidth;
+            track.style.animation = "";
+            track.style.animationDelay = delay;
+          }
+        }
+        markActivePills();
       }
       if (deskMq.addEventListener) deskMq.addEventListener("change", function () { renderCats(); renderMenu(); });
       else deskMq.addListener(function () { renderCats(); renderMenu(); });
@@ -1573,7 +1702,14 @@
       }
       function render() {
         var n = count();
-        document.getElementById("cart-count").textContent = String(n);
+        var countEl = document.getElementById("cart-count");
+        var prev = countEl.textContent;
+        countEl.textContent = String(n);
+        if (String(n) !== prev) {
+          countEl.classList.remove("is-bump");
+          void countEl.offsetWidth;
+          countEl.classList.add("is-bump");
+        }
         document.querySelectorAll(".drink-row").forEach(function (row) {
           var q = qtyOf(row.getAttribute("data-dish-id"));
           row.classList.toggle("is-added", q > 0);
@@ -1624,11 +1760,12 @@
         var el = document.getElementById(id), back = document.getElementById(backId);
         el.classList.add("is-leave"); back.classList.add("is-leave");
         el.classList.remove("is-open"); back.classList.remove("is-open");
+        var wait = id === "cart-sidebar" ? 420 : 280;
         setTimeout(function () {
           el.hidden = true; back.hidden = true;
           el.classList.remove("is-leave"); back.classList.remove("is-leave");
           closing[id] = false;
-        }, 280);
+        }, wait);
       }
       function openMethods(id) {
         methodDish = id;
@@ -1636,7 +1773,14 @@
         showLayer("method-modal", "method-back");
       }
       function closeMethods() { hideLayer("method-modal", "method-back"); }
-      function openCart() { showLayer("cart-sidebar", "cart-backdrop"); }
+      function openCart() {
+        var fab = document.getElementById("cart-fab");
+        fab.classList.remove("is-pop");
+        void fab.offsetWidth;
+        fab.classList.add("is-pop");
+        setTimeout(function () { fab.classList.remove("is-pop"); }, 560);
+        showLayer("cart-sidebar", "cart-backdrop");
+      }
       function closeCart() { hideLayer("cart-sidebar", "cart-backdrop"); }
       function openInfo() { render(); showLayer("info-modal", "info-back"); }
       function closeInfo() { hideLayer("info-modal", "info-back"); }
@@ -1660,7 +1804,6 @@
         btn.classList.remove("is-fly"); void btn.offsetWidth; btn.classList.add("is-fly");
         setTimeout(function () { window.open(href, "_blank", "noopener"); btn.classList.remove("is-fly"); closePreview(); toast(); }, 820);
       }
-      var catRail = document.getElementById("cat-rail");
       var catSwipeX = 0;
       var catSwiping = false;
       var catDidSwipe = false;
@@ -1687,18 +1830,6 @@
           setTimeout(function (el) { el.remove(); }, 780, b);
         }
       }
-      function pauseCatRail() {
-        if (deskMq.matches || catRail.classList.contains("is-paused")) return;
-        var track = document.querySelector("#cat-rail .cat-track");
-        var matrix = getComputedStyle(track).transform;
-        var here = 0;
-        if (matrix && matrix !== "none") {
-          var parts = matrix.slice(matrix.indexOf("(") + 1, -1).split(",");
-          here = parseFloat(parts[matrix.indexOf("matrix3d") === 0 ? 12 : 4]) || 0;
-        }
-        catRail.classList.add("is-paused");
-        shiftCatTrack(here);
-      }
       function pickCat(id, evt) {
         if (!id) return;
         active = id;
@@ -1712,12 +1843,11 @@
           setTimeout(function () { catJumping = false; }, 700);
           return;
         }
-        pauseCatRail();
-        renderCats();
+        // Phone: keep the marquee drifting — only swap the underlined pill + the dishes.
+        markActivePills();
         renderMenu();
       }
-      // Desktop: click only. Phone: tap freezes the ticker into a scroll strip;
-      // sideways drag pans the pills while paused (does not start the ticker again).
+      // Desktop: click only. Phone: tap keeps drifting; drag pans, then the ticker resumes.
       catRail.addEventListener("pointerdown", function (e) {
         if (deskMq.matches) return;
         catSwipeX = e.clientX;
@@ -1742,7 +1872,10 @@
           if (deskMq.matches) return;
           catSwiping = false;
           catRail.classList.remove("is-dragging");
-          if (catDidSwipe) setTimeout(function () { catDidSwipe = false; }, 0);
+          if (catDidSwipe) {
+            resumeCatRail();
+            setTimeout(function () { catDidSwipe = false; }, 0);
+          }
         });
       });
       catRail.addEventListener("click", function (e) {
@@ -1752,10 +1885,7 @@
           return;
         }
         var btn = e.target.closest("[data-cat]");
-        if (!btn) {
-          if (!deskMq.matches) pauseCatRail();
-          return;
-        }
+        if (!btn) return;
         pickCat(btn.getAttribute("data-cat"), e);
       });
       document.getElementById("dish-grid").addEventListener("click", function (e) {
@@ -1785,6 +1915,20 @@
         if (found) setQty(found.id, found.qty + Number(qtyBtn.getAttribute("data-d")));
       });
       document.getElementById("cart-fab").addEventListener("click", openCart);
+      document.getElementById("hero-order").addEventListener("click", function (e) {
+        e.preventDefault();
+        var btn = e.currentTarget;
+        var rect = btn.getBoundingClientRect();
+        btn.style.setProperty("--rx", ((e.clientX - rect.left) / rect.width * 100) + "%");
+        btn.style.setProperty("--ry", ((e.clientY - rect.top) / rect.height * 100) + "%");
+        btn.classList.remove("is-tap");
+        void btn.offsetWidth;
+        btn.classList.add("is-tap");
+        setTimeout(function () {
+          btn.classList.remove("is-tap");
+          document.getElementById("menu").scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 280);
+      });
       document.getElementById("cart-close").addEventListener("click", closeCart);
       document.getElementById("cart-continue").addEventListener("click", closeCart);
       document.getElementById("cart-backdrop").addEventListener("click", closeCart);
