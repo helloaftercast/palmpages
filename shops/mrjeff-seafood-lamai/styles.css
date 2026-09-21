@@ -23,6 +23,39 @@
   padding: 0;
 }
 
+/* Phone browsers paint a blue box over whatever you tap — we give our own feedback instead. */
+html,
+body,
+a,
+button,
+input,
+textarea,
+select,
+label,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+}
+
+::selection {
+  background: rgba(232, 168, 58, 0.3);
+  color: inherit;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 html {
   scroll-behavior: smooth;
 }
