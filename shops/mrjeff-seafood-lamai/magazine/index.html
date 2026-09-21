@@ -674,7 +674,17 @@
         letter-spacing: 1.4px;
         padding: 0 1.75rem;
         cursor: pointer;
+        position: relative;
       }
+      #cat-title { display: none; }
+      .menu-book { display: block; margin-top: 0.5rem; }
+      .menu-block {
+        scroll-margin-top: 78px;
+        padding: 3.4rem 0 1.2rem;
+      }
+      .menu-block + .menu-block { border-top: 1px solid rgba(4, 8, 9, 0.08); }
+      .menu-block .dish-grid { margin-top: 0.15rem; }
+      .menu-block .drink-sheet { margin: 0.4rem auto 0; }
       .section-kicker {
         font-size: 30px;
         line-height: 1.2;
@@ -725,11 +735,39 @@
       .method-en { font-size: 0.95rem; }
       .method-local { font-size: 0.86rem; }
     }
+    .cat-pop, .cat-pop-ring {
+      position: fixed;
+      z-index: 90;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    .cat-pop {
+      background: radial-gradient(circle at 32% 30%, #fff 0%, #ECE6D4 42%, rgba(212, 175, 55, 0.85) 100%);
+      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.4);
+      animation: cat-pop-up 0.72s ease-out forwards;
+    }
+    .cat-pop-ring {
+      width: 16px;
+      height: 16px;
+      margin: -8px 0 0 -8px;
+      border: 2px solid rgba(236, 230, 212, 0.95);
+      background: rgba(212, 175, 55, 0.28);
+      animation: cat-pop-ring 0.62s cubic-bezier(0.22, 0.8, 0.32, 1) forwards;
+    }
+    @keyframes cat-pop-up {
+      0% { transform: translate(0, 0) scale(0.35); opacity: 0.95; }
+      100% { transform: translate(var(--dx), var(--dy)) scale(1.2); opacity: 0; }
+    }
+    @keyframes cat-pop-ring {
+      0% { transform: scale(0.35); opacity: 0.95; }
+      100% { transform: scale(5.2); opacity: 0; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .logo-garland .swing, .logo-garland .charm, .cat-track, .bubble-out .pv-line {
+      .logo-garland .swing, .logo-garland .charm, .cat-track, .bubble-out .pv-line, .cat-pop, .cat-pop-ring {
         animation: none; opacity: 1; transform: none;
       }
+      .cat-pop, .cat-pop-ring { display: none; }
     }
   </style>
 </head>
@@ -1277,35 +1315,10 @@
         var on = CATS.find(function (c) { return c.id === active; });
         document.getElementById("cat-title").textContent = on ? catName(on) : "";
       }
-      if (deskMq.addEventListener) deskMq.addEventListener("change", function () { renderCats(); });
-      else deskMq.addListener(function () { renderCats(); });
-      function renderMenu() {
-        var grid = document.getElementById("dish-grid");
-        if (active === "drinks") {
-          grid.className = "drink-sheet mt-10 max-w-3xl mx-auto";
-          var titles = {
-            cocktail: { en: "Cocktail", zh: "鸡尾酒", ru: "Коктейли" },
-            beer: { en: "Beers", zh: "啤酒", ru: "Пиво" }
-          };
-          var html = "";
-          ["cocktail", "beer"].forEach(function (group) {
-            html += "<div class=\"drink-group\"><h3 class=\"drink-kicker\">" + escapeHtml(t(titles[group])) + "</h3>";
-            MENU.drinks.forEach(function (dish) {
-              if (dish.group !== group) return;
-              var q = qtyOf(dish.id);
-              var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
-              html += "<button type=\"button\" class=\"drink-row" + (q ? " is-added" : "") + "\" data-add=\"" + dish.id + "\" data-dish-id=\"" + dish.id + "\">" +
-                "<span><span class=\"drink-name\">" + escapeHtml(itemName(dish)) + (q ? " × " + q : "") + "</span>" +
-                (desc ? "<span class=\"drink-note\">" + escapeHtml(desc) + "</span>" : "") +
-                "</span><span class=\"drink-price\">" + escapeHtml(priceLabel(dish)) + "</span></button>";
-            });
-            html += "</div>";
-          });
-          grid.innerHTML = html;
-          return;
-        }
-        grid.className = "dish-grid";
-        grid.innerHTML = MENU[active].map(function (dish) {
+      if (deskMq.addEventListener) deskMq.addEventListener("change", function () { renderCats(); renderMenu(); });
+      else deskMq.addListener(function () { renderCats(); renderMenu(); });
+      function dishCardsHtml(list) {
+        return list.map(function (dish) {
           var q = qtyOfDish(dish.id);
           var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
           var styles = dish.methods
@@ -1325,6 +1338,65 @@
             "</article>"
           );
         }).join("");
+      }
+      function drinksHtml() {
+        var titles = {
+          cocktail: { en: "Cocktail", zh: "鸡尾酒", ru: "Коктейли" },
+          beer: { en: "Beers", zh: "啤酒", ru: "Пиво" }
+        };
+        var html = "";
+        ["cocktail", "beer"].forEach(function (group) {
+          html += "<div class=\"drink-group\"><h3 class=\"drink-kicker\">" + escapeHtml(t(titles[group])) + "</h3>";
+          MENU.drinks.forEach(function (dish) {
+            if (dish.group !== group) return;
+            var q = qtyOf(dish.id);
+            var desc = lang === "zh" ? dish.descZh : (lang === "ru" ? dish.descRu : dish.descEn);
+            html += "<button type=\"button\" class=\"drink-row" + (q ? " is-added" : "") + "\" data-add=\"" + dish.id + "\" data-dish-id=\"" + dish.id + "\">" +
+              "<span><span class=\"drink-name\">" + escapeHtml(itemName(dish)) + (q ? " × " + q : "") + "</span>" +
+              (desc ? "<span class=\"drink-note\">" + escapeHtml(desc) + "</span>" : "") +
+              "</span><span class=\"drink-price\">" + escapeHtml(priceLabel(dish)) + "</span></button>";
+          });
+          html += "</div>";
+        });
+        return html;
+      }
+      function renderMenu() {
+        var grid = document.getElementById("dish-grid");
+        if (deskMq.matches) {
+          grid.className = "menu-book";
+          grid.innerHTML = CATS.map(function (cat) {
+            var body = cat.id === "drinks"
+              ? "<div class=\"drink-sheet\">" + drinksHtml() + "</div>"
+              : "<div class=\"dish-grid\">" + dishCardsHtml(MENU[cat.id] || []) + "</div>";
+            return "<section class=\"menu-block\" id=\"menu-cat-" + cat.id + "\" data-cat-block=\"" + cat.id + "\">" +
+              "<h2 class=\"section-kicker\">" + escapeHtml(catName(cat)) + "</h2>" + body + "</section>";
+          }).join("");
+          watchCats();
+          return;
+        }
+        if (catWatch) { catWatch.disconnect(); catWatch = null; }
+        if (active === "drinks") {
+          grid.className = "drink-sheet mt-10 max-w-3xl mx-auto";
+          grid.innerHTML = drinksHtml();
+          return;
+        }
+        grid.className = "dish-grid";
+        grid.innerHTML = dishCardsHtml(MENU[active] || []);
+      }
+      var catWatch = null;
+      var catJumping = false;
+      function watchCats() {
+        if (catWatch) catWatch.disconnect();
+        if (!deskMq.matches) return;
+        catWatch = new IntersectionObserver(function (entries) {
+          if (catJumping) return;
+          var vis = entries.filter(function (en) { return en.isIntersecting; })
+            .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
+          if (!vis) return;
+          var id = vis.target.getAttribute("data-cat-block");
+          if (id && id !== active) { active = id; renderCats(); }
+        }, { rootMargin: "-18% 0px -62% 0px", threshold: [0.12, 0.35, 0.6] });
+        document.querySelectorAll(".menu-block").forEach(function (el) { catWatch.observe(el); });
       }
       function renderMethods() {
         var dish = findDish(methodDish);
@@ -1439,10 +1511,42 @@
       var catSwipeX = 0;
       var catSwiping = false;
       var catDidSwipe = false;
-      function pickCat(id) {
+      function burstBubbles(e) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var ring = document.createElement("span");
+        ring.className = "cat-pop-ring";
+        ring.style.left = e.clientX + "px";
+        ring.style.top = e.clientY + "px";
+        document.body.appendChild(ring);
+        setTimeout(function () { ring.remove(); }, 700);
+        for (var i = 0; i < 6; i++) {
+          var b = document.createElement("span");
+          var size = 8 + Math.random() * 16;
+          b.className = "cat-pop";
+          b.style.width = size + "px";
+          b.style.height = size + "px";
+          b.style.left = (e.clientX - size / 2) + "px";
+          b.style.top = (e.clientY - size / 2) + "px";
+          b.style.setProperty("--dx", ((Math.random() - 0.5) * 56) + "px");
+          b.style.setProperty("--dy", (-18 - Math.random() * 52) + "px");
+          document.body.appendChild(b);
+          setTimeout(function (el) { el.remove(); }, 780, b);
+        }
+      }
+      function pickCat(id, evt) {
         if (!id) return;
         active = id;
-        if (!deskMq.matches) catRail.classList.add("is-paused");
+        if (deskMq.matches) {
+          if (evt) burstBubbles(evt);
+          renderCats();
+          var target = document.getElementById("menu-cat-" + id);
+          if (!target) return;
+          catJumping = true;
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          setTimeout(function () { catJumping = false; }, 700);
+          return;
+        }
+        catRail.classList.add("is-paused");
         renderCats();
         renderMenu();
       }
@@ -1480,7 +1584,7 @@
         }
         var btn = e.target.closest("[data-cat]");
         if (!btn) return;
-        pickCat(btn.getAttribute("data-cat"));
+        pickCat(btn.getAttribute("data-cat"), e);
       });
       document.getElementById("dish-grid").addEventListener("click", function (e) {
         var methodBtn = e.target.closest("[data-methods]");
