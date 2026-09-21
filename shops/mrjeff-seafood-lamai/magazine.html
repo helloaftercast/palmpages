@@ -484,7 +484,8 @@
     .method-en { display: block; font-family: "Lora", serif; font-size: 0.86rem; line-height: 1.25; }
     .method-local { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: rgba(245,240,235,0.72); }
     .method-th { display: block; margin-top: 0.1rem; font-size: 0.72rem; color: rgba(212,175,55,0.85); }
-    .method-chip.is-on .method-local, .method-chip.is-on .method-th { color: rgba(255,255,255,0.88); }
+    .method-fee { display: block; margin-top: 0.2rem; font-size: 0.78rem; color: #D4AF37; }
+    .method-chip.is-on .method-local, .method-chip.is-on .method-th, .method-chip.is-on .method-fee { color: rgba(255,255,255,0.88); }
     .method-step {
       margin-top: 0.5rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.45rem;
     }
@@ -716,7 +717,7 @@
       <ol class="mt-12 space-y-8 md:space-y-0 md:grid md:grid-cols-4 md:gap-8">
         <li>
           <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">挑海鲜</h3>
-          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="King lobster, prawns, fish, mussels, crab — priced when the kitchen weighs it." data-zh="帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。" data-ru="Королевский лобстер, креветки, рыба, мидии, краб — цена по весу на кухне.">帝王龙虾、大虾、鲜鱼、贻贝、螃蟹——厨房称重后报价。</p>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="King lobster, fish, crab and king crab — pick the catch, then the cooking style." data-zh="帝王龙虾、鲜鱼、螃蟹和帝王蟹——先挑货，再选做法。" data-ru="Королевский лобстер, рыба, краб и камчатский краб — сначала улов, потом способ.">帝王龙虾、鲜鱼、螃蟹和帝王蟹——先挑货，再选做法。</p>
         </li>
         <li>
           <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">说做法</h3>
@@ -931,6 +932,7 @@
       var CATS = [
         { id: "seafood", en: "Seafood", zh: "海鲜", ru: "Морепродукты" },
         { id: "fish", en: "Fish", zh: "鲜鱼", ru: "Рыба" },
+        { id: "crab", en: "Crab", zh: "螃蟹", ru: "Краб" },
         { id: "rice", en: "Rice", zh: "米饭", ru: "Рис" },
         { id: "pasta", en: "Pasta", zh: "意大利面", ru: "Паста" },
         { id: "drinks", en: "Drinks", zh: "饮品", ru: "Напитки" }
@@ -954,39 +956,48 @@
               { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "นึ่งมะนาว" },
               { id: "steam-ginger", en: "Steamed ginger soy sauce", zh: "姜丝豉油蒸", ru: "На пару с имбирём и соей", th: "นึ่งขิง" },
               { id: "thermidor", en: "Thermidor", zh: "芝士焗", ru: "Термидор", th: "เทอร์มิดอร์" }
-            ] },
-          { id: "sea-prawns", label: "by wt", img: PHOTO + "shop-squid.jpg?v=mj24",
-            nameEn: "Prawns", nameZh: "大虾", nameRu: "Креветки",
-            descEn: "Grilled or with garlic sauce.",
-            descZh: "烤或蒜蓉酱。",
-            descRu: "На гриле или с чесночным соусом." },
-          { id: "sea-prawns-cheese", label: "by wt", img: PHOTO + "shop-spaghetti.jpg?v=mj24",
-            nameEn: "Cheese Prawns", nameZh: "芝士烤虾", nameRu: "Креветки с сыром",
-            descEn: "Grilled prawns under melted cheese.",
-            descZh: "烤虾，上面一层芝士。",
-            descRu: "Креветки на гриле под расплавленным сыром." },
-          { id: "sea-shells", label: "by wt", img: PHOTO + "shop-prawns.jpg?v=mj24",
-            nameEn: "Clams & Mussels", nameZh: "贝类", nameRu: "Моллюски",
-            descEn: "Clams and mussels, straight from the ice chest.",
-            descZh: "蛤蜊和贻贝，冰柜现取。",
-            descRu: "Клемы и мидии, прямо из ледяного ящика." },
-          { id: "sea-mussels", label: "by wt", img: PHOTO + "menu-mussels.jpg?v=mj22",
-            nameEn: "Mussels", nameZh: "贻贝", nameRu: "Мидии",
-            descEn: "Fresh from the ice chest, steamed with herbs.",
-            descZh: "冰柜里现取，香草清蒸。",
-            descRu: "Свежие из ледяного ящика, на пару с травами." }
+            ] }
         ],
         fish: [
-          { id: "fish-grilled", label: "by wt", img: PHOTO + "menu-fish-grill.jpg?v=mj22",
-            nameEn: "Grilled Fish", nameZh: "炭火烤鱼", nameRu: "Рыба на гриле",
-            descEn: "Whole fish over charcoal, charred outside, tender inside.",
-            descZh: "整条炭烤，外焦里嫩。",
-            descRu: "Целая рыба на углях, снаружи поджаристая, внутри нежная." },
-          { id: "fish-fried", label: "by wt", img: PHOTO + "dish-fish-fried.jpg?v=mj24",
-            nameEn: "Fried Fish", nameZh: "炸鱼", nameRu: "Жареная рыба",
-            descEn: "Whole fish, fried crisp, garlic on top.",
-            descZh: "整条酥炸，上面撒蒜。",
-            descRu: "Целая рыба, хрустящая, сверху чеснок." }
+          { id: "fish-whole", label: "฿350–400", img: PHOTO + "menu-fish-grill.jpg?v=mj22",
+            nameEn: "Fish", nameZh: "鲜鱼", nameRu: "Рыба",
+            descEn: "Whole fish. Price depends on the cooking style.",
+            descZh: "整条鲜鱼，价格看做法。",
+            descRu: "Целая рыба. Цена зависит от способа приготовления.",
+            methods: [
+              { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "ปลาเผา", label: "฿390" },
+              { id: "bbq-salt", en: "BBQ with salt", zh: "盐烤", ru: "На гриле с солью", th: "ปลาเผาเกลือ", label: "฿390" },
+              { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареная с чесноком", th: "ปลาทอดกระเทียม", label: "฿390" },
+              { id: "garlic-pepper", en: "Fried garlic pepper", zh: "蒜蓉胡椒炸", ru: "С чесноком и перцем", th: "ปลาทอดกระเทียมพริกไทย", label: "฿390" },
+              { id: "panang", en: "Fried panang curry", zh: "帕能咖喱", ru: "Пананг карри", th: "ราดซอสพะแนง", label: "฿390" },
+              { id: "sweet-sour", en: "Fried sweet & sour", zh: "糖醋", ru: "Кисло-сладкая", th: "ปลาทอดราดซอสเปรี้ยวหวาน", label: "฿400" },
+              { id: "sweet-chilli", en: "Fried sweet chilli", zh: "甜辣椒", ru: "Сладкий чили", th: "ปลาราดพริก", label: "฿390" },
+              { id: "holy-basil", en: "Fried holy basil", zh: "炒打抛叶", ru: "Со священным базиликом", th: "ปลาผัดกะเพรา", label: "฿390" },
+              { id: "mango-salad", en: "Open fried fish with mango salad", zh: "香芒沙拉炸鱼", ru: "С манговым салатом", th: "ปลาทอดราดมะม่วง", label: "฿400" },
+              { id: "ginger", en: "Fried ginger sauce", zh: "姜汁炒", ru: "С имбирным соусом", th: "ปลาผัดขิง", label: "฿390" },
+              { id: "steam-ginger", en: "Steamed ginger soya", zh: "姜丝豉油蒸", ru: "На пару с имбирём и соей", th: "ปลานึ่งซีอิ๊ว", label: "฿400" },
+              { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "ปลานึ่งมะนาว", label: "฿380" },
+              { id: "aioli", en: "Aioli fish", zh: "蒜泥蛋黄酱", ru: "Айоли", th: "ปลาไอลีโอลี", label: "฿350" },
+              { id: "filet", en: "Mr.Jeff fish filet", zh: "Mr.Jeff 鱼排", ru: "Филе Mr.Jeff", th: "มิสเตอร์เจฟ", label: "฿400" }
+            ] }
+        ],
+        crab: [
+          { id: "crab-catch", label: "฿120 / 100g", img: PHOTO + "shop-crab-curry.jpg?v=mj24",
+            nameEn: "Crab & King Crab", nameZh: "螃蟹 / 帝王蟹", nameRu: "Краб и камчатский краб",
+            descEn: "Fresh catch, weighed at the ice chest. Pick your cooking style.",
+            descZh: "冰柜现挑现称，做法自己选。",
+            descRu: "Свежий улов, взвесим у ледника. Способ приготовления на выбор.",
+            methods: [
+              { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "ปูเผา" },
+              { id: "curry-powder", en: "Curry powder", zh: "咖喱粉炒", ru: "С карри-порошком", th: "ปูผัดผงกะหรี่" },
+              { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареный с чесноком", th: "ปูทอดกระเทียม" },
+              { id: "garlic-pepper", en: "Fried garlic pepper", zh: "蒜蓉胡椒炸", ru: "С чесноком и перцем", th: "ปูทอดกระเทียมพริกไทย" },
+              { id: "chilli-paste", en: "Chilli pasta", zh: "炒辣椒膏", ru: "С пастой чили", th: "ปูผัดพริกเผา" },
+              { id: "steam-lemon", en: "Steamed lemon & chilli", zh: "柠檬辣椒清蒸", ru: "На пару с лимоном и чили", th: "ปูนึ่งมะนาว" },
+              { id: "panang", en: "Panang curry", zh: "帕能咖喱", ru: "Пананг карри", th: "ปูผัดซอสพะแนง" },
+              { id: "holy-basil", en: "Fried holy basil", zh: "炒打抛叶", ru: "Со священным базиликом", th: "ปูผัดกะเพรา" },
+              { id: "black-pepper", en: "Black pepper", zh: "黑胡椒炒", ru: "С чёрным перцем", th: "ปูผัดพริกไทยดำ" }
+            ] }
         ],
         rice: [
           { id: "rice-shark", label: "ask", img: PHOTO + "rice-shark.jpg?v=mj25",
@@ -1088,7 +1099,7 @@
           nameZh: method ? dish.nameZh + "（" + method.zh + "）" : dish.nameZh,
           nameRu: method ? dish.nameRu + " (" + method.ru + ")" : dish.nameRu,
           th: method ? method.th : "",
-          label: dish.label, qty: 1
+          label: (method && method.label) || dish.label, qty: 1
         });
         render();
       }
@@ -1204,6 +1215,7 @@
             "<span class=\"method-en\">" + escapeHtml(m.en) + "</span>" +
             (lang === "en" ? "" : "<span class=\"method-local\">" + escapeHtml(lang === "zh" ? m.zh : m.ru) + "</span>") +
             "<span class=\"method-th\">" + escapeHtml(m.th) + "</span>" +
+            (m.label ? "<span class=\"method-fee\">" + escapeHtml(m.label) + "</span>" : "") +
             "<span class=\"method-step\">" +
               "<button type=\"button\" data-d=\"-1\" aria-label=\"−\"" + (q ? "" : " disabled") + ">−</button>" +
               "<b>" + q + "</b>" +
