@@ -169,14 +169,30 @@
       color: #ECE6D4;
     }
     .hero-title {
-      margin: 1.1rem 0 0;
+      align-self: stretch;
+      width: 100vw;
+      margin: 1.3rem calc(50% - 50vw) 0;
+      overflow: hidden;
+      cursor: pointer;
       font-family: "Playfair Display", Georgia, serif;
       font-weight: 500;
-      font-size: clamp(2.6rem, 7vw, 60px);
-      letter-spacing: 4px;
+      font-size: clamp(3.4rem, 17vw, 170px);
+      letter-spacing: 2px;
       line-height: 1.05;
       text-transform: uppercase;
       color: #fff;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: hero-marquee 26s linear infinite;
+    }
+    .hero-title.is-paused .marquee-track { animation-play-state: paused; }
+    .marquee-word { flex: none; padding: 0 0.28em; }
+    @keyframes hero-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
     .hero-sub {
       margin: 1rem 0 0;
@@ -201,22 +217,33 @@
       background: #ECE6D4;
     }
     .logo-dot img { width: 100%; height: 100%; object-fit: cover; }
-    .logo-deco { position: relative; display: inline-block; padding: 7px; }
-    .logo-deco .logo-dot { display: block; }
-    .logo-deco .deco-light {
-      position: absolute; z-index: 2; pointer-events: none;
-      font-size: 11px; line-height: 1;
-      text-shadow: 0 0 6px rgba(255,196,92,0.95), 0 0 12px rgba(255,140,60,0.55);
-      animation: bulb-glow 2.4s ease-in-out infinite;
+    .logo-deco { position: relative; display: inline-block; padding-bottom: 30px; }
+    .logo-deco .logo-dot { display: block; position: relative; z-index: 2; }
+    .logo-garland {
+      position: absolute; z-index: 1; pointer-events: none;
+      left: 50%; top: 36px; width: 78px; margin-left: -39px;
+      overflow: visible;
     }
-    .logo-deco .d1 { left: 2px; bottom: 16px; animation-delay: 0s; }
-    .logo-deco .d2 { left: 8px; bottom: 3px; animation-delay: 0.5s; }
-    .logo-deco .d3 { left: 50%; bottom: -3px; margin-left: -6px; animation-delay: 1s; }
-    .logo-deco .d4 { right: 8px; bottom: 3px; animation-delay: 1.5s; }
-    .logo-deco .d5 { right: 2px; bottom: 16px; animation-delay: 2s; }
-    @keyframes bulb-glow {
-      0%, 100% { opacity: 0.45; transform: scale(0.85); }
-      50% { opacity: 1; transform: scale(1.18); }
+    .logo-garland .wire { fill: none; stroke: rgba(111,216,206,0.75); stroke-width: 1.1; stroke-linecap: round; }
+    .logo-garland .string { stroke: rgba(126,184,212,0.6); stroke-width: 0.8; }
+    .logo-garland .charm { filter: drop-shadow(0 0 3px rgba(111,216,206,0.9)); }
+    .logo-garland .bead {
+      fill: #A8F0E4;
+      filter: drop-shadow(0 0 4px rgba(111,216,206,0.95));
+      animation: bead-twinkle 2.6s ease-in-out infinite;
+    }
+    .logo-garland .swing {
+      transform-box: fill-box;
+      transform-origin: top center;
+      animation: charm-sway 3.6s ease-in-out infinite alternate;
+    }
+    @keyframes charm-sway {
+      from { transform: rotate(-7deg); }
+      to { transform: rotate(7deg); }
+    }
+    @keyframes bead-twinkle {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; }
     }
     .top-nav a {
       font-family: "Lora", serif;
@@ -475,6 +502,33 @@
       background: rgba(26,26,26,0.94); border: 1px solid rgba(212,175,55,0.5);
       color: #F5F0EB; border-radius: 999px; padding: 0.65rem 1rem; font-size: 0.85rem;
     }
+    .site-foot { background: #101617; color: #ECE6D4; }
+    .foot-kicker {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase;
+      color: rgba(236,230,212,0.5);
+    }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.55rem 1.05rem; border-radius: 999px;
+      border: 1px solid rgba(111,216,206,0.35);
+      background: rgba(111,216,206,0.08);
+      font-size: 0.85rem; letter-spacing: 0.04em;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+    .social-btn:hover {
+      background: rgba(111,216,206,0.18);
+      border-color: rgba(111,216,206,0.7);
+      transform: translateY(-1px);
+    }
+    .social-btn svg { width: 17px; height: 17px; flex: none; }
+    .tag-chip {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.38rem 0.8rem; border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.32);
+      color: rgba(236,230,212,0.82);
+      font-size: 0.78rem; letter-spacing: 0.03em;
+    }
     .desk-nav { display: none; }
     @media (min-width: 768px) {
       .desk-nav { display: flex; }
@@ -482,7 +536,9 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .logo-deco .deco-light, .bubble-out .pv-line { animation: none; opacity: 1; transform: none; }
+      .logo-garland .swing, .logo-garland .bead, .marquee-track, .bubble-out .pv-line {
+        animation: none; opacity: 1; transform: none;
+      }
     }
   </style>
 </head>
@@ -500,11 +556,44 @@
     <div class="absolute top-5 left-5 z-20">
       <a href="#home" class="logo-deco inline-block" aria-label="Mr.Jeff">
         <span class="logo-dot"><img src="../photos/logo-avatar.jpg" alt=""></span>
-        <span class="deco-light d1" aria-hidden="true">✦</span>
-        <span class="deco-light d2" aria-hidden="true">☾</span>
-        <span class="deco-light d3" aria-hidden="true">✦</span>
-        <span class="deco-light d4" aria-hidden="true">☾</span>
-        <span class="deco-light d5" aria-hidden="true">✦</span>
+        <svg class="logo-garland" viewBox="0 0 78 42" width="78" height="42" aria-hidden="true">
+          <defs>
+            <g id="mj-fish">
+              <path fill="#6FD8CE" d="M -4 0 q 4 -3.6 8 0 q -4 3.6 -8 0 z"></path>
+              <path fill="#6FD8CE" d="M 4 0 l 3.4 -2.6 v 5.2 z"></path>
+              <circle fill="#0b2a33" cx="-1.6" cy="-0.6" r="0.6"></circle>
+            </g>
+            <g id="mj-shell">
+              <path fill="#7EB8D4" d="M 0 -3.4 L -4 1.4 Q 0 5.4 4 1.4 Z"></path>
+              <path fill="none" stroke="rgba(11,42,51,0.4)" stroke-width="0.5" d="M 0 -3.4 L -2.2 2.2 M 0 -3.4 L 0 3.4 M 0 -3.4 L 2.2 2.2"></path>
+            </g>
+          </defs>
+          <path class="wire" d="M 4 4 Q 39 30 74 4"></path>
+          <circle class="bead" cx="22.2" cy="14" r="1" style="animation-delay:0s"></circle>
+          <circle class="bead" cx="33.4" cy="16.7" r="1" style="animation-delay:0.5s"></circle>
+          <circle class="bead" cx="44.6" cy="16.7" r="1" style="animation-delay:1s"></circle>
+          <circle class="bead" cx="55.8" cy="14" r="1" style="animation-delay:1.5s"></circle>
+          <g transform="translate(16.6 11.7)"><g class="swing" style="animation-delay:0s">
+            <line class="string" x1="0" y1="0" x2="0" y2="7"></line>
+            <use class="charm" href="#mj-fish" transform="translate(-1.4 10) scale(0.8)"></use>
+          </g></g>
+          <g transform="translate(27.8 15.7)"><g class="swing" style="animation-delay:0.4s">
+            <line class="string" x1="0" y1="0" x2="0" y2="8.5"></line>
+            <use class="charm" href="#mj-shell" transform="translate(0 11.7) scale(0.8)"></use>
+          </g></g>
+          <g transform="translate(39 17)"><g class="swing" style="animation-delay:0.8s">
+            <line class="string" x1="0" y1="0" x2="0" y2="10"></line>
+            <use class="charm" href="#mj-fish" transform="translate(-1.4 13) scale(0.8)"></use>
+          </g></g>
+          <g transform="translate(50.2 15.7)"><g class="swing" style="animation-delay:1.2s">
+            <line class="string" x1="0" y1="0" x2="0" y2="8.5"></line>
+            <use class="charm" href="#mj-shell" transform="translate(0 11.7) scale(0.8)"></use>
+          </g></g>
+          <g transform="translate(61.4 11.7)"><g class="swing" style="animation-delay:1.6s">
+            <line class="string" x1="0" y1="0" x2="0" y2="7"></line>
+            <use class="charm" href="#mj-fish" transform="translate(-1.4 10) scale(0.8)"></use>
+          </g></g>
+        </svg>
       </a>
     </div>
     <div class="absolute top-6 right-5 z-20 flex items-center gap-6">
@@ -523,7 +612,16 @@
     </div>
     <div class="hero-copy">
       <p class="brand-mark">Mr.Jeff</p>
-      <h1 class="hero-title" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</h1>
+      <h1 class="hero-title" id="hero-title" role="button" tabindex="0" aria-label="Food Menu" data-marquee>
+        <span class="marquee-track">
+          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</span>
+          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
+          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
+          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
+          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
+          <span class="marquee-word" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu" aria-hidden="true">Food Menu</span>
+        </span>
+      </h1>
       <p class="hero-sub" data-en="Roadside shack energy — ice chest out front, grill in the back, Mr. Jeff at the door." data-zh="路边排档的劲儿——门口冰柜，后厨炭火，Mr. Jeff 在门边。" data-ru="Придорожный шалаш — ледник у входа, гриль сзади, мистер Джефф у двери.">路边排档的劲儿——门口冰柜，后厨炭火，Mr. Jeff 在门边。</p>
       <p class="hero-meta" data-en="137/4 Maret, Lamai — near Coco Splash · Open daily 13:00 – 23:00 · LINE + WhatsApp · +66 62 045 4983" data-zh="137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983" data-ru="137/4 Марет, Ламай — рядом с Coco Splash · Ежедневно 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983">137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983</p>
       <a href="#menu" class="wa-pill chat-btn" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp">Order via WhatsApp</a>
@@ -611,6 +709,53 @@
       </div>
     </section>
   </main>
+
+  <footer class="site-foot">
+    <div class="max-w-3xl mx-auto px-6 py-14 text-center">
+      <p class="font-serif text-[30px] tracking-[0.1em]">Mr.Jeff</p>
+      <p class="mt-1 text-[14px] text-parchment/55" data-en="Fresh seafood by weight · Maret, Lamai" data-zh="海鲜按重量计价 · 拉迈 Maret" data-ru="Морепродукты по весу · Марет, Ламай">海鲜按重量计价 · 拉迈 Maret</p>
+
+      <h2 class="foot-kicker mt-10" data-en="Follow &amp; chat" data-zh="关注与联系" data-ru="Соцсети и чат">关注与联系</h2>
+      <div class="mt-5 flex flex-wrap justify-center gap-3">
+        <a class="social-btn" href="https://wa.me/66620454983" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.15L2 22l4.98-1.6A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.4-.53.05-1.02.24-3.42-.72-2.88-1.14-4.7-4.1-4.84-4.29-.14-.19-1.15-1.53-1.15-2.92s.73-2.07 1-2.35c.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.65.5.24.58.8 2 .87 2.14.07.14.12.3.02.49-.09.19-.14.3-.28.47l-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.63-.14.25.1 1.67.79 1.95.93.28.14.47.21.54.33.07.11.07.65-.18 1.35Z"></path></svg>
+          WhatsApp
+        </a>
+        <a class="social-btn" href="https://line.me/R/ti/p/~mrjeff.samui" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.9 3 3 6.3 3 10.4c0 3.7 3.2 6.8 7.5 7.4.3.06.7.2.8.45.09.23.06.58.03.81l-.13.78c-.04.23-.18.9.79.49s5.23-3.08 7.14-5.27C20.4 13.7 21 12.1 21 10.4 21 6.3 17.1 3 12 3Z"></path></svg>
+          LINE
+        </a>
+        <a class="social-btn" href="https://www.facebook.com/search/top?q=Mr.Jeff%20Seafood%20Lamai" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.41-.12-2.39 0-4.02 1.46-4.02 4.13v2.3H7.5V13h2.77v8h3.23Z"></path></svg>
+          Facebook
+        </a>
+        <a class="social-btn" href="https://www.instagram.com/explore/search/keyword/?q=Mr.Jeff%20Samui" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+          Instagram
+        </a>
+        <a class="social-btn" href="https://www.google.com/maps/search/?api=1&query=Mr.Jeff+Seafood+Lamai+Koh+Samui" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"></path></svg>
+          Google Maps
+        </a>
+      </div>
+
+      <h2 class="foot-kicker mt-12" data-en="Good to know" data-zh="到店须知" data-ru="Полезно знать">到店须知</h2>
+      <div class="mt-5 flex flex-wrap justify-center gap-2">
+        <span class="tag-chip"><span aria-hidden="true">🏳️‍🌈</span><span data-en="LGBTQ+ welcome" data-zh="LGBTQ+ 友好" data-ru="ЛГБТК+ френдли">LGBTQ+ 友好</span></span>
+        <span class="tag-chip"><span aria-hidden="true">🐾</span><span data-en="Pet friendly" data-zh="可带宠物" data-ru="Можно с питомцами">可带宠物</span></span>
+        <span class="tag-chip"><span aria-hidden="true">🥡</span><span data-en="Takeaway" data-zh="可打包外带" data-ru="Еда навынос">可打包外带</span></span>
+        <span class="tag-chip"><span aria-hidden="true">🛵</span><span data-en="Delivery" data-zh="可外送" data-ru="Доставка">可外送</span></span>
+        <span class="tag-chip"><span aria-hidden="true">🌤</span><span data-en="Outdoor seating" data-zh="户外座位" data-ru="Места на улице">户外座位</span></span>
+        <span class="tag-chip"><span aria-hidden="true">📶</span><span data-en="Free Wi-Fi" data-zh="免费 Wi-Fi" data-ru="Бесплатный Wi-Fi">免费 Wi-Fi</span></span>
+        <span class="tag-chip"><span aria-hidden="true">👨‍👩‍👧</span><span data-en="Kid friendly" data-zh="适合带孩子" data-ru="Можно с детьми">适合带孩子</span></span>
+        <span class="tag-chip"><span aria-hidden="true">📅</span><span data-en="Reservations" data-zh="可预订" data-ru="Бронирование">可预订</span></span>
+        <span class="tag-chip"><span aria-hidden="true">💵</span><span data-en="Cash only" data-zh="只收现金" data-ru="Только наличные">只收现金</span></span>
+      </div>
+
+      <p class="mt-12 text-[13px] text-parchment/45" data-en="Open every day, 13:00 – 23:00 · 137/4 Maret, Lamai, Koh Samui 84310" data-zh="每日 13:00–23:00 · 137/4 Maret，拉迈，苏梅岛 84310" data-ru="Ежедневно 13:00–23:00 · 137/4 Марет, Ламай, Самуи 84310">每日 13:00–23:00 · 137/4 Maret，拉迈，苏梅岛 84310</p>
+      <p class="mt-2 text-[12px] text-parchment/35">© 2026 Mr.Jeff · PalmPages</p>
+    </div>
+  </footer>
 
   <button type="button" id="cart-fab" class="cart-fab" aria-label="Cart">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -1034,6 +1179,17 @@
       document.getElementById("rev-prev").addEventListener("click", function () { rail.scrollBy({ left: -320, behavior: "smooth" }); });
       document.getElementById("rev-next").addEventListener("click", function () { rail.scrollBy({ left: 320, behavior: "smooth" }); });
       applyLang("zh");
+    })();
+
+    /* Hero title scrolls until the visitor taps it */
+    (function () {
+      var title = document.getElementById("hero-title");
+      if (!title) return;
+      function toggle() { title.classList.toggle("is-paused"); }
+      title.addEventListener("click", toggle);
+      title.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+      });
     })();
 
     /* Hero flash-in: pan the photo, glow the sign, then settle */
