@@ -12,6 +12,7 @@
   <link rel="preload" as="image" href="photos/hero.jpg?v=mj35" fetchpriority="high">
   <style>
     /* Tiny utility layer — keeps the page off the Tailwind CDN runtime. */
+    a { color: inherit; text-decoration: inherit; }
     button {
       background: transparent; color: inherit; font: inherit; cursor: pointer;
       -webkit-appearance: none; appearance: none; border: 0; padding: 0;
@@ -79,11 +80,6 @@
     .uppercase{text-transform:uppercase}.underline{text-decoration:underline}.not-italic{font-style:normal}
     .opacity-0{opacity:0}.scale-95{transform:scale(.95)}.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.35)}
     .outline-none{outline:none}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-    .avatar-dot{
-      width:3rem;height:3rem;border-radius:9999px;flex:none;
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(116,142,120,.28);color:#748E78;font-size:.85rem;font-weight:600;
-    }
     @media (min-width:640px){
       .sm\:px-8{padding-left:2rem;padding-right:2rem}
       .sm\:text-\[30px\]{font-size:30px}
@@ -757,6 +753,7 @@
       padding: 0.55rem 1.05rem; border-radius: 999px;
       border: 1px solid rgba(212,175,55,0.35);
       background: rgba(212,175,55,0.08);
+      color: rgba(236,230,212,0.88);
       font-size: 0.85rem; letter-spacing: 0.04em;
       transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
     }
@@ -1084,27 +1081,27 @@
       </div>
       <div id="review-rail" class="review-rail mt-10">
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">A</span><div><p class="font-medium">Aung minn969</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a12.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium">Aung minn969</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。" data-ru="Очень хороший королевский лобстер — лучший в Таиланде, мистер Джефф.">帝王龙虾非常好——泰国最好的，Mr. Jeff。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">ป</span><div><p class="font-medium">แป้ง โฟน</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a32.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium">แป้ง โฟน</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。" data-ru="Большое спасибо за всё в ресторане Mr Jeff в Ламаи. Мистер Джефф очень дружелюбный… обязательно вернёмся.">非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">Е</span><div><p class="font-medium">Екатерина</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a47.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium">Екатерина</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！" data-ru="Все продукты свежие, блюда вкусные, атмосфера приятная, чисто и уютно. На отдыхе регулярно заезжаем на Самуи!">食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">G</span><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a5.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend." data-zh="海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。" data-ru="Потрясающие морепродукты, креветки в чесночном масле — обязательно попробуйте. Мистер Джефф — легенда.">海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">G</span><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a8.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Best crab curry powder I've ever had. The vibe is super local and welcoming." data-zh="我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。" data-ru="Лучший краб с карри, что я пробовал. Атмосфера очень местная и гостеприимная.">我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">G</span><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a15.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Great value for money, fresh catch every day. Will come back again." data-zh="性价比很高，每天都有新鲜渔获。还会再来。" data-ru="Отличное соотношение цены и качества, каждый день свежий улов. Обязательно вернёмся.">性价比很高，每天都有新鲜渔获。还会再来。</blockquote>
         </figure>
       </div>
