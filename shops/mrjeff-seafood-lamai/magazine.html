@@ -6,31 +6,88 @@
   <title>Mr.Jeff — Food Menu · Lamai / Maret</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Mr. Jeff in Maret, Lamai. Fresh seafood by weight. Cash only. Order via WhatsApp.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            night: "#040809",
-            gold: "#D4AF37",
-            parchment: "#ECE6D4",
-            sage: "#A3C49E",
-            moss: "#748E78"
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', "Georgia", "serif"],
-            body: ['"Lora"', '"Noto Sans SC"', "serif"],
-            sans: ['"Lora"', '"Noto Sans SC"', "sans-serif"]
-          }
-        }
-      }
-    };
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lora:wght@400;500&family=Noto+Sans+SC:wght@400&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="photos/hero.jpg?v=mj34" fetchpriority="high">
   <style>
+    /* Tiny utility layer — keeps the page off the Tailwind CDN runtime. */
+    .hidden{display:none!important}
+    .block{display:block}.inline-block{display:inline-block}.inline-flex{display:inline-flex}
+    .flex{display:flex}.flex-1{flex:1 1 0%}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}
+    .items-center{align-items:center}.items-end{align-items:flex-end}
+    .justify-center{justify-content:center}.justify-between{justify-content:space-between}
+    .gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}
+    .absolute{position:absolute}.relative{position:relative}.fixed{position:fixed}
+    .inset-0{inset:0}.inset-y-0{top:0;bottom:0}
+    .top-0{top:0}.top-5{top:1.25rem}.top-6{top:1.5rem}
+    .left-5{left:1.25rem}.right-0{right:0}.right-5{right:1.25rem}.right-\[12\%\]{right:12%}
+    .z-20{z-index:20}.z-40{z-index:40}.z-50{z-index:50}.z-\[55\]{z-index:55}
+    .w-7{width:1.75rem}.w-9{width:2.25rem}.w-12{width:3rem}.w-full{width:100%}
+    .h-7{height:1.75rem}.h-9{height:2.25rem}.h-12{height:3rem}
+    .min-w-7{min-width:1.75rem}
+    .max-w-md{max-width:28rem}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-6xl{max-width:72rem}
+    .mx-auto{margin-left:auto;margin-right:auto}
+    .mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}
+    .mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-10{margin-top:2.5rem}
+    .mt-12{margin-top:3rem}.mt-14{margin-top:3.5rem}
+    .p-5{padding:1.25rem}.p-6{padding:1.5rem}
+    .px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}
+    .px-6{padding-left:1.5rem;padding-right:1.5rem}
+    .py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}
+    .py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}
+    .py-8{padding-top:2rem;padding-bottom:2rem}.py-12{padding-top:3rem;padding-bottom:3rem}
+    .py-14{padding-top:3.5rem;padding-bottom:3.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}
+    .pt-2{padding-top:.5rem}.pt-10{padding-top:2.5rem}
+    .pb-16{padding-bottom:4rem}.pb-20{padding-bottom:5rem}.pb-24{padding-bottom:6rem}
+    .space-y-1>*+*{margin-top:.25rem}.space-y-3>*+*{margin-top:.75rem}
+    .space-y-4>*+*{margin-top:1rem}.space-y-8>*+*{margin-top:2rem}
+    .overflow-auto{overflow:auto}.object-cover{object-fit:cover}
+    .rounded-xl{border-radius:.75rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}
+    .border{border-width:1px;border-style:solid}.border-b{border-bottom-width:1px;border-bottom-style:solid}
+    .border-l{border-left-width:1px;border-left-style:solid}
+    .border-sage{border-color:#A3C49E}.border-sage\/25{border-color:rgba(163,196,158,.25)}
+    .border-gold\/25{border-color:rgba(212,175,55,.25)}.border-gold\/30{border-color:rgba(212,175,55,.3)}
+    .border-gold\/35{border-color:rgba(212,175,55,.35)}.border-gold\/40{border-color:rgba(212,175,55,.4)}
+    .border-gold\/50{border-color:rgba(212,175,55,.5)}
+    .bg-white\/5{background:rgba(255,255,255,.05)}.bg-white\/50{background:rgba(255,255,255,.5)}
+    .bg-black\/55{background:rgba(0,0,0,.55)}.bg-black\/60{background:rgba(0,0,0,.6)}
+    .bg-\[\#1A1A1A\]{background:#1A1A1A}.bg-gold{background:#D4AF37}
+    .text-center{text-align:center}.text-white{color:#fff}.text-night{color:#040809}
+    .text-gold{color:#D4AF37}.text-xl{font-size:1.25rem}.text-2xl{font-size:1.5rem}
+    .text-sm{font-size:.875rem}.text-xs{font-size:.75rem}
+    .text-\[11px\]{font-size:11px}.text-\[12px\]{font-size:12px}.text-\[13px\]{font-size:13px}
+    .text-\[14px\]{font-size:14px}.text-\[16px\]{font-size:16px}.text-\[24px\]{font-size:24px}
+    .text-\[26px\]{font-size:26px}.text-\[30px\]{font-size:30px}
+    .text-white\/60{color:rgba(255,255,255,.6)}.text-white\/75{color:rgba(255,255,255,.75)}
+    .text-white\/85{color:rgba(255,255,255,.85)}
+    .text-night\/45{color:rgba(4,8,9,.45)}.text-night\/70{color:rgba(4,8,9,.7)}
+    .text-parchment\/35{color:rgba(236,230,212,.35)}.text-parchment\/45{color:rgba(236,230,212,.45)}
+    .text-parchment\/55{color:rgba(236,230,212,.55)}
+    .text-\[\#F5F0EB\]{color:#F5F0EB}.text-\[\#F5F0EB\]\/50{color:rgba(245,240,235,.5)}
+    .text-\[\#F5F0EB\]\/70{color:rgba(245,240,235,.7)}
+    .font-serif{font-family:"Playfair Display",Georgia,serif}
+    .font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}
+    .leading-none{line-height:1}.leading-snug{line-height:1.375}.leading-6{line-height:1.5rem}
+    .leading-7{line-height:1.75rem}.leading-8{line-height:2rem}.leading-\[20\.8px\]{line-height:20.8px}
+    .tracking-\[0\.08em\]{letter-spacing:.08em}.tracking-\[0\.1em\]{letter-spacing:.1em}
+    .tracking-\[0\.12em\]{letter-spacing:.12em}.tracking-\[0\.18em\]{letter-spacing:.18em}
+    .uppercase{text-transform:uppercase}.underline{text-decoration:underline}.not-italic{font-style:normal}
+    .opacity-0{opacity:0}.scale-95{transform:scale(.95)}.shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.35)}
+    .outline-none{outline:none}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .avatar-dot{
+      width:3rem;height:3rem;border-radius:9999px;flex:none;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(116,142,120,.28);color:#748E78;font-size:.85rem;font-weight:600;
+    }
+    @media (min-width:640px){
+      .sm\:px-8{padding-left:2rem;padding-right:2rem}
+      .sm\:text-\[30px\]{font-size:30px}
+    }
+    @media (min-width:768px){
+      .md\:grid{display:grid}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .md\:gap-8{gap:2rem}.md\:space-y-0>*+*{margin-top:0}
+    }
     html { scroll-behavior: smooth; }
     body {
       background: #ECE6D4;
@@ -67,7 +124,9 @@
     }
     .hero.is-playing .hero-stage {
       animation: hero-pan 7.4s cubic-bezier(0.22, 0.82, 0.2, 1) both;
+      will-change: transform;
     }
+    .hero.is-settled .hero-stage { will-change: auto; }
     .hero.is-settled:hover .hero-stage {
       transform: translate3d(-12%, -2%, 0) scale(1.05);
       transition: transform 0.7s cubic-bezier(0.22, 0.82, 0.2, 1);
@@ -814,10 +873,13 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .logo-garland .swing, .logo-garland .charm, .cat-track, .bubble-out .pv-line, .cat-pop, .cat-pop-ring {
-        animation: none; opacity: 1; transform: none;
+      .logo-garland .swing, .logo-garland .charm, .cat-track, .bubble-out .pv-line, .cat-pop, .cat-pop-ring,
+      .hero.is-playing .hero-stage, .hero-title, .hero.is-playing .sign-glow-mark,
+      .hero.is-playing .sign-glow-fish, .hero.is-playing .sign-glow-pill {
+        animation: none !important; opacity: 1; transform: none;
       }
       .cat-pop, .cat-pop-ring { display: none; }
+      .hero.is-playing .hero-copy > * { animation: none; opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -825,7 +887,7 @@
   <header id="home" class="hero is-playing" data-hero-scene>
     <div class="hero-photo">
       <span class="hero-stage">
-        <img src="photos/hero.jpg?v=mj33" alt="">
+        <img src="photos/hero.jpg?v=mj34" alt="" fetchpriority="high" decoding="async">
       </span>
       <span class="sign-glow sign-glow-mark"></span>
       <span class="sign-glow sign-glow-fish"></span>
@@ -834,7 +896,7 @@
     </div>
     <div class="absolute top-5 left-5 z-20">
       <a href="#home" class="logo-deco inline-block" aria-label="Mr.Jeff">
-        <span class="logo-dot"><img src="photos/logo-avatar.jpg" alt=""></span>
+        <span class="logo-dot"><img src="photos/logo-avatar.jpg?v=mj34" alt="" width="56" height="56" decoding="async"></span>
         <svg class="logo-garland" viewBox="0 0 78 44" width="88" height="50" aria-hidden="true">
           <defs>
             <g id="mj-fish">
@@ -940,27 +1002,27 @@
       </div>
       <div id="review-rail" class="review-rail mt-10">
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=12" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium">Aung minn969</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">A</span><div><p class="font-medium">Aung minn969</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。" data-ru="Очень хороший королевский лобстер — лучший в Таиланде, мистер Джефф.">帝王龙虾非常好——泰国最好的，Mr. Jeff。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=32" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium">แป้ง โฟน</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">ป</span><div><p class="font-medium">แป้ง โฟน</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。" data-ru="Большое спасибо за всё в ресторане Mr Jeff в Ламаи. Мистер Джефф очень дружелюбный… обязательно вернёмся.">非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=47" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium">Екатерина</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">Е</span><div><p class="font-medium">Екатерина</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！" data-ru="Все продукты свежие, блюда вкусные, атмосфера приятная, чисто и уютно. На отдыхе регулярно заезжаем на Самуи!">食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=5" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">G</span><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend." data-zh="海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。" data-ru="Потрясающие морепродукты, креветки в чесночном масле — обязательно попробуйте. Мистер Джефф — легенда.">海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=8" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">G</span><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Best crab curry powder I've ever had. The vibe is super local and welcoming." data-zh="我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。" data-ru="Лучший краб с карри, что я пробовал. Атмосфера очень местная и гостеприимная.">我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/150?img=15" alt="" class="w-12 h-12 rounded-full object-cover"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <div class="flex items-center gap-3"><span class="avatar-dot" aria-hidden="true">G</span><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
           <blockquote class="mt-4 leading-7" data-en="Great value for money, fresh catch every day. Will come back again." data-zh="性价比很高，每天都有新鲜渔获。还会再来。" data-ru="Отличное соотношение цены и качества, каждый день свежий улов. Обязательно вернёмся.">性价比很高，每天都有新鲜渔获。还会再来。</blockquote>
         </figure>
       </div>
@@ -1134,7 +1196,7 @@
       ];
       var MENU = {
         seafood: [
-          { id: "sea-lobster", label: "฿230 / 100g", img: PHOTO + "menu-lobster.jpg?v=mj22",
+          { id: "sea-lobster", label: "฿230 / 100g", img: PHOTO + "menu-lobster.jpg?v=mj34",
             nameEn: "King Lobster", nameZh: "帝王龙虾", nameRu: "Королевский лобстер",
             descEn: "Fresh catch, weighed at the ice chest. Pick your cooking style.",
             descZh: "冰柜现挑现称，做法自己选。",
@@ -1152,7 +1214,7 @@
               { id: "steam-ginger", en: "Steamed ginger soy sauce", zh: "姜丝豉油蒸", ru: "На пару с имбирём и соей", th: "นึ่งขิง" },
               { id: "thermidor", en: "Thermidor", zh: "芝士焗", ru: "Термидор", th: "เทอร์มิดอร์", hot: true }
             ] },
-          { id: "fish-whole", label: "฿350–400", img: PHOTO + "menu-fish-grill.jpg?v=mj22",
+          { id: "fish-whole", label: "฿350–400", img: PHOTO + "menu-fish-grill.jpg?v=mj34",
             nameEn: "Fish", nameZh: "鲜鱼", nameRu: "Рыба",
             descEn: "Whole fish. Price depends on the cooking style.",
             descZh: "整条鲜鱼，价格看做法。",
@@ -1173,7 +1235,7 @@
               { id: "aioli", en: "Aioli fish", zh: "蒜泥蛋黄酱", ru: "Айоли", th: "ปลาไอลีโอลี", label: "฿350" },
               { id: "filet", en: "Mr.Jeff fish filet", zh: "Mr.Jeff 鱼排", ru: "Филе Mr.Jeff", th: "มิสเตอร์เจฟ", label: "฿400" }
             ] },
-          { id: "crab-catch", label: "฿120 / 100g", img: PHOTO + "shop-crab-curry.jpg?v=mj32",
+          { id: "crab-catch", label: "฿120 / 100g", img: PHOTO + "shop-crab-curry.jpg?v=mj34",
             nameEn: "Crab & King Crab", nameZh: "螃蟹 / 帝王蟹", nameRu: "Краб и камчатский краб",
             descEn: "Fresh catch, weighed at the ice chest. Pick your cooking style.",
             descZh: "冰柜现挑现称，做法自己选。",
@@ -1191,7 +1253,7 @@
             ] }
         ],
         steak: [
-          { id: "steak-board", label: "฿300–450", img: PHOTO + "menu-steak.jpg?v=mj32",
+          { id: "steak-board", label: "฿300–450", img: PHOTO + "menu-steak.jpg?v=mj34",
             nameEn: "Steak", nameZh: "牛排", nameRu: "Стейк",
             descEn: "From the steak board. Pick a cut.",
             descZh: "按牛排海报点，选一种。",
@@ -1212,7 +1274,7 @@
             ] }
         ],
         pasta: [
-          { id: "pasta-spaghetti", label: "฿200–380", img: PHOTO + "pasta-meatballs.jpg?v=mj28",
+          { id: "pasta-spaghetti", label: "฿200–380", img: PHOTO + "pasta-meatballs.jpg?v=mj34",
             nameEn: "Spaghetti", nameZh: "意大利面", nameRu: "Спагетти",
             descEn: "Pick a sauce. Seafood and clam are ordered separately.",
             descZh: "先选酱汁。海鲜和蛤蜊要分开点。",
@@ -1402,7 +1464,7 @@
           return (
             "<article class=\"dish-card relative text-center" + (q ? " is-added" : "") + "\" data-dish-id=\"" + dish.id + "\">" +
               "<span class=\"dish-badge " + (q ? "flex" : "hidden") + " absolute top-0 right-[12%] min-w-7 h-7 rounded-full bg-gold text-night text-sm font-bold items-center justify-center\">" + q + "</span>" +
-              "<span class=\"plate\"><span class=\"plate-inner\"><img src=\"" + dish.img + "\" alt=\"\"></span></span>" +
+              "<span class=\"plate\"><span class=\"plate-inner\"><img src=\"" + dish.img + "\" alt=\"\" loading=\"lazy\" decoding=\"async\" width=\"720\" height=\"720\"></span></span>" +
               "<h3 class=\"dish-name\">" + escapeHtml(itemName(dish)) + "</h3>" +
               (desc ? "<p class=\"dish-desc\">" + escapeHtml(desc) + "</p>" : "") +
               "<p class=\"dish-price\">" + escapeHtml(priceLabel(dish)) + (styles ? "<i class=\"dish-styles\">" + escapeHtml(styles) + "</i>" : "") + "</p>" +
