@@ -1,4 +1,5 @@
 :root {
+  color-scheme: only light;
   --night: #0c3552;
   --panel: #154a6e;
   --paper: #f4f7fa;
@@ -178,7 +179,6 @@ a {
   position: absolute;
   pointer-events: none;
   border-radius: 50%;
-  mix-blend-mode: screen;
   opacity: 0;
 }
 
