@@ -495,18 +495,17 @@
       border: 1px solid rgba(212,175,55,0.28); background: rgba(245,240,235,0.05);
     }
     .method-chip.is-on { background: #748E78; border-color: #748E78; }
-    .method-chip.is-hot { border-color: rgba(212,175,55,0.55); background: rgba(212,175,55,0.07); }
+    .method-chip.is-hot { border-color: rgba(163,196,158,0.5); background: rgba(116,142,120,0.16); }
     .method-chip.is-hot.is-on { border-color: #748E78; background: #748E78; }
     .method-tag {
-      display: flex; align-items: center; gap: 0.35rem;
+      display: flex; align-items: center; gap: 0.3rem;
       margin-bottom: 0.3rem;
       font-family: "Playfair Display", Georgia, serif;
       font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(212,175,55,0.9);
+      color: #A3C49E;
     }
-    .method-tag::before { content: ""; width: 12px; height: 1px; background: rgba(212,175,55,0.7); }
-    .method-chip.is-on .method-tag { color: rgba(255,255,255,0.9); }
-    .method-chip.is-on .method-tag::before { background: rgba(255,255,255,0.7); }
+    .method-tag::before { content: "★"; font-size: 0.72rem; letter-spacing: 0; line-height: 1; }
+    .method-chip.is-on .method-tag { color: rgba(255,255,255,0.92); }
     .method-en { display: block; font-family: "Lora", serif; font-size: 0.86rem; line-height: 1.25; }
     .method-local { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: rgba(245,240,235,0.72); }
     .method-th { display: block; margin-top: 0.1rem; font-size: 0.72rem; color: rgba(212,175,55,0.85); }
@@ -826,7 +825,7 @@
   <header id="home" class="hero is-playing" data-hero-scene>
     <div class="hero-photo">
       <span class="hero-stage">
-        <img src="photos/hero.jpg" alt="">
+        <img src="photos/hero.jpg?v=mj33" alt="">
       </span>
       <span class="sign-glow sign-glow-mark"></span>
       <span class="sign-glow sign-glow-fish"></span>
