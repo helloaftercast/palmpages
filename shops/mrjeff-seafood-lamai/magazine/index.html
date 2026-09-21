@@ -474,19 +474,27 @@
       transform: translate(-50%,-50%) scale(0.96); opacity: 0;
       background: #241c12; color: #F5F0EB;
     }
-    #preview-modal { width: min(94vw, 400px); max-height: 92svh; }
-    #preview-modal .wa-head { padding: 0.6rem 0.8rem; }
-    #preview-modal .wa-body { padding: 0.75rem; min-height: 150px; }
+    #preview-modal { width: min(92vw, 420px); max-height: 92svh; }
+    #preview-modal .wa-head { padding: 0.85rem 1rem; }
+    #preview-modal .wa-body {
+      padding: 1rem 0.9rem;
+      min-height: min(52svh, 360px);
+      max-height: min(62svh, 480px);
+      overflow: auto;
+    }
     .wa-frame { background: #0b141a; border-radius: 1.15rem; overflow: hidden; }
     .wa-head { background: #202c33; padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.7rem; }
     .bubble-out {
-      margin-left: auto; max-width: 86%; background: #005c4b; color: #e9edef;
-      border-radius: 0.75rem 0.2rem 0.75rem 0.75rem; padding: 0.75rem 0.85rem;
-      white-space: pre-wrap; font-size: 0.86rem; line-height: 1.55;
+      margin-left: auto; max-width: 92%; background: #005c4b; color: #e9edef;
+      border-radius: 0.75rem 0.2rem 0.75rem 0.75rem; padding: 0.8rem 0.9rem;
+      font-size: 0.88rem; line-height: 1.55;
     }
-    #preview-modal .bubble-out { max-width: 94%; font-size: 0.8rem; line-height: 1.5; padding: 0.65rem 0.75rem; }
-    .bubble-out .pv-line { opacity: 0; transform: translateY(6px); animation: pv-in 420ms ease forwards; }
-    .bubble-out .pv-gap { display: block; height: 0.45em; }
+    .bubble-out .pv-line {
+      display: block;
+      opacity: 0; transform: translateY(6px);
+      animation: pv-in 420ms ease forwards;
+    }
+    .bubble-out .pv-gap { display: block; height: 0.7em; }
     @keyframes pv-in { to { opacity: 1; transform: translateY(0); } }
     .cart-fab {
       position: fixed; right: 16px; bottom: 18px; z-index: 35;
@@ -804,7 +812,7 @@
           <p class="text-[11px] text-white/55" data-en="WhatsApp preview" data-zh="WhatsApp 预览" data-ru="Предпросмотр WhatsApp">WhatsApp 预览</p>
         </div>
       </div>
-      <div class="wa-body p-4 min-h-[180px] bg-[#0b141a]"><div id="preview-text" class="bubble-out"></div></div>
+      <div class="wa-body bg-[#0b141a]"><div id="preview-text" class="bubble-out"></div></div>
       <div class="p-4 bg-[#111b21] flex gap-3">
         <button type="button" id="send-wa" class="chat-btn flex-1 rounded-full py-3 text-white font-semibold" style="background:#25D366">WhatsApp</button>
         <button type="button" id="send-line" class="chat-btn flex-1 rounded-full py-3 text-white font-semibold" style="background:#06C755">LINE</button>
@@ -827,7 +835,7 @@
         { id: "seafood", en: "Seafood", zh: "海鲜", ru: "Морепродукты" },
         { id: "fish", en: "Fish", zh: "鲜鱼", ru: "Рыба" },
         { id: "rice", en: "Rice", zh: "米饭", ru: "Рис" },
-        { id: "grilled", en: "Grilled", zh: "烧烤", ru: "Гриль" },
+        { id: "pasta", en: "Pasta", zh: "意大利面", ru: "Паста" },
         { id: "drinks", en: "Drinks", zh: "饮品", ru: "Напитки" }
       ];
       var MENU = {
@@ -887,17 +895,12 @@
             descZh: "菠萝船炒饭，配大虾和腰果。",
             descRu: "Жареный рис в ананасе, с креветками и кешью." }
         ],
-        grilled: [
-          { id: "gr-fish", label: "ask", img: PHOTO + "dish-fish-chili.jpg?v=mj24",
-            nameEn: "Grilled Salted Fish", nameZh: "烤咸鱼", nameRu: "Солёная рыба на гриле",
-            descEn: "Whole fish, salted and grilled. A house favourite.",
-            descZh: "整条烤咸鱼，店里的热门。",
-            descRu: "Целая рыба, солёная и на гриле. Фирменное блюдо." },
-          { id: "gr-platter", label: "ask", img: PHOTO + "shop-fish-steamed.jpg?v=mj24",
-            nameEn: "Grilled Seafood Platter", nameZh: "烤海鲜拼盘", nameRu: "Ассорти морепродуктов на гриле",
-            descEn: "Lobster, prawns and shellfish, with fried rice.",
-            descZh: "龙虾、大虾和贝类，配炒饭。",
-            descRu: "Лобстер, креветки и моллюски, с жареным рисом." }
+        pasta: [
+          { id: "pasta-meatballs", label: "ask", img: PHOTO + "pasta-meatballs.jpg?v=mj28",
+            nameEn: "Spaghetti & Meatballs", nameZh: "肉丸意大利面", nameRu: "Спагетти с фрикадельками",
+            descEn: "Spaghetti in tomato sauce, with meatballs and parmesan.",
+            descZh: "番茄肉酱意大利面，配肉丸和帕玛森芝士。",
+            descRu: "Спагетти в томатном соусе, с фрикадельками и пармезаном." }
         ],
         drinks: [
           { id: "dr-tipunch", group: "cocktail", label: "฿150", nameEn: "Ti Punch", nameZh: "Ti Punch", nameRu: "Ti Punch", descEn: "House cocktail", descZh: "店内鸡尾酒", descRu: "Фирменный коктейль" },
@@ -1114,8 +1117,8 @@
         var box = document.getElementById("preview-text");
         var rows = message().split("\n");
         box.innerHTML = rows.map(function (row, i) {
-          if (row.trim() === "") return "<span class=\"pv-gap\"></span>";
-          return "<span class=\"pv-line\" style=\"animation-delay:" + (i * 110) + "ms\">" + escapeHtml(row) + "</span>";
+          if (row.trim() === "") return "<div class=\"pv-gap\"></div>";
+          return "<div class=\"pv-line\" style=\"animation-delay:" + (i * 90) + "ms\">" + escapeHtml(row) + "</div>";
         }).join("");
         showLayer("preview-modal", "preview-back");
       }
