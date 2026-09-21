@@ -466,7 +466,7 @@
       background: linear-gradient(180deg, rgba(26,26,26,0.05), rgba(36,28,18,0.94));
     }
     .method-cap { position: absolute; z-index: 2; left: 1.15rem; right: 1.15rem; bottom: 0.85rem; }
-    .method-x, .board-x {
+    .method-x {
       position: absolute; z-index: 3; top: 0.6rem; right: 0.65rem;
       width: 34px; height: 34px; border-radius: 50%;
       background: rgba(26,26,26,0.6); color: #F5F0EB; font-size: 1.25rem; line-height: 1;
@@ -475,45 +475,32 @@
     .method-hint { font-size: 0.8rem; color: rgba(245,240,235,0.6); }
     .method-grid { margin-top: 0.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
     .method-chip {
-      position: relative; text-align: left;
-      padding: 0.6rem 0.7rem; border-radius: 0.85rem;
+      text-align: left;
+      padding: 0.6rem 0.7rem 0.55rem;
+      border-radius: 0.85rem;
       border: 1px solid rgba(212,175,55,0.28); background: rgba(245,240,235,0.05);
-      transition: background 0.18s ease, border-color 0.18s ease;
     }
     .method-chip.is-on { background: #748E78; border-color: #748E78; }
     .method-en { display: block; font-family: "Lora", serif; font-size: 0.86rem; line-height: 1.25; }
     .method-local { display: block; margin-top: 0.15rem; font-size: 0.78rem; color: rgba(245,240,235,0.72); }
     .method-th { display: block; margin-top: 0.1rem; font-size: 0.72rem; color: rgba(212,175,55,0.85); }
     .method-chip.is-on .method-local, .method-chip.is-on .method-th { color: rgba(255,255,255,0.88); }
-    .method-count {
-      position: absolute; top: -7px; right: -7px; min-width: 21px; height: 21px;
-      border-radius: 999px; background: #D4AF37; color: #1A1A1A;
-      font-size: 0.7rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; padding: 0 5px;
+    .method-step {
+      margin-top: 0.5rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.45rem;
     }
+    .method-step button {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 1px solid rgba(212,175,55,0.55); color: #F5F0EB; font-size: 1rem; line-height: 1;
+    }
+    .method-step button:disabled { opacity: 0.35; }
+    .method-step b { min-width: 1.1rem; text-align: center; font-size: 0.9rem; }
     .method-foot {
       flex: none; padding: 0.8rem 1.1rem 1rem;
       border-top: 1px solid rgba(212,175,55,0.2); background: #241c12;
     }
-    .method-board-btn {
-      width: 100%; border-radius: 999px;
-      border: 1px solid rgba(212,175,55,0.45); padding: 0.6rem;
-      font-size: 0.85rem; color: #D4AF37;
-    }
     .method-done {
-      margin-top: 0.55rem; width: 100%; border-radius: 999px; padding: 0.75rem;
+      width: 100%; border-radius: 999px; padding: 0.75rem;
       background: #D4AF37; color: #1A1A1A; font-weight: 600;
-    }
-    .board-modal {
-      position: fixed; left: 50%; top: 50%; z-index: 70;
-      transform: translate(-50%,-50%) scale(0.96); opacity: 0;
-      transition: opacity 280ms ease, transform 280ms ease;
-    }
-    .board-modal.is-open { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-    .board-modal.is-leave { opacity: 0; transform: translate(-50%,-50%) scale(0.94); }
-    .board-modal img {
-      display: block; max-width: 92vw; max-height: 86svh;
-      border-radius: 0.6rem; box-shadow: 0 22px 54px rgba(0,0,0,0.5);
     }
     .review-rail {
       display: flex;
@@ -877,19 +864,12 @@
       </div>
     </div>
     <div class="method-body">
-      <p class="method-hint" data-en="Pick a cooking style — tap again to add another." data-zh="选一种做法，再点一下可加份。" data-ru="Выберите способ — нажмите ещё раз, чтобы добавить.">选一种做法，再点一下可加份。</p>
+      <p class="method-hint" data-en="Pick a cooking style, then keep browsing." data-zh="选做法，再用加减调份数。" data-ru="Выберите способ и количество.">选做法，再用加减调份数。</p>
       <div id="method-grid" class="method-grid"></div>
     </div>
     <div class="method-foot">
-      <button type="button" id="method-board" class="method-board-btn" data-en="See the menu board" data-zh="看菜单原图" data-ru="Посмотреть меню">看菜单原图</button>
-      <button type="button" id="method-done" class="method-done" data-en="Done" data-zh="完成" data-ru="Готово">完成</button>
+      <button type="button" id="method-done" class="method-done" data-en="Continue browsing" data-zh="继续点单" data-ru="Продолжить выбор">继续点单</button>
     </div>
-  </div>
-
-  <div id="board-back" hidden class="modal-back fixed inset-0 z-[65] bg-black/80 opacity-0"></div>
-  <div id="board-modal" hidden class="board-modal">
-    <img id="board-photo" src="" alt="Cooking method menu board">
-    <button type="button" id="board-close" class="board-x" aria-label="Close">×</button>
   </div>
 
   <div id="info-back" hidden class="modal-back fixed inset-0 z-[55] bg-black/60 opacity-0"></div>
@@ -962,7 +942,6 @@
             descEn: "Fresh catch, weighed at the ice chest. Pick your cooking style.",
             descZh: "冰柜现挑现称，做法自己选。",
             descRu: "Свежий улов, взвесим у ледника. Способ приготовления на выбор.",
-            board: PHOTO + "board-lobster.jpg?v=mj29",
             methods: [
               { id: "bbq", en: "BBQ", zh: "炭烤", ru: "На гриле", th: "เผา" },
               { id: "garlic", en: "Fried garlic", zh: "蒜蓉炸", ru: "Жареный с чесноком", th: "ทอดกระเทียม" },
@@ -1113,6 +1092,12 @@
         });
         render();
       }
+      function bumpMethod(methodId, delta) {
+        var rowId = methodDish + "::" + methodId;
+        var found = cart.find(function (row) { return row.id === rowId; });
+        if (delta > 0) add(methodDish, methodId);
+        else if (found) setQty(rowId, found.qty + delta);
+      }
       function setQty(id, qty) {
         var found = cart.find(function (row) { return row.id === id; });
         if (!found) return;
@@ -1215,14 +1200,16 @@
         document.getElementById("method-price").textContent = priceLabel(dish);
         document.getElementById("method-grid").innerHTML = dish.methods.map(function (m) {
           var q = qtyOf(dish.id + "::" + m.id);
-          return "<button type=\"button\" class=\"method-chip" + (q ? " is-on" : "") + "\" data-method=\"" + m.id + "\">" +
-            (q ? "<span class=\"method-count\">" + q + "</span>" : "") +
+          return "<div class=\"method-chip" + (q ? " is-on" : "") + "\" data-method=\"" + m.id + "\">" +
             "<span class=\"method-en\">" + escapeHtml(m.en) + "</span>" +
             (lang === "en" ? "" : "<span class=\"method-local\">" + escapeHtml(lang === "zh" ? m.zh : m.ru) + "</span>") +
             "<span class=\"method-th\">" + escapeHtml(m.th) + "</span>" +
-          "</button>";
+            "<span class=\"method-step\">" +
+              "<button type=\"button\" data-d=\"-1\" aria-label=\"−\"" + (q ? "" : " disabled") + ">−</button>" +
+              "<b>" + q + "</b>" +
+              "<button type=\"button\" data-d=\"1\" aria-label=\"+\">+</button>" +
+            "</span></div>";
         }).join("");
-        document.getElementById("board-photo").src = dish.board || dish.img;
       }
       function render() {
         var n = count();
@@ -1335,18 +1322,14 @@
         else add(id);
       });
       document.getElementById("method-grid").addEventListener("click", function (e) {
+        var step = e.target.closest("[data-d]");
         var chip = e.target.closest("[data-method]");
-        if (chip) add(methodDish, chip.getAttribute("data-method"));
+        if (!step || !chip) return;
+        bumpMethod(chip.getAttribute("data-method"), Number(step.getAttribute("data-d")));
       });
       document.getElementById("method-back").addEventListener("click", closeMethods);
       document.getElementById("method-close").addEventListener("click", closeMethods);
-      document.getElementById("method-done").addEventListener("click", function () {
-        closeMethods();
-        if (cart.length) setTimeout(openCart, 200);
-      });
-      document.getElementById("method-board").addEventListener("click", function () { showLayer("board-modal", "board-back"); });
-      document.getElementById("board-back").addEventListener("click", function () { hideLayer("board-modal", "board-back"); });
-      document.getElementById("board-close").addEventListener("click", function () { hideLayer("board-modal", "board-back"); });
+      document.getElementById("method-done").addEventListener("click", closeMethods);
       document.getElementById("cart-lines").addEventListener("click", function (e) {
         var qtyBtn = e.target.closest("[data-qty]");
         if (!qtyBtn) return;
