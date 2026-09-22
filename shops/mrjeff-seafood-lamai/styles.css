@@ -17,23 +17,13 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
 }
 
+/* Phone browsers paint a blue box over whatever you tap — we give our own feedback instead.
+   Android WebView and the WeChat browser ignore the `transparent` keyword, so spell out zero alpha. */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-/* Phone browsers paint a blue box over whatever you tap — we give our own feedback instead. */
-html,
-body,
-a,
-button,
-input,
-textarea,
-select,
-label,
-summary {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 a,
