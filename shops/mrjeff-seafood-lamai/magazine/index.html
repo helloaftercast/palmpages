@@ -839,6 +839,99 @@
       color: rgba(236, 230, 212, 0.5);
     }
     .desk-nav { display: none; }
+
+    /* Overview — a door in the top right corner that opens onto the four parts of the page. */
+    .ov-trigger {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.5rem 0.95rem;
+      border: 1px solid rgba(236, 230, 212, 0.45);
+      border-radius: 999px;
+      background: rgba(20, 16, 12, 0.34);
+      backdrop-filter: blur(6px);
+      color: #ECE6D4;
+      font-family: "Lora", "Noto Sans SC", serif;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+    }
+    .ov-trigger:hover { border-color: #D4AF37; background: rgba(20, 16, 12, 0.52); }
+    .ov-trigger:active { transform: scale(0.96); }
+    .ov-bars { display: grid; gap: 3px; width: 15px; }
+    .ov-bars i { display: block; height: 1px; background: currentColor; transition: transform 0.3s ease, width 0.3s ease; }
+    .ov-bars i:nth-child(2) { width: 65%; margin-left: auto; }
+    .ov-trigger[aria-expanded="true"] .ov-bars i:nth-child(2) { width: 100%; }
+
+    .ov-sheet {
+      position: fixed; inset: 0; z-index: 80;
+      background: #14100C;
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 0.72s cubic-bezier(0.76, 0, 0.24, 1);
+      pointer-events: none;
+      display: grid; place-items: center;
+      overflow-y: auto;
+    }
+    .ov-sheet.is-open { clip-path: inset(0 0 0 0); pointer-events: auto; }
+    .ov-photo {
+      position: absolute; inset: 0;
+      background: url("../photos/menu-fish-grill.jpg") center / cover no-repeat;
+      opacity: 0.3;
+      transform: scale(1.1);
+      transition: transform 1.8s cubic-bezier(0.22, 0.82, 0.2, 1);
+    }
+    .ov-sheet.is-open .ov-photo { transform: scale(1); }
+    .ov-shade {
+      position: absolute; inset: 0;
+      background: radial-gradient(100% 62% at 50% 46%, rgba(20, 16, 12, 0.72) 0%, rgba(20, 16, 12, 0.34) 100%);
+    }
+    .ov-inner {
+      position: relative; box-sizing: border-box;
+      width: 100%; max-width: 30rem; padding: 6rem 2rem 3.5rem;
+    }
+    .ov-close {
+      position: absolute; top: 1.4rem; right: 1.4rem; z-index: 2;
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 1px solid rgba(236, 230, 212, 0.3);
+      color: #ECE6D4; font-size: 1.3rem; line-height: 1;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .ov-close:hover { border-color: #D4AF37; transform: rotate(90deg); }
+    .ov-kicker {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 10px; letter-spacing: 0.34em; text-transform: uppercase;
+      color: #D4AF37; text-align: center;
+    }
+    .ov-kicker, .ov-foot { margin-left: 0; margin-right: 0; }
+    .ov-list { margin: 1.8rem 0 0; padding: 0; list-style: none; }
+    .ov-list li { border-top: 1px solid rgba(236, 230, 212, 0.14); }
+    .ov-list li:last-child { border-bottom: 1px solid rgba(236, 230, 212, 0.14); }
+    .ov-link {
+      position: relative; display: block;
+      padding: 1.25rem 0.4rem; text-align: center;
+      font-family: "Playfair Display", Georgia, serif; font-weight: 400;
+      font-size: clamp(1.7rem, 7vw, 2.2rem); letter-spacing: 0.1em;
+      color: #ECE6D4;
+      transition: color 0.3s ease, letter-spacing 0.4s ease;
+    }
+    .ov-link:hover { color: #A3C49E; letter-spacing: 0.16em; }
+    .ov-link:active { color: #D4AF37; }
+    /* Each line lifts in after the panel has finished wiping down. */
+    .ov-list li { opacity: 0; transform: translateY(26px); }
+    .ov-sheet.is-open .ov-list li { animation: ovRise 0.6s cubic-bezier(0.22, 0.82, 0.2, 1) forwards; }
+    .ov-sheet.is-open .ov-list li:nth-child(1) { animation-delay: 0.34s; }
+    .ov-sheet.is-open .ov-list li:nth-child(2) { animation-delay: 0.42s; }
+    .ov-sheet.is-open .ov-list li:nth-child(3) { animation-delay: 0.5s; }
+    .ov-sheet.is-open .ov-list li:nth-child(4) { animation-delay: 0.58s; }
+    .ov-foot {
+      margin-top: 2.2rem; text-align: center;
+      font-size: 0.82rem; line-height: 1.9; color: rgba(236, 230, 212, 0.5);
+      opacity: 0; transform: translateY(22px);
+    }
+    .ov-sheet.is-open .ov-foot { animation: ovRise 0.6s cubic-bezier(0.22, 0.82, 0.2, 1) 0.68s forwards; }
+    @keyframes ovRise { to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      .ov-sheet, .ov-photo { transition: none; }
+      .ov-list li, .ov-foot { animation: none !important; opacity: 1; transform: none; }
+    }
+
     @media (min-width: 768px) {
       .desk-nav { display: flex; }
       .hero-copy { padding: 8rem 3rem 6.5rem; }
@@ -1076,6 +1169,10 @@
         <button type="button" data-set-lang="zh" aria-pressed="false" title="中文">🇨🇳</button>
         <button type="button" data-set-lang="ru" aria-pressed="false" title="Русский">🇷🇺</button>
       </div>
+      <button type="button" class="ov-trigger" id="ov-open" aria-expanded="false" aria-controls="ov-sheet">
+        <span class="ov-bars" aria-hidden="true"><i></i><i></i></span>
+        <span data-en="Overview" data-zh="总览" data-ru="Обзор">总览</span>
+      </button>
     </div>
     <div class="hero-copy">
       <p class="brand-mark">Mr.Jeff</p>
@@ -1305,6 +1402,58 @@
   </div>
 
   <div id="sent-toast" hidden class="sent-toast" data-en="Sent ✓✓" data-zh="已发送 ✓✓" data-ru="Отправлено ✓✓">已发送 ✓✓</div>
+
+  <div class="ov-sheet" id="ov-sheet" role="dialog" aria-modal="true" aria-label="Overview">
+    <span class="ov-photo" aria-hidden="true"></span>
+    <span class="ov-shade" aria-hidden="true"></span>
+    <button type="button" class="ov-close" id="ov-close" aria-label="Close">×</button>
+    <div class="ov-inner">
+      <p class="ov-kicker">Mr.Jeff · Lamai</p>
+      <ul class="ov-list">
+        <li><a class="ov-link" href="#menu" data-en="Menu" data-zh="菜单" data-ru="Меню">菜单</a></li>
+        <li><a class="ov-link" href="#about" data-en="How to order" data-zh="点单" data-ru="Заказ">点单</a></li>
+        <li><a class="ov-link" href="#reviews" data-en="Reviews" data-zh="评论" data-ru="Отзывы">评论</a></li>
+        <li><a class="ov-link" href="#contact" data-en="Find us" data-zh="找到我们" data-ru="Как нас найти">找到我们</a></li>
+      </ul>
+      <p class="ov-foot" data-en="Every day 13:00 – 23:00 · Cash only · 137/4 Maret, Lamai" data-zh="每日 13:00–23:00 · 只收现金 · 137/4 Maret，拉迈" data-ru="Ежедневно 13:00–23:00 · Только наличные · 137/4 Марет, Ламай">每日 13:00–23:00 · 只收现金 · 137/4 Maret，拉迈</p>
+    </div>
+  </div>
+
+  <script>
+    /* Overview panel: wipes down over the page, then scrolls to the section you picked. */
+    (function () {
+      var sheet = document.getElementById("ov-sheet");
+      var openBtn = document.getElementById("ov-open");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      function open() {
+        sheet.classList.add("is-open");
+        openBtn.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+      function close() {
+        sheet.classList.remove("is-open");
+        openBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+      openBtn.addEventListener("click", function () {
+        sheet.classList.contains("is-open") ? close() : open();
+      });
+      document.getElementById("ov-close").addEventListener("click", close);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && sheet.classList.contains("is-open")) close();
+      });
+      sheet.querySelectorAll(".ov-link").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          var el = document.querySelector(link.getAttribute("href"));
+          close();
+          window.setTimeout(function () {
+            if (el) el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+          }, reduce ? 0 : 420);
+        });
+      });
+    })();
+  </script>
 
   <script>
     (function () {
