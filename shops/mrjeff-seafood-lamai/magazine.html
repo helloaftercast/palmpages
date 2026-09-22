@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -651,7 +651,29 @@
       width: 100%; border-radius: 999px; padding: 0.75rem;
       background: #D4AF37; color: #1A1A1A; font-weight: 600;
     }
+    #about { text-align: center; counter-reset: step; }
+    #about ol { list-style: none; padding: 0; }
+    #about li { counter-increment: step; }
+    #about h3::before { content: counter(step) ". "; }
+    .review-stage {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .review-stage > button {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: #241c12;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
     .review-rail {
+      flex: 1;
+      min-width: 0;
       display: flex;
       gap: 1rem;
       overflow-x: auto;
@@ -1165,20 +1187,20 @@
         <a href="#contact" data-en="Contact" data-zh="Contact" data-ru="Contact">Contact</a>
       </nav>
       <div class="flex items-center gap-2 text-xl" role="group" aria-label="Language">
-        <button type="button" data-set-lang="en" aria-pressed="false" title="English">🇬🇧</button>
+        <button type="button" data-set-lang="en" aria-pressed="true" title="English">🇬🇧</button>
         <button type="button" data-set-lang="zh" aria-pressed="false" title="中文">🇨🇳</button>
         <button type="button" data-set-lang="ru" aria-pressed="false" title="Русский">🇷🇺</button>
       </div>
       <button type="button" class="ov-trigger" id="ov-open" aria-expanded="false" aria-controls="ov-sheet">
         <span class="ov-bars" aria-hidden="true"><i></i><i></i></span>
-        <span data-en="Overview" data-zh="总览" data-ru="Обзор">总览</span>
+        <span data-en="Overview" data-zh="总览" data-ru="Обзор">Overview</span>
       </button>
     </div>
     <div class="hero-copy">
       <p class="brand-mark">Mr.Jeff</p>
       <h1 class="hero-title" data-en="Food Menu" data-zh="Food Menu" data-ru="Food Menu">Food Menu</h1>
-      <p class="hero-sub" data-en="The day's freshest seafood, brought to your table." data-zh="把每天最新鲜的海鲜，带到餐桌。" data-ru="Самые свежие морепродукты дня — к вашему столу.">把每天最新鲜的海鲜，带到餐桌。</p>
-      <p class="hero-meta" data-en="137/4 Maret, Lamai — near Coco Splash · Open daily 13:00 – 23:00 · LINE + WhatsApp · +66 62 045 4983" data-zh="137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983" data-ru="137/4 Марет, Ламай — рядом с Coco Splash · Ежедневно 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983">137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983</p>
+      <p class="hero-sub" data-en="The day's freshest seafood, brought to your table." data-zh="把每天最新鲜的海鲜，带到餐桌。" data-ru="Самые свежие морепродукты дня — к вашему столу.">The day's freshest seafood, brought to your table.</p>
+      <p class="hero-meta" data-en="137/4 Maret, Lamai — near Coco Splash · Open daily 13:00 – 23:00 · LINE + WhatsApp · +66 62 045 4983" data-zh="137/4 Maret，拉迈——靠近 Coco Splash · 每日 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983" data-ru="137/4 Марет, Ламай — рядом с Coco Splash · Ежедневно 13:00–23:00 · LINE + WhatsApp · +66 62 045 4983">137/4 Maret, Lamai — near Coco Splash · Open daily 13:00 – 23:00 · LINE + WhatsApp · +66 62 045 4983</p>
       <a href="#menu" id="hero-order" class="wa-pill chat-btn" data-en="Order via WhatsApp" data-zh="Order via WhatsApp" data-ru="Заказать в WhatsApp"><span class="wa-ripple" aria-hidden="true"></span>Order via WhatsApp</a>
     </div>
   </header>
@@ -1190,76 +1212,74 @@
       </div>
       <h2 id="cat-title" class="section-kicker mt-12">Seafood</h2>
       <div id="dish-grid" class="dish-grid"></div>
-      <p class="mt-14 text-center text-[13px] tracking-[0.08em] text-night/45" data-zh="以上为招牌推荐，完整菜单请到店查看。" data-en="More dishes available in-store." data-ru="Больше блюд — в ресторане.">以上为招牌推荐，完整菜单请到店查看。</p>
+      <p class="mt-14 text-center text-[13px] tracking-[0.08em] text-night/45" data-zh="以上为招牌推荐，完整菜单请到店查看。" data-en="More dishes available in-store." data-ru="Больше блюд — в ресторане.">More dishes available in-store.</p>
     </section>
 
     <section id="about" class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="section-kicker" data-en="How it works" data-zh="点单流程" data-ru="Как заказать">点单流程</h2>
+      <h2 class="section-kicker" data-en="How it works" data-zh="点单流程" data-ru="Как заказать">How it works</h2>
       <ol class="mt-12 space-y-8 md:space-y-0 md:grid md:grid-cols-4 md:gap-8">
         <li>
-          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">挑海鲜</h3>
-          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="King lobster, fish, crab and king crab — pick the catch, then the cooking style." data-zh="帝王龙虾、鲜鱼、螃蟹和帝王蟹——先挑货，再选做法。" data-ru="Королевский лобстер, рыба, краб и камчатский краб — сначала улов, потом способ.">帝王龙虾、鲜鱼、螃蟹和帝王蟹——先挑货，再选做法。</p>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Pick the catch" data-zh="挑海鲜" data-ru="Выберите морепродукты">Pick the catch</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="King lobster, fish, crab and king crab — pick the catch, then the cooking style." data-zh="帝王龙虾、鲜鱼、螃蟹和帝王蟹——先挑货，再选做法。" data-ru="Королевский лобстер, рыба, краб и камчатский краб — сначала улов, потом способ.">King lobster, fish, crab and king crab — pick the catch, then the cooking style.</p>
         </li>
         <li>
-          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">说做法</h3>
-          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Grilled, fried, BBQ, steamed, or curry powder sauce — the crab curry powder is a house favourite." data-zh="烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。" data-ru="Гриль, жарка, барбекю, на пару или с карри-порошком — краб с карри любим гостями.">烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。</p>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Say the fire" data-zh="说做法" data-ru="Способ приготовления">Say the fire</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Grilled, fried, BBQ, steamed, or curry powder sauce — the crab curry powder is a house favourite." data-zh="烤、炸、烧烤、清蒸或咖喱粉炒——咖喱粉炒蟹是招牌。" data-ru="Гриль, жарка, барбекю, на пару или с карри-порошком — краб с карри любим гостями.">Grilled, fried, BBQ, steamed, or curry powder sauce — the crab curry powder is a house favourite.</p>
         </li>
         <li>
-          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Add Thai sides" data-zh="加泰式配菜" data-ru="Тайские гарниры">加泰式配菜</h3>
-          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Pad Thai, seaweed salad, fried rice — ask Mr. Jeff for today’s price." data-zh="泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。" data-ru="Пад тай, салат из морских водорослей, жареный рис — цену уточняйте у мистера Джеффа.">泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。</p>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Add Thai sides" data-zh="加泰式配菜" data-ru="Тайские гарниры">Add Thai sides</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Pad Thai, seaweed salad, fried rice — ask Mr. Jeff for today’s price." data-zh="泰式炒河粉、海草沙拉、炒饭——价格问 Mr. Jeff。" data-ru="Пад тай, салат из морских водорослей, жареный рис — цену уточняйте у мистера Джеффа.">Pad Thai, seaweed salad, fried rice — ask Mr. Jeff for today’s price.</p>
         </li>
         <li>
-          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Pay cash" data-zh="现金结账" data-ru="Оплата наличными">现金结账</h3>
-          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Send the order ahead on LINE or WhatsApp; weight and price confirmed by the kitchen. Cash only at the till." data-zh="提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。" data-ru="Отправьте заказ в LINE или WhatsApp; кухня подтвердит вес и цену. На месте только наличные.">提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。</p>
+          <h3 class="font-serif text-[24px] leading-6 font-medium" data-en="Pay cash" data-zh="现金结账" data-ru="Оплата наличными">Pay cash</h3>
+          <p class="mt-2 text-[16px] leading-[20.8px]" data-en="Send the order ahead on LINE or WhatsApp; weight and price confirmed by the kitchen. Cash only at the till." data-zh="提前在 LINE 或 WhatsApp 发点单；厨房确认重量和价格。到店只收现金。" data-ru="Отправьте заказ в LINE или WhatsApp; кухня подтвердит вес и цену. На месте только наличные.">Send the order ahead on LINE or WhatsApp; weight and price confirmed by the kitchen. Cash only at the till.</p>
         </li>
       </ol>
     </section>
 
     <section id="reviews" class="max-w-6xl mx-auto px-6 py-12">
-      <div class="flex items-end justify-between gap-4">
-        <h2 class="section-kicker" data-en="Reviews" data-zh="评价" data-ru="Отзывы">评价</h2>
-        <div class="flex gap-2">
-          <button type="button" id="rev-prev" class="w-9 h-9 rounded-full border border-sage" aria-label="Previous">‹</button>
-          <button type="button" id="rev-next" class="w-9 h-9 rounded-full border border-sage" aria-label="Next">›</button>
-        </div>
-      </div>
-      <div id="review-rail" class="review-rail mt-10">
+      <h2 class="section-kicker" data-en="Reviews" data-zh="评价" data-ru="Отзывы">Reviews</h2>
+      <div class="review-stage">
+        <button type="button" id="rev-prev" class="w-9 h-9 rounded-full border border-sage" aria-label="Previous">‹</button>
+        <div id="review-rail" class="review-rail">
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
           <div class="flex items-center gap-3"><img src="photos/avatars/a12.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium">Aung minn969</p><p class="text-gold text-sm">★★★★★</p></div></div>
-          <blockquote class="mt-4 leading-7" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。" data-ru="Очень хороший королевский лобстер — лучший в Таиланде, мистер Джефф.">帝王龙虾非常好——泰国最好的，Mr. Jeff。</blockquote>
+          <blockquote class="mt-4 leading-7" data-en="Very good king lobster — the best one in Thailand, Mr. Jeff." data-zh="帝王龙虾非常好——泰国最好的，Mr. Jeff。" data-ru="Очень хороший королевский лобстер — лучший в Таиланде, мистер Джефф.">Very good king lobster — the best one in Thailand, Mr. Jeff.</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
           <div class="flex items-center gap-3"><img src="photos/avatars/a32.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium">แป้ง โฟน</p><p class="text-gold text-sm">★★★★★</p></div></div>
-          <blockquote class="mt-4 leading-7" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。" data-ru="Большое спасибо за всё в ресторане Mr Jeff в Ламаи. Мистер Джефф очень дружелюбный… обязательно вернёмся.">非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。</blockquote>
+          <blockquote class="mt-4 leading-7" data-en="Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon." data-zh="非常感谢拉迈的 Mr. Jeff 海鲜餐厅。Mr. Jeff 人真的很好……服务和接待都很暖。我们很快还会再去。" data-ru="Большое спасибо за всё в ресторане Mr Jeff в Ламаи. Мистер Джефф очень дружелюбный… обязательно вернёмся.">Thank you so much for everything at Mr Jeff seafood restaurant in Lamai. Mr Jeff is really friendly… we will be there again very soon.</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
           <div class="flex items-center gap-3"><img src="photos/avatars/a47.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium">Екатерина</p><p class="text-gold text-sm">★★★★★</p></div></div>
-          <blockquote class="mt-4 leading-7" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！" data-ru="Все продукты свежие, блюда вкусные, атмосфера приятная, чисто и уютно. На отдыхе регулярно заезжаем на Самуи!">食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！</blockquote>
+          <blockquote class="mt-4 leading-7" data-en="All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!" data-zh="食材都新鲜，菜好吃，环境舒服干净。店里的人都很好。来苏梅度假我们经常去！" data-ru="Все продукты свежие, блюда вкусные, атмосфера приятная, чисто и уютно. На отдыхе регулярно заезжаем на Самуи!">All products are fresh, the dishes are tasty, the atmosphere is pleasant, clean and comfortable. While we're on vacation, we go to Samui regularly!</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="photos/avatars/a5.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
-          <blockquote class="mt-4 leading-7" data-en="Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend." data-zh="海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。" data-ru="Потрясающие морепродукты, креветки в чесночном масле — обязательно попробуйте. Мистер Джефф — легенда.">海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。</blockquote>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a5.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">Guest</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend." data-zh="海鲜很棒，蒜蓉黄油大虾必点。Mr. Jeff 是传奇。" data-ru="Потрясающие морепродукты, креветки в чесночном масле — обязательно попробуйте. Мистер Джефф — легенда.">Amazing seafood, the garlic butter prawns are a must-try. Mr. Jeff is a legend.</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="photos/avatars/a8.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
-          <blockquote class="mt-4 leading-7" data-en="Best crab curry powder I've ever had. The vibe is super local and welcoming." data-zh="我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。" data-ru="Лучший краб с карри, что я пробовал. Атмосфера очень местная и гостеприимная.">我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。</blockquote>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a8.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">Guest</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Best crab curry powder I've ever had. The vibe is super local and welcoming." data-zh="我吃过最好的咖喱粉炒蟹。氛围很本地，很亲切。" data-ru="Лучший краб с карри, что я пробовал. Атмосфера очень местная и гостеприимная.">Best crab curry powder I've ever had. The vibe is super local and welcoming.</blockquote>
         </figure>
         <figure class="review-card rounded-2xl bg-white/50 border border-sage/25 p-5">
-          <div class="flex items-center gap-3"><img src="photos/avatars/a15.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">客人</p><p class="text-gold text-sm">★★★★★</p></div></div>
-          <blockquote class="mt-4 leading-7" data-en="Great value for money, fresh catch every day. Will come back again." data-zh="性价比很高，每天都有新鲜渔获。还会再来。" data-ru="Отличное соотношение цены и качества, каждый день свежий улов. Обязательно вернёмся.">性价比很高，每天都有新鲜渔获。还会再来。</blockquote>
+          <div class="flex items-center gap-3"><img src="photos/avatars/a15.jpg" alt="" class="w-12 h-12 rounded-full object-cover" width="48" height="48" loading="lazy" decoding="async"><div><p class="font-medium" data-en="Guest" data-zh="客人" data-ru="Гость">Guest</p><p class="text-gold text-sm">★★★★★</p></div></div>
+          <blockquote class="mt-4 leading-7" data-en="Great value for money, fresh catch every day. Will come back again." data-zh="性价比很高，每天都有新鲜渔获。还会再来。" data-ru="Отличное соотношение цены и качества, каждый день свежий улов. Обязательно вернёмся.">Great value for money, fresh catch every day. Will come back again.</blockquote>
         </figure>
+        </div>
+        <button type="button" id="rev-next" class="w-9 h-9 rounded-full border border-sage" aria-label="Next">›</button>
       </div>
     </section>
 
     <section id="contact" class="max-w-2xl mx-auto px-6 pb-20 text-center">
-      <h2 class="section-kicker" data-en="Find us" data-zh="找到我们" data-ru="Как нас найти">找到我们</h2>
-      <p class="font-serif text-[26px] sm:text-[30px] leading-snug mt-6" data-en="137/4 Maret, Lamai, Koh Samui 84310" data-zh="137/4 Maret，拉迈，苏梅岛 84310" data-ru="137/4 Марет, Ламай, Самуи 84310">137/4 Maret，拉迈，苏梅岛 84310</p>
-      <p class="mt-2 text-[16px] text-night/70" data-en="Near Coco Splash — look for the ice chest out front." data-zh="靠近 Coco Splash——认准门口的冰柜。" data-ru="Рядом с Coco Splash — ищите ледник у входа.">靠近 Coco Splash——认准门口的冰柜。</p>
-      <p class="mt-5"><a class="wa-pill chat-btn inline-block" href="https://www.google.com/maps/search/?api=1&query=Mr.Jeff+Seafood+Lamai+Koh+Samui" target="_blank" rel="noopener" data-en="Open in Google Maps" data-zh="在谷歌地图打开" data-ru="Открыть в Google Maps">在谷歌地图打开</a></p>
+      <h2 class="section-kicker" data-en="Find us" data-zh="找到我们" data-ru="Как нас найти">Find us</h2>
+      <p class="font-serif text-[26px] sm:text-[30px] leading-snug mt-6" data-en="137/4 Maret, Lamai, Koh Samui 84310" data-zh="137/4 Maret，拉迈，苏梅岛 84310" data-ru="137/4 Марет, Ламай, Самуи 84310">137/4 Maret, Lamai, Koh Samui 84310</p>
+      <p class="mt-2 text-[16px] text-night/70" data-en="Near Coco Splash — look for the ice chest out front." data-zh="靠近 Coco Splash——认准门口的冰柜。" data-ru="Рядом с Coco Splash — ищите ледник у входа.">Near Coco Splash — look for the ice chest out front.</p>
+      <p class="mt-5"><a class="wa-pill chat-btn inline-block" href="https://www.google.com/maps/search/?api=1&query=Mr.Jeff+Seafood+Lamai+Koh+Samui" target="_blank" rel="noopener" data-en="Open in Google Maps" data-zh="在谷歌地图打开" data-ru="Открыть в Google Maps">Open in Google Maps</a></p>
       <div class="mt-8 text-[16px] leading-8 text-night/70">
-        <p data-en="Open every day, 13:00 – 23:00." data-zh="每日 13:00–23:00。" data-ru="Ежедневно 13:00–23:00.">每日 13:00–23:00。</p>
-        <p data-en="Pay: Cash only · seafood by weight." data-zh="支付：只收现金 · 海鲜按重量。" data-ru="Оплата: только наличные · морепродукты по весу.">支付：只收现金 · 海鲜按重量。</p>
-        <p data-en="Chat: LINE for locals · WhatsApp for visitors." data-zh="聊天：本地用 LINE · 游客用 WhatsApp。" data-ru="Чат: LINE для местных · WhatsApp для туристов.">聊天：本地用 LINE · 游客用 WhatsApp。</p>
+        <p data-en="Open every day, 13:00 – 23:00." data-zh="每日 13:00–23:00。" data-ru="Ежедневно 13:00–23:00.">Open every day, 13:00 – 23:00.</p>
+        <p data-en="Pay: Cash only · seafood by weight." data-zh="支付：只收现金 · 海鲜按重量。" data-ru="Оплата: только наличные · морепродукты по весу.">Pay: Cash only · seafood by weight.</p>
+        <p data-en="Chat: LINE for locals · WhatsApp for visitors." data-zh="聊天：本地用 LINE · 游客用 WhatsApp。" data-ru="Чат: LINE для местных · WhatsApp для туристов.">Chat: LINE for locals · WhatsApp for visitors.</p>
         <p class="mt-2"><a class="underline" href="https://wa.me/66620454983">+66 62 045 4983</a></p>
       </div>
     </section>
@@ -1268,9 +1288,9 @@
   <footer class="site-foot">
     <div class="max-w-3xl mx-auto px-6 py-14 text-center">
       <p class="font-serif text-[30px] tracking-[0.1em]">Mr.Jeff</p>
-      <p class="mt-1 text-[14px] text-parchment/55" data-en="Fresh seafood by weight · Maret, Lamai" data-zh="海鲜按重量计价 · 拉迈 Maret" data-ru="Морепродукты по весу · Марет, Ламай">海鲜按重量计价 · 拉迈 Maret</p>
+      <p class="mt-1 text-[14px] text-parchment/55" data-en="Fresh seafood by weight · Maret, Lamai" data-zh="海鲜按重量计价 · 拉迈 Maret" data-ru="Морепродукты по весу · Марет, Ламай">Fresh seafood by weight · Maret, Lamai</p>
 
-      <h2 class="foot-kicker mt-10" data-en="Follow &amp; chat" data-zh="关注与联系" data-ru="Соцсети и чат">关注与联系</h2>
+      <h2 class="foot-kicker mt-10" data-en="Follow &amp; chat" data-zh="关注与联系" data-ru="Соцсети и чат">Follow &amp; chat</h2>
       <div class="mt-5 flex flex-wrap justify-center gap-3">
         <a class="social-btn wa" href="https://wa.me/66620454983" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.15L2 22l4.98-1.6A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.4-.53.05-1.02.24-3.42-.72-2.88-1.14-4.7-4.1-4.84-4.29-.14-.19-1.15-1.53-1.15-2.92s.73-2.07 1-2.35c.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.65.5.24.58.8 2 .87 2.14.07.14.12.3.02.49-.09.19-.14.3-.28.47l-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.63-.14.25.1 1.67.79 1.95.93.28.14.47.21.54.33.07.11.07.65-.18 1.35Z"></path></svg>
@@ -1294,21 +1314,21 @@
         </a>
       </div>
 
-      <h2 class="foot-kicker mt-12" data-en="Good to know" data-zh="到店须知" data-ru="Полезно знать">到店须知</h2>
+      <h2 class="foot-kicker mt-12" data-en="Good to know" data-zh="到店须知" data-ru="Полезно знать">Good to know</h2>
       <ul class="house-marks">
-        <li data-en="LGBTQ+ welcome" data-zh="LGBTQ+ 友好" data-ru="ЛГБТК+ френдли">LGBTQ+ 友好</li>
-        <li data-en="Pet friendly" data-zh="可带宠物" data-ru="Можно с питомцами">可带宠物</li>
-        <li data-en="Kid friendly" data-zh="适合带孩子" data-ru="Можно с детьми">适合带孩子</li>
-        <li data-en="Outdoor seating" data-zh="户外座位" data-ru="Места на улице">户外座位</li>
-        <li data-en="Takeaway" data-zh="可打包外带" data-ru="Еда навынос">可打包外带</li>
-        <li data-en="Delivery" data-zh="可外送" data-ru="Доставка">可外送</li>
-        <li data-en="Reservations" data-zh="可预订" data-ru="Бронирование">可预订</li>
-        <li data-en="Free Wi-Fi" data-zh="免费 Wi-Fi" data-ru="Бесплатный Wi-Fi">免费 Wi-Fi</li>
-        <li data-en="Cash only" data-zh="只收现金" data-ru="Только наличные">只收现金</li>
+        <li data-en="LGBTQ+ welcome" data-zh="LGBTQ+ 友好" data-ru="ЛГБТК+ френдли">LGBTQ+ welcome</li>
+        <li data-en="Pet friendly" data-zh="可带宠物" data-ru="Можно с питомцами">Pet friendly</li>
+        <li data-en="Kid friendly" data-zh="适合带孩子" data-ru="Можно с детьми">Kid friendly</li>
+        <li data-en="Outdoor seating" data-zh="户外座位" data-ru="Места на улице">Outdoor seating</li>
+        <li data-en="Takeaway" data-zh="可打包外带" data-ru="Еда навынос">Takeaway</li>
+        <li data-en="Delivery" data-zh="可外送" data-ru="Доставка">Delivery</li>
+        <li data-en="Reservations" data-zh="可预订" data-ru="Бронирование">Reservations</li>
+        <li data-en="Free Wi-Fi" data-zh="免费 Wi-Fi" data-ru="Бесплатный Wi-Fi">Free Wi-Fi</li>
+        <li data-en="Cash only" data-zh="只收现金" data-ru="Только наличные">Cash only</li>
       </ul>
-      <p class="house-line" data-en="Anything else — just ask Mr. Jeff at the ice chest." data-zh="还有别的，冰柜边上问 Mr. Jeff 一声就好。" data-ru="Всё остальное — спросите мистера Джеффа у ледника.">还有别的，冰柜边上问 Mr. Jeff 一声就好。</p>
+      <p class="house-line" data-en="Anything else — just ask Mr. Jeff at the ice chest." data-zh="还有别的，冰柜边上问 Mr. Jeff 一声就好。" data-ru="Всё остальное — спросите мистера Джеффа у ледника.">Anything else — just ask Mr. Jeff at the ice chest.</p>
 
-      <p class="mt-12 text-[13px] text-parchment/45" data-en="Open every day, 13:00 – 23:00 · 137/4 Maret, Lamai, Koh Samui 84310" data-zh="每日 13:00–23:00 · 137/4 Maret，拉迈，苏梅岛 84310" data-ru="Ежедневно 13:00–23:00 · 137/4 Марет, Ламай, Самуи 84310">每日 13:00–23:00 · 137/4 Maret，拉迈，苏梅岛 84310</p>
+      <p class="mt-12 text-[13px] text-parchment/45" data-en="Open every day, 13:00 – 23:00 · 137/4 Maret, Lamai, Koh Samui 84310" data-zh="每日 13:00–23:00 · 137/4 Maret，拉迈，苏梅岛 84310" data-ru="Ежедневно 13:00–23:00 · 137/4 Марет, Ламай, Самуи 84310">Open every day, 13:00 – 23:00 · 137/4 Maret, Lamai, Koh Samui 84310</p>
       <p class="mt-2 text-[12px] text-parchment/35">© 2026 Mr.Jeff · PalmPages</p>
     </div>
   </footer>
@@ -1325,14 +1345,14 @@
   <div id="cart-backdrop" hidden class="fixed inset-0 z-40 bg-black/55 opacity-0"></div>
   <aside id="cart-sidebar" hidden class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-[#1A1A1A] text-[#F5F0EB] shadow-2xl flex flex-col border-l border-gold/30">
     <div class="flex items-center justify-between px-6 py-5 border-b border-gold/30">
-      <h2 class="font-serif text-2xl tracking-[0.18em] uppercase" data-en="Order" data-zh="点单" data-ru="Заказ">点单</h2>
+      <h2 class="font-serif text-2xl tracking-[0.18em] uppercase" data-en="Order" data-zh="点单" data-ru="Заказ">Order</h2>
       <button type="button" id="cart-close" class="text-2xl leading-none" aria-label="Close">×</button>
     </div>
-    <p id="cart-empty" class="px-6 py-8 text-[#F5F0EB]/70" data-en="Tap a plate, then send the chat." data-zh="先点菜，再发到聊天。" data-ru="Выберите блюдо, затем отправьте в чат.">先点菜，再发到聊天。</p>
+    <p id="cart-empty" class="px-6 py-8 text-[#F5F0EB]/70" data-en="Tap a plate, then send the chat." data-zh="先点菜，再发到聊天。" data-ru="Выберите блюдо, затем отправьте в чат.">Tap a plate, then send the chat.</p>
     <ul id="cart-lines" class="flex-1 overflow-auto px-6 py-4 space-y-4" hidden></ul>
     <div class="p-6 space-y-3">
-      <button type="button" id="send-order" class="w-full rounded-full py-3 text-night font-semibold" style="background:#D4AF37" data-en="Send order" data-zh="发送点单" data-ru="Отправить заказ">发送点单</button>
-      <button type="button" id="cart-continue" class="w-full rounded-full border border-gold/50 py-3" data-en="Continue Browsing" data-zh="继续点单" data-ru="Продолжить выбор">继续点单</button>
+      <button type="button" id="send-order" class="w-full rounded-full py-3 text-night font-semibold" style="background:#D4AF37" data-en="Send order" data-zh="发送点单" data-ru="Отправить заказ">Send order</button>
+      <button type="button" id="cart-continue" class="w-full rounded-full border border-gold/50 py-3" data-en="Continue Browsing" data-zh="继续点单" data-ru="Продолжить выбор">Continue Browsing</button>
     </div>
   </aside>
 
@@ -1347,31 +1367,31 @@
       </div>
     </div>
     <div class="method-body">
-      <p class="method-hint" data-en="Pick a cooking style, then keep browsing." data-zh="选做法，再用加减调份数。" data-ru="Выберите способ и количество.">选做法，再用加减调份数。</p>
+      <p class="method-hint" data-en="Pick a cooking style, then keep browsing." data-zh="选做法，再用加减调份数。" data-ru="Выберите способ и количество.">Pick a cooking style, then keep browsing.</p>
       <div id="method-grid" class="method-grid"></div>
     </div>
     <div class="method-foot">
-      <button type="button" id="method-done" class="method-done" data-en="Continue browsing" data-zh="继续点单" data-ru="Продолжить выбор">继续点单</button>
+      <button type="button" id="method-done" class="method-done" data-en="Continue browsing" data-zh="继续点单" data-ru="Продолжить выбор">Continue browsing</button>
     </div>
   </div>
 
   <div id="info-back" hidden class="modal-back fixed inset-0 z-[55] bg-black/60 opacity-0"></div>
   <div id="info-modal" hidden class="overlay-card rounded-2xl border border-gold/35 p-6 shadow-2xl">
-    <h3 class="font-serif text-2xl tracking-[0.12em]" data-en="Your table" data-zh="点单信息" data-ru="Данные заказа">点单信息</h3>
+    <h3 class="font-serif text-2xl tracking-[0.12em]" data-en="Your table" data-zh="点单信息" data-ru="Данные заказа">Your table</h3>
     <form id="info-form" class="mt-5 space-y-4">
-      <label class="block text-sm"><span data-en="Name" data-zh="姓名" data-ru="Имя">姓名</span>
+      <label class="block text-sm"><span data-en="Name" data-zh="姓名" data-ru="Имя">Name</span>
         <input name="guest" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></label>
-      <label class="block text-sm"><span data-en="Guests" data-zh="人数" data-ru="Гостей">人数</span>
+      <label class="block text-sm"><span data-en="Guests" data-zh="人数" data-ru="Гостей">Guests</span>
         <input name="people" type="number" min="1" value="2" required class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></label>
-      <label class="block text-sm"><span data-en="Note" data-zh="备注" data-ru="Комментарий">备注</span>
+      <label class="block text-sm"><span data-en="Note" data-zh="备注" data-ru="Комментарий">Note</span>
         <textarea name="note" rows="3" class="mt-1 w-full rounded-xl bg-white/5 border border-gold/25 px-3 py-2.5 outline-none"></textarea></label>
       <div>
-        <p class="text-sm text-white/60" data-en="Selected dishes" data-zh="已选菜品" data-ru="Выбранные блюда">已选菜品</p>
+        <p class="text-sm text-white/60" data-en="Selected dishes" data-zh="已选菜品" data-ru="Выбранные блюда">Selected dishes</p>
         <ul id="info-items" class="mt-2 space-y-1 text-sm text-white/85"></ul>
       </div>
       <div class="flex gap-3 pt-2">
-        <button type="button" id="info-back-btn" class="flex-1 rounded-full border border-gold/40 py-2.5" data-en="Back" data-zh="返回" data-ru="Назад">返回</button>
-        <button type="submit" class="flex-1 rounded-full py-2.5 text-night font-semibold" style="background:#D4AF37" data-en="Preview" data-zh="预览点单" data-ru="Предпросмотр">预览点单</button>
+        <button type="button" id="info-back-btn" class="flex-1 rounded-full border border-gold/40 py-2.5" data-en="Back" data-zh="返回" data-ru="Назад">Back</button>
+        <button type="submit" class="flex-1 rounded-full py-2.5 text-night font-semibold" style="background:#D4AF37" data-en="Preview" data-zh="预览点单" data-ru="Предпросмотр">Preview</button>
       </div>
     </form>
   </div>
@@ -1383,7 +1403,7 @@
         <span class="w-9 h-9 rounded-full inline-flex items-center justify-center text-night text-sm font-semibold" style="background:#D4AF37">MJ</span>
         <div>
           <p class="text-sm font-semibold text-white">Mr.Jeff</p>
-          <p class="text-[11px] text-white/75" data-en="Order preview" data-zh="点单预览" data-ru="Предпросмотр заказа">点单预览</p>
+          <p class="text-[11px] text-white/75" data-en="Order preview" data-zh="点单预览" data-ru="Предпросмотр заказа">Order preview</p>
         </div>
       </div>
       <div class="wa-body"><div id="preview-text" class="bubble-out"></div></div>
@@ -1398,10 +1418,10 @@
         </button>
       </div>
     </div>
-    <button type="button" id="preview-close" class="mt-3 w-full text-center text-sm text-white/60" data-en="Close" data-zh="关闭" data-ru="Закрыть">关闭</button>
+    <button type="button" id="preview-close" class="mt-3 w-full text-center text-sm text-white/60" data-en="Close" data-zh="关闭" data-ru="Закрыть">Close</button>
   </div>
 
-  <div id="sent-toast" hidden class="sent-toast" data-en="Sent ✓✓" data-zh="已发送 ✓✓" data-ru="Отправлено ✓✓">已发送 ✓✓</div>
+  <div id="sent-toast" hidden class="sent-toast" data-en="Sent ✓✓" data-zh="已发送 ✓✓" data-ru="Отправлено ✓✓">Sent ✓✓</div>
 
   <div class="ov-sheet" id="ov-sheet" role="dialog" aria-modal="true" aria-label="Overview">
     <span class="ov-photo" aria-hidden="true"></span>
@@ -1410,12 +1430,12 @@
     <div class="ov-inner">
       <p class="ov-kicker">Mr.Jeff · Lamai</p>
       <ul class="ov-list">
-        <li><a class="ov-link" href="#menu" data-en="Menu" data-zh="菜单" data-ru="Меню">菜单</a></li>
-        <li><a class="ov-link" href="#about" data-en="How to order" data-zh="点单" data-ru="Заказ">点单</a></li>
-        <li><a class="ov-link" href="#reviews" data-en="Reviews" data-zh="评论" data-ru="Отзывы">评论</a></li>
-        <li><a class="ov-link" href="#contact" data-en="Find us" data-zh="找到我们" data-ru="Как нас найти">找到我们</a></li>
+        <li><a class="ov-link" href="#menu" data-en="Menu" data-zh="菜单" data-ru="Меню">Menu</a></li>
+        <li><a class="ov-link" href="#about" data-en="How to order" data-zh="点单" data-ru="Заказ">How to order</a></li>
+        <li><a class="ov-link" href="#reviews" data-en="Reviews" data-zh="评论" data-ru="Отзывы">Reviews</a></li>
+        <li><a class="ov-link" href="#contact" data-en="Find us" data-zh="找到我们" data-ru="Как нас найти">Find us</a></li>
       </ul>
-      <p class="ov-foot" data-en="Every day 13:00 – 23:00 · Cash only · 137/4 Maret, Lamai" data-zh="每日 13:00–23:00 · 只收现金 · 137/4 Maret，拉迈" data-ru="Ежедневно 13:00–23:00 · Только наличные · 137/4 Марет, Ламай">每日 13:00–23:00 · 只收现金 · 137/4 Maret，拉迈</p>
+      <p class="ov-foot" data-en="Every day 13:00 – 23:00 · Cash only · 137/4 Maret, Lamai" data-zh="每日 13:00–23:00 · 只收现金 · 137/4 Maret，拉迈" data-ru="Ежедневно 13:00–23:00 · Только наличные · 137/4 Марет, Ламай">Every day 13:00 – 23:00 · Cash only · 137/4 Maret, Lamai</p>
     </div>
   </div>
 
@@ -1460,7 +1480,7 @@
       var WA = "66620454983";
       var PHOTO = "photos/";
       var cart = [];
-      var lang = "zh";
+      var lang = "en";
       var guest = { name: "", people: "2", note: "" };
       var closing = {};
       var CATS = [
@@ -2149,7 +2169,7 @@
       var rail = document.getElementById("review-rail");
       document.getElementById("rev-prev").addEventListener("click", function () { rail.scrollBy({ left: -320, behavior: "smooth" }); });
       document.getElementById("rev-next").addEventListener("click", function () { rail.scrollBy({ left: 320, behavior: "smooth" }); });
-      applyLang("zh");
+      applyLang("en");
     })();
 
 
