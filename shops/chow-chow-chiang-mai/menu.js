@@ -26,7 +26,7 @@
       btn.classList.toggle("is-on", on);
       if (on) btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     });
-    var inMenu = current === "specials" || current === "appetizers" || current === "plates" || current === "share" || current === "sweet" || current === "drinks";
+    var inMenu = current === "start" || current === "specials" || current === "appetizers" || current === "share" || current === "sweet" || current === "drinks";
     pageLinks.forEach(function (link) {
       var id = (link.getAttribute("href") || "").slice(1);
       link.classList.toggle("is-on", id && (id === current || (id === "menu" && inMenu)));

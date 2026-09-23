@@ -87,8 +87,20 @@
     return cart.reduce(function (sum, row) { return sum + row.qty; }, 0);
   }
 
+  function tr(key) {
+    return window.chowT ? window.chowT(key) : key;
+  }
+
+  function shownName(row) {
+    if (window.chowDishName) {
+      var name = window.chowDishName(row.id);
+      if (name) return name;
+    }
+    return row.name;
+  }
+
   function linePrice(row) {
-    if (row.price == null) return "ask";
+    if (row.price == null) return tr("price.ask");
     return money(row.price * row.qty);
   }
 
@@ -100,20 +112,20 @@
 
   function message() {
     var rows = cart.map(function (row) {
-      var price = row.price == null ? "ask" : (row.price + " THB");
-      return "• " + row.name + " × " + row.qty + " — " + price;
+      var price = row.price == null ? tr("price.ask") : (row.price + tr("price.suffix"));
+      return "• " + shownName(row) + " × " + row.qty + " — " + price;
     }).join("\n");
     return [
-      "Pre-order for Chow Chow, Chiang Mai",
-      "Name: " + guest.name,
-      "Guests: " + guest.people,
-      "Note: " + (guest.note || "(none)"),
+      tr("msg.title"),
+      tr("msg.name") + guest.name,
+      tr("msg.guests") + guest.people,
+      tr("msg.note") + (guest.note || tr("msg.none")),
       "",
       rows,
       "",
-      "Priced plates: " + pricedTotal() + " THB",
-      "10% service charge is added at the table.",
-      "Not paid yet."
+      tr("msg.priced") + pricedTotal() + tr("price.suffix"),
+      tr("msg.service"),
+      tr("msg.unpaid")
     ].join("\n");
   }
 
@@ -124,16 +136,16 @@
     document.querySelectorAll("[data-add]").forEach(function (btn) {
       var q = qtyOf(btn.getAttribute("data-id"));
       btn.classList.toggle("is-in", q > 0);
-      btn.textContent = q > 0 ? String(q) : "Add";
+      btn.textContent = q > 0 ? String(q) : tr("add");
     });
     emptyEl.hidden = cart.length > 0;
     linesEl.hidden = cart.length === 0;
     linesEl.innerHTML = cart.map(function (row) {
-      return "<li><span class=\"nm\">" + escapeHtml(row.name) + "</span><span class=\"sub\">" + linePrice(row) + "</span><span class=\"qty\"><button type=\"button\" data-qty=\"-1\" data-id=\"" + row.id + "\" aria-label=\"Less\">−</button><span>" + row.qty + "</span><button type=\"button\" data-qty=\"1\" data-id=\"" + row.id + "\" aria-label=\"More\">+</button></span></li>";
+      return "<li><span class=\"nm\">" + escapeHtml(shownName(row)) + "</span><span class=\"sub\">" + linePrice(row) + "</span><span class=\"qty\"><button type=\"button\" data-qty=\"-1\" data-id=\"" + row.id + "\" aria-label=\"" + escapeHtml(tr("cart.less")) + "\">−</button><span>" + row.qty + "</span><button type=\"button\" data-qty=\"1\" data-id=\"" + row.id + "\" aria-label=\"" + escapeHtml(tr("cart.moreQty")) + "\">+</button></span></li>";
     }).join("");
     totalEl.textContent = money(pricedTotal());
     document.getElementById("info-items").innerHTML = cart.map(function (row) {
-      return "<li>" + escapeHtml(row.name) + " × " + row.qty + " — " + escapeHtml(linePrice(row)) + "</li>";
+      return "<li>" + escapeHtml(shownName(row)) + " × " + row.qty + " — " + escapeHtml(linePrice(row)) + "</li>";
     }).join("");
     infoForm.guest.value = guest.name;
     infoForm.people.value = guest.people || "2";
@@ -234,4 +246,5 @@
 
   load();
   render();
+  window.chowRerender = render;
 })();

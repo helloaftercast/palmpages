@@ -13,6 +13,8 @@
   --peach-soft: #f6e4dc;
   --orange: #d96b3c;
   --orange-deep: #c45c32;
+  --moss: #6d7f4a;
+  --moss-deep: #4c5c30;
   --line: rgba(217, 107, 60, 0.16);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: Inter, "Helvetica Neue", sans-serif;
@@ -95,58 +97,99 @@ button {
 }
 
 .chow-lockup {
-  position: relative;
-  display: grid;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
   flex: 0 0 auto;
   font-family: "Archivo Black", "Arial Black", Impact, sans-serif;
-  font-size: 1.62rem;
-  letter-spacing: 0.06em;
-  line-height: 0.8;
+  font-size: 1.02rem;
+  letter-spacing: 0.12em;
+  line-height: 0.85;
 }
 
-.chow-back,
-.chow-front,
-.chow-bolt-svg {
-  grid-area: 1 / 1;
+.chow-line {
+  display: flex;
+  gap: 0.02em;
 }
 
-.chow-back {
-  color: #e7a394;
-  transform: translateY(-0.38em);
+.chow-line span {
+  color: #d06a3a;
+  text-shadow:
+    0 0 1px #fff4ec,
+    0 0 6px rgba(224, 112, 58, 0.55);
+  animation: neon-pass 3.6s ease-in-out infinite;
 }
 
-.chow-front {
-  position: relative;
-  z-index: 2;
-  color: #c45c32;
-  text-shadow: 0 1px 0 rgba(251, 248, 245, 0.85);
-  transform: translateY(0.42em);
+.chow-line:first-child span:nth-child(1) { animation-delay: 0s; }
+.chow-line:first-child span:nth-child(2) { animation-delay: 0.24s; }
+.chow-line:first-child span:nth-child(3) { animation-delay: 0.48s; }
+.chow-line:first-child span:nth-child(4) { animation-delay: 0.72s; }
+.chow-line:last-child span:nth-child(1) { animation-delay: 1.12s; }
+.chow-line:last-child span:nth-child(2) { animation-delay: 1.36s; }
+.chow-line:last-child span:nth-child(3) { animation-delay: 1.6s; }
+
+.chow-line span.chow-w {
+  animation-name: neon-w;
+  animation-delay: 1.84s;
 }
 
-.chow-bolt-svg {
-  z-index: 3;
-  width: 114%;
-  height: 1.35rem;
-  align-self: center;
-  overflow: visible;
-  pointer-events: none;
+.chow-gem {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 50%;
+  background: var(--moss);
+  box-shadow: 0 0 6px rgba(77, 94, 48, 0.7);
 }
 
-.chow-bolt {
-  fill: none;
-  stroke-width: 2.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
-  animation: chow-bolt 2.8s cubic-bezier(0.22, 0.8, 0.28, 1) infinite;
+@keyframes neon-pass {
+  0%,
+  7% {
+    color: #d06a3a;
+    text-shadow:
+      0 0 1px #fff4ec,
+      0 0 6px rgba(224, 112, 58, 0.55);
+  }
+  13% {
+    color: #fff8f4;
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #ffc7a8,
+      0 0 18px #e87840;
+  }
+  24%,
+  100% {
+    color: #d06a3a;
+    text-shadow:
+      0 0 1px #fff4ec,
+      0 0 6px rgba(224, 112, 58, 0.55);
+  }
 }
 
-@keyframes chow-bolt {
-  0% { stroke-dashoffset: 100; }
-  42% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 0; }
+@keyframes neon-w {
+  0%,
+  6% {
+    color: #d06a3a;
+    text-shadow:
+      0 0 1px #fff4ec,
+      0 0 6px rgba(224, 112, 58, 0.55);
+  }
+  12%,
+  20% {
+    color: #fff;
+    text-shadow:
+      0 0 6px #fff,
+      0 0 14px #ffe1cf,
+      0 0 26px #ff8a45,
+      0 0 40px #e25820;
+  }
+  34%,
+  100% {
+    color: #d06a3a;
+    text-shadow:
+      0 0 1px #fff4ec,
+      0 0 6px rgba(224, 112, 58, 0.55);
+  }
 }
 
 .mark small {
@@ -298,7 +341,7 @@ button {
 }
 
 .hero .kicker {
-  color: #7a341c;
+  color: var(--moss-deep);
 }
 
 .hero h1 {
@@ -390,7 +433,7 @@ button {
 }
 
 .legend b.tag-mild {
-  background: #e7a394;
+  background: var(--moss);
 }
 
 .legend b.tag-nut {
@@ -411,7 +454,50 @@ button {
   width: 48px;
   height: 1px;
   margin: 1rem 0;
-  background: var(--orange);
+  background: #141210;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex: 0 0 auto;
+}
+
+.lang-switch button {
+  border: 0;
+  background: none;
+  padding: 0.2rem 0;
+  color: #8a7b72;
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.lang-switch button.is-on {
+  color: #141210;
+  font-weight: 600;
+}
+
+html[lang="th"] {
+  --sans: "Noto Sans Thai", Inter, "Helvetica Neue", sans-serif;
+  --serif: "Noto Serif Thai", "Cormorant Garamond", Georgia, serif;
+}
+
+html[lang="zh-Hans"] {
+  --sans: "Noto Sans SC", Inter, "PingFang SC", "Helvetica Neue", sans-serif;
+  --serif: "Noto Serif SC", "Songti SC", Georgia, serif;
+}
+
+html[lang="th"] .nav-links a,
+html[lang="zh-Hans"] .nav-links a,
+html[lang="th"] .btn-gold,
+html[lang="zh-Hans"] .btn-gold,
+html[lang="th"] .mark small,
+html[lang="zh-Hans"] .mark small {
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 .block h2 {
@@ -545,6 +631,10 @@ button {
   color: var(--mute);
 }
 
+.th:empty {
+  display: none;
+}
+
 .desc {
   margin-top: 0.25rem;
   font-size: 0.82rem;
@@ -572,7 +662,7 @@ button {
 }
 
 .tag-mild {
-  background: #e7a394;
+  background: var(--moss);
 }
 
 .tag-nut {
@@ -1181,7 +1271,7 @@ a.add {
   .block h2,
   .reach,
   .add,
-  .chow-bolt {
+  .chow-line span {
     animation: none;
     transition: none;
   }
