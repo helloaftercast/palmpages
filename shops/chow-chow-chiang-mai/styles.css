@@ -523,6 +523,29 @@ html[lang="zh-Hans"] .mark small {
   animation: head-in 0.7s ease both, head-sheen 1.8s ease 0.15s both;
 }
 
+.block.is-menu h2 {
+  font-size: clamp(2.25rem, 4.4vw, 3.25rem);
+}
+
+.block.is-note h2,
+.block.is-note h2.is-seen {
+  font-family: var(--sans);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #8a7b72;
+  background-image: none;
+  -webkit-text-fill-color: #8a7b72;
+  animation: none;
+}
+
+.block.is-note .card h3 {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #8a7b72;
+}
+
 @keyframes head-in {
   from {
     opacity: 0;
@@ -589,14 +612,15 @@ html[lang="zh-Hans"] .mark small {
 }
 
 .card h3 {
-  font-family: var(--serif);
+  font-family: "Cormorant Garamond", "Noto Serif Thai", Georgia, serif;
   font-size: 1.45rem;
   font-weight: 500;
   color: var(--ink);
+  margin-bottom: 5px;
 }
 
 .card p {
-  margin: 0.4rem 0 0.8rem;
+  margin: 0 0 9px;
   font-size: 0.82rem;
   color: var(--mute);
 }
@@ -627,6 +651,7 @@ html[lang="zh-Hans"] .mark small {
 }
 
 .th {
+  font-family: "Noto Sans Thai", sans-serif;
   font-weight: 400;
   color: var(--mute);
 }
@@ -636,7 +661,7 @@ html[lang="zh-Hans"] .mark small {
 }
 
 .desc {
-  margin-top: 0.25rem;
+  margin-top: 5px;
   font-size: 0.82rem;
   color: var(--mute);
 }
@@ -852,7 +877,7 @@ html[lang="zh-Hans"] .mark small {
 
 .card .buy {
   justify-content: space-between;
-  margin-top: 0.15rem;
+  margin-top: 0;
 }
 
 a.add {
@@ -1155,15 +1180,24 @@ a.add {
 }
 
 .chat-mark {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 3.35rem;
+  height: 3.35rem;
   display: grid;
   place-items: center;
+  flex: none;
   border-radius: 50%;
-  background: var(--peach);
-  color: var(--ink);
-  font-size: 0.78rem;
-  font-weight: 700;
+  background: #fff6f1;
+}
+
+.chat-mark .chow-lockup {
+  font-size: 0.5rem;
+  letter-spacing: 0.02em;
+  gap: 0.08rem;
+}
+
+.chat-mark .chow-gem {
+  width: 0.22rem;
+  height: 0.22rem;
 }
 
 .chat-name {

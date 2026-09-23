@@ -62,9 +62,8 @@
   </p>
 
   <main id="menu">
-    <section class="block" id="start" data-menu-section>
+    <section class="block is-note" id="start" data-menu-section>
       <div class="wrap">
-        <p class="kicker" data-i18n="start.kicker">Charoen Prathet</p>
         <div class="rule"></div>
         <h2 data-i18n="start.h2">Start here</h2>
         <p class="lede" data-i18n="start.lede">17/4 Charoen Prathet Road, opposite Hotel Meliá. Lunch and dinner. Closed Monday. Baht, before the 10% service charge.</p>
@@ -80,7 +79,7 @@
       </div>
     </section>
 
-    <section class="block" id="specials" data-menu-section>
+    <section class="block is-menu" id="specials" data-menu-section>
       <div class="wrap">
         <p class="kicker" data-i18n="specials.kicker">Printed menu</p>
         <div class="rule"></div>
@@ -131,7 +130,7 @@
       </div>
     </section>
 
-    <section class="block" id="appetizers" data-menu-section>
+    <section class="block is-menu" id="appetizers" data-menu-section>
       <div class="wrap">
         <div class="rule"></div>
         <h2 data-i18n="app.h2">Appetizers</h2>
@@ -175,7 +174,7 @@
       </div>
     </section>
 
-    <section class="block" id="share" data-menu-section>
+    <section class="block is-menu" id="share" data-menu-section>
       <div class="wrap">
         <div class="rule"></div>
         <h2 data-i18n="share.h2">Dish share</h2>
@@ -240,7 +239,7 @@
       </div>
     </section>
 
-    <section class="block" id="sweet" data-menu-section>
+    <section class="block is-menu" id="sweet" data-menu-section>
       <div class="wrap">
         <div class="rule"></div>
         <h2 data-i18n="sweet.h2">Sweet</h2>
@@ -282,7 +281,7 @@
       </div>
     </section>
 
-    <section class="block" id="drinks" data-menu-section>
+    <section class="block is-menu" id="drinks" data-menu-section>
       <div class="wrap">
         <div class="rule"></div>
         <h2 data-i18n="drinks.h2">Drinks</h2>
@@ -385,7 +384,7 @@
     </section>
   </main>
 
-  <section class="block page-section" id="about" data-menu-section>
+  <section class="block page-section is-note" id="about" data-menu-section>
     <div class="wrap">
       <p class="kicker" data-i18n="about.kicker">About</p>
       <div class="rule"></div>
@@ -404,7 +403,7 @@
     </div>
   </section>
 
-  <section class="block" id="events" data-menu-section>
+  <section class="block is-note" id="events" data-menu-section>
     <div class="wrap">
       <p class="kicker" data-i18n="events.kicker">Events</p>
       <div class="rule"></div>
@@ -414,7 +413,7 @@
     </div>
   </section>
 
-  <section class="block page-section" id="contact" data-menu-section>
+  <section class="block page-section is-note" id="contact" data-menu-section>
     <div class="wrap">
       <p class="kicker" data-i18n="contact.kicker">Contact</p>
       <div class="rule"></div>
@@ -523,7 +522,13 @@
   <div class="preview" id="preview-sheet" hidden role="dialog" data-i18n-aria="preview.aria" aria-label="Order preview">
     <div class="chat">
       <div class="chat-head">
-        <span class="chat-mark">CC</span>
+        <span class="chat-mark" aria-hidden="true">
+          <span class="chow-lockup">
+            <span class="chow-line"><span>C</span><span>H</span><span>O</span><span>W</span></span>
+            <span class="chow-gem"></span>
+            <span class="chow-line"><span>C</span><span>H</span><span>O</span><span class="chow-w">W</span></span>
+          </span>
+        </span>
         <div>
           <p class="chat-name">Chow Chow</p>
           <p class="chat-sub" data-i18n="preview.sub">Order preview</p>
