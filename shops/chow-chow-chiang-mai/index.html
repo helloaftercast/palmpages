@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu | Chow Chow — Chiang Mai</title>
+  <meta name="description" content="Chow Chow Thai Contemporary Food and Kitchen, Charoen Prathet Road, Chiang Mai. Menu, about, and how to find the table.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#menu">Skip to menu</a>
+
+  <header class="nav" data-nav>
+    <a class="mark" href="#top">Chow Chow <small>Thai contemporary</small></a>
+    <ul class="nav-links">
+      <li><a class="is-on" data-page href="#menu">Menu</a></li>
+      <li><a data-page href="#about">About</a></li>
+      <li><a data-page href="#events">Events</a></li>
+      <li><a data-page href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn-gold" href="tel:+66800821258">Call</a>
+  </header>
+
+  <section class="hero" id="top">
+    <img src="photos/hero.jpg" alt="Crispy pork with green mango and herbs in an orange sauce" width="772" height="1024">
+    <div class="hero-veil"></div>
+    <div class="hero-copy">
+      <p class="kicker">Chiang Mai · Charoen Prathet</p>
+      <h1>Our Menu</h1>
+      <p>A new Thai contemporary kitchen with a Southeast Asian inspired twist. 10% service charge. Closed Monday.</p>
+    </div>
+  </section>
+
+  <nav class="cats" data-cats aria-label="Menu categories">
+    <button type="button" data-target="specials">Specials</button>
+    <button type="button" data-target="appetizers">Appetizers</button>
+    <button type="button" data-target="plates">Plates</button>
+    <button type="button" data-target="sweet">Sweet</button>
+  </nav>
+
+  <p class="legend">
+    <span><b class="tag-mild">M</b> Mild</span>
+    <span><b>S</b> Spicy</span>
+    <span><b class="tag-nut">P</b> Contains peanuts</span>
+    <span>All items are subject to a 10% service charge.</span>
+  </p>
+
+  <main id="menu">
+    <section class="block" id="specials" data-menu-section>
+      <div class="wrap">
+        <p class="kicker">Chow-Chow’s specials</p>
+        <div class="rule"></div>
+        <h2>Start here</h2>
+        <p class="lede">The signature pork, the pomelo, and two plates from the photo menu. Baht, before the 10% service charge.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-photo"><img src="photos/hero.jpg" alt="Crispy pork with mango salad and herbs" width="772" height="1024"></div>
+            <div class="card-body">
+              <h3>Chow-Chow Pork</h3>
+              <p>Crispy pork with green mango, Asian herbs, and a house aromatic sweet fish sauce.</p>
+              <span class="price">320 THB</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="photos/pomelo.jpg" alt="Pomelo salad in a blue bowl" width="200" height="175"></div>
+            <div class="card-body">
+              <h3>Pomelo Salad</h3>
+              <p>Pomelo, house yum dressing, lemongrass, crispy shallot, and dried shrimp floss.</p>
+              <span class="price">145 THB</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="photos/pad-thai.jpg" alt="Pad Thai with shrimp and egg" width="200" height="175"></div>
+            <div class="card-body">
+              <h3>Pad Thai</h3>
+              <p>Wok-fried rice noodles with shrimp and egg.</p>
+              <span class="price">ask</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="photos/hunglay.jpg" alt="Hunglay curry with ginger and peanuts" width="200" height="170"></div>
+            <div class="card-body">
+              <h3>Hunglay Curry</h3>
+              <p>Northern curry, finished with ginger and peanuts.</p>
+              <div class="tags"><span class="tag tag-nut" title="Contains peanuts">P</span></div>
+              <span class="price">ask</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="appetizers" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Appetizers</h2>
+        <div class="row">
+          <div>
+            <span class="name">Pomelo Salad <span class="th">ยำส้มโอ</span></span>
+            <p class="desc">Basically a flavor-packed party in a bowl. It’s zesty and might just make you wonder why you ever settled for regular salad. Fresh pomelo mixed with house-made mini yum dressing, lemongrass, and topped with crispy shallot and dry shrimp floss.</p>
+          </div>
+          <span class="price">145 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Scallop Ceviche <span class="th">หอยเชลล์เซวิเช่</span></span>
+            <p class="desc">From Peru with love with an Asian twist. Scallop sashimi topped with coconut cream, basil, and house-made seafood sauce.</p>
+          </div>
+          <span class="price">185 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Pla Goong with Hot and Sour Aromatic Dressing <span class="th">พล่ากุ้งใส่มะนาว</span></span>
+            <p class="desc">Tiger prawns and Thai aromats topped with young coconut meat; a creative addition good for your taste bud.</p>
+            <div class="tags"><span class="tag" title="Spicy">S</span></div>
+          </div>
+          <span class="price">169 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Chicken Wings <span class="th">ปีกไก่ทอด</span></span>
+            <p class="desc">Who said wings can’t have a little fancy flair? Dip it, dunk it, or pour it all over — your call. House-made chili lime sauce, fish sauce and crispy lemongrass.</p>
+          </div>
+          <span class="price">185 THB</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="plates" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Plates</h2>
+        <div class="row">
+          <div>
+            <span class="name">Chow-Chow Pork <span class="th">หมู ซูๆ-ซาๆ</span></span>
+            <p class="desc">To prepare, this one takes as long as James Cameron’s Titanic movie. Our signature crispy pork topped with green mango and Asian herbs salad and house-made aromatic sweet fish sauce.</p>
+          </div>
+          <span class="price">320 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Chow-Chow Tangerine Chicken <span class="th">ไก่ส้มซา-ซาๆ</span></span>
+            <p class="desc">Like Romeo and Juliet, cheese and wine, it’s a match made in heaven… us and chicken. A nostalgic twist on a comfort dish: crispy chicken glazed with house-made tangy tangerine sauce, and dried chili to spice it up just a bit.</p>
+          </div>
+          <span class="price">210 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Salmon Fillet and Smoky Coconut Red Curry Paste <span class="th">ปลาแซลมอนย่างกระทะกับแกงกะทิพริกเผา</span></span>
+            <p class="desc">It’s a labor of love, just for you. Salmon, house-made smoky red curry paste, topped with coconut cream and chili oil.</p>
+          </div>
+          <span class="price">340 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Oyster Omelette <span class="th">หอยนางรมไข่เจียว</span></span>
+            <p class="desc">A bigger brother of crab omelette but a little more posh. Vietnamese inspired dressing, oyster omelette with ginger, topped with Sri Racha, and garlic condiments.</p>
+          </div>
+          <span class="price">165 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Crab Fried Rice <span class="th">ข้าวผัดปู</span></span>
+            <p class="desc">Fried rice with crab, finished with fried shallot.</p>
+          </div>
+          <span class="price">139 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Tom Yum Goong <span class="th">ต้มยำกุ้ง</span></span>
+            <p class="desc">Prawn tom yum, balanced rather than fiercely hot.</p>
+          </div>
+          <span class="price">215 THB</span>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Morning Glory <span class="th">ผัดผักบุ้งไฟแดง</span></span>
+            <p class="desc">Stir-fried morning glory.</p>
+          </div>
+          <span class="price">119 THB</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="sweet" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Sweet</h2>
+        <div class="row">
+          <div>
+            <span class="name">Coconut Piak Pun <span class="th">ขนมเปียกปูนมะพร้าวไทย</span></span>
+            <p class="desc">Thai coconut pudding, to close the meal.</p>
+          </div>
+          <span class="price">80 THB</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="block page-section" id="about" data-menu-section>
+    <div class="wrap">
+      <p class="kicker">About</p>
+      <div class="rule"></div>
+      <h2>A contemporary Thai kitchen</h2>
+      <p class="lede">A new Thai contemporary kitchen with a Southeast Asian inspired twist. The room is on Charoen Prathet Road in Chang Khlan, opposite Hotel Meliá.</p>
+      <div class="split">
+        <article class="panel">
+          <h3>The kitchen</h3>
+          <p>The paper menu writes each plate the way they cook it: pomelo with a house yum, scallop ceviche with coconut cream, crispy pork that takes as long as a long film. The house lists itself as LGBTQ+ friendly.</p>
+        </article>
+        <article class="panel">
+          <h3>Where it sits</h3>
+          <p>17/4 Charoen Prathet Road, Chang Khlan, Mueang Chiang Mai, Chiang Mai 50100. Lunch and dinner, dark on Monday.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="events" data-menu-section>
+    <div class="wrap">
+      <p class="kicker">Events</p>
+      <div class="rule"></div>
+      <h2>The table fills</h2>
+      <p class="lede">There is no public events list. The dining room is small. Guests who arrived without a booking have written about a wait of about twenty minutes, and a drink while they waited. For a table, or a sitting for a group, call the number on the door.</p>
+      <p class="addr"><a href="tel:+66800821258">+66 80 082 1258</a></p>
+    </div>
+  </section>
+
+  <section class="block page-section" id="contact" data-menu-section>
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <div class="rule"></div>
+      <h2>Find us</h2>
+      <div class="foot-grid contact-grid">
+        <div>
+          <h3>Hours</h3>
+          <div class="hours"><span>Tuesday – Sunday</span><span>11:30–15:00</span></div>
+          <div class="hours"><span>Dinner</span><span>18:00–22:00</span></div>
+          <div class="hours"><span>Monday</span><span>Closed</span></div>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <p class="addr">17/4 Charoen Prathet Rd<br>Chang Khlan, Mueang Chiang Mai<br>Chiang Mai 50100, Thailand</p>
+          <p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=CHOW+CHOW+Thai+Contemporary+Charoen+Prathet+Chiang+Mai">Open in Google Maps</a></p>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <p class="addr"><a href="tel:+66800821258">+66 80 082 1258</a></p>
+          <p class="addr">Lunch from 11:30, dinner from 18:00. The kitchen is dark on Monday.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="note">Prices in Thai baht. A 10% service charge is added, as printed on the menu.</p>
+    </div>
+  </footer>
+
+  <a class="fab" href="tel:+66800821258">Call</a>
+  <script src="menu.js"></script>
+</body>
+</html>
