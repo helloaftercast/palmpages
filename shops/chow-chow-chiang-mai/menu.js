@@ -26,9 +26,10 @@
       btn.classList.toggle("is-on", on);
       if (on) btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     });
+    var inMenu = current === "specials" || current === "appetizers" || current === "plates" || current === "share" || current === "sweet" || current === "drinks";
     pageLinks.forEach(function (link) {
       var id = (link.getAttribute("href") || "").slice(1);
-      link.classList.toggle("is-on", id && id === current);
+      link.classList.toggle("is-on", id && (id === current || (id === "menu" && inMenu)));
     });
   }
 
@@ -53,4 +54,18 @@
   window.addEventListener("resize", pinCats);
   pinCats();
   onScroll();
+
+  var heads = document.querySelectorAll(".block h2");
+  if (!("IntersectionObserver" in window)) {
+    heads.forEach(function (head) { head.classList.add("is-seen"); });
+  } else {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-seen");
+        seen.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    heads.forEach(function (head) { seen.observe(head); });
+  }
 })();

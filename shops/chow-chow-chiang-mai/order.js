@@ -181,6 +181,15 @@
     btn.addEventListener("click", function () { add(btn); });
   });
 
+  document.querySelectorAll(".buy").forEach(function (zone) {
+    var btn = zone.querySelector("[data-add]");
+    if (!btn) return;
+    zone.addEventListener("click", function (event) {
+      if (event.target.closest("[data-add]") || event.target.closest("a")) return;
+      add(btn);
+    });
+  });
+
   fab.addEventListener("click", openCart);
   document.getElementById("cart-close").addEventListener("click", closeCart);
   document.getElementById("cart-more").addEventListener("click", closeCart);

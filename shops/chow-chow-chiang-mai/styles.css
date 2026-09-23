@@ -112,15 +112,59 @@ button {
 }
 
 .nav-links a {
+  position: relative;
+  display: inline-block;
+  padding: 0.35rem 0.05rem 0.5rem;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--secondary);
+  transition: color 0.28s ease, transform 0.28s ease;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--peach), var(--orange));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.38s cubic-bezier(0.22, 0.8, 0.28, 1);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.28s ease 0.08s;
 }
 
 .nav-links a:hover,
 .nav-links a.is-on {
-  color: var(--orange);
+  color: var(--orange-deep);
+}
+
+.nav-links a:hover {
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::before,
+.nav-links a.is-on::before {
+  transform: scaleX(1);
+}
+
+.nav-links a.is-on::after {
+  transform: translateX(-50%) scale(1);
 }
 
 .btn-gold {
@@ -226,20 +270,37 @@ button {
 
 .cats button {
   flex: 0 0 auto;
-  padding: 0.38rem 1rem;
-  border: 1px solid var(--line);
+  padding: 0.42rem 1.05rem;
+  border: 1px solid rgba(217, 107, 60, 0.38);
   border-radius: 999px;
-  color: var(--secondary);
+  color: var(--orange-deep);
   font-size: 0.8rem;
-  font-weight: 500;
-  background: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: #fff7f3;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease, color 0.28s ease, border-color 0.28s ease;
 }
 
-.cats button:hover,
-.cats button.is-on {
-  background: var(--orange);
+.cats button:hover {
+  transform: translateY(-2px);
   border-color: var(--orange);
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(217, 107, 60, 0.16);
+}
+
+.cats button.is-on {
+  border-color: transparent;
   color: var(--white);
+  background: linear-gradient(120deg, #e7a394 0%, #d96b3c 52%, #c45c32 100%);
+  background-size: 180% 100%;
+  box-shadow: 0 8px 18px rgba(196, 92, 50, 0.28);
+  animation: pill-sheen 2.6s ease infinite;
+}
+
+@keyframes pill-sheen {
+  0%,
+  100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .legend {
@@ -291,10 +352,42 @@ button {
 }
 
 .block h2 {
+  display: inline-block;
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 400;
-  color: var(--ink);
+  font-weight: 500;
+  color: #b5522c;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .block h2 {
+    background-image: linear-gradient(105deg, #9a3f22 0%, #d96b3c 40%, #e7a394 68%, #c45c32 100%);
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.block h2.is-seen {
+  animation: head-in 0.7s ease both, head-sheen 1.8s ease 0.15s both;
+}
+
+@keyframes head-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes head-sheen {
+  from { background-position: 100% 50%; }
+  to { background-position: 0% 50%; }
 }
 
 .lede,
@@ -481,6 +574,61 @@ button {
   color: var(--orange-deep);
 }
 
+.reach-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.reach {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reach span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.reach strong {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.reach em {
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--secondary);
+}
+
+.reach:hover {
+  transform: translateY(-2px);
+  border-color: var(--peach);
+  box-shadow: 0 8px 18px rgba(217, 107, 60, 0.14);
+}
+
+.reach-ig {
+  background: linear-gradient(145deg, #fff7f3 0%, #f6e4dc 100%);
+  border-color: rgba(217, 107, 60, 0.4);
+}
+
+.reach-ig strong {
+  color: var(--orange-deep);
+  font-size: 1.45rem;
+}
+
 .foot {
   padding: 3.5rem 0 5.5rem;
   background: var(--white);
@@ -514,6 +662,25 @@ button {
   margin-top: 0.35rem;
 }
 
+.buy:has([data-add]) {
+  cursor: pointer;
+}
+
+.buy:has([data-add]) .price {
+  padding: 0.28rem 0.05rem;
+  border-bottom: 1px dashed rgba(196, 92, 50, 0.45);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.buy:has([data-add]):hover .price {
+  color: var(--orange-deep);
+  border-bottom-color: var(--orange-deep);
+}
+
+.buy:has([data-add]):active .add {
+  transform: scale(0.96);
+}
+
 .card .buy {
   justify-content: space-between;
   margin-top: 0.15rem;
@@ -534,6 +701,7 @@ a.add {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .add:hover,
@@ -942,7 +1110,21 @@ a.add {
     scroll-behavior: auto;
   }
 
-  .card-photo img {
+  .card-photo img,
+  .nav-links a,
+  .nav-links a::before,
+  .nav-links a::after,
+  .cats button,
+  .block h2,
+  .reach,
+  .add {
+    animation: none;
     transition: none;
+  }
+
+  .nav-links a:hover,
+  .cats button:hover,
+  .reach:hover {
+    transform: none;
   }
 }
