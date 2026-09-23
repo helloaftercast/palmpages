@@ -80,19 +80,73 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.7rem 1.5rem;
+  padding: 0.85rem 1.5rem;
   background: rgba(255, 252, 249, 0.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
 
 .mark {
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   color: var(--ink);
-  letter-spacing: 0.02em;
-  line-height: 1.05;
+  line-height: 1;
+}
+
+.chow-lockup {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  flex: 0 0 auto;
+  font-family: "Archivo Black", "Arial Black", Impact, sans-serif;
+  font-size: 1.62rem;
+  letter-spacing: 0.06em;
+  line-height: 0.8;
+}
+
+.chow-back,
+.chow-front,
+.chow-bolt-svg {
+  grid-area: 1 / 1;
+}
+
+.chow-back {
+  color: #e7a394;
+  transform: translateY(-0.38em);
+}
+
+.chow-front {
+  position: relative;
+  z-index: 2;
+  color: #c45c32;
+  text-shadow: 0 1px 0 rgba(251, 248, 245, 0.85);
+  transform: translateY(0.42em);
+}
+
+.chow-bolt-svg {
+  z-index: 3;
+  width: 114%;
+  height: 1.35rem;
+  align-self: center;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.chow-bolt {
+  fill: none;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: chow-bolt 2.8s cubic-bezier(0.22, 0.8, 0.28, 1) infinite;
+}
+
+@keyframes chow-bolt {
+  0% { stroke-dashoffset: 100; }
+  42% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
 }
 
 .mark small {
@@ -194,26 +248,35 @@ button {
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
-  background: #f3e6dc;
+  background: #f6d2c0;
 }
 
-.hero img {
+.hero-fog {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
+  background:
+    radial-gradient(ellipse at 18% 30%, rgba(255, 187, 0, 0.75), transparent 52%),
+    radial-gradient(ellipse at 78% 62%, rgba(255, 32, 0, 0.45), transparent 48%),
+    radial-gradient(ellipse at 50% 80%, rgba(231, 163, 148, 0.7), transparent 55%),
+    #f8e4d8;
+}
+
+.hero-fog canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .hero-veil {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(43, 36, 32, 0.18) 0%,
-    rgba(43, 36, 32, 0.08) 42%,
-    rgba(43, 36, 32, 0.55) 100%
+    transparent 0%,
+    transparent 72%,
+    rgba(251, 248, 245, 0.72) 100%
   );
 }
 
@@ -235,20 +298,20 @@ button {
 }
 
 .hero .kicker {
-  color: var(--peach);
+  color: #7a341c;
 }
 
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(2.4rem, 6vw, 4rem);
   font-weight: 400;
-  color: var(--white);
+  color: var(--ink);
   line-height: 1.1;
 }
 
 .hero p {
   margin-top: 0.85rem;
-  color: rgba(255, 252, 249, 0.92);
+  color: #3f342e;
 }
 
 .cats {
@@ -1117,7 +1180,8 @@ a.add {
   .cats button,
   .block h2,
   .reach,
-  .add {
+  .add,
+  .chow-bolt {
     animation: none;
     transition: none;
   }
