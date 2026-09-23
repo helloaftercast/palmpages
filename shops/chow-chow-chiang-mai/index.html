@@ -25,7 +25,7 @@
   </header>
 
   <section class="hero" id="top">
-    <img src="photos/hero.jpg" alt="Crispy pork with green mango and herbs in an orange sauce" width="772" height="1024">
+    <img src="photos/pork-plate.jpg" alt="Crispy pork with herbs and orange sauce" width="460" height="310">
     <div class="hero-veil"></div>
     <div class="hero-copy">
       <p class="kicker">Chiang Mai · Charoen Prathet</p>
@@ -37,8 +37,9 @@
   <nav class="cats" data-cats aria-label="Menu categories">
     <button type="button" data-target="specials">Specials</button>
     <button type="button" data-target="appetizers">Appetizers</button>
-    <button type="button" data-target="plates">Plates</button>
+    <button type="button" data-target="share">Dish share</button>
     <button type="button" data-target="sweet">Sweet</button>
+    <button type="button" data-target="drinks">Drinks</button>
   </nav>
 
   <p class="legend">
@@ -54,39 +55,29 @@
         <p class="kicker">Chow-Chow’s specials</p>
         <div class="rule"></div>
         <h2>Start here</h2>
-        <p class="lede">The signature pork, the pomelo, and two plates from the photo menu. Baht, before the 10% service charge.</p>
+        <p class="lede">The room on Charoen Prathet, the signature pork, and a plate for the table. Baht, before the 10% service charge.</p>
         <div class="cards">
           <article class="card">
-            <div class="card-photo"><img src="photos/hero.jpg" alt="Crispy pork with mango salad and herbs" width="772" height="1024"></div>
+            <div class="card-photo"><img src="photos/front.jpg" alt="Chow Chow storefront on Charoen Prathet Road" width="460" height="290"></div>
+            <div class="card-body">
+              <h3>The room</h3>
+              <p>17/4 Charoen Prathet Road, opposite Hotel Meliá. Lunch and dinner. Dark on Monday.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img src="photos/pork-plate.jpg" alt="Crispy pork with herbs and orange sauce" width="460" height="310"></div>
             <div class="card-body">
               <h3>Chow-Chow Pork</h3>
               <p>Crispy pork with green mango, Asian herbs, and a house aromatic sweet fish sauce.</p>
-              <span class="price">320 THB</span>
+              <div class="buy"><span class="price">320 THB</span><button type="button" class="add" data-add data-id="pork" data-name="Chow-Chow Pork" data-price="320">Add</button></div>
             </div>
           </article>
           <article class="card">
-            <div class="card-photo"><img src="photos/pomelo.jpg" alt="Pomelo salad in a blue bowl" width="200" height="175"></div>
+            <div class="card-photo"><img src="photos/share-plate.jpg" alt="Herb salad with mint, shallot, and fried garlic on a banana leaf" width="460" height="430"></div>
             <div class="card-body">
-              <h3>Pomelo Salad</h3>
-              <p>Pomelo, house yum dressing, lemongrass, crispy shallot, and dried shrimp floss.</p>
-              <span class="price">145 THB</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-photo"><img src="photos/pad-thai.jpg" alt="Pad Thai with shrimp and egg" width="200" height="175"></div>
-            <div class="card-body">
-              <h3>Pad Thai</h3>
-              <p>Wok-fried rice noodles with shrimp and egg.</p>
-              <span class="price">ask</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-photo"><img src="photos/hunglay.jpg" alt="Hunglay curry with ginger and peanuts" width="200" height="170"></div>
-            <div class="card-body">
-              <h3>Hunglay Curry</h3>
-              <p>Northern curry, finished with ginger and peanuts.</p>
-              <div class="tags"><span class="tag tag-nut" title="Contains peanuts">P</span></div>
-              <span class="price">ask</span>
+              <h3>Dishes to share</h3>
+              <p>The larger plates. Hunglay, pad Thai, curries, and the rice.</p>
+              <div class="buy"><a class="add" href="#share">See list</a></div>
             </div>
           </article>
         </div>
@@ -102,14 +93,14 @@
             <span class="name">Pomelo Salad <span class="th">ยำส้มโอ</span></span>
             <p class="desc">Basically a flavor-packed party in a bowl. It’s zesty and might just make you wonder why you ever settled for regular salad. Fresh pomelo mixed with house-made mini yum dressing, lemongrass, and topped with crispy shallot and dry shrimp floss.</p>
           </div>
-          <span class="price">145 THB</span>
+          <div class="buy"><span class="price">145 THB</span><button type="button" class="add" data-add data-id="pomelo" data-name="Pomelo Salad" data-price="145">Add</button></div>
         </div>
         <div class="row">
           <div>
             <span class="name">Scallop Ceviche <span class="th">หอยเชลล์เซวิเช่</span></span>
             <p class="desc">From Peru with love with an Asian twist. Scallop sashimi topped with coconut cream, basil, and house-made seafood sauce.</p>
           </div>
-          <span class="price">185 THB</span>
+          <div class="buy"><span class="price">185 THB</span><button type="button" class="add" data-add data-id="scallop" data-name="Scallop Ceviche" data-price="185">Add</button></div>
         </div>
         <div class="row">
           <div>
@@ -117,14 +108,22 @@
             <p class="desc">Tiger prawns and Thai aromats topped with young coconut meat; a creative addition good for your taste bud.</p>
             <div class="tags"><span class="tag" title="Spicy">S</span></div>
           </div>
-          <span class="price">169 THB</span>
+          <div class="buy"><span class="price">169 THB</span><button type="button" class="add" data-add data-id="pla-goong" data-name="Pla Goong" data-price="169">Add</button></div>
         </div>
         <div class="row">
           <div>
             <span class="name">Chicken Wings <span class="th">ปีกไก่ทอด</span></span>
-            <p class="desc">Who said wings can’t have a little fancy flair? Dip it, dunk it, or pour it all over — your call. House-made chili lime sauce, fish sauce and crispy lemongrass.</p>
+            <p class="desc">Who said wings can’t have a little fancy flair? Dip it, dunk it, or pour it all over — your call. House-made chili lime sweet fish sauce and crispy lemongrass.</p>
+            <div class="tags"><span class="tag" title="Spicy">S</span></div>
           </div>
-          <span class="price">185 THB</span>
+          <div class="buy"><span class="price">135 THB</span><button type="button" class="add" data-add data-id="wings" data-name="Chicken Wings" data-price="135">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Tamarind Tango Prawns <span class="th">กุ้งทอดในซอสมะขาม</span></span>
+            <p class="desc">Battered prawns with the house tamarind sauce.</p>
+          </div>
+          <div class="buy"><span class="price">169 THB</span><button type="button" class="add" data-add data-id="tamarind-prawns" data-name="Tamarind Tango Prawns" data-price="169">Add</button></div>
         </div>
       </div>
     </section>
@@ -132,55 +131,106 @@
     <section class="block" id="plates" data-menu-section>
       <div class="wrap">
         <div class="rule"></div>
-        <h2>Plates</h2>
+        <h2>Chow-Chow’s specials</h2>
         <div class="row">
           <div>
             <span class="name">Chow-Chow Pork <span class="th">หมู ซูๆ-ซาๆ</span></span>
             <p class="desc">To prepare, this one takes as long as James Cameron’s Titanic movie. Our signature crispy pork topped with green mango and Asian herbs salad and house-made aromatic sweet fish sauce.</p>
           </div>
-          <span class="price">320 THB</span>
+          <div class="buy"><span class="price">320 THB</span><button type="button" class="add" data-add data-id="pork" data-name="Chow-Chow Pork" data-price="320">Add</button></div>
         </div>
         <div class="row">
           <div>
             <span class="name">Chow-Chow Tangerine Chicken <span class="th">ไก่ส้มซา-ซาๆ</span></span>
             <p class="desc">Like Romeo and Juliet, cheese and wine, it’s a match made in heaven… us and chicken. A nostalgic twist on a comfort dish: crispy chicken glazed with house-made tangy tangerine sauce, and dried chili to spice it up just a bit.</p>
           </div>
-          <span class="price">210 THB</span>
+          <div class="buy"><span class="price">210 THB</span><button type="button" class="add" data-add data-id="tangerine" data-name="Chow-Chow Tangerine Chicken" data-price="210">Add</button></div>
         </div>
         <div class="row">
           <div>
             <span class="name">Salmon Fillet and Smoky Coconut Red Curry Paste <span class="th">ปลาแซลมอนย่างกระทะกับแกงกะทิพริกเผา</span></span>
             <p class="desc">It’s a labor of love, just for you. Salmon, house-made smoky red curry paste, topped with coconut cream and chili oil.</p>
           </div>
-          <span class="price">340 THB</span>
+          <div class="buy"><span class="price">340 THB</span><button type="button" class="add" data-add data-id="salmon" data-name="Salmon Fillet and Smoky Coconut Red Curry Paste" data-price="340">Add</button></div>
         </div>
         <div class="row">
           <div>
             <span class="name">Oyster Omelette <span class="th">หอยนางรมไข่เจียว</span></span>
             <p class="desc">A bigger brother of crab omelette but a little more posh. Vietnamese inspired dressing, oyster omelette with ginger, topped with Sri Racha, and garlic condiments.</p>
           </div>
-          <span class="price">165 THB</span>
+          <div class="buy"><span class="price">165 THB</span><button type="button" class="add" data-add data-id="oyster" data-name="Oyster Omelette" data-price="165">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Fish &amp; Caramelized Pork Belly with Green Apple Salad</span>
+            <p class="desc">Crispy fish and pork belly glazed with sweet fish sauce, with a green apple salad.</p>
+          </div>
+          <div class="buy"><span class="price">310 THB</span><button type="button" class="add" data-add data-id="fish-pork" data-name="Fish and Caramelized Pork Belly with Green Apple Salad" data-price="310">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="share" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Dish share</h2>
+        <p class="lede">Larger plates for the table. A line marked ask is confirmed by the kitchen.</p>
+        <div class="row">
+          <div>
+            <span class="name">Pad Thai</span>
+            <p class="desc">Wok-fried rice noodles with shrimp and egg.</p>
+          </div>
+          <div class="buy"><span class="price">ask</span><button type="button" class="add" data-add data-id="pad-thai" data-name="Pad Thai" data-price="ask">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Hunglay Curry</span>
+            <p class="desc">Northern curry, finished with ginger and peanuts.</p>
+            <div class="tags"><span class="tag tag-nut" title="Contains peanuts">P</span></div>
+          </div>
+          <div class="buy"><span class="price">ask</span><button type="button" class="add" data-add data-id="hunglay" data-name="Hunglay Curry" data-price="ask">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Stir-Fried Rice</span>
+            <p class="desc">Wok-fried rice.</p>
+          </div>
+          <div class="buy"><span class="price">ask</span><button type="button" class="add" data-add data-id="fried-rice" data-name="Stir-Fried Rice" data-price="ask">Add</button></div>
         </div>
         <div class="row">
           <div>
             <span class="name">Crab Fried Rice <span class="th">ข้าวผัดปู</span></span>
             <p class="desc">Fried rice with crab, finished with fried shallot.</p>
           </div>
-          <span class="price">139 THB</span>
+          <div class="buy"><span class="price">139 THB</span><button type="button" class="add" data-add data-id="crab-rice" data-name="Crab Fried Rice" data-price="139">Add</button></div>
         </div>
         <div class="row">
           <div>
-            <span class="name">Tom Yum Goong <span class="th">ต้มยำกุ้ง</span></span>
+            <span class="name">Green Curry</span>
+            <p class="desc">Coconut green curry.</p>
+          </div>
+          <div class="buy"><span class="price">ask</span><button type="button" class="add" data-add data-id="green-curry" data-name="Green Curry" data-price="ask">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Tom Yam Gong <span class="th">ต้มยำกุ้ง</span></span>
             <p class="desc">Prawn tom yum, balanced rather than fiercely hot.</p>
           </div>
-          <span class="price">215 THB</span>
+          <div class="buy"><span class="price">215 THB</span><button type="button" class="add" data-add data-id="tom-yum" data-name="Tom Yam Gong" data-price="215">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Stir-fry Egg</span>
+            <p class="desc">Stir-fried egg.</p>
+          </div>
+          <div class="buy"><span class="price">ask</span><button type="button" class="add" data-add data-id="stir-egg" data-name="Stir-fry Egg" data-price="ask">Add</button></div>
         </div>
         <div class="row">
           <div>
             <span class="name">Morning Glory <span class="th">ผัดผักบุ้งไฟแดง</span></span>
             <p class="desc">Stir-fried morning glory.</p>
           </div>
-          <span class="price">119 THB</span>
+          <div class="buy"><span class="price">119 THB</span><button type="button" class="add" data-add data-id="morning-glory" data-name="Morning Glory" data-price="119">Add</button></div>
         </div>
       </div>
     </section>
@@ -191,10 +241,140 @@
         <h2>Sweet</h2>
         <div class="row">
           <div>
-            <span class="name">Coconut Piak Pun <span class="th">ขนมเปียกปูนมะพร้าวไทย</span></span>
-            <p class="desc">Thai coconut pudding, to close the meal.</p>
+            <span class="name">Thai Tea Crème Brûlée</span>
+            <p class="desc">Limited. Thai tea, burnt sugar on top. They do not serve boba tea.</p>
           </div>
-          <span class="price">80 THB</span>
+          <div class="buy"><span class="price">115 THB</span><button type="button" class="add" data-add data-id="creme-brulee" data-name="Thai Tea Creme Brulee" data-price="115">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Thai Custard Cake</span>
+            <p class="desc">Limited. Baked custard, made with coconut milk.</p>
+          </div>
+          <div class="buy"><span class="price">130 THB</span><button type="button" class="add" data-add data-id="custard" data-name="Thai Custard Cake" data-price="130">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Coconut Milk Ice Cream</span>
+            <p class="desc">Caramelized shredded fresh coconut, churned with coconut milk.</p>
+          </div>
+          <div class="buy"><span class="price">80 THB</span><button type="button" class="add" data-add data-id="coconut-ice" data-name="Coconut Milk Ice Cream" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Pandan Coconut Pudding</span>
+            <p class="desc">House pandan pudding with young coconut and coconut milk.</p>
+          </div>
+          <div class="buy"><span class="price">80 THB</span><button type="button" class="add" data-add data-id="pandan-pudding" data-name="Pandan Coconut Pudding" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Chow-Chow Mango Sticky Rice <span class="th">ข้าวเหนียวมะม่วง</span></span>
+            <p class="desc">Mango sticky rice finished with young coconut sauce and palm sugar crumble.</p>
+          </div>
+          <div class="buy"><span class="price">150 THB</span><button type="button" class="add" data-add data-id="mango-rice" data-name="Chow-Chow Mango Sticky Rice" data-price="150">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="drinks" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Drinks</h2>
+        <div class="row">
+          <div><span class="name">Mineral Water <span class="th">น้ำแร่ธรรมชาติ</span></span></div>
+          <div class="buy"><span class="price">25 THB</span><button type="button" class="add" data-add data-id="water" data-name="Mineral Water" data-price="25">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Soda</span></div>
+          <div class="buy"><span class="price">40 THB</span><button type="button" class="add" data-add data-id="soda" data-name="Soda" data-price="40">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Soft Drinks</span><p class="desc">Coke, Coke Zero, Sprite.</p></div>
+          <div class="buy"><span class="price">40 THB</span><button type="button" class="add" data-add data-id="soft" data-name="Soft Drink" data-price="40">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Fresh Coconut Water</span></div>
+          <div class="buy"><span class="price">80 THB</span><button type="button" class="add" data-add data-id="coconut-water" data-name="Fresh Coconut Water" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Orange Juice</span></div>
+          <div class="buy"><span class="price">70 THB</span><button type="button" class="add" data-add data-id="orange" data-name="Orange Juice" data-price="70">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Good Guts Kombucha</span></div>
+          <div class="buy"><span class="price">120 THB</span><button type="button" class="add" data-add data-id="kombucha" data-name="Good Guts Kombucha" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Cacao Republic Juice</span><p class="desc">Chiang Mai cacao. Raw cacao, passion fruit, cacao and lime.</p></div>
+          <div class="buy"><span class="price">120 THB</span><button type="button" class="add" data-add data-id="cacao" data-name="Cacao Republic Juice" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Orange Tonic Cold Brew</span></div>
+          <div class="buy"><span class="price">120 THB</span><button type="button" class="add" data-add data-id="orange-tonic" data-name="Orange Tonic Cold Brew" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Pandan Lemongrass</span></div>
+          <div class="buy"><span class="price">65 THB</span><button type="button" class="add" data-add data-id="pandan-drink" data-name="Pandan Lemongrass" data-price="65">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Lemon Soda</span><p class="desc">With house-made lemon syrup.</p></div>
+          <div class="buy"><span class="price">85 THB</span><button type="button" class="add" data-add data-id="lemon-soda" data-name="Lemon Soda" data-price="85">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Singha 320ml</span></div>
+          <div class="buy"><span class="price">90 THB</span><button type="button" class="add" data-add data-id="singha" data-name="Singha 320ml" data-price="90">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Chang 320ml</span></div>
+          <div class="buy"><span class="price">90 THB</span><button type="button" class="add" data-add data-id="chang" data-name="Chang 320ml" data-price="90">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Crispy Boy Helles Lager 490ml</span></div>
+          <div class="buy"><span class="price">189 THB</span><button type="button" class="add" data-add data-id="helles" data-name="Crispy Boy Helles Lager" data-price="189">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Raven IPA 490ml</span></div>
+          <div class="buy"><span class="price">219 THB</span><button type="button" class="add" data-add data-id="raven" data-name="Raven IPA" data-price="219">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Wila Weizen 490ml</span></div>
+          <div class="buy"><span class="price">199 THB</span><button type="button" class="add" data-add data-id="weizen" data-name="Wila Weizen" data-price="199">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Whale Pale Ale 490ml</span></div>
+          <div class="buy"><span class="price">209 THB</span><button type="button" class="add" data-add data-id="pale" data-name="Whale Pale Ale" data-price="209">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Thongpradit IPA 490ml</span></div>
+          <div class="buy"><span class="price">239 THB</span><button type="button" class="add" data-add data-id="thongpradit" data-name="Thongpradit IPA" data-price="239">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Highland DDH Hazy IPA 490ml</span></div>
+          <div class="buy"><span class="price">249 THB</span><button type="button" class="add" data-add data-id="hazy" data-name="Highland DDH Hazy IPA" data-price="249">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Yaksa Session IPA 500ml</span></div>
+          <div class="buy"><span class="price">259 THB</span><button type="button" class="add" data-add data-id="yaksa" data-name="Yaksa Session IPA" data-price="259">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">Black Butte Porter 355ml</span></div>
+          <div class="buy"><span class="price">239 THB</span><button type="button" class="add" data-add data-id="porter" data-name="Black Butte Porter" data-price="239">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">Peanut Butter Milk Stout 355ml</span>
+            <div class="tags"><span class="tag tag-nut" title="Contains peanuts">P</span></div>
+          </div>
+          <div class="buy"><span class="price">289 THB</span><button type="button" class="add" data-add data-id="stout" data-name="Peanut Butter Milk Stout" data-price="289">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">House Red Wine <span class="th">ไวน์แดง</span></span><p class="desc">By the glass. Bottles are on the wine list.</p></div>
+          <div class="buy"><span class="price">250 THB</span><button type="button" class="add" data-add data-id="red" data-name="House Red Wine" data-price="250">Add</button></div>
+        </div>
+        <div class="row">
+          <div><span class="name">House White Wine <span class="th">ไวน์ขาว</span></span><p class="desc">By the glass.</p></div>
+          <div class="buy"><span class="price">250 THB</span><button type="button" class="add" data-add data-id="white" data-name="House White Wine" data-price="250">Add</button></div>
         </div>
       </div>
     </section>
@@ -261,7 +441,80 @@
     </div>
   </footer>
 
-  <a class="fab" href="tel:+66800821258">Call</a>
+  <button type="button" class="cart-fab" id="cart-fab" aria-label="Cart">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.6H9.2a2 2 0 0 1-2-1.6L5 4H2"></path>
+      <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+      <circle cx="18" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+    </svg>
+    <span class="count" id="cart-count" hidden>0</span>
+  </button>
+  <div class="cart-back" id="cart-back" hidden></div>
+  <aside class="cart-sheet" id="cart-sheet" hidden aria-label="Your order">
+    <div class="cart-head">
+      <h2>Your order</h2>
+      <button type="button" id="cart-close" aria-label="Close">×</button>
+    </div>
+    <p class="cart-empty" id="cart-empty">Tap Add on a plate.</p>
+    <ul class="cart-lines" id="cart-lines" hidden></ul>
+    <div class="cart-foot">
+      <p class="cart-total"><span>Priced plates</span><strong id="cart-total">฿0</strong></p>
+      <p class="cart-note">10% service charge is added at the table. Plates marked ask are confirmed by the kitchen. Not paid yet.</p>
+      <button type="button" class="cart-send" id="cart-send">Send order</button>
+      <button type="button" class="cart-more" id="cart-more">Continue browsing</button>
+    </div>
+  </aside>
+
+  <div class="sheet-back" id="info-back" hidden></div>
+  <div class="sheet" id="info-sheet" hidden role="dialog" aria-labelledby="info-title">
+    <h2 id="info-title">Your table</h2>
+    <form id="info-form">
+      <label>Name
+        <input name="guest" required autocomplete="name">
+      </label>
+      <label>Guests
+        <input name="people" type="number" min="1" value="2" required inputmode="numeric">
+      </label>
+      <label>Note
+        <textarea name="note" rows="3"></textarea>
+      </label>
+      <div class="picked">
+        <p>Selected dishes</p>
+        <ul id="info-items"></ul>
+      </div>
+      <div class="sheet-actions">
+        <button type="button" class="cart-more" id="info-back-btn">Back</button>
+        <button type="submit" class="cart-send">Preview</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="sheet-back" id="preview-back" hidden></div>
+  <div class="preview" id="preview-sheet" hidden role="dialog" aria-label="Order preview">
+    <div class="chat">
+      <div class="chat-head">
+        <span class="chat-mark">CC</span>
+        <div>
+          <p class="chat-name">Chow Chow</p>
+          <p class="chat-sub">Order preview</p>
+        </div>
+      </div>
+      <div class="chat-body"><div class="bubble" id="preview-text"></div></div>
+      <div class="chat-send">
+        <button type="button" class="send-wa" id="send-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.15L2 22l4.98-1.6A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.4-.53.05-1.02.24-3.42-.72-2.88-1.14-4.7-4.1-4.84-4.29-.14-.19-1.15-1.53-1.15-2.92s.73-2.07 1-2.35c.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.65.5.24.58.8 2 .87 2.14.07.14.12.3.02.49-.09.19-.14.3-.28.47l-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.63-.14.25.1 1.67.79 1.95.93.28.14.47.21.54.33.07.11.07.65-.18 1.35Z"></path></svg>
+          WhatsApp
+        </button>
+        <button type="button" class="send-line" id="send-line">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.7 4.2H4.3A2.3 2.3 0 0 0 2 6.5v8.2A2.3 2.3 0 0 0 4.3 17h8.9l3.9 2.7c.45.32 1.07-.03 1.07-.56V17h1.53A2.3 2.3 0 0 0 22 14.7V6.5a2.3 2.3 0 0 0-2.3-2.3Z"></path></svg>
+          LINE
+        </button>
+      </div>
+    </div>
+    <button type="button" class="preview-close" id="preview-close">Close</button>
+  </div>
+  <p class="sent-toast" id="sent-toast" hidden>Sent ✓✓</p>
   <script src="menu.js"></script>
+  <script src="order.js"></script>
 </body>
 </html>
