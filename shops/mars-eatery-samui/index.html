@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu | MARS Eatery &amp; Art — Koh Samui</title>
+  <meta name="description" content="MARS Eatery &amp; Art, Maret, Koh Samui. Italian-leaning breakfast and brunch. Menu and how to order.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600&family=Noto+Serif+SC:wght@500&family=Noto+Serif+Thai:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#menu" data-i18n="skip">Skip to menu</a>
+
+  <header class="nav" data-nav>
+    <a class="mark" href="#top" data-i18n-aria="brand.aria" aria-label="MARS Eatery and Art">
+      <span class="mars-lockup" aria-hidden="true">
+        <strong class="mars-sign"><span>M</span><span>A</span><span>R</span><span>S</span></strong>
+        <em>EATERY + ART</em>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a class="is-on" data-page href="#menu" data-i18n="nav.menu">Menu</a></li>
+      <li><a data-page href="#about" data-i18n="nav.about">About</a></li>
+      <li><a data-page href="#events" data-i18n="nav.events">Events</a></li>
+      <li><a data-page href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-switch" role="group" data-i18n-aria="lang.aria" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="th" aria-pressed="false">ไทย</button>
+      <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+    </div>
+    <button type="button" class="nav-menu" id="overview-open" data-i18n-aria="overview.aria" aria-label="Overview" aria-expanded="false" aria-controls="overview">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="overview-back" id="overview-back" hidden></div>
+  <aside class="overview" id="overview" hidden data-i18n-aria="overview.h" aria-label="Overview">
+    <div class="overview-head">
+      <p data-i18n="overview.h">Overview</p>
+      <button type="button" id="overview-close" data-i18n-aria="cart.close" aria-label="Close">×</button>
+    </div>
+    <nav class="overview-links">
+      <a href="#highlights" data-i18n="cats.highlights">Highlights</a>
+      <a href="#breakfast" data-i18n="cats.breakfast">Breakfast</a>
+      <a href="#mains" data-i18n="cats.mains">Mains</a>
+      <a href="#chicken" data-i18n="cats.chicken">Rotisserie</a>
+      <a href="#sides" data-i18n="cats.sides">Sides</a>
+      <a href="#sweet" data-i18n="cats.sweet">Sweet</a>
+      <a href="#drinks" data-i18n="cats.drinks">Drinks</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#events" data-i18n="nav.events">Events</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </aside>
+
+  <section class="hero" id="top">
+    <div class="hero-fog" id="hero-fog" aria-hidden="true"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-copy">
+      <p class="kicker" data-i18n="hero.kicker">Koh Samui · Maret</p>
+      <h1 data-i18n="hero.h1">Our Menu</h1>
+      <p data-i18n="hero.p">Italian-leaning breakfast and brunch. Mission mains from 11. Dinner service starts at 4 PM.</p>
+    </div>
+  </section>
+
+  <nav class="cats" data-cats data-i18n-aria="cats.aria" aria-label="Menu categories">
+    <button type="button" data-target="highlights" data-i18n="cats.highlights">Highlights</button>
+    <button type="button" data-target="breakfast" data-i18n="cats.breakfast">Breakfast</button>
+    <button type="button" data-target="mains" data-i18n="cats.mains">Mains</button>
+    <button type="button" data-target="chicken" data-i18n="cats.chicken">Rotisserie</button>
+    <button type="button" data-target="sides" data-i18n="cats.sides">Sides</button>
+    <button type="button" data-target="sweet" data-i18n="cats.sweet">Sweet</button>
+    <button type="button" data-target="drinks" data-i18n="cats.drinks">Drinks</button>
+  </nav>
+
+  <p class="legend">
+    <span><b class="tag-mild">M</b> <span data-i18n="legend.mild">A chili on the paper means a mild spicy kick. Tell the kitchen if you want less.</span></span>
+    <span data-i18n="legend.dinner">Dinner service starts at 4 PM.</span>
+  </p>
+
+  <main id="menu">
+    <section class="block" id="start" data-menu-section>
+      <div class="wrap">
+        <p class="kicker" data-i18n="start.kicker">Maret</p>
+        <div class="rule"></div>
+        <h2 data-i18n="start.h2">Start here</h2>
+        <p class="lede" data-i18n="start.lede">104, 1 Moo 3, Maret, Koh Samui. Breakfast, brunch, and the mission mains. Baht, as printed.</p>
+      </div>
+    </section>
+
+    <section class="block" id="highlights" data-menu-section>
+      <div class="wrap">
+        <p class="kicker" data-i18n="highlights.kicker"></p>
+        <div class="rule"></div>
+        <h2 data-i18n="highlights.h2"></h2>
+        <p class="lede" data-i18n="highlights.lede"></p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-photo"><img data-i18n-alt="dish.steak.alt" src="photos/steak.jpg" alt="" width="1200" height="900"></div>
+            <div class="card-body">
+              <h3><span data-i18n="dish.steak.name"></span> <span class="th" data-i18n="dish.steak.sub"></span></h3>
+              <p data-i18n="dish.steak.desc"></p>
+              <div class="buy"><span class="price" data-baht="650"></span><button type="button" class="add" data-add data-id="steak" data-name="Steak on MARS (Flaming Ribeye)" data-price="650">Add</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img data-i18n-alt="dish.meatballs.alt" src="photos/meatballs.jpg" alt="" width="1200" height="900"></div>
+            <div class="card-body">
+              <h3><span data-i18n="dish.meatballs.name"></span> <span class="th" data-i18n="dish.meatballs.sub"></span></h3>
+              <p data-i18n="dish.meatballs.desc"></p>
+              <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="meatballs" data-name="Swedish Meatballs" data-price="320">Add</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img data-i18n-alt="dish.pesto.alt" src="photos/pesto.jpg" alt="" width="1200" height="900"></div>
+            <div class="card-body">
+              <h3><span data-i18n="dish.pesto.name"></span> <span class="th" data-i18n="dish.pesto.sub"></span></h3>
+              <p data-i18n="dish.pesto.desc"></p>
+              <div class="buy"><span class="price" data-baht="350"></span><button type="button" class="add" data-add data-id="pesto" data-name="Pesto Pasta and Grilled Shrimp Stack" data-price="350">Add</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-photo"><img data-i18n-alt="dish.breast.alt" src="photos/chicken.jpg" alt="" width="1200" height="900"></div>
+            <div class="card-body">
+              <h3><span data-i18n="dish.breast.name"></span> <span class="th" data-i18n="dish.breast.sub"></span></h3>
+              <p data-i18n="dish.breast.desc"></p>
+              <div class="buy"><span class="price" data-baht="255"></span><button type="button" class="add" data-add data-id="breast" data-name="Breast Rotisserie Chicken" data-price="255">Add</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="breakfast" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="breakfast.h2"></h2>
+        <p class="lede" data-i18n="breakfast.lede"></p>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.champions.name"></span> <span class="th" data-i18n="dish.champions.sub"></span></span>
+            <p class="desc" data-i18n="dish.champions.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="450"></span><button type="button" class="add" data-add data-id="champions" data-name="Breakfast of Champions" data-price="450">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.iconic.name"></span> <span class="th" data-i18n="dish.iconic.sub"></span></span>
+            <p class="desc" data-i18n="dish.iconic.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="360"></span><button type="button" class="add" data-add data-id="iconic" data-name="MARS&#x27; Iconic Breakfast" data-price="360">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.granola.name"></span> <span class="th" data-i18n="dish.granola.sub"></span></span>
+            <p class="desc" data-i18n="dish.granola.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="granola" data-name="MARS&#x27; Papaya Granola" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.burger.name"></span> <span class="th" data-i18n="dish.burger.sub"></span></span>
+            <p class="desc" data-i18n="dish.burger.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="390"></span><button type="button" class="add" data-add data-id="burger" data-name="MARS&#x27; Smash Beef Burger" data-price="390">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="mains" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="mains.h2"></h2>
+        <p class="lede" data-i18n="mains.lede"></p>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.shrimp-mango.name"></span> <span class="th" data-i18n="dish.shrimp-mango.sub"></span></span>
+            <p class="desc" data-i18n="dish.shrimp-mango.desc"></p>
+            <div class="tags"><span class="tag tag-mild" data-i18n-title="tag.mild" title="Mild">M</span></div>
+          </div>
+          <div class="buy"><span class="price" data-baht="220"></span><button type="button" class="add" data-add data-id="shrimp-mango" data-name="Grilled Shrimp with Mango Salad" data-price="220">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.tuna.name"></span> <span class="th" data-i18n="dish.tuna.sub"></span></span>
+            <p class="desc" data-i18n="dish.tuna.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="390"></span><button type="button" class="add" data-add data-id="tuna" data-name="Tuna Melt on Sourdough" data-price="390">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mussels.name"></span> <span class="th" data-i18n="dish.mussels.sub"></span></span>
+            <p class="desc" data-i18n="dish.mussels.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="mussels" data-name="Shrimp and Mussels in Creamy Garlic Sauce" data-price="320">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.banger.name"></span> <span class="th" data-i18n="dish.banger.sub"></span></span>
+            <p class="desc" data-i18n="dish.banger.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="banger" data-name="Banger and Mash" data-price="320">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.salmon-roll.name"></span> <span class="th" data-i18n="dish.salmon-roll.sub"></span></span>
+            <p class="desc" data-i18n="dish.salmon-roll.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="salmon-roll" data-name="Grilled Salmon Roll" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.spinach.name"></span> <span class="th" data-i18n="dish.spinach.sub"></span></span>
+            <p class="desc" data-i18n="dish.spinach.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="220"></span><button type="button" class="add" data-add data-id="spinach" data-name="Spinach Dip" data-price="220">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.tatar.name"></span> <span class="th" data-i18n="dish.tatar.sub"></span></span>
+            <p class="desc" data-i18n="dish.tatar.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="tatar" data-name="Tatar Salmon" data-price="260">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.half"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.steak-pasta.name"></span> <span class="th" data-i18n="dish.steak-pasta.sub"></span></span>
+            <p class="desc" data-i18n="dish.steak-pasta.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="390"></span><button type="button" class="add" data-add data-id="steak-pasta" data-name="Garlic Butter Steak &amp; Tomato Pasta" data-price="390">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.ravioli.name"></span> <span class="th" data-i18n="dish.ravioli.sub"></span></span>
+            <p class="desc" data-i18n="dish.ravioli.desc"></p>
+            <div class="tags"><span class="tag tag-mild" data-i18n-title="tag.mild" title="Mild">M</span></div>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="ravioli" data-name="Asian Ravioli in Green Curry" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.khao-man.name"></span> <span class="th" data-i18n="dish.khao-man.sub"></span></span>
+            <p class="desc" data-i18n="dish.khao-man.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="220"></span><button type="button" class="add" data-add data-id="khao-man" data-name="Khao Man Gai Yang" data-price="220">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="chicken" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="chicken.h2"></h2>
+        <p class="lede" data-i18n="chicken.lede"></p>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.half.name"></span> <span class="th" data-i18n="dish.half.sub"></span></span>
+            <p class="desc" data-i18n="dish.half.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="355"></span><button type="button" class="add" data-add data-id="half" data-name="Half Rotisserie Chicken" data-price="355">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.whole.name"></span> <span class="th" data-i18n="dish.whole.sub"></span></span>
+            <p class="desc" data-i18n="dish.whole.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="555"></span><button type="button" class="add" data-add data-id="whole" data-name="Whole Rotisserie Chicken" data-price="555">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.wrap.name"></span> <span class="th" data-i18n="dish.wrap.sub"></span></span>
+            <p class="desc" data-i18n="dish.wrap.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="wrap" data-name="Rotisserie Chicken Wrap" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.stack.name"></span> <span class="th" data-i18n="dish.stack.sub"></span></span>
+            <p class="desc" data-i18n="dish.stack.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="stack" data-name="Rotisserie Chicken Stack" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.carrot-feta.name"></span> <span class="th" data-i18n="dish.carrot-feta.sub"></span></span>
+            <p class="desc" data-i18n="dish.carrot-feta.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="carrot-feta" data-name="Carrot, Feta with Rotisserie Chicken Salad" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.caesar-wrap.name"></span> <span class="th" data-i18n="dish.caesar-wrap.sub"></span></span>
+            <p class="desc" data-i18n="dish.caesar-wrap.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="220"></span><button type="button" class="add" data-add data-id="caesar-wrap" data-name="Caesar Salad Wrap" data-price="220">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="sides" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="sides.h2"></h2>
+        <p class="lede" data-i18n="sides.lede"></p>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.guacamole.name"></span> <span class="th" data-i18n="dish.guacamole.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="guacamole" data-name="Guacamole" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.caesar.name"></span> <span class="th" data-i18n="dish.caesar.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="caesar" data-name="Small Caesar" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mixed.name"></span> <span class="th" data-i18n="dish.mixed.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="mixed" data-name="Mixed Salad" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.carrots.name"></span> <span class="th" data-i18n="dish.carrots.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="carrots" data-name="Honey-Glazed Carrots" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.sweet-potato.name"></span> <span class="th" data-i18n="dish.sweet-potato.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="sweet-potato" data-name="Sweet potatoes with Parmesan" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.steamed.name"></span> <span class="th" data-i18n="dish.steamed.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="steamed" data-name="Steamed Vegetables" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.corn.name"></span> <span class="th" data-i18n="dish.corn.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="corn" data-name="Mars Sweetcorn" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.coleslaw.name"></span> <span class="th" data-i18n="dish.coleslaw.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="80"></span><button type="button" class="add" data-add data-id="coleslaw" data-name="Coleslaw (Two Ways)" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mac.name"></span> <span class="th" data-i18n="dish.mac.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="mac" data-name="Mac &amp; Cheese" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.wedges.name"></span> <span class="th" data-i18n="dish.wedges.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="wedges" data-name="Potato Wedges" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mash.name"></span> <span class="th" data-i18n="dish.mash.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="80"></span><button type="button" class="add" data-add data-id="mash" data-name="Mashed potatoes" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.rice.name"></span> <span class="th" data-i18n="dish.rice.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="50"></span><button type="button" class="add" data-add data-id="rice" data-name="Jasmin Rice" data-price="50">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.sauce"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.pepper.name"></span> <span class="th" data-i18n="dish.pepper.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="60"></span><button type="button" class="add" data-add data-id="pepper" data-name="Pepper Sauce" data-price="60">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.bearnaise.name"></span> <span class="th" data-i18n="dish.bearnaise.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="60"></span><button type="button" class="add" data-add data-id="bearnaise" data-name="Béarnaise" data-price="60">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.truffle.name"></span> <span class="th" data-i18n="dish.truffle.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="60"></span><button type="button" class="add" data-add data-id="truffle" data-name="Truffle Sauce" data-price="60">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.bbq.name"></span> <span class="th" data-i18n="dish.bbq.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="60"></span><button type="button" class="add" data-add data-id="bbq" data-name="BBQ Sauce" data-price="60">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.vinegar.name"></span> <span class="th" data-i18n="dish.vinegar.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="60"></span><button type="button" class="add" data-add data-id="vinegar" data-name="Mars&#x27; Style Vinegar" data-price="60">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.nam-jim.name"></span> <span class="th" data-i18n="dish.nam-jim.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="60"></span><button type="button" class="add" data-add data-id="nam-jim" data-name="Nam Jim (Thai Sauce)" data-price="60">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.khao-sauce.name"></span> <span class="th" data-i18n="dish.khao-sauce.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="60"></span><button type="button" class="add" data-add data-id="khao-sauce" data-name="Khao Man Gai Sauce" data-price="60">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="sweet" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="sweet.h2"></h2>
+        <p class="lede" data-i18n="sweet.lede"></p>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.sorbet.name"></span> <span class="th" data-i18n="dish.sorbet.sub"></span></span>
+            <p class="desc" data-i18n="dish.sorbet.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="280"></span><button type="button" class="add" data-add data-id="sorbet" data-name="Champagne Sorbet" data-price="280">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.brulee.name"></span> <span class="th" data-i18n="dish.brulee.sub"></span></span>
+            <p class="desc" data-i18n="dish.brulee.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="brulee" data-name="Cream Brûlée" data-price="160">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.sticky.name"></span> <span class="th" data-i18n="dish.sticky.sub"></span></span>
+            <p class="desc" data-i18n="dish.sticky.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="220"></span><button type="button" class="add" data-add data-id="sticky" data-name="Mango Sticky Rice in Mars&#x27; Style" data-price="220">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.scoop.name"></span> <span class="th" data-i18n="dish.scoop.sub"></span></span>
+            <p class="desc" data-i18n="dish.scoop.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="65"></span><button type="button" class="add" data-add data-id="scoop" data-name="Ice Cream, per scoop" data-price="65">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="drinks" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="drinks.h2"></h2>
+<h3 class="group-label" data-i18n="grp.coffee"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.golden.name"></span> <span class="th" data-i18n="dish.golden.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="golden" data-name="Golden Latte" data-price="180">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.honey-cin.name"></span> <span class="th" data-i18n="dish.honey-cin.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="170"></span><button type="button" class="add" data-add data-id="honey-cin" data-name="Honey Cinnamon Latte" data-price="170">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.matcha-latte.name"></span> <span class="th" data-i18n="dish.matcha-latte.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="170"></span><button type="button" class="add" data-add data-id="matcha-latte" data-name="Matcha Latte" data-price="170">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.espresso.name"></span> <span class="th" data-i18n="dish.espresso.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="100"></span><button type="button" class="add" data-add data-id="espresso" data-name="Espresso" data-price="100">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.americano.name"></span> <span class="th" data-i18n="dish.americano.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="110"></span><button type="button" class="add" data-add data-id="americano" data-name="Americano" data-price="110">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.cappuccino.name"></span> <span class="th" data-i18n="dish.cappuccino.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="cappuccino" data-name="Cappuccino" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.latte.name"></span> <span class="th" data-i18n="dish.latte.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="120"></span><button type="button" class="add" data-add data-id="latte" data-name="Latte" data-price="120">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.flat.name"></span> <span class="th" data-i18n="dish.flat.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="130"></span><button type="button" class="add" data-add data-id="flat" data-name="Flat White" data-price="130">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.ice"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.ice-americano.name"></span> <span class="th" data-i18n="dish.ice-americano.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="110"></span><button type="button" class="add" data-add data-id="ice-americano" data-name="Americano, iced" data-price="110">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.caramel.name"></span> <span class="th" data-i18n="dish.caramel.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="150"></span><button type="button" class="add" data-add data-id="caramel" data-name="Caramel Latte" data-price="150">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.matcha-ice.name"></span> <span class="th" data-i18n="dish.matcha-ice.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="170"></span><button type="button" class="add" data-add data-id="matcha-ice" data-name="Matcha Green Tea" data-price="170">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mango-esp.name"></span> <span class="th" data-i18n="dish.mango-esp.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="170"></span><button type="button" class="add" data-add data-id="mango-esp" data-name="Mango Passion Espresso" data-price="170">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.pine-esp.name"></span> <span class="th" data-i18n="dish.pine-esp.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="170"></span><button type="button" class="add" data-add data-id="pine-esp" data-name="Pineapple Espresso" data-price="170">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.sunrise-esp.name"></span> <span class="th" data-i18n="dish.sunrise-esp.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="150"></span><button type="button" class="add" data-add data-id="sunrise-esp" data-name="Mars Sunrise Espresso" data-price="150">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.bomb.name"></span> <span class="th" data-i18n="dish.bomb.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="170"></span><button type="button" class="add" data-add data-id="bomb" data-name="Espresso Bomb" data-price="170">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.tea"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.english.name"></span> <span class="th" data-i18n="dish.english.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="100"></span><button type="button" class="add" data-add data-id="english" data-name="English Breakfast" data-price="100">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.earl.name"></span> <span class="th" data-i18n="dish.earl.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="100"></span><button type="button" class="add" data-add data-id="earl" data-name="Earl Grey" data-price="100">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.jasmine.name"></span> <span class="th" data-i18n="dish.jasmine.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="100"></span><button type="button" class="add" data-add data-id="jasmine" data-name="Jasmine Green Tea" data-price="100">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.healthy"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.carrot-boost.name"></span> <span class="th" data-i18n="dish.carrot-boost.sub"></span></span>
+            <p class="desc" data-i18n="dish.carrot-boost.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="carrot-boost" data-name="Carrot Boost" data-price="180">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.citrus.name"></span> <span class="th" data-i18n="dish.citrus.sub"></span></span>
+            <p class="desc" data-i18n="dish.citrus.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="citrus" data-name="Citrus Cleanse" data-price="180">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.galaxy.name"></span> <span class="th" data-i18n="dish.galaxy.sub"></span></span>
+            <p class="desc" data-i18n="dish.galaxy.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="galaxy" data-name="Green Galaxy Detox" data-price="180">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.fire.name"></span> <span class="th" data-i18n="dish.fire.sub"></span></span>
+            <p class="desc" data-i18n="dish.fire.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="fire" data-name="Fire &amp; Sweet" data-price="180">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.fresh"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.orange.name"></span> <span class="th" data-i18n="dish.orange.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="orange" data-name="Fresh Orange" data-price="160">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.lemon-mint.name"></span> <span class="th" data-i18n="dish.lemon-mint.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="lemon-mint" data-name="Fresh Lemon Mint" data-price="160">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.watermelon.name"></span> <span class="th" data-i18n="dish.watermelon.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="watermelon" data-name="Fresh Watermelon" data-price="160">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.coconut.name"></span> <span class="th" data-i18n="dish.coconut.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="coconut" data-name="Fresh Coconut" data-price="160">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.shot"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.ginger.name"></span> <span class="th" data-i18n="dish.ginger.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="80"></span><button type="button" class="add" data-add data-id="ginger" data-name="Ginger" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.turmeric.name"></span> <span class="th" data-i18n="dish.turmeric.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="80"></span><button type="button" class="add" data-add data-id="turmeric" data-name="Turmeric" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.beet.name"></span> <span class="th" data-i18n="dish.beet.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="80"></span><button type="button" class="add" data-add data-id="beet" data-name="Beetroot" data-price="80">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.celery.name"></span> <span class="th" data-i18n="dish.celery.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="80"></span><button type="button" class="add" data-add data-id="celery" data-name="Celery" data-price="80">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.smoothie"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.blends.name"></span> <span class="th" data-i18n="dish.blends.sub"></span></span>
+            <p class="desc" data-i18n="dish.blends.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="240"></span><button type="button" class="add" data-add data-id="blends" data-name="MARS blends" data-price="240">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.love.name"></span> <span class="th" data-i18n="dish.love.sub"></span></span>
+            <p class="desc" data-i18n="dish.love.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="240"></span><button type="button" class="add" data-add data-id="love" data-name="I LOVE MYSELF" data-price="240">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.kiss.name"></span> <span class="th" data-i18n="dish.kiss.sub"></span></span>
+            <p class="desc" data-i18n="dish.kiss.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="240"></span><button type="button" class="add" data-add data-id="kiss" data-name="Summer Kiss" data-price="240">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.magic.name"></span> <span class="th" data-i18n="dish.magic.sub"></span></span>
+            <p class="desc" data-i18n="dish.magic.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="240"></span><button type="button" class="add" data-add data-id="magic" data-name="Magic Blue" data-price="240">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.summer"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.cooler.name"></span> <span class="th" data-i18n="dish.cooler.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="cooler" data-name="Watermelon cooler" data-price="180">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.refresher.name"></span> <span class="th" data-i18n="dish.refresher.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="refresher" data-name="Lemon Mint refresher" data-price="180">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.passion-fizz.name"></span> <span class="th" data-i18n="dish.passion-fizz.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="passion-fizz" data-name="Mango passionfruit fizz" data-price="180">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.soft"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.soft.name"></span> <span class="th" data-i18n="dish.soft.sub"></span></span>
+            <p class="desc" data-i18n="dish.soft.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="ask"></span><button type="button" class="add" data-add data-id="soft" data-name="Soft drink" data-price="ask">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.cocktails"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.margarita.name"></span> <span class="th" data-i18n="dish.margarita.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="280"></span><button type="button" class="add" data-add data-id="margarita" data-name="Red Dust Devil Margarita" data-price="280">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.sunset.name"></span> <span class="th" data-i18n="dish.sunset.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="290"></span><button type="button" class="add" data-add data-id="sunset" data-name="Sunset on Mars" data-price="290">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mimosa.name"></span> <span class="th" data-i18n="dish.mimosa.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="240"></span><button type="button" class="add" data-add data-id="mimosa" data-name="Mars Mimosa" data-price="240">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.aperol.name"></span> <span class="th" data-i18n="dish.aperol.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="aperol" data-name="Aperol spritz" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mango-fizz.name"></span> <span class="th" data-i18n="dish.mango-fizz.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="240"></span><button type="button" class="add" data-add data-id="mango-fizz" data-name="Mango Passion Fizz" data-price="240">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.solar.name"></span> <span class="th" data-i18n="dish.solar.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="solar" data-name="Solar Bellini" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.blooming.name"></span> <span class="th" data-i18n="dish.blooming.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="260"></span><button type="button" class="add" data-add data-id="blooming" data-name="Blooming Bellini" data-price="260">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.gin.name"></span> <span class="th" data-i18n="dish.gin.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="280"></span><button type="button" class="add" data-add data-id="gin" data-name="Gin Garden" data-price="280">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.old-f.name"></span> <span class="th" data-i18n="dish.old-f.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="old-f" data-name="Old fashioned" data-price="320">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.martini.name"></span> <span class="th" data-i18n="dish.martini.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="martini" data-name="Espresso martini" data-price="320">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mai.name"></span> <span class="th" data-i18n="dish.mai.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="290"></span><button type="button" class="add" data-add data-id="mai" data-name="Mai Thai" data-price="290">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.pina.name"></span> <span class="th" data-i18n="dish.pina.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="280"></span><button type="button" class="add" data-add data-id="pina" data-name="Piña Colada" data-price="280">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.mock"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.v-mojito.name"></span> <span class="th" data-i18n="dish.v-mojito.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="v-mojito" data-name="Virgin Mojito" data-price="160">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.shirley.name"></span> <span class="th" data-i18n="dish.shirley.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="shirley" data-name="Shirley Temple" data-price="160">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.v-pina.name"></span> <span class="th" data-i18n="dish.v-pina.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="v-pina" data-name="Virgin Piña Colada" data-price="180">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.punch.name"></span> <span class="th" data-i18n="dish.punch.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="150"></span><button type="button" class="add" data-add data-id="punch" data-name="Fruit Punch" data-price="150">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.sunrise-mock.name"></span> <span class="th" data-i18n="dish.sunrise-mock.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="sunrise-mock" data-name="Sunrise Mocktail" data-price="160">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.cinderella.name"></span> <span class="th" data-i18n="dish.cinderella.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="170"></span><button type="button" class="add" data-add data-id="cinderella" data-name="Cinderella" data-price="170">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.mojito.name"></span> <span class="th" data-i18n="dish.mojito.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="160"></span><button type="button" class="add" data-add data-id="mojito" data-name="Mojito" data-price="160">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.beer"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.singha.name"></span> <span class="th" data-i18n="dish.singha.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="140"></span><button type="button" class="add" data-add data-id="singha" data-name="Singha" data-price="140">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.corona.name"></span> <span class="th" data-i18n="dish.corona.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="180"></span><button type="button" class="add" data-add data-id="corona" data-name="Corona" data-price="180">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.cider"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.thatchers.name"></span> <span class="th" data-i18n="dish.thatchers.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="220"></span><button type="button" class="add" data-add data-id="thatchers" data-name="Thatchers" data-price="220">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.brothers.name"></span> <span class="th" data-i18n="dish.brothers.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="240"></span><button type="button" class="add" data-add data-id="brothers" data-name="Brothers Cider" data-price="240">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.champagne"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.veuve-s.name"></span> <span class="th" data-i18n="dish.veuve-s.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="2500"></span><button type="button" class="add" data-add data-id="veuve-s" data-name="Veuve Clicquot Brut 375 ml" data-price="2500">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.veuve.name"></span> <span class="th" data-i18n="dish.veuve.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="4800"></span><button type="button" class="add" data-add data-id="veuve" data-name="Veuve Clicquot Brut 750 ml" data-price="4800">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.red"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.lynch.name"></span> <span class="th" data-i18n="dish.lynch.sub"></span></span>
+            <p class="desc" data-i18n="dish.lynch.desc"></p>
+          </div>
+          <div class="buy"><span class="price" data-baht="1890"></span><button type="button" class="add" data-add data-id="lynch" data-name="Michel Lynch Bordeaux" data-price="1890">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.primitivo-g.name"></span> <span class="th" data-i18n="dish.primitivo-g.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="primitivo-g" data-name="Zonin Primitivo Puglia 2023, glass" data-price="320">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.primitivo-b.name"></span> <span class="th" data-i18n="dish.primitivo-b.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="1490"></span><button type="button" class="add" data-add data-id="primitivo-b" data-name="Zonin Primitivo Puglia 2023, bottle" data-price="1490">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.white"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.pinot-g.name"></span> <span class="th" data-i18n="dish.pinot-g.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="pinot-g" data-name="Fantini Pinot Grigio Terre Siciliane 2023, glass" data-price="320">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.pinot-b.name"></span> <span class="th" data-i18n="dish.pinot-b.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="1490"></span><button type="button" class="add" data-add data-id="pinot-b" data-name="Fantini Pinot Grigio Terre Siciliane 2023, bottle" data-price="1490">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.matua.name"></span> <span class="th" data-i18n="dish.matua.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="1690"></span><button type="button" class="add" data-add data-id="matua" data-name="Matua Marlborough Sauvignon Blanc 2024" data-price="1690">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.rose"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.gassier.name"></span> <span class="th" data-i18n="dish.gassier.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="1890"></span><button type="button" class="add" data-add data-id="gassier" data-name="Gassier Sables d&#x27;Azur Côtes de Provence 2024" data-price="1890">Add</button></div>
+        </div>
+<h3 class="group-label" data-i18n="grp.prosecco"></h3>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.belstar-g.name"></span> <span class="th" data-i18n="dish.belstar-g.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="320"></span><button type="button" class="add" data-add data-id="belstar-g" data-name="Belstar Prosecco Brut, glass" data-price="320">Add</button></div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.belstar-b.name"></span> <span class="th" data-i18n="dish.belstar-b.sub"></span></span>
+          </div>
+          <div class="buy"><span class="price" data-baht="1490"></span><button type="button" class="add" data-add data-id="belstar-b" data-name="Belstar Prosecco Brut, bottle" data-price="1490">Add</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="block page-section" id="about" data-menu-section>
+    <div class="wrap">
+      <p class="kicker" data-i18n="about.kicker">About</p>
+      <div class="rule"></div>
+      <h2 data-i18n="about.h2">Breakfast, with an Italian lean</h2>
+      <p class="lede" data-i18n="about.lede"></p>
+      <div class="split">
+        <article>
+          <h3 data-i18n="about.kitchen.h">The kitchen</h3>
+          <p data-i18n="about.kitchen.p"></p>
+        </article>
+        <article>
+          <h3 data-i18n="about.where.h">Where it sits</h3>
+          <p data-i18n="about.where.p"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="events" data-menu-section>
+    <div class="wrap">
+      <p class="kicker" data-i18n="events.kicker">Events</p>
+      <div class="rule"></div>
+      <h2 data-i18n="events.h2">Evenings at MARS</h2>
+      <p class="lede" data-i18n="events.lede">Friday and Saturday, 8:00–21:00. Call for the table.</p>
+      <p class="addr"><a href="tel:+66944894941">+66 94 489 4941</a></p>
+    </div>
+  </section>
+
+  <section class="block page-section" id="contact" data-menu-section>
+    <div class="wrap">
+      <p class="kicker" data-i18n="contact.kicker">Contact</p>
+      <div class="rule"></div>
+      <h2 data-i18n="contact.h2">Find us</h2>
+      <div class="foot-grid contact-grid">
+        <div>
+          <h3 data-i18n="hours.h">Hours</h3>
+          <div class="hours"><span data-i18n="hours.mains">Mission mains</span><span>11:00</span></div>
+          <div class="hours"><span data-i18n="hours.dinner">Dinner</span><span data-i18n="hours.from">from 16:00</span></div>
+          <div class="hours"><span data-i18n="hours.weekend">Friday – Saturday</span><span>8:00–21:00</span></div>
+        </div>
+        <div>
+          <h3 data-i18n="addr.h">Address</h3>
+          <p class="addr" data-i18n="addr.lines" data-i18n-html>104, 1 Moo 3<br>Maret, Ko Samui District<br>Surat Thani 84310, Thailand</p>
+          <p class="addr"><a href="https://www.google.com/maps/place/MARS+Eatery+%26+Art/@9.4700472,100.0405078,17z" data-i18n="addr.maps">Open in Google Maps</a></p>
+        </div>
+        <div>
+          <h3 data-i18n="reach.h">Reach the kitchen</h3>
+          <div class="reach-stack">
+            <a class="reach" href="https://wa.me/66944894941" target="_blank" rel="noopener">
+              <span>WhatsApp</span>
+              <strong>+66 94 489 4941</strong>
+            </a>
+            <a class="reach" href="tel:+66944894941">
+              <span data-i18n="reach.phone">Phone</span>
+              <strong>+66 94 489 4941</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="note" data-i18n="foot">Prices in baht, as printed. Dinner service starts at 4 PM.</p>
+    </div>
+  </footer>
+
+  <button type="button" class="cart-fab" id="cart-fab" data-i18n-aria="cart.aria" aria-label="Cart">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.6H9.2a2 2 0 0 1-2-1.6L5 4H2"></path>
+      <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+      <circle cx="18" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+    </svg>
+    <span class="count" id="cart-count" hidden>0</span>
+  </button>
+  <div class="cart-back" id="cart-back" hidden></div>
+  <aside class="cart-sheet" id="cart-sheet" hidden data-i18n-aria="cart.h" aria-label="Your order">
+    <div class="cart-head">
+      <h2 data-i18n="cart.h">Your order</h2>
+      <button type="button" id="cart-close" data-i18n-aria="cart.close" aria-label="Close">×</button>
+    </div>
+    <p class="cart-empty" id="cart-empty" data-i18n="cart.empty">Tap a price, or Add.</p>
+    <ul class="cart-lines" id="cart-lines" hidden></ul>
+    <div class="cart-foot">
+      <p class="cart-total"><span data-i18n="cart.total">Priced plates</span><strong id="cart-total">฿0</strong></p>
+      <p class="cart-note" data-i18n="cart.note">Not paid yet. The kitchen confirms the table.</p>
+      <button type="button" class="cart-send" id="cart-send" data-i18n="cart.send">Send order</button>
+      <button type="button" class="cart-more" id="cart-more" data-i18n="cart.more">Continue browsing</button>
+    </div>
+  </aside>
+
+  <div class="sheet-back" id="info-back" hidden></div>
+  <div class="sheet" id="info-sheet" hidden role="dialog" aria-labelledby="info-title">
+    <h2 id="info-title" data-i18n="info.h">Your table</h2>
+    <form id="info-form">
+      <label><span data-i18n="info.name">Name</span>
+        <input name="guest" required autocomplete="name">
+      </label>
+      <label><span data-i18n="info.guests">Guests</span>
+        <input name="people" type="number" min="1" value="2" required inputmode="numeric">
+      </label>
+      <label><span data-i18n="info.note">Note</span>
+        <textarea name="note" rows="3"></textarea>
+      </label>
+      <div class="picked">
+        <p data-i18n="info.picked">Selected dishes</p>
+        <ul id="info-items"></ul>
+      </div>
+      <div class="sheet-actions">
+        <button type="button" class="cart-more" id="info-back-btn" data-i18n="info.back">Back</button>
+        <button type="submit" class="cart-send" data-i18n="info.preview">Preview</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="sheet-back" id="preview-back" hidden></div>
+  <div class="preview" id="preview-sheet" hidden role="dialog" data-i18n-aria="preview.aria" aria-label="Order preview">
+    <div class="chat">
+      <div class="chat-head">
+        <span class="chat-mark">MA</span>
+        <div>
+          <p class="chat-name">MARS</p>
+          <p class="chat-sub" data-i18n="preview.sub">Order preview</p>
+        </div>
+      </div>
+      <div class="chat-body"><div class="bubble" id="preview-text"></div></div>
+      <div class="chat-send">
+        <button type="button" class="send-wa" id="send-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.15L2 22l4.98-1.6A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.25.7-1.45 1.34-2 1.4-.53.05-1.02.24-3.42-.72-2.88-1.14-4.7-4.1-4.84-4.29-.14-.19-1.15-1.53-1.15-2.92s.73-2.07 1-2.35c.26-.28.57-.35.76-.35h.55c.18 0 .42-.07.65.5.24.58.8 2 .87 2.14.07.14.12.3.02.49-.09.19-.14.3-.28.47l-.42.48c-.14.14-.28.3-.12.58.16.28.72 1.18 1.54 1.92 1.06.94 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.63-.14.25.1 1.67.79 1.95.93.28.14.47.21.54.33.07.11.07.65-.18 1.35Z"></path></svg>
+          WhatsApp
+        </button>
+        <button type="button" class="send-line" id="send-line">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.7 4.2H4.3A2.3 2.3 0 0 0 2 6.5v8.2A2.3 2.3 0 0 0 4.3 17h8.9l3.9 2.7c.45.32 1.07-.03 1.07-.56V17h1.53A2.3 2.3 0 0 0 22 14.7V6.5a2.3 2.3 0 0 0-2.3-2.3Z"></path></svg>
+          LINE
+        </button>
+      </div>
+    </div>
+    <button type="button" class="preview-close" id="preview-close" data-i18n="preview.close">Close</button>
+  </div>
+  <p class="sent-toast" id="sent-toast" data-i18n="toast" hidden>Sent ✓✓</p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.fog.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="menu.js"></script>
+  <script src="order.js"></script>
+  <script>
+    (function () {
+      var el = document.getElementById("hero-fog");
+      if (!el || !window.VANTA) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      VANTA.FOG({
+        el: el,
+        mouseControls: true,
+        touchControls: false,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        highlightColor: 0xffe3a1,
+        midtoneColor: 0xc48a2a,
+        lowlightColor: 0x8a5a22,
+        baseColor: 0xf4ead4,
+        blurFactor: 0.6,
+        speed: 0.8,
+        zoom: 0.9
+      });
+    })();
+  </script>
+</body>
+</html>

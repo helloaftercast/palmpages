@@ -1,21 +1,20 @@
-/* Chow Chow, Chiang Mai.
-   Layout rhythm from the Crystal Bay beach-club menu:
-   fixed bar, photo hero, sticky pills, evening cards, text rows.
-   Palette is warm white, with peach and orange in place of navy and gold. */
+/* MARS Eatery & Art, Koh Samui.
+   Same menu rhythm as the other PalmPages shops.
+   Paper is the pale gold of their printed menu. */
 
 :root {
-  --paper: #fbf8f5;
-  --white: #ffffff;
-  --ink: #2b2420;
-  --mute: #8a7b72;
-  --secondary: #5e514a;
-  --peach: #e7a394;
-  --peach-soft: #f6e4dc;
-  --orange: #d96b3c;
-  --orange-deep: #c45c32;
-  --moss: #6d7f4a;
-  --moss-deep: #4c5c30;
-  --line: rgba(217, 107, 60, 0.16);
+  --paper: #f4ead4;
+  --white: #fbf6ea;
+  --ink: #2a241c;
+  --mute: #8a7560;
+  --secondary: #5c4a38;
+  --peach: #e4c98a;
+  --peach-soft: #f3e6c4;
+  --orange: #8d5a22;
+  --orange-deep: #6e4314;
+  --moss: #8d6230;
+  --moss-deep: #6e4314;
+  --line: rgba(141, 90, 34, 0.18);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: Inter, "Helvetica Neue", sans-serif;
 }
@@ -83,7 +82,7 @@ button {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.85rem 1.5rem;
-  background: rgba(255, 252, 249, 0.96);
+  background: rgba(244, 234, 212, 0.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
@@ -117,7 +116,7 @@ button {
   color: #d06a3a;
   text-shadow:
     0 0 1px #fff4ec,
-    0 0 6px rgba(224, 112, 58, 0.55);
+    0 0 6px rgba(141, 90, 34, 0.55);
   animation: neon-pass 3.6s ease-in-out infinite;
 }
 
@@ -148,7 +147,7 @@ button {
     color: #d06a3a;
     text-shadow:
       0 0 1px #fff4ec,
-      0 0 6px rgba(224, 112, 58, 0.55);
+      0 0 6px rgba(141, 90, 34, 0.55);
   }
   13% {
     color: #fff8f4;
@@ -162,7 +161,7 @@ button {
     color: #d06a3a;
     text-shadow:
       0 0 1px #fff4ec,
-      0 0 6px rgba(224, 112, 58, 0.55);
+      0 0 6px rgba(141, 90, 34, 0.55);
   }
 }
 
@@ -172,7 +171,7 @@ button {
     color: #d06a3a;
     text-shadow:
       0 0 1px #fff4ec,
-      0 0 6px rgba(224, 112, 58, 0.55);
+      0 0 6px rgba(141, 90, 34, 0.55);
   }
   12%,
   20% {
@@ -188,7 +187,7 @@ button {
     color: #d06a3a;
     text-shadow:
       0 0 1px #fff4ec,
-      0 0 6px rgba(224, 112, 58, 0.55);
+      0 0 6px rgba(141, 90, 34, 0.55);
   }
 }
 
@@ -291,17 +290,17 @@ button {
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
-  background: #f6d2c0;
+  background: #f3e3c2;
 }
 
 .hero-fog {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 18% 30%, rgba(255, 187, 0, 0.75), transparent 52%),
-    radial-gradient(ellipse at 78% 62%, rgba(255, 32, 0, 0.45), transparent 48%),
-    radial-gradient(ellipse at 50% 80%, rgba(231, 163, 148, 0.7), transparent 55%),
-    #f8e4d8;
+    radial-gradient(ellipse at 18% 30%, rgba(255, 227, 161, 0.85), transparent 52%),
+    radial-gradient(ellipse at 78% 62%, rgba(196, 138, 42, 0.45), transparent 48%),
+    radial-gradient(ellipse at 50% 80%, rgba(228, 201, 138, 0.75), transparent 55%),
+    #f6edd4;
 }
 
 .hero-fog canvas {
@@ -319,7 +318,7 @@ button {
     to bottom,
     transparent 0%,
     transparent 72%,
-    rgba(251, 248, 245, 0.72) 100%
+    rgba(244, 234, 212, 0.78) 100%
   );
 }
 
@@ -354,7 +353,7 @@ button {
 
 .hero p {
   margin-top: 0.85rem;
-  color: #3f342e;
+  color: #3a3126;
 }
 
 .cats {
@@ -377,13 +376,13 @@ button {
 .cats button {
   flex: 0 0 auto;
   padding: 0.42rem 1.05rem;
-  border: 1px solid rgba(217, 107, 60, 0.38);
+  border: 1px solid rgba(141, 90, 34, 0.38);
   border-radius: 999px;
   color: var(--orange-deep);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: #fff7f3;
+  background: #fbf6ea;
   transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease, color 0.28s ease, border-color 0.28s ease;
 }
 
@@ -391,15 +390,15 @@ button {
   transform: translateY(-2px);
   border-color: var(--orange);
   background: #fff;
-  box-shadow: 0 8px 18px rgba(217, 107, 60, 0.16);
+  box-shadow: 0 8px 18px rgba(141, 90, 34, 0.18);
 }
 
 .cats button.is-on {
   border-color: transparent;
   color: var(--white);
-  background: linear-gradient(120deg, #e7a394 0%, #d96b3c 52%, #c45c32 100%);
+  background: linear-gradient(120deg, #e4c27a 0%, #b8893a 52%, #8d5a22 100%);
   background-size: 180% 100%;
-  box-shadow: 0 8px 18px rgba(196, 92, 50, 0.28);
+  box-shadow: 0 8px 18px rgba(110, 67, 20, 0.28);
   animation: pill-sheen 2.6s ease infinite;
 }
 
@@ -505,12 +504,12 @@ html[lang="zh-Hans"] .mark small {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 500;
-  color: #b5522c;
+  color: #8d5a22;
 }
 
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .block h2 {
-    background-image: linear-gradient(105deg, #9a3f22 0%, #d96b3c 40%, #e7a394 68%, #c45c32 100%);
+    background-image: linear-gradient(105deg, #6e4314 0%, #a56b28 40%, #e4c27a 68%, #8d5a22 100%);
     background-size: 220% 100%;
     background-position: 0% 50%;
     -webkit-background-clip: text;
@@ -769,28 +768,12 @@ html[lang="zh-Hans"] .mark small {
 .reach:hover {
   transform: translateY(-2px);
   border-color: var(--peach);
-  box-shadow: 0 8px 18px rgba(217, 107, 60, 0.14);
+  box-shadow: 0 8px 18px rgba(141, 90, 34, 0.14);
 }
 
 .reach-ig {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  column-gap: 0.75rem;
-  align-items: center;
-  background: linear-gradient(145deg, #fff7f3 0%, #f6e4dc 100%);
-  border-color: rgba(217, 107, 60, 0.4);
-}
-
-.reach-ig .ig-mark {
-  grid-row: 1 / span 3;
-  width: 28px;
-  height: 28px;
-}
-
-.reach-ig span,
-.reach-ig strong,
-.reach-ig em {
-  grid-column: 2;
+  background: linear-gradient(145deg, #fbf6ea 0%, #f3e6c4 100%);
+  border-color: rgba(141, 90, 34, 0.4);
 }
 
 .reach-ig strong {
@@ -837,7 +820,7 @@ html[lang="zh-Hans"] .mark small {
 
 .buy:has([data-add]) .price {
   padding: 0.28rem 0.05rem;
-  border-bottom: 1px dashed rgba(196, 92, 50, 0.45);
+  border-bottom: 1px dashed rgba(110, 67, 20, 0.45);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -895,7 +878,7 @@ a.add {
   border-radius: 50%;
   background: var(--orange);
   color: var(--white);
-  box-shadow: 0 8px 22px rgba(217, 107, 60, 0.35);
+  box-shadow: 0 8px 22px rgba(141, 90, 34, 0.28);
 }
 
 .cart-fab .count {
@@ -1250,7 +1233,7 @@ a.add {
   .nav {
     flex-wrap: wrap;
     padding: 0.65rem 1rem 0.55rem;
-    background: rgba(255, 252, 249, 0.94);
+    background: rgba(244, 234, 212, 0.94);
     border-bottom: 1px solid var(--line);
   }
 
@@ -1287,7 +1270,8 @@ a.add {
   .block h2,
   .reach,
   .add,
-  .chow-line span {
+  .chow-line span,
+  .mars-sign span {
     animation: none;
     transition: none;
   }
@@ -1297,4 +1281,179 @@ a.add {
   .reach:hover {
     transform: none;
   }
+}
+
+.mars-lockup {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  padding: 0.2rem 0.15rem 0.28rem 0.05rem;
+}
+
+.mars-sign {
+  display: flex;
+  gap: 0.06em;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.55rem;
+  letter-spacing: 0.16em;
+}
+
+.mars-sign span {
+  color: #e2b15a;
+  text-shadow:
+    0 0 2px #fff8e4,
+    0 0 10px rgba(255, 214, 120, 0.95),
+    0 0 18px rgba(201, 132, 42, 0.8);
+  animation: mars-bulb 2.4s ease-in-out infinite;
+}
+
+.mars-sign span:nth-child(1) { animation-delay: 0s; }
+.mars-sign span:nth-child(2) { animation-delay: 0.28s; }
+.mars-sign span:nth-child(3) { animation-delay: 0.56s; }
+.mars-sign span:nth-child(4) { animation-delay: 0.84s; animation-duration: 3.1s; }
+
+.mars-lockup em {
+  margin-top: 0.22rem;
+  font-style: normal;
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: #a56b28;
+  text-shadow: 0 0 6px rgba(255, 214, 120, 0.55);
+}
+
+@keyframes mars-bulb {
+  0%,
+  100% {
+    color: #e2b15a;
+    text-shadow:
+      0 0 2px #fff8e4,
+      0 0 10px rgba(255, 214, 120, 0.95),
+      0 0 18px rgba(201, 132, 42, 0.8);
+  }
+  12% {
+    color: #fffdf6;
+    text-shadow:
+      0 0 6px #fff,
+      0 0 14px #ffe7a3,
+      0 0 26px #e2b15a,
+      0 0 38px rgba(201, 132, 42, 0.95);
+  }
+  18% {
+    color: #c9842a;
+    text-shadow:
+      0 0 2px #fff1cc,
+      0 0 8px rgba(226, 177, 90, 0.8);
+  }
+  28%,
+  48% {
+    color: #fff8e8;
+    text-shadow:
+      0 0 6px #fff,
+      0 0 16px #ffe7a3,
+      0 0 30px #d4a24c;
+  }
+}
+
+.nav-menu {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(141, 90, 34, 0.45);
+  border-radius: 2px;
+  background: transparent;
+}
+
+.nav-menu span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: #6e4314;
+  box-shadow: 0 0 6px rgba(212, 162, 76, 0.85);
+}
+
+.nav-menu.is-on {
+  background: #6e4314;
+}
+
+.nav-menu.is-on span {
+  background: #fff6d4;
+  box-shadow: none;
+}
+
+.overview-back {
+  position: fixed;
+  inset: 0;
+  z-index: 160;
+  background: rgba(42, 36, 28, 0.28);
+}
+
+.overview {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 170;
+  display: flex;
+  flex-direction: column;
+  width: min(20rem, 86vw);
+  height: 100%;
+  padding: 1.25rem 1.35rem 2rem;
+  background: #f7f0df;
+  box-shadow: -12px 0 32px rgba(42, 36, 28, 0.12);
+}
+
+.overview-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.overview-head p {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  color: var(--ink);
+}
+
+.overview-head button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--orange-deep);
+}
+
+.overview-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-links a {
+  padding: 0.72rem 0;
+  border-bottom: 1px solid rgba(141, 90, 34, 0.16);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.overview-links a:hover {
+  color: var(--orange-deep);
+}
+
+.group-label {
+  margin: 1.7rem 0 0.35rem;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.mark small {
+  color: var(--orange-deep);
 }

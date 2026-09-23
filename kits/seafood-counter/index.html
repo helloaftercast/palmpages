@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seafood counter kit — PalmPages</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Reusable counter: pick a catch, then a cooking style, then send WhatsApp or LINE.">
+  <!--
+    Kit, not a shop. Copy this folder into /shops/<next-shop>/.
+    1. Replace Sample Counter, the phone, and WhatsApp in app.js (WA).
+    2. Replace catches, cooking styles, and plates in the MENU inside app.js.
+       A catch with methods opens the style sheet. A plate without methods adds straight to the cart.
+       Cart rows are dishId::methodId. By-weight lines stay "by wt" until the kitchen weighs them.
+    3. Do not paste another shop's names, prices, phone, reviews, or photos.
+    4. Change STORE in app.js so carts do not mix between shops.
+    Guests need a name before the preview. An empty cart does not send.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Sans+Thai:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bar">
+    <a class="mark" href="#top">Sample Counter <small>Seafood kit</small></a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="th" aria-pressed="false">ไทย</button>
+      <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <p class="kicker" data-en="Sample prices" data-th="ราคาตัวอย่าง" data-zh="示例价格">Sample prices</p>
+    <h1 data-en="Pick the catch, then the style" data-th="เลือกของก่อน แล้วเลือกวิธีทำ" data-zh="先选食材，再选做法">Pick the catch, then the style</h1>
+    <p class="lede" data-en="Replace these lines with the shop. Prices below are samples." data-th="เปลี่ยนเป็นร้านจริง ราคาด้านล่างเป็นตัวอย่าง" data-zh="换成店里自己的话。下面的价格是示例。">Replace these lines with the shop. Prices below are samples.</p>
+    <div class="pills" id="pills" role="tablist"></div>
+    <div id="board"></div>
+  </main>
+
+  <footer>
+    <div class="reach">
+      <a class="reach-ig" href="https://www.instagram.com/" target="_blank" rel="noopener">
+        <svg class="ig-mark" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <defs>
+            <radialGradient id="ig-logo" cx="30%" cy="110%" r="120%">
+              <stop offset="0" stop-color="#f9ce34"/>
+              <stop offset="0.45" stop-color="#ee2a7b"/>
+              <stop offset="1" stop-color="#6228d7"/>
+            </radialGradient>
+          </defs>
+          <rect x="2.2" y="2.2" width="19.6" height="19.6" rx="6" fill="none" stroke="url(#ig-logo)" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.4" fill="none" stroke="url(#ig-logo)" stroke-width="2"/>
+          <circle cx="17.4" cy="6.6" r="1.15" fill="url(#ig-logo)"/>
+        </svg>
+        <span>Instagram</span>
+        <strong>@replace</strong>
+      </a>
+      <a href="https://wa.me/66000000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="tel:+66000000000" data-en="Phone" data-th="โทร" data-zh="电话">Phone</a>
+    </div>
+    <p data-en="Sample menu. Not a live shop." data-th="เมนูตัวอย่าง ไม่ใช่ร้านจริง" data-zh="示例菜单，不是在售的店。">Sample menu. Not a live shop.</p>
+  </footer>
+
+  <button type="button" class="fab" id="cart-fab" data-en-aria="Cart" data-th-aria="ตะกร้า" data-zh-aria="购物车" aria-label="Cart">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.6H9.2a2 2 0 0 1-2-1.6L5 4H2"></path>
+      <circle cx="10" cy="20" r="1.3"></circle>
+      <circle cx="18" cy="20" r="1.3"></circle>
+    </svg>
+    <span id="cart-count" hidden>0</span>
+  </button>
+
+  <div class="back" id="method-back" hidden></div>
+  <div class="sheet method" id="method-sheet" hidden role="dialog" aria-modal="true" aria-labelledby="method-name">
+    <div class="method-cap">
+      <div>
+        <h2 id="method-name"></h2>
+        <p id="method-price"></p>
+      </div>
+      <button type="button" id="method-close" aria-label="Close">×</button>
+    </div>
+    <p class="hint" data-en="Pick a cooking style. Use + and − for how many." data-th="เลือกวิธีทำ แล้วกด + − จำนวน" data-zh="选一种做法，再用加减调份数。">Pick a cooking style. Use + and − for how many.</p>
+    <div id="method-grid"></div>
+    <button type="button" class="gold" id="method-done" data-en="Continue browsing" data-th="เลือกต่อ" data-zh="继续点">Continue browsing</button>
+  </div>
+
+  <div class="back" id="cart-back" hidden></div>
+  <aside class="sheet cart" id="cart-sheet" hidden role="dialog" aria-label="Order">
+    <div class="method-cap">
+      <h2 data-en="Order" data-th="รายการ" data-zh="点单">Order</h2>
+      <button type="button" id="cart-close" aria-label="Close">×</button>
+    </div>
+    <p id="cart-empty" data-en="Choose a style, or tap a plate." data-th="เลือกวิธีทำ หรือแตะจาน" data-zh="先选做法，或点一道现成的。">Choose a style, or tap a plate.</p>
+    <ul id="cart-lines" hidden></ul>
+    <button type="button" class="gold" id="cart-send" data-en="Send order" data-th="ส่งออเดอร์" data-zh="送出订单">Send order</button>
+    <button type="button" class="ghost" id="cart-more" data-en="Continue browsing" data-th="เลือกต่อ" data-zh="继续点">Continue browsing</button>
+  </aside>
+
+  <div class="back" id="info-back" hidden></div>
+  <div class="sheet" id="info-sheet" hidden role="dialog" aria-labelledby="info-title">
+    <h2 id="info-title" data-en="Your table" data-th="โต๊ะของคุณ" data-zh="你的桌子">Your table</h2>
+    <form id="info-form">
+      <label><span data-en="Name" data-th="ชื่อ" data-zh="名字">Name</span><input name="guest" required autocomplete="name"></label>
+      <label><span data-en="Guests" data-th="จำนวนคน" data-zh="几位">Guests</span><input name="people" type="number" min="1" value="2" required></label>
+      <label><span data-en="Note" data-th="หมายเหตุ" data-zh="备注">Note</span><textarea name="note" rows="3"></textarea></label>
+      <p class="hint" data-en="Selected" data-th="ที่เลือก" data-zh="已选">Selected</p>
+      <ul id="info-items"></ul>
+      <div class="row-btns">
+        <button type="button" class="ghost" id="info-back-btn" data-en="Back" data-th="กลับ" data-zh="返回">Back</button>
+        <button type="submit" class="gold" data-en="Preview" data-th="ดูก่อนส่ง" data-zh="预览">Preview</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="back" id="preview-back" hidden></div>
+  <div class="sheet" id="preview-sheet" hidden role="dialog" aria-label="Order preview">
+    <p class="hint" data-en="Order preview" data-th="ตัวอย่างออเดอร์" data-zh="订单预览">Order preview</p>
+    <pre id="preview-text"></pre>
+    <div class="row-btns">
+      <button type="button" class="chat wa" id="send-wa">WhatsApp</button>
+      <button type="button" class="chat line" id="send-line">LINE</button>
+    </div>
+    <button type="button" class="ghost" id="preview-close" data-en="Close" data-th="ปิด" data-zh="关掉">Close</button>
+  </div>
+  <p class="toast" id="toast" hidden>Sent ✓✓</p>
+  <script src="app.js"></script>
+</body>
+</html>

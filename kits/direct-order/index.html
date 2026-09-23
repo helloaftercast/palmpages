@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Direct order kit — PalmPages</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Reusable menu: fog hero, three languages, photo highlights, text rows, cart to WhatsApp and LINE.">
+  <!--
+    Kit, not a shop. Copy this folder into /shops/<next-shop>/.
+    1. Replace Sample Kitchen, the phone, WhatsApp, hours, and address.
+    2. Replace dishes in index.html and the matching keys in i18n.js. English name stays in data-name.
+    3. Put real photos in photos/ and point the highlight cards at them.
+    4. In order.js set WA and STORE. In i18n.js set STORE. Do not reuse another shop's localStorage key.
+    5. Recolor :root in styles.css. The fog colors are in the script at the bottom of this file.
+    Guests tap a price or Add. Empty cart does not send. The order includes the English dish name.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600&family=Noto+Serif+SC:wght@500&family=Noto+Serif+Thai:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#menu" data-i18n="skip">Skip to menu</a>
+  <header class="nav" data-nav>
+    <a class="mark" href="#top" data-i18n-aria="brand.aria" aria-label="Sample Kitchen">
+      <span class="mars-lockup" aria-hidden="true">
+        <strong class="mars-sign"><span>S</span><span>K</span></strong>
+        <em>SAMPLE</em>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a class="is-on" data-page href="#menu" data-i18n="nav.menu">Menu</a></li>
+      <li><a data-page href="#about" data-i18n="nav.about">About</a></li>
+      <li><a data-page href="#events" data-i18n="nav.events">Events</a></li>
+      <li><a data-page href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-switch" role="group" data-i18n-aria="lang.aria" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="th" aria-pressed="false">ไทย</button>
+      <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+    </div>
+    <button type="button" class="nav-menu" id="overview-open" data-i18n-aria="overview.aria" aria-label="Overview" aria-expanded="false" aria-controls="overview">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="overview-back" id="overview-back" hidden></div>
+  <aside class="overview" id="overview" hidden data-i18n-aria="overview.h" aria-label="Overview">
+    <div class="overview-head">
+      <p data-i18n="overview.h">Overview</p>
+      <button type="button" id="overview-close" data-i18n-aria="cart.close" aria-label="Close">×</button>
+    </div>
+    <nav class="overview-links">
+      <a href="#highlights" data-i18n="cats.highlights">Highlights</a>
+      <a href="#plates" data-i18n="cats.plates">Plates</a>
+      <a href="#drinks" data-i18n="cats.drinks">Drinks</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#events" data-i18n="nav.events">Events</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </aside>
+
+  <section class="hero" id="top">
+    <div class="hero-fog" id="hero-fog" aria-hidden="true"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-copy">
+      <p class="kicker" data-i18n="hero.kicker">Sample town</p>
+      <h1 data-i18n="hero.h1">Our Menu</h1>
+      <p data-i18n="hero.p">Replace this line with the shop’s own hours. Do not invent a service charge.</p>
+    </div>
+  </section>
+
+  <nav class="cats" data-cats data-i18n-aria="cats.aria" aria-label="Menu categories">
+    <button type="button" data-target="highlights" data-i18n="cats.highlights">Highlights</button>
+    <button type="button" data-target="plates" data-i18n="cats.plates">Plates</button>
+    <button type="button" data-target="drinks" data-i18n="cats.drinks">Drinks</button>
+  </nav>
+
+  <main id="menu">
+    <section class="block" id="start" data-menu-section>
+      <div class="wrap">
+        <p class="kicker" data-i18n="start.kicker">Start</p>
+        <div class="rule"></div>
+        <h2 data-i18n="start.h2">Start here</h2>
+        <p class="lede" data-i18n="start.lede">One sentence on where the table is. Prices below are samples, not a real menu.</p>
+      </div>
+    </section>
+
+    <section class="block" id="highlights" data-menu-section>
+      <div class="wrap">
+        <p class="kicker" data-i18n="highlights.kicker">Photos</p>
+        <div class="rule"></div>
+        <h2 data-i18n="highlights.h2">On the table</h2>
+        <p class="lede" data-i18n="highlights.lede">Highlight plates get a photo. Everything else stays a text row.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-photo" data-i18n-aria="dish.plate.alt" aria-label="Placeholder for the house plate"></div>
+            <div class="card-body">
+              <h3><span data-i18n="dish.plate.name">House plate</span> <span class="th" data-i18n="dish.plate.sub">จานตัวอย่าง</span></h3>
+              <p data-i18n="dish.plate.desc">Replace with the printed description. Do not invent a price.</p>
+              <div class="buy"><span class="price" data-baht="280"></span><button type="button" class="add" data-add data-id="plate" data-name="House plate" data-price="280">Add</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="plates" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="plates.h2">Plates</h2>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.soup.name">House soup</span> <span class="th" data-i18n="dish.soup.sub">ซุปตัวอย่าง</span></span>
+            <p class="desc" data-i18n="dish.soup.desc">A text row. Tap the price or Add.</p>
+          </div>
+          <div class="buy"><span class="price" data-baht="140"></span><button type="button" class="add" data-add data-id="soup" data-name="House soup" data-price="140">Add</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="drinks" data-menu-section>
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2 data-i18n="drinks.h2">Drinks</h2>
+        <div class="row">
+          <div>
+            <span class="name"><span data-i18n="dish.water.name">Water</span> <span class="th" data-i18n="dish.water.sub">น้ำ</span></span>
+            <p class="desc" data-i18n="dish.water.desc">Use ask when the paper has no single price.</p>
+          </div>
+          <div class="buy"><span class="price" data-baht="ask"></span><button type="button" class="add" data-add data-id="water" data-name="Water" data-price="ask">Add</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="block page-section" id="about" data-menu-section>
+    <div class="wrap">
+      <p class="kicker" data-i18n="about.kicker">About</p>
+      <div class="rule"></div>
+      <h2 data-i18n="about.h2">The kitchen</h2>
+      <p class="lede" data-i18n="about.lede">Two short sentences in the shop’s own voice.</p>
+    </div>
+  </section>
+
+  <section class="block" id="events" data-menu-section>
+    <div class="wrap">
+      <p class="kicker" data-i18n="events.kicker">Events</p>
+      <div class="rule"></div>
+      <h2 data-i18n="events.h2">Nothing posted</h2>
+      <p class="lede" data-i18n="events.lede">Only write an event the shop has actually posted.</p>
+    </div>
+  </section>
+
+  <section class="block page-section" id="contact" data-menu-section>
+    <div class="wrap">
+      <p class="kicker" data-i18n="contact.kicker">Contact</p>
+      <div class="rule"></div>
+      <h2 data-i18n="contact.h2">Find us</h2>
+      <div class="foot-grid contact-grid">
+        <div>
+          <h3 data-i18n="hours.h">Hours</h3>
+          <div class="hours"><span data-i18n="hours.days">Replace</span><span>00:00–00:00</span></div>
+        </div>
+        <div>
+          <h3 data-i18n="addr.h">Address</h3>
+          <p class="addr" data-i18n="addr.lines" data-i18n-html>Street<br>Town</p>
+        </div>
+        <div>
+          <h3 data-i18n="reach.h">Reach the kitchen</h3>
+          <div class="reach-stack">
+            <a class="reach reach-ig" href="https://www.instagram.com/" target="_blank" rel="noopener">
+              <svg class="ig-mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <defs>
+                  <radialGradient id="ig-logo" cx="30%" cy="110%" r="120%">
+                    <stop offset="0" stop-color="#f9ce34"/>
+                    <stop offset="0.45" stop-color="#ee2a7b"/>
+                    <stop offset="1" stop-color="#6228d7"/>
+                  </radialGradient>
+                </defs>
+                <rect x="2.2" y="2.2" width="19.6" height="19.6" rx="6" fill="none" stroke="url(#ig-logo)" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4.4" fill="none" stroke="url(#ig-logo)" stroke-width="2"/>
+                <circle cx="17.4" cy="6.6" r="1.15" fill="url(#ig-logo)"/>
+              </svg>
+              <span>Instagram</span>
+              <strong>@replace</strong>
+            </a>
+            <a class="reach" href="https://wa.me/66000000000" target="_blank" rel="noopener">
+              <span>WhatsApp</span>
+              <strong>+00 00 000 0000</strong>
+            </a>
+            <a class="reach" href="tel:+66000000000">
+              <span data-i18n="reach.phone">Phone</span>
+              <strong>+00 00 000 0000</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap"><p class="note" data-i18n="foot">Sample prices. Not a live menu.</p></div>
+  </footer>
+
+  <button type="button" class="cart-fab" id="cart-fab" data-i18n-aria="cart.aria" aria-label="Cart">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.6H9.2a2 2 0 0 1-2-1.6L5 4H2"></path>
+      <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+      <circle cx="18" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+    </svg>
+    <span class="count" id="cart-count" hidden>0</span>
+  </button>
+  <div class="cart-back" id="cart-back" hidden></div>
+  <aside class="cart-sheet" id="cart-sheet" hidden data-i18n-aria="cart.h" aria-label="Your order">
+    <div class="cart-head">
+      <h2 data-i18n="cart.h">Your order</h2>
+      <button type="button" id="cart-close" data-i18n-aria="cart.close" aria-label="Close">×</button>
+    </div>
+    <p class="cart-empty" id="cart-empty" data-i18n="cart.empty">Tap a price, or Add.</p>
+    <ul class="cart-lines" id="cart-lines" hidden></ul>
+    <div class="cart-foot">
+      <p class="cart-total"><span data-i18n="cart.total">Priced plates</span><strong id="cart-total">฿0</strong></p>
+      <p class="cart-note" data-i18n="cart.note">Not paid yet.</p>
+      <button type="button" class="cart-send" id="cart-send" data-i18n="cart.send">Send order</button>
+      <button type="button" class="cart-more" id="cart-more" data-i18n="cart.more">Continue browsing</button>
+    </div>
+  </aside>
+  <div class="sheet-back" id="info-back" hidden></div>
+  <div class="sheet" id="info-sheet" hidden role="dialog" aria-labelledby="info-title">
+    <h2 id="info-title" data-i18n="info.h">Your table</h2>
+    <form id="info-form">
+      <label><span data-i18n="info.name">Name</span><input name="guest" required autocomplete="name"></label>
+      <label><span data-i18n="info.guests">Guests</span><input name="people" type="number" min="1" value="2" required inputmode="numeric"></label>
+      <label><span data-i18n="info.note">Note</span><textarea name="note" rows="3"></textarea></label>
+      <div class="picked"><p data-i18n="info.picked">Selected dishes</p><ul id="info-items"></ul></div>
+      <div class="sheet-actions">
+        <button type="button" class="cart-more" id="info-back-btn" data-i18n="info.back">Back</button>
+        <button type="submit" class="cart-send" data-i18n="info.preview">Preview</button>
+      </div>
+    </form>
+  </div>
+  <div class="sheet-back" id="preview-back" hidden></div>
+  <div class="preview" id="preview-sheet" hidden role="dialog" data-i18n-aria="preview.aria" aria-label="Order preview">
+    <div class="chat">
+      <div class="chat-head">
+        <span class="chat-mark">SK</span>
+        <div><p class="chat-name">Sample Kitchen</p><p class="chat-sub" data-i18n="preview.sub">Order preview</p></div>
+      </div>
+      <div class="chat-body"><div class="bubble" id="preview-text"></div></div>
+      <div class="chat-send">
+        <button type="button" class="send-wa" id="send-wa">WhatsApp</button>
+        <button type="button" class="send-line" id="send-line">LINE</button>
+      </div>
+    </div>
+    <button type="button" class="preview-close" id="preview-close" data-i18n="preview.close">Close</button>
+  </div>
+  <p class="sent-toast" id="sent-toast" data-i18n="toast" hidden>Sent ✓✓</p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.fog.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="menu.js"></script>
+  <script src="order.js"></script>
+  <script>
+    (function () {
+      var el = document.getElementById("hero-fog");
+      if (!el || !window.VANTA) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      VANTA.FOG({
+        el: el,
+        mouseControls: true,
+        touchControls: false,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        highlightColor: 0xffe3a1,
+        midtoneColor: 0xc48a2a,
+        lowlightColor: 0x8a5a22,
+        baseColor: 0xf7f3ee,
+        blurFactor: 0.6,
+        speed: 0.8,
+        zoom: 0.9
+      });
+    })();
+  </script>
+</body>
+</html>
