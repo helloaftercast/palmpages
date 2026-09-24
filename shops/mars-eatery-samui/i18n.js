@@ -1261,10 +1261,7 @@
     });
   });
 
-  try {
-    var saved = localStorage.getItem(STORE);
-    if (saved && dict[saved]) lang = saved;
-  } catch (err) { /* ignore */ }
+  lang = "en";
 
   window.chowT = t;
   window.chowDishName = dishName;

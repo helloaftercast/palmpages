@@ -1270,8 +1270,7 @@ a.add {
   .block h2,
   .reach,
   .add,
-  .chow-line span,
-  .mars-sign span {
+  .chow-line span {
     animation: none;
     transition: none;
   }
@@ -1283,77 +1282,10 @@ a.add {
   }
 }
 
-.mars-lockup {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  padding: 0.2rem 0.15rem 0.28rem 0.05rem;
-}
-
-.mars-sign {
-  display: flex;
-  gap: 0.06em;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1.55rem;
-  letter-spacing: 0.16em;
-}
-
-.mars-sign span {
-  color: #e2b15a;
-  text-shadow:
-    0 0 2px #fff8e4,
-    0 0 10px rgba(255, 214, 120, 0.95),
-    0 0 18px rgba(201, 132, 42, 0.8);
-  animation: mars-bulb 2.4s ease-in-out infinite;
-}
-
-.mars-sign span:nth-child(1) { animation-delay: 0s; }
-.mars-sign span:nth-child(2) { animation-delay: 0.28s; }
-.mars-sign span:nth-child(3) { animation-delay: 0.56s; }
-.mars-sign span:nth-child(4) { animation-delay: 0.84s; animation-duration: 3.1s; }
-
-.mars-lockup em {
-  margin-top: 0.22rem;
-  font-style: normal;
-  font-size: 0.52rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: #a56b28;
-  text-shadow: 0 0 6px rgba(255, 214, 120, 0.55);
-}
-
-@keyframes mars-bulb {
-  0%,
-  100% {
-    color: #e2b15a;
-    text-shadow:
-      0 0 2px #fff8e4,
-      0 0 10px rgba(255, 214, 120, 0.95),
-      0 0 18px rgba(201, 132, 42, 0.8);
-  }
-  12% {
-    color: #fffdf6;
-    text-shadow:
-      0 0 6px #fff,
-      0 0 14px #ffe7a3,
-      0 0 26px #e2b15a,
-      0 0 38px rgba(201, 132, 42, 0.95);
-  }
-  18% {
-    color: #c9842a;
-    text-shadow:
-      0 0 2px #fff1cc,
-      0 0 8px rgba(226, 177, 90, 0.8);
-  }
-  28%,
-  48% {
-    color: #fff8e8;
-    text-shadow:
-      0 0 6px #fff,
-      0 0 16px #ffe7a3,
-      0 0 30px #d4a24c;
-  }
+.mars-logo {
+  display: block;
+  height: 2.7rem;
+  width: auto;
 }
 
 .nav-menu {
