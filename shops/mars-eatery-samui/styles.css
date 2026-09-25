@@ -33,7 +33,12 @@ html {
 }
 
 body {
-  background: var(--paper);
+  background-color: #c4a15a;
+  background-image: url("photos/ground.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--sans);
   font-size: 15px;
@@ -299,10 +304,10 @@ button {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 18% 28%, rgba(196, 146, 98, 0.85), transparent 48%),
-    radial-gradient(ellipse at 74% 55%, rgba(138, 78, 34, 0.7), transparent 46%),
-    radial-gradient(ellipse at 46% 80%, rgba(58, 34, 16, 0.55), transparent 50%),
-    #583018;
+    radial-gradient(ellipse at 18% 30%, rgba(255, 227, 161, 0.85), transparent 52%),
+    radial-gradient(ellipse at 78% 62%, rgba(196, 138, 42, 0.45), transparent 48%),
+    radial-gradient(ellipse at 50% 80%, rgba(228, 201, 138, 0.75), transparent 55%),
+    #f6edd4;
 }
 
 .hero-fog canvas {
@@ -333,7 +338,7 @@ button {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: rgba(244, 234, 212, 0.08);
+  background: rgba(244, 234, 212, 0.38);
   pointer-events: none;
 }
 
@@ -480,6 +485,13 @@ button {
 .wrap {
   width: min(900px, calc(100% - 2.5rem));
   margin: 0 auto;
+}
+
+.block .wrap,
+.page-section .wrap,
+.foot .wrap {
+  background: rgba(251, 246, 234, 0.94);
+  padding: 1.35rem 1.15rem 1.5rem;
 }
 
 .block {
@@ -706,12 +718,9 @@ html[lang="zh-Hans"] .mark small {
   background: #c4a574;
 }
 
-.page-section {
-  background: var(--white);
-}
-
+.page-section,
 .page-section + .page-section {
-  background: var(--paper);
+  background: transparent;
 }
 
 .split {
@@ -852,9 +861,9 @@ html[lang="zh-Hans"] .mark small {
 }
 
 .foot {
-  padding: 3.5rem 0 5.5rem;
-  background: var(--white);
-  border-top: 1px solid var(--line);
+  padding: 1.2rem 0 5.5rem;
+  background: transparent;
+  border-top: 0;
 }
 
 .foot-grid {
