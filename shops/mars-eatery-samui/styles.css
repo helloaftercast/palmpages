@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  background-color: #c4a15a;
+  background-color: #f6e8cc;
   background-image: url("photos/ground.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -490,7 +490,7 @@ button {
 .block .wrap,
 .page-section .wrap,
 .foot .wrap {
-  background: rgba(251, 246, 234, 0.94);
+  background: transparent;
   padding: 1.35rem 1.15rem 1.5rem;
 }
 
