@@ -1104,6 +1104,7 @@
       var el = document.getElementById("hero-fog");
       var hero = document.querySelector(".hero");
       var nav = document.querySelector(".nav");
+      var cats = document.querySelector(".cats");
       var mobile = window.matchMedia("(max-width: 800px)");
       if (el && window.VANTA && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         VANTA.FOG({
@@ -1113,13 +1114,13 @@
           gyroControls: false,
           minHeight: 200,
           minWidth: 200,
-          highlightColor: 0xffe3a1,
-          midtoneColor: 0xc48a2a,
-          lowlightColor: 0x8a5a22,
-          baseColor: 0xf4ead4,
-          blurFactor: 0.6,
-          speed: 0.8,
-          zoom: 0.9
+          highlightColor: 0x7ec8ff,
+          midtoneColor: 0x245bff,
+          lowlightColor: 0x6d28d9,
+          baseColor: 0x8eb6ff,
+          blurFactor: 0.32,
+          speed: 2.4,
+          zoom: 1.6
         });
       }
       if (!el || !hero || !nav) return;
@@ -1134,6 +1135,7 @@
         el.style.zIndex = "";
         el.style.removeProperty("--fog-shift");
         nav.classList.remove("has-cloud");
+        if (cats) cats.classList.remove("is-cloud");
       }
 
       function placeFog() {
@@ -1141,26 +1143,33 @@
           resetFog();
           return;
         }
-        var navH = nav.getBoundingClientRect().height;
+        var navBox = nav.getBoundingClientRect();
         var heroH = hero.offsetHeight;
         var heroTop = hero.getBoundingClientRect().top;
         if (heroTop >= -1) {
           resetFog();
           return;
         }
+        var cover = navBox.bottom;
+        var menuStuck = false;
+        if (cats) {
+          var catsBox = cats.getBoundingClientRect();
+          menuStuck = catsBox.top <= navBox.bottom + 2;
+          if (menuStuck) cover = Math.max(cover, catsBox.bottom);
+        }
         var heroBottom = heroTop + heroH;
-        var clipBottom = Math.max(navH, heroBottom);
-        var shift = Math.max(heroTop, navH - heroH);
+        var clipBottom = Math.max(cover, heroBottom);
         el.classList.add("is-docked");
-        el.style.setProperty("--fog-h", heroH + "px");
-        el.style.setProperty("--fog-shift", shift + "px");
+        el.style.setProperty("--fog-h", clipBottom + "px");
+        el.style.setProperty("--fog-shift", "0px");
         el.style.position = "fixed";
         el.style.left = "-10%";
         el.style.width = "120%";
         el.style.top = "0px";
         el.style.height = clipBottom + "px";
-        el.style.zIndex = "1";
-        nav.classList.toggle("has-cloud", heroTop < -1);
+        el.style.zIndex = "40";
+        nav.classList.add("has-cloud");
+        if (cats) cats.classList.toggle("is-cloud", menuStuck);
       }
 
       var ticking = false;

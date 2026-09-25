@@ -299,10 +299,10 @@ button {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 18% 30%, rgba(255, 227, 161, 0.85), transparent 52%),
-    radial-gradient(ellipse at 78% 62%, rgba(196, 138, 42, 0.45), transparent 48%),
-    radial-gradient(ellipse at 50% 80%, rgba(228, 201, 138, 0.75), transparent 55%),
-    #f6edd4;
+    radial-gradient(ellipse at 18% 28%, rgba(126, 200, 255, 0.95), transparent 48%),
+    radial-gradient(ellipse at 74% 55%, rgba(36, 91, 255, 0.72), transparent 46%),
+    radial-gradient(ellipse at 46% 80%, rgba(109, 40, 217, 0.62), transparent 50%),
+    #8eb6ff;
 }
 
 .hero-fog canvas {
@@ -333,8 +333,13 @@ button {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: rgba(244, 234, 212, 0.38);
+  background: rgba(244, 234, 212, 0.08);
   pointer-events: none;
+}
+
+.cats.is-cloud {
+  background: transparent;
+  border-bottom-color: transparent;
 }
 
 .nav.has-cloud > * {
