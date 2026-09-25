@@ -299,10 +299,10 @@ button {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 18% 28%, rgba(126, 200, 255, 0.95), transparent 48%),
-    radial-gradient(ellipse at 74% 55%, rgba(36, 91, 255, 0.72), transparent 46%),
-    radial-gradient(ellipse at 46% 80%, rgba(109, 40, 217, 0.62), transparent 50%),
-    #8eb6ff;
+    radial-gradient(ellipse at 18% 28%, rgba(196, 146, 98, 0.85), transparent 48%),
+    radial-gradient(ellipse at 74% 55%, rgba(138, 78, 34, 0.7), transparent 46%),
+    radial-gradient(ellipse at 46% 80%, rgba(58, 34, 16, 0.55), transparent 50%),
+    #583018;
 }
 
 .hero-fog canvas {
@@ -557,7 +557,7 @@ html[lang="zh-Hans"] .mark small {
 }
 
 .block h2.is-seen {
-  animation: head-in 0.7s ease both, head-sheen 1.8s ease 0.15s both;
+  animation: head-in 0.7s ease both, head-sheen 2.4s ease-in-out 0.15s infinite;
 }
 
 @keyframes head-in {
@@ -572,8 +572,8 @@ html[lang="zh-Hans"] .mark small {
 }
 
 @keyframes head-sheen {
-  from { background-position: 100% 50%; }
-  to { background-position: 0% 50%; }
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
 }
 
 .lede,
