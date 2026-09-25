@@ -772,8 +772,24 @@ html[lang="zh-Hans"] .mark small {
 }
 
 .reach-ig {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  column-gap: 0.75rem;
+  align-items: center;
   background: linear-gradient(145deg, #fbf6ea 0%, #f3e6c4 100%);
   border-color: rgba(141, 90, 34, 0.4);
+}
+
+.reach-ig .ig-mark {
+  grid-row: 1 / span 3;
+  width: 28px;
+  height: 28px;
+}
+
+.reach-ig span,
+.reach-ig strong,
+.reach-ig em {
+  grid-column: 2;
 }
 
 .reach-ig strong {
@@ -1270,6 +1286,8 @@ a.add {
   .block h2,
   .reach,
   .add,
+  .mars-logo-wrap,
+  .mars-logo-wrap::after,
   .chow-line span {
     animation: none;
     transition: none;
@@ -1282,10 +1300,50 @@ a.add {
   }
 }
 
+.mars-logo-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  animation: mars-glow 3.4s ease-in-out infinite;
+}
+
 .mars-logo {
   display: block;
   height: 2.7rem;
   width: auto;
+}
+
+.mars-logo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 32%, rgba(255, 246, 214, 0.92) 50%, transparent 68%);
+  -webkit-mask: url("photos/logo.png") center / contain no-repeat;
+  mask: url("photos/logo.png") center / contain no-repeat;
+  transform: translateX(-140%);
+  animation: mars-shine 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes mars-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px rgba(201, 132, 42, 0.28));
+  }
+  42% {
+    filter: drop-shadow(0 0 8px rgba(255, 214, 120, 0.95));
+  }
+}
+
+@keyframes mars-shine {
+  0%,
+  58% {
+    transform: translateX(-140%);
+  }
+  86%,
+  100% {
+    transform: translateX(140%);
+  }
 }
 
 .nav-menu {

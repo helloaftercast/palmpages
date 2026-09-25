@@ -15,7 +15,9 @@
 
   <header class="nav" data-nav>
     <a class="mark" href="#top" data-i18n-aria="brand.aria" aria-label="MARS Eatery and Art">
-      <img class="mars-logo" src="photos/logo.png" alt="" width="212" height="76">
+      <span class="mars-logo-wrap">
+        <img class="mars-logo" src="photos/logo.png" alt="" width="212" height="76">
+      </span>
     </a>
     <ul class="nav-links">
       <li><a class="is-on" data-page href="#menu" data-i18n="nav.menu">Menu</a></li>
@@ -973,6 +975,23 @@
         <div>
           <h3 data-i18n="reach.h">Reach the kitchen</h3>
           <div class="reach-stack">
+            <a class="reach reach-ig" href="https://www.instagram.com/mars.eatery.art/" target="_blank" rel="noopener">
+              <svg class="ig-mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <defs>
+                  <radialGradient id="ig-logo" cx="30%" cy="110%" r="120%">
+                    <stop offset="0" stop-color="#f9ce34"/>
+                    <stop offset="0.45" stop-color="#ee2a7b"/>
+                    <stop offset="1" stop-color="#6228d7"/>
+                  </radialGradient>
+                </defs>
+                <rect x="2.2" y="2.2" width="19.6" height="19.6" rx="6" fill="none" stroke="url(#ig-logo)" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4.4" fill="none" stroke="url(#ig-logo)" stroke-width="2"/>
+                <circle cx="17.4" cy="6.6" r="1.15" fill="url(#ig-logo)"/>
+              </svg>
+              <span>Instagram</span>
+              <strong>@mars.eatery.art</strong>
+              <em data-i18n="reach.ig">The account they post on.</em>
+            </a>
             <a class="reach" href="https://wa.me/66944894941" target="_blank" rel="noopener">
               <span>WhatsApp</span>
               <strong>+66 94 489 4941</strong>
