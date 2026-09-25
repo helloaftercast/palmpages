@@ -280,5 +280,6 @@ footer {
 .reach-ig .ig-mark { grid-row: 1 / span 2; width: 22px; height: 22px; }
 .reach-ig span, .reach-ig strong { grid-column: 2; text-align: left; }
 .reach-ig span { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.65; }
+.reach-wa svg, .reach-line svg { display: block; width: 22px; height: 22px; flex: none; }
 html[lang="th"] body { font-family: "Noto Sans Thai", Inter, sans-serif; }
 html[lang="zh-Hans"] body { font-family: "Noto Sans SC", Inter, sans-serif; }

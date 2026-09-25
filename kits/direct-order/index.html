@@ -8,11 +8,13 @@
   <meta name="description" content="Reusable menu: fog hero, three languages, photo highlights, text rows, cart to WhatsApp and LINE.">
   <!--
     Kit, not a shop. Copy this folder into /shops/<next-shop>/.
-    1. Replace Sample Kitchen, the phone, WhatsApp, hours, and address.
+    1. Replace Sample Kitchen, Instagram, WhatsApp, LINE, hours, and address.
+       LINE opens a draft. Do not invent an @ id. Phone stays on the events line if the shop prints one.
     2. Replace dishes in index.html and the matching keys in i18n.js. English name stays in data-name.
     3. Put real photos in photos/ and point the highlight cards at them.
     4. In order.js set WA and STORE. In i18n.js set STORE. Do not reuse another shop's localStorage key.
     5. Recolor :root in styles.css. The fog colors are in the script at the bottom of this file.
+       On a phone, once the hero scrolls away the cloud docks behind the top bar, 20% wider than the screen.
     Guests tap a price or Add. Empty cart does not send. The order includes the English dish name.
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,7 +171,7 @@
         <div>
           <h3 data-i18n="reach.h">Reach the kitchen</h3>
           <div class="reach-stack">
-            <a class="reach reach-ig" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <a class="reach reach-brand reach-ig" href="https://www.instagram.com/" target="_blank" rel="noopener">
               <svg class="ig-mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
                 <defs>
                   <radialGradient id="ig-logo" cx="30%" cy="110%" r="120%">
@@ -184,14 +186,24 @@
               </svg>
               <span>Instagram</span>
               <strong>@replace</strong>
+              <em data-i18n="reach.ig">The account they post on.</em>
             </a>
-            <a class="reach" href="https://wa.me/66000000000" target="_blank" rel="noopener">
+            <a class="reach reach-brand" href="https://wa.me/66000000000" target="_blank" rel="noopener">
+              <svg class="brand-mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <rect width="24" height="24" rx="6" fill="#25D366"/>
+                <path fill="#fff" d="M12.1 5.2a6.7 6.7 0 0 0-5.7 10.1L5.6 18.4l3.2-1A6.7 6.7 0 1 0 12.1 5.2Zm3.9 9.5c-.17.47-.97.9-1.34.94-.36.04-.69.16-2.3-.48-1.94-.77-3.16-2.76-3.26-2.89-.1-.13-.77-1.03-.77-1.97s.49-1.4.67-1.58c.18-.19.38-.24.51-.24h.37c.12 0 .28-.05.44.34.16.39.54 1.35.58 1.44.05.1.08.2.01.33-.06.13-.1.2-.19.32l-.28.32c-.09.1-.19.2-.08.39.11.19.48.8 1.04 1.3.71.63 1.31.83 1.5.93.19.09.3.08.4-.05.11-.13.47-.55.59-.73.13-.19.25-.16.42-.09.17.06 1.12.53 1.31.63.19.09.32.14.36.22.05.08.05.44-.12.91Z"/>
+              </svg>
               <span>WhatsApp</span>
               <strong>+00 00 000 0000</strong>
             </a>
-            <a class="reach" href="tel:+66000000000">
-              <span data-i18n="reach.phone">Phone</span>
+            <a class="reach reach-brand reach-line" href="https://line.me/R/msg/text/?Hi" target="_blank" rel="noopener">
+              <svg class="brand-mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <rect width="24" height="24" rx="6" fill="#06C755"/>
+                <path fill="#fff" d="M12 5.55c-3.72 0-6.74 2.36-6.74 5.28 0 2.61 2.32 4.8 5.46 5.2.21.04.5.15.57.34.07.17.05.44.02.61l-.09.53c-.03.16-.14.66.58.36.71-.3 3.8-2.24 5.2-3.84.96-1.05 1.48-2.11 1.48-3.2 0-2.92-3.02-5.28-6.48-5.28Z"/>
+              </svg>
+              <span>LINE</span>
               <strong>+00 00 000 0000</strong>
+              <em data-i18n="reach.line">Same number, on LINE.</em>
             </a>
           </div>
         </div>
@@ -264,23 +276,80 @@
   <script>
     (function () {
       var el = document.getElementById("hero-fog");
-      if (!el || !window.VANTA) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      VANTA.FOG({
-        el: el,
-        mouseControls: true,
-        touchControls: false,
-        gyroControls: false,
-        minHeight: 200,
-        minWidth: 200,
-        highlightColor: 0xffe3a1,
-        midtoneColor: 0xc48a2a,
-        lowlightColor: 0x8a5a22,
-        baseColor: 0xf7f3ee,
-        blurFactor: 0.6,
-        speed: 0.8,
-        zoom: 0.9
-      });
+      var hero = document.querySelector(".hero");
+      var nav = document.querySelector(".nav");
+      var mobile = window.matchMedia("(max-width: 800px)");
+      if (el && window.VANTA && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        VANTA.FOG({
+          el: el,
+          mouseControls: true,
+          touchControls: false,
+          gyroControls: false,
+          minHeight: 200,
+          minWidth: 200,
+          highlightColor: 0xffe3a1,
+          midtoneColor: 0xc48a2a,
+          lowlightColor: 0x8a5a22,
+          baseColor: 0xf7f3ee,
+          blurFactor: 0.6,
+          speed: 0.8,
+          zoom: 0.9
+        });
+      }
+      if (!el || !hero || !nav) return;
+
+      function resetFog() {
+        el.classList.remove("is-docked");
+        el.style.position = "";
+        el.style.top = "";
+        el.style.left = "";
+        el.style.width = "";
+        el.style.height = "";
+        el.style.zIndex = "";
+        el.style.removeProperty("--fog-shift");
+        nav.classList.remove("has-cloud");
+      }
+
+      function placeFog() {
+        if (!mobile.matches) {
+          resetFog();
+          return;
+        }
+        var navH = nav.getBoundingClientRect().height;
+        var heroH = hero.offsetHeight;
+        var heroTop = hero.getBoundingClientRect().top;
+        if (heroTop >= -1) {
+          resetFog();
+          return;
+        }
+        var heroBottom = heroTop + heroH;
+        var clipBottom = Math.max(navH, heroBottom);
+        var shift = Math.max(heroTop, navH - heroH);
+        el.classList.add("is-docked");
+        el.style.setProperty("--fog-h", heroH + "px");
+        el.style.setProperty("--fog-shift", shift + "px");
+        el.style.position = "fixed";
+        el.style.left = "-10%";
+        el.style.width = "120%";
+        el.style.top = "0px";
+        el.style.height = clipBottom + "px";
+        el.style.zIndex = "1";
+        nav.classList.toggle("has-cloud", heroTop < -1);
+      }
+
+      var ticking = false;
+      function ask() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          placeFog();
+          ticking = false;
+        });
+      }
+      window.addEventListener("scroll", ask, { passive: true });
+      window.addEventListener("resize", ask);
+      if (mobile.addEventListener) mobile.addEventListener("change", ask);
+      placeFog();
     })();
   </script>
 </body>
